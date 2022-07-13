@@ -1,0 +1,34 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+
+<MApp Class="masa website-shared">
+    <MAppBar App
+             Height="100"
+             Color="transparent"
+             Flat>
+        <div class="appbar">
+            <img src="https://cdn.masastack.com/stack/images/logo/MASAStack/logo-h-en.png"
+                 height="36"
+                 alt="logo" />
+            <MSpacer />
+
+            <NavMenu Items="@ProductNavItems">
+                产品
+            </NavMenu>
+
+            <NavMenu Items="@StudyNavItems">学习</NavMenu>
+
+            <span class="nav h8 emphasis2--text" @onclick="NavigateToAboutUs">关于我们</span>
+        </div>
+    </MAppBar>
+    <MMain>
+        <div class="vector-197"></div>
+        <div class="vector-198"></div>
+        <div class="vector-199"></div>
+        <div class="rectangle-723"></div>
+
+        <div class="full-height" style="position: relative">
+            @Body
+        </div>
+    </MMain>
+</MApp>

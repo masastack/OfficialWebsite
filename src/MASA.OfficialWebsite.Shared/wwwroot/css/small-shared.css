@@ -1,0 +1,54 @@
+﻿.website-shared .banner .intro {
+    max-width: 500px;
+    float: none;
+    text-align: center;
+    margin: 35px auto;
+}
+
+.website-shared .banner .intro-title {
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 51px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #323D6F;
+    width: 278px;
+    display: inline-block;
+
+    margin-bottom: 8px;
+}
+
+.website-shared .banner .intro-subtitle {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #7681AB;
+    opacity: 0.9;
+
+    margin-bottom: 24px;
+}
+
+.website-shared .banner .intro-actions {
+    justify-content: center;
+}
+
+.website-shared .banner .intro-actions .m-btn {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: #1B2559;
+
+    gap: 10px;
+    width: 100px;
+    height: 40px;
+    padding: 14px 36px;
+    border: 2px solid #A3AED0;
+    border-radius: 40px;
+}
+
+.website-shared .banner .intro-actions .m-btn:first-child {
+    margin-right: 16px;
+}

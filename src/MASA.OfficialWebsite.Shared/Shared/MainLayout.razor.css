@@ -1,0 +1,46 @@
+﻿.vector-197 {
+    position: absolute;
+    width: 35.1%;
+    height: 56.2%;
+    left: 1.6%;
+    top: 26%;
+
+    background: #4318FF;
+    opacity: 0.17;
+    transform: rotate(-37.52deg);
+}
+
+.vector-198 {
+    position: absolute;
+    width: 16.19%;
+    height: 28.24%;
+    left: 40.88%;
+    top: 46.29%;
+
+    background: #05CD99;
+    opacity: 0.46;
+}
+
+.vector-199 {
+    position: absolute;
+    width: 7.13%;
+    height: 15.27%;
+    left: 80.78%;
+    top: 23.79%;
+
+    background: #FFB547;
+    opacity: 0.46;
+}
+
+.rectangle-723 {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(172px);
+
+    /* Note: backdrop-filter has minimal browser support */
+}

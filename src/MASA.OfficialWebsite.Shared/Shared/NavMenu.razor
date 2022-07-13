@@ -1,0 +1,106 @@
+﻿<MMenu Left
+       OffsetY
+       NudgeBottom="24"
+       MaxWidth="455"
+       MinWidth="455"
+       OpenOnClick
+       ContentClass="menu-content">
+    <ActivatorContent>
+        <span class="nav h8 emphasis2--text" @attributes="@context.Attrs">@ChildContent</span>
+    </ActivatorContent>
+    <ChildContent>
+        <MList Class="menu-list" Elevation="0" Subheader TwoLine>
+            @foreach (var item in Items)
+            {
+                @if (item.IsSubheader)
+                {
+                    <MSubheader Style="height: auto"
+                                Class="subtitle3 emphasis--text">
+                        @item.Subheader
+                    </MSubheader>
+                }
+                else
+                {
+                    <MListItem Href="@item.Href">
+                        @if (item.Image is not null)
+                        {
+                            <MListItemAvatar Tile Size="40" Class="mt-0 mb-0">
+                                <MImage Src="@item.Image" alt="@item.Title"
+                                        Height="30" Width="30" Contain />
+                            </MListItemAvatar>
+                        }
+                        <MListItemContent>
+                            <MListItemTitle Class="h8 regular--text">@item.Title</MListItemTitle>
+                            <MListItemSubtitle Class="body2 regular3--text">@item.Subtitle</MListItemSubtitle>
+                        </MListItemContent>
+                        @if (item.Href is not null)
+                        {
+                            <MListItemAction>
+                                <MButton Icon Small>
+                                    <MIcon Size="16">mdi-arrow-right</MIcon>
+                                </MButton>
+                            </MListItemAction>
+                        }
+                    </MListItem>
+                }
+            }
+        </MList>
+    </ChildContent>
+</MMenu>
+
+@code {
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter, EditorRequired]
+    public IList<NavItem> Items { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+
+        Items ??= new List<NavItem>();
+    }
+
+    public class NavItem
+    {
+        public string? Subheader { get; set; }
+
+        public string? Image { get; set; }
+
+        public string? Title { get; set; }
+
+        public string? Subtitle { get; set; }
+
+        public string? Href { get; set; }
+
+        public bool IsSubheader => Subheader is not null;
+
+        public NavItem(string subheader)
+        {
+            Subheader = subheader;
+        }
+        
+        public NavItem(string title, string image)
+        {
+            Title = title;
+            Image = image;
+        }
+
+        public NavItem(string title, string subtitle, string image)
+        {
+            Title = title;
+            Subtitle = subtitle;
+            Image = image;
+        }
+
+        public NavItem(string title, string subtitle, string image, string href) : this(title, subtitle, image)
+        {
+            Href = href;
+        }
+    }
+
+
+
+}

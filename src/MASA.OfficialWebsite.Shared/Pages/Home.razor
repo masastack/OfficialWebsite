@@ -1,0 +1,59 @@
+﻿@page "/"
+
+<div class="banner">
+    <MRow NoGutters>
+        <MCol Cols="12" Lg="5">
+            <div class="intro">
+                <div class="intro-title">开源企业级云原生技术底座 PaaS</div>
+                <div class="intro-subtitle">一站式.NET现代应用开发解决方案</div>
+                <div class="intro-actions">
+                    <MButton Text Ripple="false">了解更多</MButton>
+                    <MButton Text Ripple="false" Class="text-capitalize">
+                        <MIcon Class="mr-2">mdi-github</MIcon>
+                        Github
+                    </MButton>
+                </div>
+            </div>
+        </MCol>
+        <MCol Cols="12" Lg="7">
+            <div style="overflow: hidden; height: calc(100vh - 100px)">
+                @* <MImage Src="_content/MASA.OfficialWebsite.Shared/images/banner1.png" *@
+                @*         Contain Height="@("100%")" /> *@
+                <img src="_content/MASA.OfficialWebsite.Shared/images/banner1.png"
+                     alt=""
+                     style="width: 100%;height: 100%"/>
+            </div>
+        </MCol>
+    </MRow>
+
+    <MRow NoGutters Class="slider">
+        <MCol Class="slider-item" Offset="1" Cols="3">
+            <div class="number">01</div>
+            <PBlockText Class="text"
+                        Primary="开源企业级云原生技术底座 PaaS"
+                        Secondary="一站式.NET现代应用开发解决方案"
+                        PrimaryClass="h6 emphasis--text mb-2"
+                        SecondaryClass="subtitle regular2--text">
+            </PBlockText>
+        </MCol>
+        <MCol Class="slider-item" Cols="4">
+            <div class="number">02</div>
+            <PBlockText Class="text"
+                        Primary="传统.NET中大型项目升级宝典"
+                        Secondary="非现代应用借助MASA Stack最佳升级路径"
+                        PrimaryClass="h6 emphasis--text mb-2"
+                        SecondaryClass="subtitle regular2--text">
+            </PBlockText>
+        </MCol>
+        <MCol Class="slider-item" Cols="3">
+            <div class="number">03</div>
+            <PBlockText Class="text"
+                        Primary=".NET开发者迈向云原生如何选择？"
+                        Secondary=".NET数字化转型人才成长最优解"
+                        PrimaryClass="h6 emphasis--text mb-2"
+                        SecondaryClass="subtitle regular2--text">
+            </PBlockText>
+        </MCol>
+        <MCol Cols="1"></MCol>
+    </MRow>
+</div>
