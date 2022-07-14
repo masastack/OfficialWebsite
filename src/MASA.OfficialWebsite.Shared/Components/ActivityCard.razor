@@ -1,0 +1,68 @@
+﻿<MCard Class="activity-card" Flat Color="transparent">
+    <div class="activity-card__header">
+        <span class="activity-card__date">@Date.ToString("MM.dd")</span>
+        <span class="activity-card__time">@StartTime.ToString("HH:mm") - @EndTime.ToString("HH:mm")</span>
+    </div>
+
+    <div class="activity-card__desc">
+        <MImage Src="@Cover" Height="@(IsMobile ? null : 290)" Width="@(IsMobile ? "100%" : null)" Contain></MImage>
+    </div>
+
+    <div class="activity-card__footer">
+        <MAvatar Size="36" Color="#D9D1FF" Class="activity-card__group">
+            <MIcon Color="#4318FF" Small>mdi-account-group</MIcon>
+        </MAvatar>
+        <PBlockText PrimaryClass="activity-card__title" SecondaryClass="activity-card__subtitle">
+            <PrimaryContent>
+                @Title
+                @if (Type.HasValue)
+                {
+                    var (label, color) = FormatType(Type.Value);
+                    <MChip Dark Label Small Color="@color" Class="ml-2">@label</MChip>
+                }
+            </PrimaryContent>
+            <SecondaryContent>
+                @Subtitle
+            </SecondaryContent>
+        </PBlockText>
+    </div>
+</MCard>
+
+@code {
+
+    [CascadingParameter(Name = "IsMobile")]
+    public bool IsMobile { get; set; }
+
+    [Parameter, EditorRequired]
+    public DateOnly Date { get; set; }
+
+    [Parameter, EditorRequired]
+    public TimeOnly StartTime { get; set; }
+
+    [Parameter, EditorRequired]
+    public TimeOnly EndTime { get; set; }
+
+    [Parameter, EditorRequired]
+    public string? Cover { get; set; }
+
+    [Parameter, EditorRequired]
+    public string? Title { get; set; }
+
+    [Parameter]
+    public string? Subtitle { get; set; }
+
+    [Parameter, EditorRequired]
+    public ActivityType? Type { get; set; }
+
+    private (string text, string color) FormatType(ActivityType type)
+    {
+        return type switch
+        {
+            ActivityType.Live => ("直播", "green"),
+            ActivityType.Offline => ("线下", "blue"),
+            ActivityType.LookBack => ("回顾", "grey"),
+            _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
+            };
+    }
+
+}

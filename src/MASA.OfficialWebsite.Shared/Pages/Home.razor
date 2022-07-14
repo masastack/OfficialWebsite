@@ -1,6 +1,6 @@
 ﻿@page "/"
 
-<div class="banner">
+<div class="home-banner">
     <MRow NoGutters>
         <MCol Cols="12" Lg="5">
             <div class="intro">
@@ -16,44 +16,114 @@
             </div>
         </MCol>
         <MCol Cols="12" Lg="7">
-            <div style="overflow: hidden; height: calc(100vh - 100px)">
-                @* <MImage Src="_content/MASA.OfficialWebsite.Shared/images/banner1.png" *@
-                @*         Contain Height="@("100%")" /> *@
-                <img src="_content/MASA.OfficialWebsite.Shared/images/banner1.png"
-                     alt=""
-                     style="width: 100%;height: 100%"/>
+            <div class="cover">
+                <MImage Src="_content/MASA.OfficialWebsite.Shared/images/banner1.png"
+                        Width="@("100%")" Height="@("100%")" Contain />
             </div>
         </MCol>
     </MRow>
 
-    <MRow NoGutters Class="slider">
-        <MCol Class="slider-item" Offset="1" Cols="3">
-            <div class="number">01</div>
-            <PBlockText Class="text"
-                        Primary="开源企业级云原生技术底座 PaaS"
-                        Secondary="一站式.NET现代应用开发解决方案"
-                        PrimaryClass="h6 emphasis--text mb-2"
-                        SecondaryClass="subtitle regular2--text">
-            </PBlockText>
-        </MCol>
-        <MCol Class="slider-item" Cols="4">
-            <div class="number">02</div>
-            <PBlockText Class="text"
-                        Primary="传统.NET中大型项目升级宝典"
-                        Secondary="非现代应用借助MASA Stack最佳升级路径"
-                        PrimaryClass="h6 emphasis--text mb-2"
-                        SecondaryClass="subtitle regular2--text">
-            </PBlockText>
-        </MCol>
-        <MCol Class="slider-item" Cols="3">
-            <div class="number">03</div>
-            <PBlockText Class="text"
-                        Primary=".NET开发者迈向云原生如何选择？"
-                        Secondary=".NET数字化转型人才成长最优解"
-                        PrimaryClass="h6 emphasis--text mb-2"
-                        SecondaryClass="subtitle regular2--text">
-            </PBlockText>
-        </MCol>
-        <MCol Cols="1"></MCol>
-    </MRow>
+    @if (IsMobile)
+    {
+        <div class="home-banner__slider-wrapper"
+             style="background-image: url('_content/MASA.OfficialWebsite.Shared/images/union.png'); background-size: 100% 100%">
+            <MIcon Small Color="#E2E7F4">mdi-chevron-double-up</MIcon>
+            <div class="more">查看更多</div>
+        </div>
+    }
+    else
+    {
+        <div class="home-banner__slider-wrapper">
+            <MRow NoGutters Class="slider">
+                <MCol Class="slider-item" Cols="4">
+                    <div class="number">01</div>
+                    <PBlockText Class="text"
+                                Primary="开源企业级云原生技术底座 PaaS"
+                                Secondary="一站式.NET现代应用开发解决方案"
+                                PrimaryClass="h6 emphasis--text mb-2"
+                                SecondaryClass="subtitle regular2--text">
+                    </PBlockText>
+                </MCol>
+                <MCol Class="slider-item" Cols="4">
+                    <div class="number">02</div>
+                    <PBlockText Class="text"
+                                Primary="传统.NET中大型项目升级宝典"
+                                Secondary="非现代应用借助MASA Stack最佳升级路径"
+                                PrimaryClass="h6 emphasis--text mb-2"
+                                SecondaryClass="subtitle regular2--text">
+                    </PBlockText>
+                </MCol>
+                <MCol Class="slider-item" Cols="4">
+                    <div class="number">03</div>
+                    <PBlockText Class="text"
+                                Primary=".NET开发者迈向云原生如何选择？"
+                                Secondary=".NET数字化转型人才成长最优解"
+                                PrimaryClass="h6 emphasis--text mb-2"
+                                SecondaryClass="subtitle regular2--text">
+                    </PBlockText>
+                </MCol>
+                <MCol Cols="1"></MCol>
+            </MRow>
+        </div>
+    }
 </div>
+
+<div class="home-content">
+    <div class="home-content__item full-page">
+        <div class="home-content__item-header">
+            <div class="home-content__item-title">产品</div>
+            <div class="home-content__item-subtitle">Modern App & Service Architecture</div>
+        </div>
+        <MRow NoGutters="IsMobile" class="home-content__item-cards">
+            <MCol Cols="12" Md="4">
+                <ProductCard Title="MASA Stack"
+                             Image="https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png"
+                             Description="开源企业级云原生技术底座 PaaS，包含企业IT现代应用开发交付的全部板块，如流量治理、服务治理、数据治理、可观测性、DevOps等一站式解决方案">
+                </ProductCard>
+            </MCol>
+            <MCol Cols="12" Md="4">
+                <ProductCard Title="MASA Framework"
+                             Image="https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png"
+                             Description=".NET下一代微服务开发框架，内嵌分布式运行时——Dapr云原生最佳实践，能够快速实现分布式、微服务、DDD，SaaS等现代应用开发">
+                </ProductCard>
+            </MCol>
+            <MCol Cols="12" Md="4">
+                <ProductCard Title="MASA Blazor"
+                             Image="https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png"
+                             Description="开源企业级云原生技术底座 PaaS，包含企业IT现代应用开发交付的全部板块，如流量治理、服务治理、数据治理、可观测性、DevOps等一站式解决方案">
+                </ProductCard>
+            </MCol>
+        </MRow>
+    </div>
+
+    <div class="home-content__item">
+        <div class="home-content__item-header">
+            <div class="home-content__item-title">最新活动</div>
+            <div class="home-content__item-subtitle">最新社区活动预告与往期回顾</div>
+        </div>
+        <MRow NoGutters="IsMobile" class="home-content__item-cards">
+            @foreach (var item in Activities.OrderByDescending(a => a.StartAt).Take(3))
+            {
+                <MCol Cols="12" Md="4">
+                    <ActivityCard Title="@item.Title"
+                                  Subtitle="@item.Subtitle"
+                                  Cover="@item.Cover"
+                                  Date="@item.Date"
+                                  StartTime="@item.StartTime"
+                                  EndTime="@item.EndTime"
+                                  Type="@item.Type">
+                    </ActivityCard>
+                </MCol>
+            }
+        </MRow>
+
+        <More Href="/activity">更多活动</More>
+    </div>
+</div>
+
+@code {
+
+    [CascadingParameter(Name = "IsMobile")]
+    private bool IsMobile { get; set; }
+
+}

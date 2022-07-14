@@ -3,7 +3,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddMasaBlazor();
+builder.Services.AddMasaBlazor(options =>
+{
+    options.Theme.Primary = "#4318ff";
+});
 
 var app = builder.Build();
 

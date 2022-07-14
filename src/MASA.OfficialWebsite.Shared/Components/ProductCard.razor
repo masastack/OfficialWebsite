@@ -1,0 +1,34 @@
+﻿<MCard Class="product-card" Flat>
+    <div class="product-card__header">
+        <MImage Src="@Image"
+                MaxHeight="65"
+                MaxWidth="65"
+                Contain />
+        <div class="product-card__title">@Title</div>
+    </div>
+
+    <div class="product-card__desc">
+        @Description
+    </div>
+
+    @if (Href is not null)
+    {
+        <More Href="@Href">了解详情</More>
+    }
+</MCard>
+
+@code {
+
+    [Parameter, EditorRequired]
+    public string? Image { get; set; }
+
+    [Parameter, EditorRequired]
+    public string? Title { get; set; }
+
+    [Parameter, EditorRequired]
+    public string? Description { get; set; }
+
+    [Parameter]
+    public string? Href { get; set; }
+
+}

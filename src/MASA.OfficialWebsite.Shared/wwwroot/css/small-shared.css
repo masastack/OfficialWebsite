@@ -1,11 +1,66 @@
-﻿.website-shared .banner .intro {
+﻿.website-shared .appbar {
+    padding: 0;
+}
+
+.website-shared .appbar .nav {
+    margin-right: 0;
+}
+
+.website-shared .menu-content {
+    width: 347px;
+}
+
+.website-shared .menu-content .menu-list {
+    background: #FFFFFF;
+    padding: 36px 8px;
+    border-radius: 8px;
+}
+
+.website-shared .menu-content .menu-list .m-subheader, .website-shared .menu-content .menu-list .m-list-item {
+    margin-bottom: 1px;
+}
+
+.website-shared .footer-content {
+    max-width: unset;
+    margin: 0 auto 40px;
+}
+
+.website-shared .footer-content .footer-content__logo {
+    text-align: center;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    margin-top: 24px;
+}
+
+.website-shared .footer-content .footer-content__item .m-card__title {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 0px;
+    justify-content: center;
+}
+
+.website-shared .footer-content .footer-content__item .m-card__text {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #FFFFFF;
+    
+    display: flex;
+    justify-content: center;
+}
+
+/* Home */
+
+.website-shared .home-banner .intro {
     max-width: 500px;
     float: none;
     text-align: center;
     margin: 35px auto;
 }
 
-.website-shared .banner .intro-title {
+.website-shared .home-banner .intro-title {
     font-weight: 700;
     font-size: 34px;
     line-height: 51px;
@@ -18,7 +73,7 @@
     margin-bottom: 8px;
 }
 
-.website-shared .banner .intro-subtitle {
+.website-shared .home-banner .intro-subtitle {
     font-weight: 500;
     font-size: 18px;
     line-height: 27px;
@@ -30,11 +85,11 @@
     margin-bottom: 24px;
 }
 
-.website-shared .banner .intro-actions {
+.website-shared .home-banner .intro-actions {
     justify-content: center;
 }
 
-.website-shared .banner .intro-actions .m-btn {
+.website-shared .home-banner .intro-actions .m-btn {
     font-weight: 500;
     font-size: 14px;
     line-height: 21px;
@@ -49,6 +104,164 @@
     border-radius: 40px;
 }
 
-.website-shared .banner .intro-actions .m-btn:first-child {
+.website-shared .home-banner .intro-actions .m-btn:first-child {
     margin-right: 16px;
+}
+
+.website-shared .home-banner .cover {
+    overflow: hidden;
+    height: calc(100vh - 320px);
+}
+
+.website-shared .home-banner .home-banner__slider-wrapper {
+    background: transparent;
+    position: absolute;
+    width: 100vw;
+    left: 0;
+    top: calc(100vh - 154px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 26px;
+}
+
+.website-shared .home-banner .home-banner__slider-wrapper .more {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+
+    text-align: center;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+
+    color: #323D6F;
+}
+
+.website-shared .home-content {
+    max-width: unset;
+    padding: 24px 16px;
+}
+
+.website-shared .home-content .home-content__item.full-page {
+    height: auto;
+}
+
+.website-shared .home-content .home-content__item-title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: #323D6F;
+
+    margin-bottom: 4px;
+}
+
+.website-shared .home-content .home-content__item-subtitle {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    letter-spacing: 0.25px;
+}
+
+.website-shared .home-content .home-content__item-cards {
+    margin-top: 24px;
+}
+
+.website-shared .home-content .home-content__item-cards .m-card {
+    margin-bottom: 16px;
+}
+
+/* ProductCard */
+
+.website-shared .product-card {
+    padding: 24px 16px;
+    height: auto;
+    min-height: 313px;
+
+    background: #FFFFFF;
+
+    border-radius: 24px;
+}
+
+.website-shared .product-card .product-card__header {
+    padding-top: 16px;
+    padding-bottom: 8px;
+    margin-bottom: 4px;
+}
+
+.website-shared .product-card .product-card__header .m-image {
+    margin: 0 auto 8px;
+}
+
+.website-shared .product-card .product-card__title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    letter-spacing: normal;
+    color: #1B2559;
+}
+
+.website-shared .product-card .product-card__desc {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: justify;
+    letter-spacing: normal;
+    color: #7681AB;
+
+    margin-bottom: 24px;
+}
+
+.website-shared .activity-card {
+    height: auto;
+}
+
+.website-shared .activity-card .activity-card__header {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 4px;
+}
+
+.website-shared .activity-card .activity-card__date {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    color: #323D6F;
+
+    margin-right: 4px;
+}
+
+.website-shared .activity-card .activity-card__time {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    color: #A3AED0;
+}
+
+.website-shared .activity-card .activity-card__desc {
+    margin-bottom: 8px;
+}
+
+.website-shared .activity-card .activity-card__title {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    margin-bottom: 4px;
+}
+
+.website-shared .activity-card .activity-card__subtitle {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    color: #A3AED0;
 }

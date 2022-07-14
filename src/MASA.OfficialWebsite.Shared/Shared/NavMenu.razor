@@ -1,12 +1,21 @@
 ﻿<MMenu Left
        OffsetY
-       NudgeBottom="24"
-       MaxWidth="455"
-       MinWidth="455"
+       NudgeBottom="4"
        OpenOnClick
        ContentClass="menu-content">
     <ActivatorContent>
-        <span class="nav h8 emphasis2--text" @attributes="@context.Attrs">@ChildContent</span>
+        @{
+            string css = "nav h8 emphasis2--text";
+
+            if (context.Attrs.TryGetValue("class", out var val))
+            {
+                css += val.ToString();
+            }
+
+            context.Attrs["class"] = css;
+        }
+
+        @ChildContent.Invoke(context)
     </ActivatorContent>
     <ChildContent>
         <MList Class="menu-list" Elevation="0" Subheader TwoLine>
@@ -51,7 +60,7 @@
 @code {
 
     [Parameter]
-    public RenderFragment ChildContent { get; set; }
+    public RenderFragment<ActivatorProps> ChildContent { get; set; }
 
     [Parameter, EditorRequired]
     public IList<NavItem> Items { get; set; }
@@ -81,7 +90,7 @@
         {
             Subheader = subheader;
         }
-        
+
         public NavItem(string title, string image)
         {
             Title = title;

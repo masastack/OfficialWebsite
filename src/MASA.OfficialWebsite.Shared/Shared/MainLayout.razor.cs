@@ -2,7 +2,7 @@
 
 public partial class MainLayout
 {
-    private static List<NavMenu.NavItem> ProductNavItems = new()
+    private static readonly List<NavMenu.NavItem> ProductNavItems = new()
     {
         new NavMenu.NavItem("产品中心"),
         new NavMenu.NavItem("MASA Stack", "开源企业级云原生技术底座 PaasS", "https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png"),
@@ -14,7 +14,7 @@ public partial class MainLayout
         new NavMenu.NavItem("MASA IoT", "通过连接2.0助力数字化转型", "https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png"),
     };
 
-    private static List<NavMenu.NavItem> StudyNavItems = new()
+    private static readonly List<NavMenu.NavItem> StudyNavItems = new()
     {
         new NavMenu.NavItem("学习中心"),
         new NavMenu.NavItem("学习路径", "https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png"),
@@ -23,8 +23,14 @@ public partial class MainLayout
         new NavMenu.NavItem("学习路径", "https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png"),
     };
 
+    private static List<NavMenu.NavItem> AllNavItems => ProductNavItems.Concat(StudyNavItems).ToList();
+
     private void NavigateToAboutUs()
     {
         NavigationManager.NavigateTo("/about-us");
     }
+
+    private bool IsMobile => MasaBlazor.Breakpoint.Mobile;
+
+    private int IconSize => IsMobile ? 40 : 60;
 }
