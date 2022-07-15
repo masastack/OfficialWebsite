@@ -2,7 +2,7 @@
 
 <div class="home-banner">
     <MRow NoGutters>
-        <MCol Cols="12" Lg="5">
+        <MCol Cols="12" Lg="6" Class="intro-wrapper">
             <div class="intro">
                 <div class="intro-title">开源企业级云原生技术底座 PaaS</div>
                 <div class="intro-subtitle">一站式.NET现代应用开发解决方案</div>
@@ -15,11 +15,9 @@
                 </div>
             </div>
         </MCol>
-        <MCol Cols="12" Lg="7">
-            <div class="cover">
-                <MImage Src="_content/MASA.OfficialWebsite.Shared/images/banner1.png"
-                        Width="@("100%")" Height="@("100%")" Contain />
-            </div>
+        <MCol Cols="12" Lg="6" Class="cover-wrapper">
+            <MImage Src="_content/MASA.OfficialWebsite.Shared/images/banner1.png"
+                    Width="@("100%")" Height="@("100%")" />
         </MCol>
     </MRow>
 
@@ -27,8 +25,10 @@
     {
         <div class="home-banner__slider-wrapper"
              style="background-image: url('_content/MASA.OfficialWebsite.Shared/images/union.png'); background-size: 100% 100%">
-            <MIcon Small Color="#E2E7F4">mdi-chevron-double-up</MIcon>
-            <div class="more">查看更多</div>
+            <div style="display: contents" @onclick="ScrollToNext">
+                <MIcon Small Color="#E2E7F4">mdi-chevron-double-up</MIcon>
+                <div class="more">查看更多</div>
+            </div>
         </div>
     }
     else

@@ -11,12 +11,11 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Masa.Blazor" Version="0.5.0-rc.5" />
         <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.3" />
     </ItemGroup>
 
     <ItemGroup>
-      <_ContentIncludedByDefault Remove="wwwroot\sample-data\weather.json" />
+      <ProjectReference Include="..\..\..\MASA.Blazor\src\Masa.Blazor\Masa.Blazor.csproj" />
     </ItemGroup>
 
 </Project>

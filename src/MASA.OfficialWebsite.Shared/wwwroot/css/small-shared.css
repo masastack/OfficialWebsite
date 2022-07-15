@@ -46,12 +46,16 @@
     font-size: 14px;
     line-height: 21px;
     color: #FFFFFF;
-    
+
     display: flex;
     justify-content: center;
 }
 
 /* Home */
+
+.website-shared .home-banner .intro-wrapper {
+    height: auto;
+}
 
 .website-shared .home-banner .intro {
     max-width: 500px;
@@ -108,6 +112,10 @@
     margin-right: 16px;
 }
 
+.website-shared .home-banner .cover-wrapper {
+    height: auto;
+}
+
 .website-shared .home-banner .cover {
     overflow: hidden;
     height: calc(100vh - 320px);
@@ -139,7 +147,7 @@
 
 .website-shared .home-content {
     max-width: unset;
-    padding: 24px 16px;
+    padding: 8px 16px;
 }
 
 .website-shared .home-content .home-content__item.full-page {

@@ -21,22 +21,57 @@ public partial class Home : IAsyncDisposable
             DateTime.Now, 1, ActivityType.LookBack),
     };
 
+    private bool _prevIsMobile;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await base.OnParametersSetAsync();
+
+        if (_prevIsMobile != IsMobile)
+        {
+            _prevIsMobile = IsMobile;
+
+            await ResetWindowScrollEvent();
+        }
+    }
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         await base.OnAfterRenderAsync(firstRender);
 
         if (firstRender)
         {
-            await Js.InvokeVoidAsync("MasaOfficialWebsite.addWindowsScrollEvent");
+            await AddWindowScrollEvent();
             StateHasChanged();
         }
+    }
+
+    private async Task ScrollToNext()
+    {
+        await Js.InvokeVoidAsync("MasaOfficialWebsite.scrollToNext");
+    }
+
+    private async Task ResetWindowScrollEvent()
+    {
+        await RemoveWindowScrollEvent();
+        await AddWindowScrollEvent();
+    }
+
+    private ValueTask AddWindowScrollEvent()
+    {
+        return Js.InvokeVoidAsync("MasaOfficialWebsite.addWindowScrollEvent", IsMobile);
+    }
+
+    private ValueTask RemoveWindowScrollEvent()
+    {
+        return Js.InvokeVoidAsync("MasaOfficialWebsite.removeWindowScrollEvent");
     }
 
     public async ValueTask DisposeAsync()
     {
         try
         {
-            await Js.InvokeVoidAsync("MasaOfficialWebsite.removeWindowsScrollEvent");
+            await RemoveWindowScrollEvent();
         }
         catch (Exception e)
         {
