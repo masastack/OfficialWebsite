@@ -69,9 +69,9 @@
 </div>
 
 <div class="home-content">
-    <div class="home-content__item full-page">
+    <div class="home-content__item full-page" id="product-content">
         <div class="home-content__item-header">
-            <div class="home-content__item-title">产品</div>
+            <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">产品</MenuableTitle>
             <div class="home-content__item-subtitle">Modern App & Service Architecture</div>
         </div>
         <MRow NoGutters="IsMobile" class="home-content__item-cards">
@@ -96,9 +96,9 @@
         </MRow>
     </div>
 
-    <div class="home-content__item">
+    <div class="home-content__item" id="activity-content">
         <div class="home-content__item-header">
-            <div class="home-content__item-title">最新活动</div>
+            <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">最新活动</MenuableTitle>
             <div class="home-content__item-subtitle">最新社区活动预告与往期回顾</div>
         </div>
         <MRow NoGutters="IsMobile" class="home-content__item-cards">
@@ -121,9 +121,4 @@
     </div>
 </div>
 
-@code {
 
-    [CascadingParameter(Name = "IsMobile")]
-    private bool IsMobile { get; set; }
-
-}

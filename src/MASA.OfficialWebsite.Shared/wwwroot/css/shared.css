@@ -23,7 +23,6 @@ html {
 .website-shared .menu-content {
     box-shadow: none;
     filter: drop-shadow(0px 18px 40px rgba(112, 144, 176, 0.12));
-    border-right: 16px;
     width: 455px;
 }
 
@@ -366,4 +365,16 @@ html {
     align-items: center;
     letter-spacing: 0.01em;
     color: #A3AED0;
+}
+
+.website-shared .menuable-title__content {
+    box-shadow: none;
+    width: 375px;
+    filter: drop-shadow(0px 18px 40px rgba(112, 144, 176, 0.12));
+}
+
+.website-shared .menuable-title__content .m-list {
+    background: #F6F8FD;
+    border-radius: 0 0 16px 16px;
+    padding: 16px 0;
 }

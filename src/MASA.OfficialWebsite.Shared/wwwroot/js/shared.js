@@ -3,7 +3,6 @@
 const eventListenerCaches = {}
 
 window.MasaOfficialWebsite.addWindowScrollEvent = (isMobile) => {
-  let timer
   let timeout
 
   const listener = (e) => {
@@ -24,21 +23,7 @@ window.MasaOfficialWebsite.addWindowScrollEvent = (isMobile) => {
       return
     }
 
-    const c = offsetY - targetTop
-    const startTime = +new Date();
-    const duration = 500;
-
-    cancelAnimationFrame(timer)
-
-    timer = requestAnimationFrame(function f() {
-      const time = duration - Math.max(0, startTime - (+new Date()) + duration);
-      document.body.scrollTop = document.documentElement.scrollTop = time * (-c) / duration + offsetY;
-      timer = requestAnimationFrame(f)
-
-      if (time === duration) {
-        cancelAnimationFrame(timer)
-      }
-    })
+    animationScrollTo(targetTop)
   };
 
   const listenerWrapper = e => {
@@ -60,11 +45,23 @@ window.MasaOfficialWebsite.removeWindowScrollEvent = () => {
 window.MasaOfficialWebsite.scrollToNext = () => {
   const innerHeight = window.innerHeight || document.body.clientHeight
   const offsetY = document.body.scrollTop || document.documentElement.scrollTop;
+  const n = Math.ceil((offsetY / innerHeight) || 1)
+  animationScrollTo(innerHeight * n)
+}
+
+window.MasaOfficialWebsite.scrollTo = (selector) => {
+  const dom = document.querySelector(selector)
+  if (dom) {
+    animationScrollTo(dom.offsetTop)
+  }
+}
+
+function animationScrollTo(top) {
+  const offsetY = document.body.scrollTop || document.documentElement.scrollTop;
 
   let timer
 
-  const n = Math.ceil((offsetY / innerHeight) || 1)
-  const c = offsetY - innerHeight * n
+  const c = offsetY - top
   const startTime = +new Date();
   const duration = 500;
 

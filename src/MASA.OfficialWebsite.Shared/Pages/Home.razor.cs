@@ -8,6 +8,9 @@ public partial class Home : IAsyncDisposable
     [Inject]
     private IJSRuntime Js { get; set; } = null!;
 
+    [CascadingParameter(Name = "IsMobile")]
+    private bool IsMobile { get; set; }
+
     private static readonly List<Activity> Activities = new()
     {
         new Activity("MASA Stack 社区例会", "MASA Stack最新进度汇报",
@@ -21,13 +24,20 @@ public partial class Home : IAsyncDisposable
             DateTime.Now, 1, ActivityType.LookBack),
     };
 
+    private static readonly List<MenuableTitleItem> MenuableTitleItems = new()
+    {
+        new MenuableTitleItem("产品", "Modern App & Service Architecture", "#product-content"),
+        new MenuableTitleItem("最新活动", "最新社区活动预告与往期回顾", "#activity-content"),
+    };
+
     private bool _prevIsMobile;
+    private bool _haveRendered;
 
     protected override async Task OnParametersSetAsync()
     {
         await base.OnParametersSetAsync();
 
-        if (_prevIsMobile != IsMobile)
+        if (_haveRendered && _prevIsMobile != IsMobile)
         {
             _prevIsMobile = IsMobile;
 
@@ -42,6 +52,7 @@ public partial class Home : IAsyncDisposable
         if (firstRender)
         {
             await AddWindowScrollEvent();
+            _haveRendered = true;
             StateHasChanged();
         }
     }
