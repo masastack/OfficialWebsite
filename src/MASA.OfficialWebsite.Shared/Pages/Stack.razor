@@ -1,0 +1,267 @@
+﻿@page "/stack"
+
+<div class="home-banner">
+    <MRow NoGutters>
+        <MCol Cols="12" Lg="5" Class="intro-wrapper">
+            <div class="intro">
+                <div class="intro-title">开源企业级云原生技术底座 PaaS</div>
+                <div class="intro-subtitle">一站式.NET现代应用开发解决方案</div>
+                <div class="intro-actions">
+                    <MButton Text Ripple="false">了解更多</MButton>
+                    <MButton Text Ripple="false" Class="text-capitalize">
+                        <MIcon Class="mr-2">mdi-github</MIcon>
+                        Github
+                    </MButton>
+                </div>
+            </div>
+        </MCol>
+        <MCol Cols="12" Lg="7" Class="cover-wrapper">
+            <MImage Src="_content/MASA.OfficialWebsite.Shared/images/banner1.png"
+                    Width="@("100%")" Height="@("100%")" />
+        </MCol>
+    </MRow>
+
+    @if (IsMobile)
+    {
+        <div class="home-banner__slider-wrapper"
+         style="background-image: url('_content/MASA.OfficialWebsite.Shared/images/union.png'); background-size: 100% 100%">
+            <div style="display: contents" @onclick="ScrollToNext">
+                <MIcon Small Color="#E2E7F4">mdi-chevron-double-up</MIcon>
+                <div class="more">查看更多</div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="home-banner__slider-wrapper" 
+        style="background-image: url('_content/MASA.OfficialWebsite.Shared/images/Union.png'); background-size: 100% 100%">
+            <MRow NoGutters Class="slider">
+                <MCol Class="slider-item" Cols="12">
+                    <div style="font-family: 'Roboto';font-style: normal;font-weight: 700;font-size: 40px;line-height: 60px;text-align: center;letter-spacing: 0.01em;text-transform: uppercase;">核心能力</div>
+                </MCol>
+            </MRow>
+        </div>
+    }
+</div>
+<div class="home-content full-page">
+        <div class="home-content__item-header">
+            <MenuableTitle Disabled="!IsMobile">BASIC ABILITY</MenuableTitle>
+            <div class="home-content__item-subtitle">现代应用治理解决方案</div>
+        </div>
+        <MRow NoGutters="IsMobile">
+            <MCol Cols="12" Md="6">
+                <CommonCard Height=172
+                            Image="_content/MASA.OfficialWebsite.Shared/images/Auth.png"
+                            Content="内置RBAC3标准，集成诸多平台用户谁与访问管理，支持OIDC标准扩展接入"
+                            Title="Auth"
+                            IsImageRight=true
+                            SubTitle="权限中心"></CommonCard>
+            </MCol>
+            <MCol Cols="12" Md="6">
+                <CommonCard Class="d-flex justify-space-between"
+                            Height=172
+                            Image="_content/MASA.OfficialWebsite.Shared/images/Scheduler.png"
+                            Content="统一调度，支持多种模式触发智能任务调度，智能worker弹性伸缩"
+                            Title="Scheduler"
+                            IsImageRight=false
+                            SubTitle="调度中心"></CommonCard>
+            </MCol>
+        </MRow>
+        <MRow NoGutters="IsMobile">
+            <MCol Cols="12" Md="6">
+                <CommonCard Height=196
+                            Image="_content/MASA.OfficialWebsite.Shared/images/WorkFlow.png"
+                            Content="依据CNCF Serverless Workflow规范，集成诸多开源服务或中间件，支撑数据处理事件编排、API聚合等场景支持Dapr标准API"
+                            Title="WorkFlow"
+                            IsImageRight=true
+                            SubTitle="工作流"></CommonCard>
+            </MCol>
+            <MCol Cols="12" Md="6">
+                <CommonCard Class="d-flex justify-space-between"
+                            Height=196
+                            Image="_content/MASA.OfficialWebsite.Shared/images/MicroFE.png"
+                            Content="Blazor微前端解决方案，为Blazor提供工程化最佳实践"
+                            Title="Micro FE"
+                            IsImageRight=false
+                            SubTitle="微前端"></CommonCard>
+            </MCol>
+        </MRow>
+        <MRow NoGutters="IsMobile">
+            <MCol Cols="12" Md="6">
+                <CommonCard Height=172
+                            Image="_content/MASA.OfficialWebsite.Shared/images/Insights.png"
+                            Content="基于ML.NET，内嵌诸多成熟模型，应用于AIOps、RPA、预测性维护等场景"
+                            Title="Insights"
+                            IsImageRight=true
+                            SubTitle="洞察"></CommonCard>
+            </MCol>
+            <MCol Cols="12" Md="6">
+                <CommonCard Class="d-flex justify-space-between"
+                            Height=172
+                            Image="_content/MASA.OfficialWebsite.Shared/images/Security.png"
+                            Content="一站式安全解决方案，包含访问控制、数据安全、审计等适用于混合云、物联网等领域"
+                            Title="Security"
+                            IsImageRight=false
+                            SubTitle="安全"></CommonCard>
+            </MCol>
+        </MRow>
+        <MRow NoGutters="IsMobile">
+            <MCol Cols="12" Md="6">
+                <CommonCard Height=196
+                            Image="_content/MASA.OfficialWebsite.Shared/images/YARP.png"
+                            Content="基于YARP定制，可支撑大流量高性能场景，内置API全生命周期管理，适用于K8S南北流量治理，新老架构升级等场景"
+                            Title="YARP"
+                            IsImageRight=true
+                            SubTitle="网关"></CommonCard>
+            </MCol>
+            <MCol Cols="12" Md="6">
+                <CommonCard Class="d-flex justify-space-between"
+                            Height=196
+                            Image="_content/MASA.OfficialWebsite.Shared/images/Functions.png"
+                            Content="基于OpenFunction，Dapr，KEDA，打造.NET领域函数计算解决方案"
+                            Title="Function"
+                            IsImageRight=false
+                            SubTitle="函数计数"></CommonCard>
+            </MCol>
+        </MRow>
+        <MRow NoGutters="IsMobile">
+            <MCol Cols="12" Md="6">
+                <CommonCard Height=172
+                            Image="_content/MASA.OfficialWebsite.Shared/images/MC.png"
+                            Content="支持站内信、短信、邮件、模板消息，统一消息管理，统一消息调度"
+                            Title="MC"
+                            IsImageRight=true
+                            SubTitle="消息中心"></CommonCard>
+            </MCol>
+        </MRow>
+    </div>
+    <div class="home-content full-page">
+        <div class="home-content__item-header">
+            <MenuableTitle Disabled="!IsMobile">OPERATOR</MenuableTitle>
+            <div class="home-content__item-subtitle">高效运维解决方案</div>
+        </div>
+        <MRow NoGutters="IsMobile">
+            <MCol Cols="12" Md="6">
+                <CommonCard Height=196
+                            Image="_content/MASA.OfficialWebsite.Shared/images/PM.png"
+                            Content="提供项目管理一站式解决方案，是应用持续交付的基础支撑"
+                            Title="PM"
+                            IsImageRight=true
+                            SubTitle="项目管理"></CommonCard>
+            </MCol>
+            <MCol Cols="12" Md="6">
+                <CommonCard Class="d-flex justify-space-between"
+                            Height=196
+                            Image="_content/MASA.OfficialWebsite.Shared/images/DCC.png"
+                            Content="支持多级配置缓存，支持服务配置热更新，及标准的配置变更管理流程，并支持Dapr标准API"
+                            Title="DCC"
+                            IsImageRight=false
+                            SubTitle="配置中心"></CommonCard>
+            </MCol>
+        </MRow>
+        <MRow NoGutters="IsMobile">
+            <MCol Cols="12" Md="6">
+                <CommonCard Height=172
+                            Image="_content/MASA.OfficialWebsite.Shared/images/TSC.png"
+                            Content="基于openTelementry标准，兼容开源可视化监控组件，如ES，Prometheus，Grafana接入"
+                            Title="TSC"
+                            IsImageRight=true
+                            SubTitle="故障排查控制台"></CommonCard>
+            </MCol>
+            <MCol Cols="12" Md="6">
+                <CommonCard Class="d-flex justify-space-between"
+                            Height=172
+                            Image="_content/MASA.OfficialWebsite.Shared/images/Alerts.png"
+                            Content="内置灵活的告警规则引擎，无缝集成MC与TSC，开放Webhook对接"
+                            Title="Alert"
+                            IsImageRight=false
+                            SubTitle="告警中心"></CommonCard>
+            </MCol>
+        </MRow>
+        <MRow NoGutters="IsMobile">
+            <MCol Cols="12" Md="6">
+                <CommonCard Height=172
+                            Image="_content/MASA.OfficialWebsite.Shared/images/DevOps.png"
+                            Content="开发运维一体化，代码库、CI/CD和任务管理"
+                            Title="DevOps"
+                            IsImageRight=true
+                            SubTitle="开发运维"></CommonCard>
+            </MCol>
+        </MRow>
+    </div>
+    <div class="home-content full-page">
+        <div class="home-content__item-header">
+            <MenuableTitle Disabled="!IsMobile">DATA FACTORY</MenuableTitle>
+            <div class="home-content__item-subtitle">数据治理解决方案</div>
+        </div>
+        <MRow NoGutters="IsMobile">
+            <MCol Cols="12" Md="6">
+                <CommonCard Height=196
+                            Image="_content/MASA.OfficialWebsite.Shared/images/Metadata.png"
+                            Content="覆盖元数据采集、加工、管理全流程，以支撑标签系统、ETL、低代码建模等场景"
+                            Title="Metadata"
+                            IsImageRight=true
+                            SubTitle="元数据"></CommonCard>
+            </MCol>
+            <MCol Cols="12" Md="6">
+                <CommonCard Class="d-flex justify-space-between"
+                            Height=196
+                            Image="_content/MASA.OfficialWebsite.Shared/images/ETL.png"
+                            Content="基于MASA Workflow打造分布式数据处理引擎，支持各类数据库的输入输出，适用于数据迁移、数据入仓\湖、流批一体等解决方案"
+                            Title="ETL"
+                            IsImageRight=false
+                            SubTitle="数据管道"></CommonCard>
+            </MCol>
+        </MRow>
+        <MRow NoGutters="IsMobile">
+            <MCol Cols="12" Md="6">
+                <CommonCard Height=172
+                            Image="_content/MASA.OfficialWebsite.Shared/images/BigDataApi.png"
+                            Content="将数据分析能力、标签对象以API的形式对外提供服务支持GraphQL和OData查询规范"
+                            Title="Big Data API"
+                            IsImageRight=true
+                            SubTitle="数据服务"></CommonCard>
+            </MCol>
+            <MCol Cols="12" Md="6">
+                <CommonCard Class="d-flex justify-space-between"
+                            Height=172
+                            Image="_content/MASA.OfficialWebsite.Shared/images/View.png"
+                            Content="基于开源echarts搭建的，低代码的可视化工具，适用于即席分析、大屏展示、BI等场景"
+                            Title="View"
+                            IsImageRight=false
+                            SubTitle="数据可视化"></CommonCard>
+            </MCol>
+        </MRow>
+    </div>
+    <div class="home-content full-page">
+        <div class="home-content__item-header">
+            <MenuableTitle Disabled="!IsMobile">WHY MASA STACK</MenuableTitle>
+            <div class="home-content__item-subtitle">为什么选择MASA Stack?</div>
+        </div>
+        <MRow NoGutters="IsMobile">
+            <MCol Cols="12" Md="4">
+               <WhyCard
+               Image="_content/MASA.OfficialWebsite.Shared/images/icon1.png"
+               Title=".NET专属PaaS平台"
+               Icon="_content/MASA.OfficialWebsite.Shared/images/v-icon1.png"
+               WhyContents="WhyContent1"
+               ></WhyCard>
+            </MCol>
+            <MCol Cols="12" Md="4">
+                 <WhyCard
+               Image="_content/MASA.OfficialWebsite.Shared/images/icon2.png"
+               Title="开源"
+               Icon="_content/MASA.OfficialWebsite.Shared/images/v-icon2.png"
+               WhyContents="WhyContent2"
+               ></WhyCard>
+            </MCol>
+            <MCol Cols="12" Md="4">
+                 <WhyCard
+               Image="_content/MASA.OfficialWebsite.Shared/images/icon3.png"
+               Title="社区"
+               Icon="_content/MASA.OfficialWebsite.Shared/images/v-icon3.png"
+               WhyContents="WhyContent3"
+               ></WhyCard>
+            </MCol>
+        </MRow>
+    </div>

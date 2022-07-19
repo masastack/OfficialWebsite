@@ -273,3 +273,99 @@
     align-items: center;
     color: #A3AED0;
 }
+
+/* CommonCard */
+.website-shared .common-card {
+    display: flex;
+    align-items: center;
+    padding: 24px 16px;
+    margin: 16px;
+    gap: 24px;
+    background: #FFFFFF;
+    border-radius: 16px
+}
+
+.website-shared .common-card .common-card__image {
+    width: 66px;
+    height: 66px;
+}
+
+.website-shared .common-card .common-card__title {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    display: flex;
+    letter-spacing: 0.01em;
+    align-items: center;
+    text-align: center;
+    color: #1B2559;
+}
+
+.website-shared .common-card .common-card__subtitle {
+    font-family: 'Roboto';
+    font-style: normal;
+    width: 223px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: justify;
+    color: #323D6F;
+}
+
+.website-shared .common-card .common-card__content {
+    font-family: 'Roboto';
+    font-style: normal;
+    width: 223px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #7681AB;
+}
+
+.website-shared .why-card {
+    display: flex;
+    flex-direction: row;
+    /*align-items: center;*/
+    margin: 16px;
+    padding: 36px 24px;
+    height: 360px;
+    gap: 24px;
+    background: #FFFFFF;
+    border-radius: 16px;
+}
+
+.website-shared .why-card .why-card__image {
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    background: #F4F1FF;
+}
+
+.website-shared .why-card .why-card__title {
+    padding-left: 12px;
+    display: flex;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #1B2559
+}
+
+.website-shared .why-card .why-card__ul {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #7681AB;
+}
+
+.website-shared .why-card .why-card__li {
+    margin: 24px 0;
+}

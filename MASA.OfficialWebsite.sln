@@ -1,10 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MASA.OfficialWebsite.Server", "src\MASA.OfficialWebsite.Server\MASA.OfficialWebsite.Server.csproj", "{7EE9A5BF-8438-4849-A961-404F02D62C84}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MASA.OfficialWebsite.Server", "src\MASA.OfficialWebsite.Server\MASA.OfficialWebsite.Server.csproj", "{7EE9A5BF-8438-4849-A961-404F02D62C84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MASA.OfficialWebsite.Shared", "src\MASA.OfficialWebsite.Shared\MASA.OfficialWebsite.Shared.csproj", "{02A765E3-2E08-408C-B6B6-D6C3957DD8FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MASA.OfficialWebsite.Shared", "src\MASA.OfficialWebsite.Shared\MASA.OfficialWebsite.Shared.csproj", "{02A765E3-2E08-408C-B6B6-D6C3957DD8FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MASA.OfficialWebsite.Wasm", "src\MASA.OfficialWebsite.Wasm\MASA.OfficialWebsite.Wasm.csproj", "{87C140C5-CBAF-4AF1-BCD5-6708D83F6225}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MASA.OfficialWebsite.Wasm", "src\MASA.OfficialWebsite.Wasm\MASA.OfficialWebsite.Wasm.csproj", "{87C140C5-CBAF-4AF1-BCD5-6708D83F6225}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +27,11 @@ Global
 		{87C140C5-CBAF-4AF1-BCD5-6708D83F6225}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87C140C5-CBAF-4AF1-BCD5-6708D83F6225}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87C140C5-CBAF-4AF1-BCD5-6708D83F6225}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BF2DBFD5-2BCC-4758-9A59-4A370E1A4B4F}
 	EndGlobalSection
 EndGlobal

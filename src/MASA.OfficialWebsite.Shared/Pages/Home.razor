@@ -24,10 +24,10 @@
     @if (IsMobile)
     {
         <div class="home-banner__slider-wrapper"
-             style="background-image: url('_content/MASA.OfficialWebsite.Shared/images/union.png'); background-size: 100% 100%">
+         style="background-image: url('_content/MASA.OfficialWebsite.Shared/images/union.png'); background-size: 100% 100%">
             <div style="display: contents" @onclick="ScrollToNext">
                 <MIcon Small Color="#E2E7F4">mdi-chevron-double-up</MIcon>
-                <div class="more">查看更多</div>
+                <div class="more">更多产品</div>
             </div>
         </div>
     }
@@ -38,28 +38,28 @@
                 <MCol Class="slider-item" Cols="4">
                     <div class="number">01</div>
                     <PBlockText Class="text"
-                                Primary="开源企业级云原生技术底座 PaaS"
-                                Secondary="一站式.NET现代应用开发解决方案"
-                                PrimaryClass="h6 emphasis--text mb-2"
-                                SecondaryClass="subtitle regular2--text">
+                            Primary="开源企业级云原生技术底座 PaaS"
+                            Secondary="一站式.NET现代应用开发解决方案"
+                            PrimaryClass="h6 emphasis--text mb-2"
+                            SecondaryClass="subtitle regular2--text">
                     </PBlockText>
                 </MCol>
                 <MCol Class="slider-item" Cols="4">
                     <div class="number">02</div>
                     <PBlockText Class="text"
-                                Primary="传统.NET中大型项目升级宝典"
-                                Secondary="非现代应用借助MASA Stack最佳升级路径"
-                                PrimaryClass="h6 emphasis--text mb-2"
-                                SecondaryClass="subtitle regular2--text">
+                            Primary="传统.NET中大型项目升级宝典"
+                            Secondary="非现代应用借助MASA Stack最佳升级路径"
+                            PrimaryClass="h6 emphasis--text mb-2"
+                            SecondaryClass="subtitle regular2--text">
                     </PBlockText>
                 </MCol>
                 <MCol Class="slider-item" Cols="4">
                     <div class="number">03</div>
                     <PBlockText Class="text"
-                                Primary=".NET开发者迈向云原生如何选择？"
-                                Secondary=".NET数字化转型人才成长最优解"
-                                PrimaryClass="h6 emphasis--text mb-2"
-                                SecondaryClass="subtitle regular2--text">
+                            Primary=".NET开发者迈向云原生如何选择？"
+                            Secondary=".NET数字化转型人才成长最优解"
+                            PrimaryClass="h6 emphasis--text mb-2"
+                            SecondaryClass="subtitle regular2--text">
                     </PBlockText>
                 </MCol>
                 <MCol Cols="1"></MCol>
@@ -77,6 +77,7 @@
         <MRow NoGutters="IsMobile" class="home-content__item-cards">
             <MCol Cols="12" Md="4">
                 <ProductCard Title="MASA Stack"
+                             Href="\stack"
                              Image="https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png"
                              Description="开源企业级云原生技术底座 PaaS，包含企业IT现代应用开发交付的全部板块，如流量治理、服务治理、数据治理、可观测性、DevOps等一站式解决方案">
                 </ProductCard>
@@ -106,12 +107,12 @@
             {
                 <MCol Cols="12" Md="4">
                     <ActivityCard Title="@item.Title"
-                                  Subtitle="@item.Subtitle"
-                                  Cover="@item.Cover"
-                                  Date="@item.Date"
-                                  StartTime="@item.StartTime"
-                                  EndTime="@item.EndTime"
-                                  Type="@item.Type">
+                              Subtitle="@item.Subtitle"
+                              Cover="@item.Cover"
+                              Date="@item.Date"
+                              StartTime="@item.StartTime"
+                              EndTime="@item.EndTime"
+                              Type="@item.Type">
                     </ActivityCard>
                 </MCol>
             }

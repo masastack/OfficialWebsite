@@ -24,6 +24,7 @@ public partial class Home : IAsyncDisposable
             DateTime.Now, 1, ActivityType.LookBack),
     };
 
+   
     private static readonly List<MenuableTitleItem> MenuableTitleItems = new()
     {
         new MenuableTitleItem("产品", "Modern App & Service Architecture", "#product-content"),
