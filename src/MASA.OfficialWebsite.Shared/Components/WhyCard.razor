@@ -1,0 +1,41 @@
+﻿<MCard class="why-card" Flat>
+    <div class="d-flex flex-column">
+        <div class="d-flex">
+            <div>
+                <MImage Src="@Image"
+                        Height="48"
+                        Width="48"
+                        Contain />
+            </div>
+            <div class="why-card__title">@Title</div>
+        </div>
+        @if (IsMobile)
+        {
+            <hr style="border: 0.5px solid #E2E7F4; margin-top:32px;" />
+        }
+        <div>
+            @if (WhyContents is not null && WhyContents.Count > 0)
+            {
+                <ul class="why-card__ul" style="list-style-image:url('@Icon');">
+                    @for (int i = 0; i < WhyContents.Count; i++)
+                    {
+                        <li class="why-card__li">@WhyContents[i]</li>
+                    }
+                </ul>
+            }
+        </div>
+    </div>
+</MCard>
+
+@code {
+    [Parameter]
+    public string? Image { get; set; }
+    [Parameter]
+    public string? Icon { get; set; }
+    [Parameter]
+    public string? Title { get; set; }
+    [Parameter]
+    public List<string>? WhyContents { get; set; }
+    [Parameter]
+    public bool IsMobile { get; set; }
+}

@@ -378,3 +378,91 @@ html {
     border-radius: 0 0 16px 16px;
     padding: 16px 0;
 }
+
+/* CommonCard */
+.website-shared .common-card {
+    display: flex;
+    align-items: center;
+    padding: 36px 24px;
+    gap: 24px;
+    background: #FFFFFF;
+    border-radius: 20px
+}
+
+.website-shared .common-card .common-card__image {
+    width: 66px;
+    height: 66px;
+}
+
+    .website-shared .common-card .common-card__title {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 36px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: #1B2559;
+    }
+
+    .website-shared .common-card .common-card__subtitle {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: justify;
+        letter-spacing: 0.5px;
+        color: #323D6F;
+    }
+
+    .website-shared .common-card .common-card__content {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #7681AB;
+        margin-top: 16px;
+    }
+
+    .website-shared .why-card {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 36px 24px;
+        height: 465px;
+        gap: 24px;
+        background :#FFFFFF;
+        border-radius: 20px;
+    }
+
+    .website-shared .why-card .why-card__title {
+        padding-left: 12px;
+        display: flex;
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 34px;
+        line-height: 51px;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 0.02em;
+        color: #1B2559
+    }
+
+    .website-shared .why-card .why-card__ul {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 27px;
+        letter-spacing: 0.01em;
+        color: #7681AB;
+    }
+
+    .website-shared .why-card .why-card__li {
+        margin: 48px 0;
+        vertical-align: middle
+    }
