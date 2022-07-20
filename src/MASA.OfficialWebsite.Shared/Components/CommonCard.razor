@@ -1,15 +1,15 @@
-﻿<MCard Height=@Height Class="@Class"  Flat>
+﻿<MCard Height=@Height Class="@Class" Flat>
     @if (IsImageRight)
     {
-        <div >
+        <div>
             <MImage Src="@Image" Width="66" Height="66"
                 Contain />
         </div>
     }
     <div>
-        <text class="common-card__title">@Title</text>
-        <p class="common-card__subtitle">@SubTitle</p>
-        <p class="common-card__content">@Content</p>
+        <div class="common-card__title">@Title</div>
+        <div class="common-card__subtitle">@SubTitle</div>
+        <div class="common-card__content">@Content</div>
     </div>
     @if (!IsImageRight)
     {
@@ -23,16 +23,22 @@
 @code {
     [Parameter, EditorRequired]
     public string? Content { get; set; }
+
     [Parameter, EditorRequired]
     public string? Title { get; set; }
+
     [Parameter, EditorRequired]
     public string? SubTitle { get; set; }
+
     [Parameter]
     public string? Image { get; set; }
+
     [Parameter]
     public bool IsImageRight { get; set; }
+
     [Parameter]
     public string? Class { get; set; }
+
     [Parameter]
     public int Height { get; set; }
     }

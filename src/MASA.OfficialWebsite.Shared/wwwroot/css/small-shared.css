@@ -321,19 +321,11 @@
 .website-shared .why-card {
     display: flex;
     flex-direction: row;
-    /*align-items: center;*/
-    margin: 16px;
+    /*margin: 16px;*/
     padding: 36px 24px;
     gap: 24px;
     background: #FFFFFF;
     border-radius: 16px;
-}
-
-.website-shared .why-card .why-card__image {
-    width: 48px;
-    height: 48px;
-    border-radius: 8px;
-    background: #F4F1FF;
 }
 
 .website-shared .why-card .why-card__title {
@@ -350,15 +342,15 @@
     color: #1B2559
 }
 
-.website-shared .why-card .why-card__ul {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-    color: #7681AB;
-}
+    .website-shared .why-card .why-card__ul {
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        color: #7681AB;
+    }
 
 .website-shared .why-card .why-card__li {
-    margin: 24px 0;
+    margin-top: 24px;
 }

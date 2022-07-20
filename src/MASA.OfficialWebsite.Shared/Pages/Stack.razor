@@ -24,7 +24,7 @@
     @if (IsMobile)
     {
         <div class="home-banner__slider-wrapper"
-         style="background-image: url('_content/MASA.OfficialWebsite.Shared/images/union.png'); background-size: 100% 100%">
+         style="background-image: url('_content/MASA.OfficialWebsite.Shared/images/mUnion.png'); background-size: 100% 100%">
             <div style="display: contents" @onclick="ScrollToNext">
                 <MIcon Small Color="#E2E7F4">mdi-chevron-double-up</MIcon>
                 <div class="more">查看更多</div>
@@ -34,7 +34,7 @@
     else
     {
         <div class="home-banner__slider-wrapper"
-         style="background-image: url('_content/MASA.OfficialWebsite.Shared/images/Union.png'); background-size: 100% 100%">
+         style="background-image: url('_content/MASA.OfficialWebsite.Shared/images/Union.png'); background-size: 100% 100%; background-color:transparent;">
             <MRow NoGutters Class="slider">
                 <MCol Class="slider-item" Cols="12">
                     <div style="font-family: 'Roboto';font-style: normal;font-weight: 700;font-size: 40px;line-height: 60px;text-align: center;letter-spacing: 0.01em;text-transform: uppercase;">核心能力</div>
@@ -43,12 +43,12 @@
         </div>
     }
 </div>
-<div class="home-content full-page">
+<div class="home-content full-page" id="basic-ability-content">
     <div class="home-content__item-header">
-        <MenuableTitle Disabled="!IsMobile">BASIC ABILITY</MenuableTitle>
+        <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">BASIC ABILITY</MenuableTitle>
         <div class="home-content__item-subtitle">现代应用治理解决方案</div>
     </div>
-    <MRow NoGutters="IsMobile">
+    <MRow NoGutters="IsMobile" class="home-content__item-cards">
         <MCol Cols="12" Md="6">
             <CommonCard Height=172
                         Class="common-card"
@@ -140,12 +140,12 @@
         </MCol>
     </MRow>
 </div>
-<div class="home-content full-page">
+<div class="home-content full-page" id="operator-content">
     <div class="home-content__item-header">
-        <MenuableTitle Disabled="!IsMobile">OPERATOR</MenuableTitle>
+        <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">OPERATOR</MenuableTitle>
         <div class="home-content__item-subtitle">高效运维解决方案</div>
     </div>
-    <MRow NoGutters="IsMobile">
+    <MRow NoGutters="IsMobile" class="home-content__item-cards">
         <MCol Cols="12" Md="6">
             <CommonCard Height=196
                         Class="common-card"
@@ -197,12 +197,12 @@
         </MCol>
     </MRow>
 </div>
-<div class="home-content full-page">
+<div class="home-content full-page" id="data-factory-content">
     <div class="home-content__item-header">
-        <MenuableTitle Disabled="!IsMobile">DATA FACTORY</MenuableTitle>
+        <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">DATA FACTORY</MenuableTitle>
         <div class="home-content__item-subtitle">数据治理解决方案</div>
     </div>
-    <MRow NoGutters="IsMobile">
+    <MRow NoGutters="IsMobile" class="home-content__item-cards">
         <MCol Cols="12" Md="6">
             <CommonCard Height=196
                         Class="common-card"
@@ -243,27 +243,30 @@
         </MCol>
     </MRow>
 </div>
-<div class="home-content full-page">
+<div class="home-content full-page" id="why-masa-statck-content">
     <div class="home-content__item-header">
-        <MenuableTitle Disabled="!IsMobile">WHY MASA STACK</MenuableTitle>
+        <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">WHY MASA STACK</MenuableTitle>
         <div class="home-content__item-subtitle">为什么选择MASA Stack?</div>
     </div>
-    <MRow NoGutters="IsMobile">
+    <MRow NoGutters="IsMobile" class="home-content__item-cards">
         <MCol Cols="12" Md="4">
             <WhyCard Image="_content/MASA.OfficialWebsite.Shared/images/icon1.png"
                      Title=".NET专属PaaS平台"
+                     IsMobile="IsMobile"
                      Icon="_content/MASA.OfficialWebsite.Shared/images/v-icon1.png"
                      WhyContents="WhyContent1"></WhyCard>
         </MCol>
         <MCol Cols="12" Md="4">
             <WhyCard Image="_content/MASA.OfficialWebsite.Shared/images/icon2.png"
                      Title="开源"
+                     IsMobile="IsMobile"
                      Icon="_content/MASA.OfficialWebsite.Shared/images/v-icon2.png"
                      WhyContents="WhyContent2"></WhyCard>
         </MCol>
         <MCol Cols="12" Md="4">
             <WhyCard Image="_content/MASA.OfficialWebsite.Shared/images/icon3.png"
                      Title="社区"
+                     IsMobile="IsMobile"
                      Icon="_content/MASA.OfficialWebsite.Shared/images/v-icon3.png"
                      WhyContents="WhyContent3"></WhyCard>
         </MCol>

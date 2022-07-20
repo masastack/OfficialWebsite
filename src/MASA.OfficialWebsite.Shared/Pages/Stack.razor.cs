@@ -8,12 +8,14 @@ using Microsoft.JSInterop;
 
 namespace MASA.OfficialWebsite.Shared.Pages
 {
-    public partial class Stack : IAsyncDisposable
+    public partial class Stack
     {
         [Inject]
         private IJSRuntime Js { get; set; } = null!;
+
         [CascadingParameter(Name = "IsMobile")]
         private bool IsMobile { get; set; }
+
         private static readonly List<string> WhyContent1 = new()
         {
             ".NET应用交付“保姆级”护航",
@@ -21,6 +23,7 @@ namespace MASA.OfficialWebsite.Shared.Pages
             "支持任意板块可替换",
             "富含软件工程实践、项目管理方法论"
         };
+
         private static readonly List<string> WhyContent2 = new()
         {
             "全职开源团队，代码规范，响应问题效率高",
@@ -28,6 +31,7 @@ namespace MASA.OfficialWebsite.Shared.Pages
             "Apache 2.0协议，可放心用于商用场景",
             ".NET原生设计，魔改无压力"
         };
+
         private static readonly List<string> WhyContent3 = new()
         {
             "众多微软MVP顶力支持",
@@ -35,25 +39,18 @@ namespace MASA.OfficialWebsite.Shared.Pages
             "完备的社区管理",
             "定期社区例会，线上线下Meetup互动"
         };
+
+        private static readonly List<MenuableTitleItem> MenuableTitleItems = new()
+        {
+            new MenuableTitleItem("Basic Ability", "现代应用治理解决方案", "#basic-ability-content"),
+            new MenuableTitleItem("Operator", "高效运维解决方案", "#operator-content"),
+            new MenuableTitleItem("Data Factory", "数据治理解决方案", "#data-factory-content"),
+            new MenuableTitleItem("Why MASA Stack", "为什么选择MASA Stack?", "#why-masa-statck-content"),
+        };
+
         private async Task ScrollToNext()
         {
             await Js.InvokeVoidAsync("MasaOfficialWebsite.scrollToNext");
-        }
-        public async ValueTask DisposeAsync()
-        {
-            try
-            {
-                await RemoveWindowScrollEvent();
-            }
-            catch (Exception e)
-            {
-                // ignored
-            }
-        }
-
-        private ValueTask RemoveWindowScrollEvent()
-        {
-            return Js.InvokeVoidAsync("MasaOfficialWebsite.removeWindowScrollEvent");
         }
     }
 }
