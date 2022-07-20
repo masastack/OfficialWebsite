@@ -285,10 +285,6 @@
     border-radius: 16px
 }
 
-.website-shared .common-card .common-card__image {
-    width: 66px;
-    height: 66px;
-}
 
 .website-shared .common-card .common-card__title {
     font-family: 'Roboto';
@@ -306,7 +302,6 @@
 .website-shared .common-card .common-card__subtitle {
     font-family: 'Roboto';
     font-style: normal;
-    width: 223px;
     font-weight: 700;
     font-size: 14px;
     line-height: 21px;
@@ -317,7 +312,6 @@
 .website-shared .common-card .common-card__content {
     font-family: 'Roboto';
     font-style: normal;
-    width: 223px;
     font-weight: 400;
     font-size: 14px;
     line-height: 21px;
@@ -330,7 +324,6 @@
     /*align-items: center;*/
     margin: 16px;
     padding: 36px 24px;
-    height: 360px;
     gap: 24px;
     background: #FFFFFF;
     border-radius: 16px;

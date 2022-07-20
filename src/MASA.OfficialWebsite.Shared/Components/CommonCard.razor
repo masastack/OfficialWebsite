@@ -1,10 +1,8 @@
-﻿<MCard Height=@Height class="common-card"  Flat>
+﻿<MCard Height=@Height Class="@Class"  Flat>
     @if (IsImageRight)
     {
-        <div class="common-card__image">
-            <MImage Src="@Image"
-                MaxHeight="66"
-                MaxWidth="66"
+        <div >
+            <MImage Src="@Image" Width="66" Height="66"
                 Contain />
         </div>
     }
@@ -15,10 +13,8 @@
     </div>
     @if (!IsImageRight)
     {
-        <div class="common-card__image">
-            <MImage Src="@Image"
-                MaxHeight="66"
-                MaxWidth="66"
+        <div>
+            <MImage Src="@Image" Width="66" Height="66"
                 Contain />
         </div>
     }

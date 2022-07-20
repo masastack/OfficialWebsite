@@ -397,7 +397,6 @@ html {
     .website-shared .common-card .common-card__title {
         font-family: 'Roboto';
         font-style: normal;
-        width: 650px;
         font-weight: 700;
         font-size: 24px;
         line-height: 36px;
@@ -410,7 +409,6 @@ html {
     .website-shared .common-card .common-card__subtitle {
         font-family: 'Roboto';
         font-style: normal;
-        width: 650px;
         font-weight: 700;
         font-size: 16px;
         line-height: 24px;
@@ -422,7 +420,6 @@ html {
     .website-shared .common-card .common-card__content {
         font-family: 'Roboto';
         font-style: normal;
-        width: 650px;
         font-weight: 400;
         font-size: 16px;
         line-height: 24px;
@@ -472,7 +469,6 @@ html {
     }
 
     .website-shared .why-card .why-card__li {
-        width: 329px;
         margin: 48px 0;
         vertical-align: middle
     }
