@@ -21,7 +21,7 @@
 
         @if (IsMobile)
         {
-            <NavMenu Items="@AllNavItems">
+            <NavMenu Items="@AllNavItems" OpenOnHover="false" OpenOnClick>
                 <MButton Icon @attributes="@context.Attrs">
                     <MIcon>mdi-menu</MIcon>
                 </MButton>
@@ -48,7 +48,7 @@
     </CascadingValue>
 </MMain>
 
-<div class="masa-footer">
+<div style="position: relative">
     <img src="_content/MASA.OfficialWebsite.Shared/images/footer.png"
          class="mb-n2"
          style="width: 100vw"

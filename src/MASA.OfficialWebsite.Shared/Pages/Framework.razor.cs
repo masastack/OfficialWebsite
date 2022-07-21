@@ -16,11 +16,6 @@ namespace MASA.OfficialWebsite.Shared.Pages
         [CascadingParameter(Name = "IsMobile")]
         private bool IsMobile { get; set; }
 
-        private async Task ScrollToNext()
-        {
-            await Js.InvokeVoidAsync("MasaOfficialWebsite.scrollToNext");
-        }
-
         private static readonly List<MenuableTitleItem> MenuableTitleItems = new()
         {
             new MenuableTitleItem("BuildingBlocks", "构建块", "#building-blocks-content"),
@@ -52,5 +47,49 @@ namespace MASA.OfficialWebsite.Shared.Pages
             "开放的社区",
             "定期社区例会，线上线下Meetup互动"
         };
+
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            await base.OnAfterRenderAsync(firstRender);
+
+            if (firstRender)
+            {
+                await ResetWindowScrollEvent();
+                StateHasChanged();
+            }
+        }
+
+        private async Task ScrollToNext()
+        {
+            await Js.InvokeVoidAsync("MasaOfficialWebsite.scrollToNext");
+        }
+
+        private async Task ResetWindowScrollEvent()
+        {
+            await RemoveWindowScrollEvent();
+            await AddWindowScrollEvent();
+        }
+
+        private ValueTask AddWindowScrollEvent()
+        {
+            return Js.InvokeVoidAsync("MasaOfficialWebsite.addWindowScrollEvent", true);
+        }
+
+        private ValueTask RemoveWindowScrollEvent()
+        {
+            return Js.InvokeVoidAsync("MasaOfficialWebsite.removeWindowScrollEvent");
+        }
+
+        public async ValueTask DisposeAsync()
+        {
+            try
+            {
+                await RemoveWindowScrollEvent();
+            }
+            catch (Exception e)
+            {
+                // ignored
+            }
+        }
     }
 }
