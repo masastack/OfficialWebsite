@@ -2,3 +2,4 @@
 
 global using MASA.OfficialWebsite.Shared.Shared;
 global using MASA.OfficialWebsite.Shared.Models;
+global using BlazorComponent;
