@@ -321,7 +321,7 @@
 .website-shared .why-card {
     display: flex;
     flex-direction: row;
-    /*margin: 16px;*/
+    /*margin: 16px 0;*/
     padding: 36px 24px;
     gap: 24px;
     background: #FFFFFF;
@@ -353,4 +353,45 @@
 
 .website-shared .why-card .why-card__li {
     margin-top: 24px;
+}
+
+.website-shared .building-block-card {
+    display: flex;
+    align-items: center;
+    padding: 24px 16px;
+    gap: 24px;
+    background: #FFFFFF;
+    border-radius: 8px;
+    height: 107px;
+}
+
+
+.website-shared .building-block-card .building-block-card__title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0.01em;
+    color: #1B2559;
+    text-align: center;
+}
+
+.website-shared .building-block-card .building-block-card__content {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    color: #323D6F;
+    margin-top: 8px;
+    text-align: center;
+}
+
+.website-shared .home-content .building-block__item-cards {
+    margin-top: 24px;
+}
+
+.building-block-card__margin-left {
+    margin-left: 8px;
+}
+
+.building-block-card__margin-bottom{
+    margin-bottom: 8px;
 }

@@ -1,0 +1,17 @@
+﻿<MCard Class="@Class" Flat>
+    <div class="d-flex flex-column" style="width:100%">
+        <div class="building-block-card__title">@Title</div>
+        <div class="building-block-card__content">@Content</div>
+    </div>
+</MCard>
+
+@code {
+    [Parameter, EditorRequired]
+    public string? Content { get; set; }
+
+    [Parameter, EditorRequired]
+    public string? Title { get; set; }
+
+    [Parameter]
+    public string? Class{ get; set; }
+}
