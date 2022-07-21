@@ -28,7 +28,7 @@ window.MasaOfficialWebsite.addWindowScrollEvent = (isMobile) => {
 
   const listenerWrapper = e => {
     clearTimeout(timeout)
-    timeout = setTimeout(() => listener(e), 500);
+    timeout = setTimeout(() => listener(e), 300);
   }
 
   window.addEventListener("scroll", listenerWrapper)

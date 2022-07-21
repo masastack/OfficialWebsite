@@ -33,6 +33,8 @@ public partial class Home : IAsyncDisposable
     private bool _prevIsMobile;
     private bool _haveRendered;
 
+    private StringNumber _carouselValue = 0;
+
     protected override async Task OnParametersSetAsync()
     {
         await base.OnParametersSetAsync();
