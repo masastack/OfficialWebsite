@@ -30,22 +30,24 @@
 @code {
     [Parameter]
     public string? Image { get; set; }
+
     [Parameter]
     public string? Icon { get; set; }
+
     [Parameter]
     public string? Title { get; set; }
+
     [Parameter]
     public List<string>? WhyContents { get; set; }
+
     [Parameter]
     public bool IsMobile { get; set; }
-    public string? Style 
-    { get
+
+    public string? Style
+    {
+        get
         {
-            if (!IsMobile)
-            {
-                return "height: 100%;";
-            }
-            return "";
+            return !IsMobile ? "height: 100%;" : "";
         }
     }
 }
