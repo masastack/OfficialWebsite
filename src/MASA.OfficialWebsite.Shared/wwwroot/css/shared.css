@@ -432,7 +432,7 @@ html {
         flex-direction: row;
         align-items: flex-start;
         padding: 36px 24px;
-        height: 465px;
+        /*height: 100%;*/
         gap: 24px;
         background :#FFFFFF;
         border-radius: 20px;
@@ -463,6 +463,40 @@ html {
     }
 
     .website-shared .why-card .why-card__li {
-        margin: 48px 0;
+        margin-top: 48px;
         vertical-align: middle
+    }
+
+    .website-shared .building-block-card {
+        display: flex;
+        align-items: center;
+        padding: 24px 16px;
+        gap: 24px;
+        background: #FFFFFF;
+        border-radius: 16px;
+        height: 200px;
+    }
+
+
+    .website-shared .building-block-card .building-block-card__title {
+        font-weight: 700;
+        font-size: 34px;
+        line-height: 51px;
+        letter-spacing: 0.02em;
+        color: #1B2559;
+        text-align: center;
+    }
+
+    .website-shared .building-block-card .building-block-card__content {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 30px;
+        letter-spacing: 0.01em;
+        color: #323D6F;
+        margin-top: 8px;
+        text-align: center;
+    }
+
+    .website-shared .home-content .building-block__item-cards {
+        margin-top: 100px;
     }
