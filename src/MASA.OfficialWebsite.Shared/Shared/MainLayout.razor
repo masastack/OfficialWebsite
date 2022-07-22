@@ -3,19 +3,14 @@
 @inject MasaBlazor MasaBlazor
 
 <MApp Class="masa website-shared">
-<div style="position: absolute;width: 100vw;height: 100vh;">
-    <div class="vector-197"></div>
-    <div class="vector-198"></div>
-    <div class="vector-199"></div>
-    <div class="rectangle-723"></div>
-</div>
 
 <MAppBar App
          Height="@(IsMobile ? 48 : 100)"
+         Class="appbar"
          Color="transparent"
          Flat
          Dense>
-    <div class="appbar">
+    <div class="appbar-content">
         <a href="/">
             <img src="https://cdn.masastack.com/stack/images/logo/MASAStack/logo-h-en.png"
                  height="@(IsMobile ? 24 : 36)"
@@ -26,7 +21,7 @@
 
         @if (IsMobile)
         {
-            <NavMenu Items="@AllNavItems">
+            <NavMenu Items="@AllNavItems" OpenOnHover="false" OpenOnClick>
                 <MButton Icon @attributes="@context.Attrs">
                     <MIcon>mdi-menu</MIcon>
                 </MButton>
@@ -42,7 +37,7 @@
                 <MButton Text @attributes="@context.Attrs">学习</MButton>
             </NavMenu>
 
-            <MButton Text Class="nav h8 emphasis2--text" @onclick="NavigateToAboutUs">关于我们</MButton>
+            <MButton Text Class="nav h8 emphasis2--text" Href="">关于我们</MButton>
         }
     </div>
 </MAppBar>
@@ -53,7 +48,7 @@
     </CascadingValue>
 </MMain>
 
-<div>
+<div style="position: relative">
     <img src="_content/MASA.OfficialWebsite.Shared/images/footer.png"
          class="mb-n2"
          style="width: 100vw"

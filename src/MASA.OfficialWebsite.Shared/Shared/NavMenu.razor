@@ -1,7 +1,8 @@
 ﻿<MMenu Left
        OffsetY
        NudgeBottom="4"
-       OpenOnClick
+       OpenOnHover="@OpenOnHover"
+       OpenOnClick="@OpenOnClick"
        ContentClass="menu-content">
     <ActivatorContent>
         @{
@@ -64,6 +65,12 @@
 
     [Parameter, EditorRequired]
     public IList<NavItem> Items { get; set; }
+
+    [Parameter]
+    public bool OpenOnHover { get; set; } = true;
+
+    [Parameter]
+    public bool OpenOnClick { get; set; }
 
     protected override void OnParametersSet()
     {

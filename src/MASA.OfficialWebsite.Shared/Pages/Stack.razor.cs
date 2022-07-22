@@ -48,9 +48,48 @@ namespace MASA.OfficialWebsite.Shared.Pages
             new MenuableTitleItem("Why MASA Stack", "为什么选择MASA Stack?", "#why-masa-statck-content"),
         };
 
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            await base.OnAfterRenderAsync(firstRender);
+
+            if (firstRender)
+            {
+                await ResetWindowScrollEvent();
+                StateHasChanged();
+            }
+        }
+
         private async Task ScrollToNext()
         {
             await Js.InvokeVoidAsync("MasaOfficialWebsite.scrollToNext");
+        }
+
+        private async Task ResetWindowScrollEvent()
+        {
+            await RemoveWindowScrollEvent();
+            await AddWindowScrollEvent();
+        }
+
+        private ValueTask AddWindowScrollEvent()
+        {
+            return Js.InvokeVoidAsync("MasaOfficialWebsite.addWindowScrollEvent", true);
+        }
+
+        private ValueTask RemoveWindowScrollEvent()
+        {
+            return Js.InvokeVoidAsync("MasaOfficialWebsite.removeWindowScrollEvent");
+        }
+
+        public async ValueTask DisposeAsync()
+        {
+            try
+            {
+                await RemoveWindowScrollEvent();
+            }
+            catch (Exception e)
+            {
+                // ignored
+            }
         }
     }
 }
