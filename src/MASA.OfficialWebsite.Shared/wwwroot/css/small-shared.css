@@ -1,4 +1,4 @@
-﻿.website-shared .appbar {
+﻿.website-shared .appbar-content {
     padding: 0;
 }
 
@@ -52,6 +52,10 @@
 }
 
 /* Home */
+
+.website-shared .home-banner {
+    height: calc(100vh - 48px);
+}
 
 .website-shared .home-banner .intro-wrapper {
     height: auto;
@@ -147,11 +151,25 @@
 
 .website-shared .home-content {
     max-width: unset;
-    padding: 8px 16px;
+    padding: 8px 16px 24px 16px;
+}
+
+.website-shared .home-content .home-content__item {
+    padding-top: 48px;
+}
+
+.website-shared .home-content .home-content__item .framework-diagram {
+    margin-left: 0;
 }
 
 .website-shared .home-content .home-content__item.full-page {
     height: auto;
+    padding-top: 24px;
+    margin-top: 48px;
+}
+
+.website-shared .home-content .home-content__item-header {
+    margin: 0 auto;
 }
 
 .website-shared .home-content .home-content__item-title {
@@ -178,8 +196,12 @@
     margin-top: 24px;
 }
 
-.website-shared .home-content .home-content__item-cards .m-card {
+.website-shared .home-content .home-content__item-cards .col-12 {
     margin-bottom: 16px;
+}
+
+.website-shared .home-content .home-content__item-cards .col-12:last-child {
+    margin-bottom: 0;
 }
 
 /* ProductCard */
@@ -279,7 +301,6 @@
     display: flex;
     align-items: center;
     padding: 24px 16px;
-    margin: 16px 0;
     gap: 24px;
     background: #FFFFFF;
     border-radius: 16px
@@ -287,8 +308,6 @@
 
 
 .website-shared .common-card .common-card__title {
-    font-family: 'Roboto';
-    font-style: normal;
     font-weight: 700;
     font-size: 24px;
     line-height: 36px;
@@ -300,8 +319,6 @@
 }
 
 .website-shared .common-card .common-card__subtitle {
-    font-family: 'Roboto';
-    font-style: normal;
     font-weight: 700;
     font-size: 14px;
     line-height: 21px;
@@ -310,8 +327,6 @@
 }
 
 .website-shared .common-card .common-card__content {
-    font-family: 'Roboto';
-    font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 21px;
@@ -331,8 +346,6 @@
 .website-shared .why-card .why-card__title {
     padding-left: 12px;
     display: flex;
-    font-family: 'Roboto';
-    font-style: normal;
     font-weight: 700;
     font-size: 24px;
     line-height: 36px;
@@ -343,8 +356,6 @@
 }
 
     .website-shared .why-card .why-card__ul {
-        font-family: 'Roboto';
-        font-style: normal;
         font-weight: 500;
         font-size: 16px;
         line-height: 24px;
