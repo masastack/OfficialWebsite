@@ -1,0 +1,115 @@
+﻿@page "/blazor"
+
+<div class="home-banner">
+    <MRow NoGutters>
+        <MCol Cols="12" Lg="5" Class="intro-wrapper">
+            <div class="intro">
+                <div class="intro-title">企业级多端组件库</div>
+                <div class="intro-subtitle">基于Material，MAUI的最佳拍档</div>
+                <div class="intro-actions">
+                    <MButton Text Ripple="false">开始使用</MButton>
+                    <MButton Text Ripple="false" Class="text-capitalize">
+                        <MIcon Class="mr-2">mdi-github</MIcon>
+                        Github
+                    </MButton>
+                </div>
+            </div>
+        </MCol>
+        <MCol Cols="12" Lg="7" Class="cover-wrapper">
+            <MImage Src="_content/MASA.OfficialWebsite.Shared/images/blazor_banner.png"
+                    Width="@("100%")" Height="@("100%")" />
+        </MCol>
+    </MRow>
+
+    @if (IsMobile)
+    {
+        <div class="home-banner__slider-wrapper"
+         style="background-image: url('_content/MASA.OfficialWebsite.Shared/images/mUnion.png'); background-size: 100% 100%">
+            <div style="display: contents" @onclick="ScrollToNext">
+                <MIcon Small Color="#E2E7F4">mdi-chevron-double-up</MIcon>
+                <div class="more">WHY MASA BLAZOR</div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="home-banner__slider-wrapper"
+         style="background-image: url('_content/MASA.OfficialWebsite.Shared/images/Union.png'); background-size: 100% 100%; background-color:transparent;">
+            <MRow NoGutters Class="slider">
+                <MCol Class="slider-item" Cols="12">
+                    <div style="font-family: 'Roboto';font-style: normal;font-weight: 700;font-size: 40px;line-height: 60px;text-align: center;letter-spacing: 0.01em;text-transform: uppercase;">WHY MASA BLAZOR</div>
+                </MCol>
+            </MRow>
+        </div>
+    }
+</div>
+
+<div class="home-content full-page">
+    <div class="home-content__item-header">
+        <MenuableTitle Disabled="true">WHY MASA BLAZOR</MenuableTitle>
+        <div class="home-content__item-subtitle">为什么选择MASA Blazor？</div>
+    </div>
+    <MRow NoGutters="IsMobile" class="building-block__item-cards">
+        <MCol Cols="12" Md="4">
+            <BlazorCard Image="_content/MASA.OfficialWebsite.Shared/images/icon5.png"
+                        IsMobile="IsMobile"
+                        Title="组件丰富"
+                        Description="Vuetify基础组件1:1还原，还有更多实用的预置组件"></BlazorCard>
+        </MCol>
+        <MCol Cols="12" Md="4">
+            <BlazorCard Image="_content/MASA.OfficialWebsite.Shared/images/icon6.png"
+                        IsMobile="IsMobile"
+                        IsImageRight="true"
+                        Title="简易上手"
+                        Description="全面丰富的文档，配套免费的视频教程"></BlazorCard>
+        </MCol>
+        <MCol Cols="12" Md="4">
+            <BlazorCard Image="_content/MASA.OfficialWebsite.Shared/images/icon7.png"
+                        IsMobile="IsMobile"
+                        Title="全职开源"
+                        Description="全职团队维护，长期提供支持"></BlazorCard>
+        </MCol>
+    </MRow>
+    <MRow NoGutters="IsMobile">
+        <MCol Cols="12" Md="4">
+            <BlazorCard Image="_content/MASA.OfficialWebsite.Shared/images/icon8.png"
+                        IsMobile="IsMobile"
+                        IsImageRight="true"
+                        Title="现代UI设计"
+                        Description="设计风格现代，UI体验优秀"></BlazorCard>
+        </MCol>
+        <MCol Cols="12" Md="4">
+            <BlazorCard Image="_content/MASA.OfficialWebsite.Shared/images/icon9.png"
+                        IsMobile="IsMobile"
+                        Title=".NET 全栈"
+                        Description="搭配MASA Framework实现开箱即用的.NET全栈开发"></BlazorCard>
+        </MCol>
+        <MCol Cols="12" Md="4">
+            <BlazorCard Image="_content/MASA.OfficialWebsite.Shared/images/icon10.png"
+                        IsMobile="IsMobile"
+                        IsImageRight="true"
+                        Title="社区活跃"
+                        Description="用户实时互动，加入我们构建最开放的开源社区"></BlazorCard>
+        </MCol>
+    </MRow>
+</div>
+
+<div class="home-content full-page">
+    <div class="home-content__item-header">
+        <MenuableTitle Disabled="true">用户信赖</MenuableTitle>
+    </div>
+    <MRow NoGutters="IsMobile" class="building-block__item-cards">
+        <MCol Cols="6" Md="3">
+            <MImage Src="_content/MASA.OfficialWebsite.Shared/images/companylogo02.png" MaxHeight="80" MaxWidth="381" Class=" blazor-card__margin-bottom"/>
+        </MCol>
+        <MCol Cols="6" Md="3">
+            <MImage Src="_content/MASA.OfficialWebsite.Shared/images/companylogo01.png" MaxHeight="80" MaxWidth="381" Class=" blazor-card__margin-bottom"/>
+        </MCol>
+        <MCol Cols="6" Md="3">
+            <MImage Src="_content/MASA.OfficialWebsite.Shared/images/companylogo03.png" MaxHeight="80" MaxWidth="381" Class=" blazor-card__margin-bottom"/>
+        </MCol>
+        <MCol Cols="6" Md="3">
+            <MImage Src="_content/MASA.OfficialWebsite.Shared/images/companylogo04.png" MaxHeight="80" MaxWidth="381" Class=" blazor-card__margin-bottom"/>
+        </MCol>
+    </MRow>
+</div>
