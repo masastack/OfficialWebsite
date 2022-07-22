@@ -1,7 +1,7 @@
 include:
   - project: 'louzhijian/gitlab-ci-test'
     ref: sonarqube
-    file: 'sonar-scanner.yml'
+    file: 'devops/sonar-scanner.yml'
 
 stages:
   - sonarqube
