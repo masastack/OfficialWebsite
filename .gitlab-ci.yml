@@ -1,4 +1,10 @@
+include:
+  - project: 'MASA-IOT/MASA.IoT'
+    ref: main
+    file: 'devops/build.yml'
+
 stages:
+  - sonarqube
   - docker-dev
   - deploy-dev
   - deploy-test
