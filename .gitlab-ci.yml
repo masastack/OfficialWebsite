@@ -1,6 +1,6 @@
 include:
-  - project: 'louzhijian/gitlab-ci-test'
-    ref: sonarqube
+  - project: 'louzhijian/devops'
+    ref: master
     file: 'devops/sonar-scanner.yml'
 
 stages:
