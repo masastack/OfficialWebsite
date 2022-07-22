@@ -1,6 +1,6 @@
 include:
   - project: 'louzhijian/gitlab-ci-test'
-    ref: main
+    ref: sonarqube
     file: 'sonar-scanner.yml'
 
 stages:
