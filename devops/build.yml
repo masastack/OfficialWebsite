@@ -1,7 +1,7 @@
 sonarqube-check:
   tags:
     - sonar-scanner-windows
-  stage: sonar-test
+  stage: sonarqube
   variables:
     SONAR_SOURCEENCODING: "UTF-8" 
     SONAR_PROJECTNAME: "masa.officialwebsite"
