@@ -26,17 +26,16 @@ namespace MASA.OfficialWebsite.Shared.Pages
 
         private static readonly List<string> WhyContent2 = new()
         {
-            "全职开源团队，代码规范，响应问题效率高",
-            "文档齐全，文字视频相辅相成，学习路径明确，国际化程度高",
-            "Apache 2.0协议，可放心用于商用场景",
-            ".NET原生设计，魔改无压力"
+            "全职开源团队，快速响应",
+            "MIT协议，可放心商用",
+            "微软代码规范，欢迎共同维护"
         };
 
         private static readonly List<string> WhyContent3 = new()
         {
-            "众多微软MVP顶力支持",
-            "引领微软技术生态",
-            "完备的社区管理",
+            "多位.NET领域大咖推荐",
+            "共同引领微软技术生态",
+            "开放的社区",
             "定期社区例会，线上线下Meetup互动"
         };
 
