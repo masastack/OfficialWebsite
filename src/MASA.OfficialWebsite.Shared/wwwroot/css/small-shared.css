@@ -365,7 +365,6 @@
     height: 107px;
 }
 
-
 .website-shared .building-block-card .building-block-card__title {
     font-weight: 700;
     font-size: 20px;
@@ -394,4 +393,43 @@
 
 .building-block-card__margin-bottom{
     margin-bottom: 8px;
+}
+
+.website-shared .blazor-card {
+    display: flex;
+    flex-direction: row;
+    padding: 24px 16px;
+    background: #FFFFFF;
+    border-radius: 16px;
+    height: 128px;
+}
+
+.website-shared .blazor-card .blazor-card__image {
+    margin: 0 16px;
+}
+
+.website-shared .blazor-card .blazor-card__title {
+    margin-top: 0px;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0.01em;
+    color: #1B2559;
+}
+
+.website-shared .blazor-card .blazor-card__description {
+    margin-top: 8px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: justify;
+    letter-spacing: 0.25px;
+    color: #7681AB;
+}
+
+.blazor-card__margin-bottom {
+    margin-bottom: 24px;
 }

@@ -382,11 +382,15 @@ html {
 /* CommonCard */
 .website-shared .common-card {
     display: flex;
-    align-items: center;
     padding: 36px 24px;
     gap: 24px;
     background: #FFFFFF;
     border-radius: 20px
+}
+
+ .common-card:hover {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
 }
 
 .website-shared .common-card .common-card__image {
@@ -475,7 +479,11 @@ html {
         border-radius: 16px;
         height: 200px;
     }
-
+        
+    .building-block-card:hover {
+        -webkit-transform: scale(1.08);
+        transform: scale(1.08);
+    }
 
     .website-shared .building-block-card .building-block-card__title {
         font-weight: 700;
@@ -499,3 +507,36 @@ html {
     .website-shared .home-content .building-block__item-cards {
         margin-top: 100px;
     }
+
+    .website-shared .blazor-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 80px 24px 127px 24px;
+        background: #FFFFFF;
+        border-radius: 20px;
+        height: 470px;
+    }
+
+        .website-shared .blazor-card .blazor-card__image{
+        }
+
+        .website-shared .blazor-card .blazor-card__title {
+            margin-top: 24px;
+            font-weight: 700;
+            font-size: 34px;
+            line-height: 51px;
+            text-align: center;
+            letter-spacing: 0.02em;
+            color: #323D6F;
+        }
+
+        .website-shared .blazor-card .blazor-card__description {
+            margin-top:20px;
+            font-weight: 400;
+            font-size: 24px;
+            line-height: 36px;
+            text-align: center;
+            letter-spacing: 0.06em;
+            color: #7681AB;
+        }
