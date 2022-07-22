@@ -1,7 +1,7 @@
 include:
-  - project: 'MASA-IOT/MASA.IoT'
+  - project: 'louzhijian/gitlab-ci-test'
     ref: main
-    file: 'devops/build.yml'
+    file: 'sonar-scanner.yml'
 
 stages:
   - sonarqube
