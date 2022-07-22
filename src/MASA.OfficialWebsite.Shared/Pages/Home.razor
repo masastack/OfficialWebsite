@@ -54,7 +54,7 @@
              style="background-image: url('_content/MASA.OfficialWebsite.Shared/images/union.png'); background-size: 100% 100%">
             <div style="display: contents" @onclick="ScrollToNext">
                 <MIcon Small Color="#E2E7F4">mdi-chevron-double-up</MIcon>
-                <div class="more">查看更多</div>
+                <div class="more">更多产品</div>
             </div>
         </div>
     }
@@ -79,7 +79,7 @@
                             <div class="number @context.ActiveClass">02</div>
                             <PBlockText Class="text"
                                         Primary="传统.NET中大型项目升级宝典"
-                                        Secondary="非现代应用借助MASA Stack最佳升级路径"
+                                        Secondary="使用MASA Stack对现有.NET程序进行现代化改造"
                                         PrimaryClass="@($"h6 {(context.Active ? "emphasis--text" : "regular--text")} mb-2")"
                                         SecondaryClass="@($"subtitle {(context.Active ? "regular2--text" : "regular3--text")} ")">
                             </PBlockText>
@@ -125,8 +125,9 @@
             </MCol>
             <MCol Cols="12" Md="4">
                 <ProductCard Title="MASA Blazor"
+                             Href="/blazor"
                              Image="_content/MASA.OfficialWebsite.Shared/images/blazor_logo.png"
-                             Description="开源企业级云原生技术底座 PaaS，包含企业IT现代应用开发交付的全部板块，如流量治理、服务治理、数据治理、可观测性、DevOps等一站式解决方案">
+                             Description="基于Material设计规范的Blazor组件库，打造企业级.NET全栈解决方案，具有模块化、响应式和优秀的性能，并实现MAUI多端适配">
                 </ProductCard>
             </MCol>
         </MRow>

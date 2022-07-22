@@ -13,7 +13,7 @@
             @Description
         </div>
     </div>
-    @if(IsMobile && IsImageRight)
+    @if (IsMobile && IsImageRight)
     {
         <div class="blazor-card__image">
             <MImage Src="@Image" Height="@ImageHeight" Width="@ImageHeight"
@@ -32,8 +32,13 @@
     [Parameter, EditorRequired]
     public string? Description { get; set; }
 
-    [Parameter]
-    public string? Class { get; set; }
+    public string? Class
+    {
+        get
+        {
+            return IsMobile && IsImageRight ? "d-flex justify-space-between blazor-card blazor-card__margin-bottom" : "blazor-card blazor-card__margin-bottom";
+        }
+    }
 
     public int ImageHeight
     {
