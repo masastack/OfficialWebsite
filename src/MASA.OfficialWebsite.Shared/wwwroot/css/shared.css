@@ -446,11 +446,6 @@ html {
     border-radius: 20px
 }
 
- .common-card:hover {
-    -webkit-transform: scale(1.05);
-    transform: scale(1.05);
-}
-
 .website-shared .common-card .common-card__image {
     width: 66px;
     height: 66px;
@@ -538,11 +533,6 @@ html {
         height: 200px;
     }
         
-    .building-block-card:hover {
-        -webkit-transform: scale(1.08);
-        transform: scale(1.08);
-    }
-
 .website-shared .building-block-card .building-block-card__title {
     font-weight: 700;
     font-size: 34px;
