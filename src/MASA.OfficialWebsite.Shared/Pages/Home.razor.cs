@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
-
-namespace MASA.OfficialWebsite.Shared.Pages;
+﻿namespace MASA.OfficialWebsite.Shared.Pages;
 
 public partial class Home : IAsyncDisposable
 {
