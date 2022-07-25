@@ -2,7 +2,7 @@
 
 const eventListenerCaches = {}
 
-window.MasaOfficialWebsite.addWindowScrollEvent = (isMobile) => {
+window.MasaOfficialWebsite.addWindowScrollEvent = () => {
   let throttled
   let direction
 
