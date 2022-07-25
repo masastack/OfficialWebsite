@@ -3,32 +3,50 @@
 const eventListenerCaches = {}
 
 window.MasaOfficialWebsite.addWindowScrollEvent = (isMobile) => {
-  let timeout
+  let throttled
+  let direction
 
   const listener = (e) => {
     const innerHeight = window.innerHeight || document.body.clientHeight
     const offsetY = document.body.scrollTop || document.documentElement.scrollTop;
-
     let targetTop = 0;
 
-    if (offsetY < innerHeight / 2) {
-      targetTop = 0
-    } else if (offsetY >= innerHeight / 2 && offsetY < innerHeight * (isMobile ? 1 : 1.5)) {
-      targetTop = innerHeight
-    } else if (isMobile) {
-      return;
-    } else if (offsetY >= innerHeight * 1.5 && offsetY < innerHeight * 2) {
-      targetTop = innerHeight * 2
-    } else {
-      return
+    const number = Math.ceil(offsetY / innerHeight)
+    
+    if (direction === 'next') {
+      targetTop = innerHeight * number
+    } else if (direction === 'previous') {
+      targetTop = innerHeight * (number - 1)
     }
+
+    direction = null
 
     animationScrollTo(targetTop)
   };
 
+  let preOffsetY
+
   const listenerWrapper = e => {
-    clearTimeout(timeout)
-    timeout = setTimeout(() => listener(e), 300);
+
+    const offsetY = document.body.scrollTop || document.documentElement.scrollTop;
+    
+    if (!preOffsetY) {
+      preOffsetY = offsetY
+      return
+    }
+
+    if (preOffsetY !== offsetY) {
+      direction = offsetY > preOffsetY ? 'next' : 'previous'
+      preOffsetY = offsetY
+    }
+
+    if (!!direction && !throttled) {
+      listener(e)
+      throttled = true;
+      setTimeout(() => {
+        throttled = false
+      }, 600)
+    }
   }
 
   window.addEventListener("scroll", listenerWrapper)
