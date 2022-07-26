@@ -1,12 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MASA.OfficialWebsite.Shared.Pages
+﻿namespace MASA.OfficialWebsite.Shared.Pages
 {
     public partial class Framework
     {
@@ -48,48 +40,9 @@ namespace MASA.OfficialWebsite.Shared.Pages
             "定期社区例会，线上线下Meetup互动"
         };
 
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            await base.OnAfterRenderAsync(firstRender);
-
-            if (firstRender)
-            {
-                await ResetWindowScrollEvent();
-                StateHasChanged();
-            }
-        }
-
         private async Task ScrollToNext()
         {
             await Js.InvokeVoidAsync("MasaOfficialWebsite.scrollToNext");
-        }
-
-        private async Task ResetWindowScrollEvent()
-        {
-            await RemoveWindowScrollEvent();
-            await AddWindowScrollEvent();
-        }
-
-        private ValueTask AddWindowScrollEvent()
-        {
-            return Js.InvokeVoidAsync("MasaOfficialWebsite.addWindowScrollEvent", true);
-        }
-
-        private ValueTask RemoveWindowScrollEvent()
-        {
-            return Js.InvokeVoidAsync("MasaOfficialWebsite.removeWindowScrollEvent");
-        }
-
-        public async ValueTask DisposeAsync()
-        {
-            try
-            {
-                await RemoveWindowScrollEvent();
-            }
-            catch (Exception e)
-            {
-                // ignored
-            }
         }
     }
 }

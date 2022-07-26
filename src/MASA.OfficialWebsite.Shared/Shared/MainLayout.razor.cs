@@ -1,6 +1,6 @@
 ﻿namespace MASA.OfficialWebsite.Shared.Shared;
 
-public partial class MainLayout
+public partial class MainLayout : IDisposable
 {
     private static readonly List<NavMenu.NavItem> ProductNavItems = new()
     {
@@ -25,7 +25,30 @@ public partial class MainLayout
 
     private static List<NavMenu.NavItem> AllNavItems => ProductNavItems.Concat(StudyNavItems).ToList();
 
-    private bool IsMobile => MasaBlazor.Breakpoint.Mobile;
+    private bool IsMobile { get; set; }
 
     private int IconSize => IsMobile ? 40 : 60;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        IsMobile = MasaBlazor.Breakpoint.Mobile;
+
+        MasaBlazor.Breakpoint.OnUpdate += BreakpointOnOnUpdate;
+    }
+
+    private Task BreakpointOnOnUpdate()
+    {
+        return InvokeAsync(() =>
+        {
+            IsMobile = MasaBlazor.Breakpoint.Mobile;
+            StateHasChanged();
+        });
+    }
+
+    public void Dispose()
+    {
+        MasaBlazor.Breakpoint.OnUpdate -= BreakpointOnOnUpdate;
+    }
 }

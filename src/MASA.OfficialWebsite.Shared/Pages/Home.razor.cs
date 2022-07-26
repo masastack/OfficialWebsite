@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
-
-namespace MASA.OfficialWebsite.Shared.Pages;
+﻿namespace MASA.OfficialWebsite.Shared.Pages;
 
 public partial class Home : IAsyncDisposable
 {
@@ -31,19 +28,22 @@ public partial class Home : IAsyncDisposable
     };
 
     private bool _prevIsMobile;
-    private bool _haveRendered;
-
     private StringNumber _carouselValue = 0;
 
     protected override async Task OnParametersSetAsync()
     {
         await base.OnParametersSetAsync();
 
-        if (_haveRendered && _prevIsMobile != IsMobile)
+        if (_prevIsMobile != IsMobile)
         {
             _prevIsMobile = IsMobile;
 
-            await ResetWindowScrollEvent();
+            await RemoveWindowScrollEvent();
+
+            if (!IsMobile)
+            {
+                await AddWindowScrollEvent();
+            }
         }
     }
 
@@ -53,9 +53,11 @@ public partial class Home : IAsyncDisposable
 
         if (firstRender)
         {
-            await AddWindowScrollEvent();
-            _haveRendered = true;
-            StateHasChanged();
+            if (!IsMobile)
+            {
+                await AddWindowScrollEvent();
+                StateHasChanged();
+            }
         }
     }
 
@@ -64,15 +66,9 @@ public partial class Home : IAsyncDisposable
         await Js.InvokeVoidAsync("MasaOfficialWebsite.scrollToNext");
     }
 
-    private async Task ResetWindowScrollEvent()
-    {
-        await RemoveWindowScrollEvent();
-        await AddWindowScrollEvent();
-    }
-
     private ValueTask AddWindowScrollEvent()
     {
-        return Js.InvokeVoidAsync("MasaOfficialWebsite.addWindowScrollEvent", IsMobile);
+        return Js.InvokeVoidAsync("MasaOfficialWebsite.addWindowScrollEvent");
     }
 
     private ValueTask RemoveWindowScrollEvent()
