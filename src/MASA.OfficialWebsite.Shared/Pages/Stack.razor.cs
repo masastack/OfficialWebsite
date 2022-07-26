@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
-
-namespace MASA.OfficialWebsite.Shared.Pages
+﻿namespace MASA.OfficialWebsite.Shared.Pages
 {
     public partial class Stack
     {
@@ -44,51 +36,12 @@ namespace MASA.OfficialWebsite.Shared.Pages
             new MenuableTitleItem("Basic Ability", "现代应用治理解决方案", "#basic-ability-content"),
             new MenuableTitleItem("Operator", "高效运维解决方案", "#operator-content"),
             new MenuableTitleItem("Data Factory", "数据治理解决方案", "#data-factory-content"),
-            new MenuableTitleItem("Why MASA Stack", "为什么选择MASA Stack?", "#why-masa-statck-content"),
+            new MenuableTitleItem("Why MASA Stack", "为什么选择MASA Stack?", "#why-masa-stack-content"),
         };
-
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            await base.OnAfterRenderAsync(firstRender);
-
-            if (firstRender)
-            {
-                await ResetWindowScrollEvent();
-                StateHasChanged();
-            }
-        }
 
         private async Task ScrollToNext()
         {
             await Js.InvokeVoidAsync("MasaOfficialWebsite.scrollToNext");
-        }
-
-        private async Task ResetWindowScrollEvent()
-        {
-            await RemoveWindowScrollEvent();
-            await AddWindowScrollEvent();
-        }
-
-        private ValueTask AddWindowScrollEvent()
-        {
-            return Js.InvokeVoidAsync("MasaOfficialWebsite.addWindowScrollEvent", true);
-        }
-
-        private ValueTask RemoveWindowScrollEvent()
-        {
-            return Js.InvokeVoidAsync("MasaOfficialWebsite.removeWindowScrollEvent");
-        }
-
-        public async ValueTask DisposeAsync()
-        {
-            try
-            {
-                await RemoveWindowScrollEvent();
-            }
-            catch (Exception e)
-            {
-                // ignored
-            }
         }
     }
 }
