@@ -25,7 +25,7 @@
     @if (IsMobile)
     {
         <div class="home-banner__slider-wrapper"
-             style="background-image: url('_content/MASA.OfficialWebsite.Shared/images/mUnion.png'); background-size: 100% 100%">
+         style="background-image: url('_content/MASA.OfficialWebsite.Shared/images/mUnion.png'); background-size: 100% 100%">
             <div style="display: contents" @onclick="ScrollToNext">
                 <MIcon Small Color="#E2E7F4">mdi-chevron-double-up</MIcon>
                 <div class="more">构建块</div>
@@ -35,7 +35,7 @@
     else
     {
         <div class="home-banner__slider-wrapper desktop"
-             style="background-image: url('_content/MASA.OfficialWebsite.Shared/images/Union.png'); background-size: 100% 100%; background-color:transparent;">
+         style="background-image: url('_content/MASA.OfficialWebsite.Shared/images/Union.png'); background-size: 100% 100%; background-color:transparent;">
             <div class="core">BUILDING BLOCKS</div>
         </div>
     }
@@ -47,16 +47,16 @@
         @if (IsMobile)
         {
             <MImage Class="framework-diagram"
-                    Src="_content/MASA.OfficialWebsite.Shared/images/masaframework2.png"
-                    Contain>
+                Src="_content/MASA.OfficialWebsite.Shared/images/masaframework2.png"
+                Contain>
             </MImage>
         }
         else
         {
             <MImage Class="framework-diagram"
-                    Src="_content/MASA.OfficialWebsite.Shared/images/masaframework1.png"
-                    Height="663"
-                    Contain>
+                Src="_content/MASA.OfficialWebsite.Shared/images/masaframework1.png"
+                Height="663"
+                Contain>
             </MImage>
         }
     </div>
@@ -68,52 +68,52 @@
         </div>
         <MRow NoGutters="IsMobile" class="building-block__item-cards">
             <MCol Cols="6" Md="3">
-                <BuildingBlockCard Title="Authentication" Content="认证" Class="building-block-card building-block-card__margin-bottom"></BuildingBlockCard>
+                <BuildingBlockCard Title="StackSdks" Content="MASA Stack SDK" Class="building-block-card building-block-card__margin-bottom"></BuildingBlockCard>
             </MCol>
             <MCol Cols="6" Md="3">
-                <BuildingBlockCard Title="Identity" Content="身份" Class="building-block-card building-block-card__margin-left building-block-card__margin-bottom"></BuildingBlockCard>
+                <BuildingBlockCard Title="Authentication" Content="认证" Class="building-block-card building-block-card__margin-left building-block-card__margin-bottom"></BuildingBlockCard>
             </MCol>
             <MCol Cols="6" Md="3">
-                <BuildingBlockCard Title="Configuration" Content="配置" Class="building-block-card building-block-card__margin-bottom"></BuildingBlockCard>
+                <BuildingBlockCard Title="Identity" Content="身份" Class="building-block-card building-block-card__margin-bottom"></BuildingBlockCard>
             </MCol>
             <MCol Cols="6" Md="3">
-                <BuildingBlockCard Title="Data" Content="数据" Class="building-block-card building-block-card__margin-left building-block-card__margin-bottom"></BuildingBlockCard>
-            </MCol>
-        </MRow>
-        <MRow NoGutters="IsMobile">
-            <MCol Cols="6" Md="3">
-                <BuildingBlockCard Title="DDD" Content="领域驱动设计" Class="building-block-card building-block-card__margin-bottom"></BuildingBlockCard>
-            </MCol>
-            <MCol Cols="6" Md="3">
-                <BuildingBlockCard Title="Dispatcher" Content="调度器" Class="building-block-card building-block-card__margin-left building-block-card__margin-bottom"></BuildingBlockCard>
-            </MCol>
-            <MCol Cols="6" Md="3">
-                <BuildingBlockCard Title="Bindings" Content="绑定" Class="building-block-card building-block-card__margin-bottom"></BuildingBlockCard>
-            </MCol>
-            <MCol Cols="6" Md="3">
-                <BuildingBlockCard Title="Isolation" Content="隔离性" Class="building-block-card building-block-card__margin-left building-block-card__margin-bottom"></BuildingBlockCard>
+                <BuildingBlockCard Title="Configuration" Content="配置" Class="building-block-card building-block-card__margin-left building-block-card__margin-bottom"></BuildingBlockCard>
             </MCol>
         </MRow>
         <MRow NoGutters="IsMobile">
             <MCol Cols="6" Md="3">
-                <BuildingBlockCard Title="Observability" Content="可观测性" Class="building-block-card building-block-card__margin-bottom"></BuildingBlockCard>
+                <BuildingBlockCard Title="Data" Content="数据" Class="building-block-card building-block-card__margin-bottom"></BuildingBlockCard>
             </MCol>
             <MCol Cols="6" Md="3">
-                <BuildingBlockCard Title="SearchEngine" Content="搜索引擎" Class="building-block-card building-block-card__margin-left building-block-card__margin-bottom"></BuildingBlockCard>
+                <BuildingBlockCard Title="DDD" Content="领域驱动设计" Class="building-block-card building-block-card__margin-left building-block-card__margin-bottom"></BuildingBlockCard>
             </MCol>
             <MCol Cols="6" Md="3">
-                <BuildingBlockCard Title="Services" Content="服务" Class="building-block-card building-block-card__margin-bottom"></BuildingBlockCard>
+                <BuildingBlockCard Title="Dispatcher" Content="调度器" Class="building-block-card building-block-card__margin-bottom"></BuildingBlockCard>
             </MCol>
             <MCol Cols="6" Md="3">
-                <BuildingBlockCard Title="R/W Spliting" Content="读写分离" Class="building-block-card building-block-card__margin-left building-block-card__margin-bottom"></BuildingBlockCard>
+                <BuildingBlockCard Title="Bindings" Content="绑定" Class="building-block-card building-block-card__margin-left building-block-card__margin-bottom"></BuildingBlockCard>
             </MCol>
         </MRow>
         <MRow NoGutters="IsMobile">
             <MCol Cols="6" Md="3">
-                <BuildingBlockCard Title="StackSdks" Content="业务工具包" Class="building-block-card building-block-card__margin-bottom"></BuildingBlockCard>
+                <BuildingBlockCard Title="Isolation" Content="隔离性" Class="building-block-card building-block-card__margin-bottom"></BuildingBlockCard>
             </MCol>
             <MCol Cols="6" Md="3">
-                <BuildingBlockCard Title="Caching" Content="缓存" Class="building-block-card building-block-card__margin-left building-block-card__margin-bottom"></BuildingBlockCard>
+                <BuildingBlockCard Title="Observability" Content="可观测性" Class="building-block-card building-block-card__margin-left building-block-card__margin-bottom"></BuildingBlockCard>
+            </MCol>
+            <MCol Cols="6" Md="3">
+                <BuildingBlockCard Title="SearchEngine" Content="搜索引擎" Class="building-block-card building-block-card__margin-bottom"></BuildingBlockCard>
+            </MCol>
+            <MCol Cols="6" Md="3">
+                <BuildingBlockCard Title="Services" Content="服务" Class="building-block-card building-block-card__margin-left building-block-card__margin-bottom"></BuildingBlockCard>
+            </MCol>
+        </MRow>
+        <MRow NoGutters="IsMobile">
+            <MCol Cols="6" Md="3">
+                <BuildingBlockCard Title="R/W Spliting" Content="读写分离" Class="building-block-card building-block-card__margin-bottom"></BuildingBlockCard>
+            </MCol>
+            <MCol Cols="6" Md="3">
+                <BuildingBlockCard Title="Caching" Content="缓存" Class="building-block-card building-block-card__margin-left building-block-card__margin-left building-block-card__margin-bottom"></BuildingBlockCard>
             </MCol>
             <MCol Cols="6" Md="3">
                 <BuildingBlockCard Title="Storage" Content="储存" Class="building-block-card building-block-card__margin-bottom"></BuildingBlockCard>
