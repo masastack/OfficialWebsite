@@ -453,3 +453,33 @@
         color: #485585;
         margin:0 0 16px;
     }
+
+.activity-header__title {
+    font-size: 34px;
+    line-height: 51px;
+    font-weight: 700;
+    color: #323D6F;
+}
+
+.activity-header__subtitle {
+   
+}
+
+.activity-header__description {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    color: #485585;
+}
+
+.activity-content {
+    margin-bottom: 16px;
+}
+
+.activity-content__select {
+    margin-left: 24px;
+}
+
+.activity-content__card {
+    margin-bottom: 16px;
+}

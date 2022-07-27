@@ -20,10 +20,16 @@ public partial class MainLayout : IDisposable
         new NavMenu.NavItem("学习MASA Stack", "https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png"),
         new NavMenu.NavItem("文档", "https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png"),
         new NavMenu.NavItem("博客", "https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png"),
-        new NavMenu.NavItem("社区活动", "https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png"),
+        new NavMenu.NavItem("社区活动", "", "https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png", "/activity"),
     };
 
-    private static List<NavMenu.NavItem> AllNavItems => ProductNavItems.Concat(StudyNavItems).ToList();
+    private static readonly List<NavMenu.NavItem> AboutUsItems = new()
+    {
+        new NavMenu.NavItem("关于我们"),
+        new NavMenu.NavItem("关于我们","", "https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png", "/aboutus")
+    };
+
+    private static List<NavMenu.NavItem> AllNavItems => ProductNavItems.Concat(StudyNavItems).Concat(AboutUsItems).ToList();
 
     private bool IsMobile { get; set; }
 
