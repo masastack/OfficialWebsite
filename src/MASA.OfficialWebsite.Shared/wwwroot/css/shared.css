@@ -144,14 +144,14 @@ html {
 
         .website-shared .home-banner .intro-wrapper {
             display: flex;
-            justify-content: right;
+            justify-content: center;
             height: calc(100vh - 206px);
         }
 
         .website-shared .home-banner .intro {
             max-width: 500px;
             margin-top: 12vh;
-            float: right;
+            float: left;
         }
 
         .website-shared .home-banner .intro-title {
@@ -348,6 +348,7 @@ html {
             letter-spacing: 0.03em;
             color: #7681AB;
             margin-bottom: 24px;
+            height: 135px;
         }
 
         .website-shared .product-card .product-card__footer {
@@ -588,6 +589,7 @@ html {
         background-color: rgba(255, 255, 255, 0.45);
         margin-top: 80px;
     }
+
         .website-shared .aboutus-card .aboutus-card__image {
             margin-top: 24px;
         }
