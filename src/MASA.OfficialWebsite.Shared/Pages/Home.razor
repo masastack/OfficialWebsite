@@ -1,10 +1,11 @@
 ﻿@page "/"
 
 <div class="home-banner">
-    <MWindow Value="_carouselValue">
-        <MWindowItem>
-            <MRow NoGutters>
-                <MCol Cols="12" Lg="5" Class="intro-wrapper">
+    <MCarousel @bind-Value="_carouselValue" ShowArrows="false" HideDelimiters 
+               Cycle="false" Continuous Height="@("100%")">
+        <MCarouselItem>
+            <MRow NoGutters Style="height: 100%">
+                <MCol Cols="12" Lg="6" Class="intro-wrapper">
                     <div class="intro">
                         <div class="intro-title">开源企业级云原生技术底座 PaaS</div>
                         <div class="intro-subtitle">一站式.NET现代应用开发解决方案</div>
@@ -18,15 +19,15 @@
                         </div>
                     </div>
                 </MCol>
-                <MCol Cols="12" Lg="7" Class="cover-wrapper">
+                <MCol Cols="12" Lg="6" Class="cover-wrapper">
                     <MImage Src="_content/MASA.OfficialWebsite.Shared/images/banner.png"
                             Width="@("100%")" Height="@("100%")" />
                 </MCol>
             </MRow>
-        </MWindowItem>
-        <MWindowItem>
-            <MRow NoGutters>
-                <MCol Cols="12" Lg="5" Class="intro-wrapper">
+        </MCarouselItem>
+        <MCarouselItem>
+            <MRow NoGutters Style="height: 100%">
+                <MCol Cols="12" Lg="6" Class="intro-wrapper">
                     <div class="intro">
                         <div class="intro-title">.NET下一代微服务开发框架</div>
                         <div class="intro-subtitle">开启全新的现代应用开发交付体验</div>
@@ -40,15 +41,15 @@
                         </div>
                     </div>
                 </MCol>
-                <MCol Cols="12" Lg="7" Class="cover-wrapper">
+                <MCol Cols="12" Lg="6" Class="cover-wrapper">
                     <MImage Src="_content/MASA.OfficialWebsite.Shared/images/banner1.png"
                             Width="@("100%")" Height="@("100%")" />
                 </MCol>
             </MRow>
-        </MWindowItem>
-         <MWindowItem>
-            <MRow NoGutters>
-                <MCol Cols="12" Lg="5" Class="intro-wrapper">
+        </MCarouselItem>
+        <MCarouselItem>
+            <MRow NoGutters Style="height: 100%">
+                <MCol Cols="12" Lg="6" Class="intro-wrapper">
                     <div class="intro">
                         <div class="intro-title">.NET下一代微服务开发框架</div>
                         <div class="intro-subtitle">开启全新的现代应用开发交付体验</div>
@@ -62,13 +63,13 @@
                         </div>
                     </div>
                 </MCol>
-                <MCol Cols="12" Lg="7" Class="cover-wrapper">
+                <MCol Cols="12" Lg="6" Class="cover-wrapper">
                     <MImage Src="_content/MASA.OfficialWebsite.Shared/images/banner3.png"
                             Width="@("100%")" Height="@("100%")" />
                 </MCol>
             </MRow>
-        </MWindowItem>
-    </MWindow>
+        </MCarouselItem>
+    </MCarousel>
 
     @if (IsMobile)
     {

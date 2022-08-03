@@ -139,19 +139,19 @@ html {
     /* Home */
 
     .website-shared .home-banner {
-        height: calc(100vh - 100px);
+        height: calc(100vh - 206px);
     }
 
         .website-shared .home-banner .intro-wrapper {
             display: flex;
             justify-content: center;
-            height: calc(100vh - 206px);
+            height: 100%;
         }
 
         .website-shared .home-banner .intro {
             max-width: 500px;
-            margin-top: 12vh;
-            float: left;
+            margin-left: 81px;
+            margin-top: 177px;
         }
 
         .website-shared .home-banner .intro-title {
@@ -194,7 +194,7 @@ html {
                 }
 
         .website-shared .home-banner .cover-wrapper {
-            height: calc(100vh - 100px);
+            height: 100%;
         }
 
         .website-shared .home-banner .cover {
