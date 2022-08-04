@@ -1,23 +1,60 @@
 html {
 }
 
-.website-shared {
-    background: #F0F3FA !important;
+.vector-197 {
+    position: fixed;
+    width: 675px;
+    height: 608px;
+    left: 125px;
+    top: 455px;
+
+    background: #4318FF;
+    opacity: 0.17;
+    transform: rotate(-37.52deg);
 }
 
-    .website-shared .m-main:after {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: radial-gradient(at 70% 35%, rgba(104, 181, 216, .75) 0, rgba(104, 181, 216, 0) 18%), radial-gradient(at 40% 75%, rgba(246, 186, 193, .5) 0, rgba(246, 186, 193, 0) 28%), radial-gradient(at 34% 25%, rgba(104, 181, 216, .75) 0, rgba(104, 181, 216, 0) 22%), radial-gradient(at 60% 64%, rgba(104, 181, 216, .75) 0, rgba(104, 181, 216, 0) 36%), radial-gradient(at 46% 53%, rgba(243, 146, 2, .75) 0, rgba(104, 181, 216, 0) 53%);
-        background-size: 90%;
-        background-position: 50%;
-        background-repeat: no-repeat;
-        opacity: .2;
-        pointer-events: none;
+.vector-198 {
+    position: fixed;
+    width: 311px;
+    height: 305px;
+    left: 785px;
+    top: 500px;
+
+    background: #05CD99;
+    opacity: 0.46;
+}
+
+.vector-199 {
+    position: fixed;
+    width: 137px;
+    height: 165px;
+    left: 1551px;
+    top: 258px;
+
+    background: #FFB547;
+    opacity: 0.46;
+}
+
+.rectangle-723 {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(172px);
+}
+
+.website-shared {
+}
+
+    .website-shared .gradual-btn {
+        border: solid 3px transparent !important;
+        background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(83.29deg, #6946FF 5.89%, #05CD99 101.4%);
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+        box-shadow: 2px 1000px 1px #fffffff7 inset;
     }
 
     .website-shared .appbar {
@@ -29,7 +66,8 @@ html {
         display: flex;
         align-items: center;
         width: 100%;
-        padding: 32px 162px;
+        max-width: 1596px;
+        margin: 0 auto;
     }
 
     .website-shared .appbar .nav {
@@ -47,7 +85,7 @@ html {
     }
 
         .website-shared .menu-content .menu-list {
-            background: #F6F8FD;
+            background: #fff;
             padding: 36px 26px;
             border-radius: 16px 0 16px 16px;
         }
@@ -139,17 +177,21 @@ html {
     /* Home */
 
     .website-shared .home-banner {
+        max-width: 1596px;
+        margin: 0 auto;
         height: calc(100vh - 206px);
     }
+    
+        .website-shared .home-banner .carousel-dot {
+            position: absolute;
+            top: 700px;
+            left: 81px;
+        }
 
         .website-shared .home-banner .intro-wrapper {
-            display: flex;
-            justify-content: center;
-            height: 100%;
         }
 
         .website-shared .home-banner .intro {
-            max-width: 500px;
             margin-left: 81px;
             margin-top: 177px;
         }
@@ -161,6 +203,7 @@ html {
             letter-spacing: -0.5px;
             color: #323D6F;
             margin-bottom: 24px;
+            width: 477px;
         }
 
         .website-shared .home-banner .intro-subtitle {
@@ -203,7 +246,8 @@ html {
         }
 
         .website-shared .home-banner .home-banner__slider-wrapper {
-            background: #F7F9FD;
+            background: rgba(247, 249, 253, 0.8);
+            backdrop-filter: blur(48px);
             position: absolute;
             width: 100vw;
             height: 106px;
@@ -272,7 +316,6 @@ html {
             }
 
             .website-shared .home-content .home-content__item.full-page {
-                padding-top: 72px;
                 margin-top: 100px;
                 height: calc(100vh - 100px);
             }

@@ -1,8 +1,9 @@
 ﻿@page "/"
 
 <div class="home-banner">
-    <MCarousel @bind-Value="_carouselValue" ShowArrows="false" HideDelimiters 
-               Cycle="false" Continuous Height="@("100%")">
+    <MCarousel @bind-Value="_carouselValue" Style="position: relative"
+               ShowArrows="false" HideDelimiters
+               Cycle Continuous Height="@("100%")">
         <MCarouselItem>
             <MRow NoGutters Style="height: 100%">
                 <MCol Cols="12" Lg="6" Class="intro-wrapper">
@@ -10,7 +11,7 @@
                         <div class="intro-title">开源企业级云原生技术底座 PaaS</div>
                         <div class="intro-subtitle">一站式.NET现代应用开发解决方案</div>
                         <div class="intro-actions">
-                            <MButton Text Ripple="false" Href="/stack">了解更多</MButton>
+                            <MButton Class="gradual-btn" Text Ripple="false" Href="/stack">了解更多</MButton>
                             <MButton Text Ripple="false" Class="text-capitalize"
                                      Href="https://github.com/masastack" Target="_blank">
                                 <MIcon Class="mr-2">mdi-github</MIcon>
@@ -21,7 +22,8 @@
                 </MCol>
                 <MCol Cols="12" Lg="6" Class="cover-wrapper">
                     <MImage Src="_content/MASA.OfficialWebsite.Shared/images/banner.png"
-                            Width="@("100%")" Height="@("100%")" />
+                            Width="@("100%")" Height="@("100%")"
+                            MaxWidth="874" MaxHeight="874" />
                 </MCol>
             </MRow>
         </MCarouselItem>
@@ -29,10 +31,10 @@
             <MRow NoGutters Style="height: 100%">
                 <MCol Cols="12" Lg="6" Class="intro-wrapper">
                     <div class="intro">
-                        <div class="intro-title">.NET下一代微服务开发框架</div>
-                        <div class="intro-subtitle">开启全新的现代应用开发交付体验</div>
+                        <div class="intro-title">传统.NET中大型项目升级宝典</div>
+                        <div class="intro-subtitle">使用MASA Stack对现有.NET程序进行现代化改造</div>
                         <div class="intro-actions">
-                            <MButton Text Ripple="false" Href="/framework">了解更多</MButton>
+                            <MButton Class="gradual-btn" Text Ripple="false" Href="/framework">了解更多</MButton>
                             <MButton Text Ripple="false" Class="text-capitalize"
                                      Href="https://github.com/masastack" Target="_blank">
                                 <MIcon Class="mr-2">mdi-github</MIcon>
@@ -42,8 +44,9 @@
                     </div>
                 </MCol>
                 <MCol Cols="12" Lg="6" Class="cover-wrapper">
-                    <MImage Src="_content/MASA.OfficialWebsite.Shared/images/banner1.png"
-                            Width="@("100%")" Height="@("100%")" />
+                    <MImage Src="_content/MASA.OfficialWebsite.Shared/images/banner2.png"
+                            Width="@("100%")" Height="@("100%")"
+                            MaxWidth="874" MaxHeight="874" />
                 </MCol>
             </MRow>
         </MCarouselItem>
@@ -51,10 +54,10 @@
             <MRow NoGutters Style="height: 100%">
                 <MCol Cols="12" Lg="6" Class="intro-wrapper">
                     <div class="intro">
-                        <div class="intro-title">.NET下一代微服务开发框架</div>
-                        <div class="intro-subtitle">开启全新的现代应用开发交付体验</div>
+                        <div class="intro-title">.NET开发者迈向云原生如何选择？</div>
+                        <div class="intro-subtitle">.NET数字化转型人才成长最优解</div>
                         <div class="intro-actions">
-                            <MButton Text Ripple="false" Href="/framework">了解更多</MButton>
+                            <MButton Class="gradual-btn" Text Ripple="false" Href="/framework">了解更多</MButton>
                             <MButton Text Ripple="false" Class="text-capitalize"
                                      Href="https://github.com/masastack" Target="_blank">
                                 <MIcon Class="mr-2">mdi-github</MIcon>
@@ -65,10 +68,23 @@
                 </MCol>
                 <MCol Cols="12" Lg="6" Class="cover-wrapper">
                     <MImage Src="_content/MASA.OfficialWebsite.Shared/images/banner3.png"
-                            Width="@("100%")" Height="@("100%")" />
+                            Width="@("100%")" Height="@("100%")"
+                            MaxWidth="874" MaxHeight="874" />
                 </MCol>
             </MRow>
         </MCarouselItem>
+
+        <MItemGroup Class="carousel-dot" Value="_carouselValue" ActiveClass="primary--text">
+            <MItem>
+                <MIcon XSmall="IsMobile" Class="@($"regular3--text {context.ActiveClass}")">mdi-circle-medium</MIcon>
+            </MItem>
+            <MItem>
+                <MIcon XSmall="IsMobile" Class="@($"regular3--text {context.ActiveClass}")">mdi-circle-medium</MIcon>
+            </MItem>
+            <MItem>
+                <MIcon XSmall="IsMobile" Class="@($"regular3--text {context.ActiveClass}")">mdi-circle-medium</MIcon>
+            </MItem>
+        </MItemGroup>
     </MCarousel>
 
     @if (IsMobile)
