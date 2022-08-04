@@ -55,6 +55,12 @@
 .website-shared .home-banner {
     height: calc(100vh - 48px);
 }
+    
+    .website-shared .home-banner .carousel-dot {
+        position: absolute;
+        top: calc(100vh - 165px);
+        left: 12px;
+    }
 
     .website-shared .home-banner .intro-wrapper {
         height: auto;
@@ -123,6 +129,7 @@
 
     .website-shared .home-banner .home-banner__slider-wrapper {
         background: transparent;
+        backdrop-filter: none;
         position: absolute;
         width: 100vw;
         left: 0;
