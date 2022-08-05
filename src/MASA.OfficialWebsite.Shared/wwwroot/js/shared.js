@@ -2,13 +2,16 @@
 
 const eventListenerCaches = {}
 
-window.MasaOfficialWebsite.addWindowScrollEvent = () => {
+window.MasaOfficialWebsite.addWindowScrollEvent = (page) => {
   let throttled
   let direction
 
   const listener = (e) => {
     const innerHeight = window.innerHeight || document.body.clientHeight
     const offsetY = document.body.scrollTop || document.documentElement.scrollTop;
+
+    if (page && offsetY > innerHeight * page) return
+
     let targetTop = 0;
 
     const number = Math.ceil(offsetY / innerHeight)
@@ -27,7 +30,6 @@ window.MasaOfficialWebsite.addWindowScrollEvent = () => {
   let preOffsetY
 
   const listenerWrapper = e => {
-
     const offsetY = document.body.scrollTop || document.documentElement.scrollTop;
     
     if (!preOffsetY) {

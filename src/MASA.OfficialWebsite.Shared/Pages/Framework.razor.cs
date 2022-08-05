@@ -1,13 +1,7 @@
 ﻿namespace MASA.OfficialWebsite.Shared.Pages
 {
-    public partial class Framework
+    public partial class Framework : AutoScrollComponentBase
     {
-        [Inject]
-        private IJSRuntime Js { get; set; } = null!;
-
-        [CascadingParameter(Name = "IsMobile")]
-        private bool IsMobile { get; set; }
-
         private static readonly List<MenuableTitleItem> MenuableTitleItems = new()
         {
             new MenuableTitleItem("BuildingBlocks", "构建块", "#building-blocks-content"),
@@ -40,9 +34,6 @@
             "定期社区例会，线上线下Meetup互动"
         };
 
-        private async Task ScrollToNext()
-        {
-            await Js.InvokeVoidAsync("MasaOfficialWebsite.scrollToNext");
-        }
+        protected override int? Page => 1;
     }
 }
