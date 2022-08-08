@@ -44,7 +44,8 @@ namespace MASA.OfficialWebsite.Shared.Pages
             new Item<ActivityType>("线下", ActivityType.Offline),
             new Item<ActivityType>("回放", ActivityType.LookBack)
         };
-
+        [Inject]
+        public NavigationManager? NavigationManager { get; set; }
         private StringNumber _carouselValue = 0;
         private async Task ScrollToNext()
         {
@@ -76,6 +77,11 @@ namespace MASA.OfficialWebsite.Shared.Pages
         private void CheckActivity(EventArgs eventargs, int index)
         {
             _carouselValue = index;
+        }
+
+        private void GoToDetail()
+        {
+            NavigationManager.NavigateTo("/activityDetail", false);
         }
     }
 

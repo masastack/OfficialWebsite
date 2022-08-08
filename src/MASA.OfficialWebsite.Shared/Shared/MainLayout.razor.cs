@@ -17,9 +17,9 @@ public partial class MainLayout : IDisposable
     private static readonly List<NavMenu.NavItem> StudyNavItems = new()
     {
         new NavMenu.NavItem("学习中心"),
-        new NavMenu.NavItem("学习MASA Stack", "https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png"),
-        new NavMenu.NavItem("文档", "https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png"),
-        new NavMenu.NavItem("博客", "https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png"),
+        new NavMenu.NavItem("学习路径","", "https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png", "/learningpath"),
+        new NavMenu.NavItem("博客站点", "https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png"),
+        new NavMenu.NavItem("文档站点", "https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png"),
         new NavMenu.NavItem("社区活动", "", "https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png", "/activity"),
     };
 

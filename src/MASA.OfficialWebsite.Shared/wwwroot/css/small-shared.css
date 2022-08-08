@@ -438,7 +438,7 @@
     }
 
 .blazor-card__margin-bottom {
-    margin-bottom: 48px;
+    margin-bottom: 24px;
 }
 
 .website-shared .aboutus-card {
@@ -481,7 +481,7 @@
 }
 
 .activity-content {
-    margin-bottom: 16px;
+    margin: 0;
 }
 
 .activity-content__select {
@@ -490,4 +490,20 @@
 
 .activity-content__card {
     margin-bottom: 16px;
+}
+
+.activity-detail__image {
+    margin-top: 24px;
+    border-radius: 8px;
+    width:auto;
+}
+
+.activity-detail__button-text {
+    text-decoration: underline;
+    border-width: 0;
+    height: 36px;
+    font-size: 24px;
+    line-height: 36px;
+    padding: 0px 0px;
+    height: auto;
 }

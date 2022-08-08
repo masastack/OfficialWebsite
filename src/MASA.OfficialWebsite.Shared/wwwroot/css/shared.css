@@ -172,6 +172,7 @@ html {
             line-height: 48px;
             letter-spacing: 0.01em;
             color: white !important;
+            text-decoration: none;
         }
 
     /* Home */
@@ -680,9 +681,25 @@ html {
 }
 
 .activity-content {
-    margin-bottom: 60px;
+    margin: 50px 0 20px;
 }
 
 .activity-content__select {
     margin-left: 48px;
+}
+
+.activity-detail__image {
+    border-radius: 16px;
+    width: 800px;
+    margin: 96px auto 0;
+}
+
+.activity-detail__button-text {
+    text-decoration: underline;
+    border-width: 0;
+    height: 24px;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 0px 0px;
+    height: auto;
 }
