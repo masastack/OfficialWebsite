@@ -36,6 +36,8 @@ public partial class MainLayout : IDisposable
     private bool IsMobile { get; set; }
 
     private int IconSize => IsMobile ? 40 : 60;
+    private int WeChatSize => IsMobile ? 120 : 200;
+    private int NudgeLeft => WeChatSize / 2 - IconSize / 2;
 
     protected override void OnInitialized()
     {

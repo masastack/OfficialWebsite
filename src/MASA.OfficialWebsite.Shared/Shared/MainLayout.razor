@@ -22,40 +22,38 @@
          Color="transparent"
          Flat
          Dense>
-    <div class="appbar-content">
-        <a href="/">
-            <img src="https://cdn.masastack.com/stack/images/logo/MASAStack/logo-h-en.png"
-                 height="@(IsMobile ? 30 : 36)"
-                 alt="logo" />
-        </a>
+    <a href="/">
+        <img src="https://cdn.masastack.com/stack/images/logo/MASAStack/logo-h-en.png"
+             height="@(IsMobile ? 30 : 36)"
+             alt="logo" />
+    </a>
 
-        <MSpacer />
+    <MSpacer />
 
-        @if (IsMobile)
-        {
-            <MButton Icon OnClick="() => _drawer = true">
-                <MIcon>mdi-menu</MIcon>
-            </MButton>
-        }
-        else
-        {
-            <NavMenu Items="@ProductNavItems">
-                <MButton Text @attributes="@context.Attrs">产品</MButton>
-            </NavMenu>
+    @if (IsMobile)
+    {
+        <MButton Icon OnClick="() => _drawer = true">
+            <MIcon>mdi-menu</MIcon>
+        </MButton>
+    }
+    else
+    {
+        <NavMenu Items="@ProductNavItems">
+            <MButton Text @attributes="@context.Attrs">产品</MButton>
+        </NavMenu>
 
-            <NavMenu Items="@StudyNavItems">
-                <MButton Text @attributes="@context.Attrs">学习</MButton>
-            </NavMenu>
+        <NavMenu Items="@StudyNavItems">
+            <MButton Text @attributes="@context.Attrs">学习</MButton>
+        </NavMenu>
 
-            <MButton Text Class="nav h8 emphasis2--text" Href="/aboutus">关于我们</MButton>
-        }
-    </div>
+        <MButton Text Class="nav h8 emphasis2--text" Href="/aboutus">关于我们</MButton>
+    }
 </MAppBar>
 
 @if (IsMobile)
 {
     <MNavigationDrawer @bind-Value="_drawer" Absolute Temporary Right Width="315">
-        <MList Class="menu-list mt-1" Style="max-height: 100vh; overflow-y: auto;" Elevation="0" Subheader TwoLine>
+        <MList Class="menu-list mt-1" Style="height: 100%; overflow-y: auto;" Elevation="0" Subheader TwoLine>
             @foreach (var item in AllNavItems)
             {
                 @if (item.IsSubheader)
@@ -198,7 +196,7 @@
                         <MCard Color="transparent" Flat Dark Class="footer-content__item footer-content__focus">
                             <MCardTitle>关注我们</MCardTitle>
                             <MCardText>
-                                <MMenu OpenOnClick NudgeLeft="68" Left>
+                                <MMenu OpenOnClick NudgeBottom="8" NudgeLeft="@NudgeLeft" OffsetY>
                                     <ActivatorContent>
                                         <MButton
                                             Width="@IconSize"
@@ -215,7 +213,7 @@
                                     </ActivatorContent>
                                     <ChildContent>
                                         <MImage Src="_content/MASA.OfficialWebsite.Shared/images/contact.png"
-                                                Width="200">
+                                                Width="WeChatSize">
                                         </MImage>
                                     </ChildContent>
                                 </MMenu>

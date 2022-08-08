@@ -25,6 +25,7 @@ html {
 }
 
 .website-shared {
+    background: rgba(240, 243, 250, 1) !important;
 }
 
     .website-shared .gradual-btn {
@@ -40,7 +41,7 @@ html {
         backdrop-filter: blur(48px);
     }
 
-    .website-shared .appbar-content {
+    .website-shared .m-toolbar__content {
         display: flex;
         align-items: center;
         width: 100%;
@@ -164,7 +165,7 @@ html {
         .website-shared .home-banner .carousel-dot {
             position: absolute;
             left: 81px;
-            top: calc(50% + 200px);
+            top: calc(50% + 150px);
         }
 
         .website-shared .home-banner .intro-wrapper {
@@ -175,6 +176,7 @@ html {
         .website-shared .home-banner .intro {
             margin-left: 81px;
             margin-bottom: 48px;
+            margin-top: -10.87%;
         }
 
         .website-shared .home-banner .intro-title {
@@ -346,10 +348,10 @@ html {
     .website-shared .product-card {
         padding: 48px 48px 22px;
         height: 462px;
-        border-image-source: linear-gradient(250.26deg, #F4F1FF 1.73%, #FFFFFF 34.98%, #FFFFFF 71.98%, rgba(130, 230, 204, 0.1) 104.7%);
         background: rgba(255, 255, 255, 0.5);
         backdrop-filter: blur(140px);
         border-radius: 24px;
+        border: 1px solid #FFFFFF;
     }
 
         .website-shared .product-card .product-card__header {
