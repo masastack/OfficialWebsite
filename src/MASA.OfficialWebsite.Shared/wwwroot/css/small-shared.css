@@ -1,5 +1,21 @@
-﻿.website-shared .appbar-content {
+﻿.website-shared {
+    background-color: rgba(240, 243, 250, 1) !important;
+    overflow-x: hidden;
+}
+
+.website-shared .gradual-btn {
+    border: solid 2px transparent !important;
+}
+
+.website-shared .appbar {
+    background-color: rgba(240, 243, 250, 1) !important;
+    backdrop-filter: unset;
+}
+
+.website-shared .appbar-content {
     padding: 0;
+    max-width: unset;
+    margin: unset;
 }
 
 .website-shared .appbar .nav {
@@ -59,7 +75,8 @@
     .website-shared .home-banner .carousel-dot {
         position: absolute;
         top: calc(100vh - 165px);
-        left: 12px;
+        left: 8px;
+        z-index: 1;
     }
 
     .website-shared .home-banner .intro-wrapper {
@@ -67,7 +84,7 @@
     }
 
     .website-shared .home-banner .intro {
-        max-width: 500px;
+        max-width: 285px;
         float: none;
         text-align: center;
         margin: 35px auto;
@@ -120,6 +137,7 @@
 
     .website-shared .home-banner .cover-wrapper {
         height: auto;
+        align-items: start;
     }
 
     .website-shared .home-banner .cover {
@@ -158,6 +176,10 @@
     .website-shared .home-content .home-content__item {
         padding-top: 48px;
     }
+        
+        .website-shared .home-content .home-content__item:first-child {
+            margin-top: 0;
+        }
 
         .website-shared .home-content .home-content__item .framework-diagram {
             margin-left: 0;

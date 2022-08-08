@@ -31,6 +31,8 @@ public partial class MainLayout : IDisposable
 
     private static List<NavMenu.NavItem> AllNavItems => ProductNavItems.Concat(StudyNavItems).Concat(AboutUsItems).ToList();
 
+    private bool _drawer;
+    
     private bool IsMobile { get; set; }
 
     private int IconSize => IsMobile ? 40 : 60;

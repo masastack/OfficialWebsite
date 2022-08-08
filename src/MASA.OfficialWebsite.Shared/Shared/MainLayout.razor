@@ -3,12 +3,18 @@
 
 <MApp Class="masa website-shared">
 
-<div style="position: absolute;width: 100vw;height: 100vh;">
-    <div class="vector-197"></div>
-    <div class="vector-198"></div>
-    <div class="vector-199"></div>
-    <div class="rectangle-723"></div>
-</div>
+@if (!IsMobile)
+{
+    <div style="position: absolute;width: 100vw;height: 100vh;">
+        <svg class="vector-197" width="811" height="489" viewBox="0 0 811 489" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path opacity="0.17" d="M169.501 19.2565C-212.467 219.758 154.518 435.832 286 477.257C439.359 525.574 674.775 413.608 776.57 298.243C878.365 182.878 733 139.256 609 139.256C305 139.256 320.001 -59.7435 169.501 19.2565Z" fill="#4318FF" />
+        </svg>
+        <svg class="vector-198" xmlns="http://www.w3.org/2000/svg" width="311" height="305" viewBox="0 0 311 305" fill="none">
+            <path opacity="0.46" d="M86.9623 8.73412C-90.9182 57.6102 53.7769 97.8286 86.9623 172.986C125.669 260.648 161.598 328.962 219.778 296.992C315.867 244.191 314.765 136.66 308.678 118.692C302.591 100.724 247.311 -35.3247 86.9623 8.73412Z" fill="#05CD99" />
+        </svg>
+        <div class="rectangle-723"></div>
+    </div>
+}
 
 <MAppBar App
          Height="@(IsMobile ? 48 : 100)"
@@ -18,8 +24,8 @@
          Dense>
     <div class="appbar-content">
         <a href="/">
-            <img src="_content/MASA.OfficialWebsite.Shared/images/logo-h-en.png"
-                 height="@(IsMobile ? 24 : 36)"
+            <img src="https://cdn.masastack.com/stack/images/logo/MASAStack/logo-h-en.png"
+                 height="@(IsMobile ? 30 : 36)"
                  alt="logo" />
         </a>
 
@@ -27,11 +33,9 @@
 
         @if (IsMobile)
         {
-            <NavMenu Items="@AllNavItems" OpenOnHover="false" OpenOnClick>
-                <MButton Icon @attributes="@context.Attrs">
-                    <MIcon>mdi-menu</MIcon>
-                </MButton>
-            </NavMenu>
+            <MButton Icon OnClick="() => _drawer = true">
+                <MIcon>mdi-menu</MIcon>
+            </MButton>
         }
         else
         {
@@ -47,6 +51,48 @@
         }
     </div>
 </MAppBar>
+
+@if (IsMobile)
+{
+    <MNavigationDrawer @bind-Value="_drawer" Absolute Temporary Right Width="315">
+        <MList Class="menu-list mt-1" Style="max-height: 100vh; overflow-y: auto;" Elevation="0" Subheader TwoLine>
+            @foreach (var item in AllNavItems)
+            {
+                @if (item.IsSubheader)
+                {
+                    <MSubheader Style="height: auto"
+                                Class="subtitle3 emphasis--text">
+                        @item.Subheader
+                    </MSubheader>
+                }
+                else
+                {
+                    <MListItem Href="@item.Href">
+                        @if (item.Image is not null)
+                        {
+                            <MListItemAvatar Tile Size="40" Class="mt-0 mb-0">
+                                <MImage Src="@item.Image" alt="@item.Title"
+                                        Height="30" Width="30" Contain />
+                            </MListItemAvatar>
+                        }
+                        <MListItemContent>
+                            <MListItemTitle Class="h8 regular--text">@item.Title</MListItemTitle>
+                            <MListItemSubtitle Class="body2 regular3--text">@item.Subtitle</MListItemSubtitle>
+                        </MListItemContent>
+                        @if (item.Href is not null)
+                        {
+                            <MListItemAction>
+                                <MButton Icon Small>
+                                    <MIcon Size="16">mdi-arrow-right</MIcon>
+                                </MButton>
+                            </MListItemAction>
+                        }
+                    </MListItem>
+                }
+            }
+        </MList>
+    </MNavigationDrawer>
+}
 
 <MMain>
     <CascadingValue Value="IsMobile" Name="@nameof(IsMobile)">
@@ -168,8 +214,8 @@
                                         </MButton>
                                     </ActivatorContent>
                                     <ChildContent>
-                                        <MImage Src="_content/MASA.OfficialWebsite.Shared/images/wechat.png"
-                                                Width="200" Height="200" Contain>
+                                        <MImage Src="_content/MASA.OfficialWebsite.Shared/images/contact.png"
+                                                Width="200">
                                         </MImage>
                                     </ChildContent>
                                 </MMenu>

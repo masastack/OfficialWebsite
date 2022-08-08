@@ -3,47 +3,25 @@ html {
 
 .vector-197 {
     position: fixed;
-    width: 675px;
-    height: 608px;
-    left: 125px;
-    top: 455px;
-
-    background: #4318FF;
-    opacity: 0.17;
-    transform: rotate(-37.52deg);
+    left: calc((100% - 1596px) / 2 + 21px);
+    top: 46.2%;
 }
 
 .vector-198 {
     position: fixed;
-    width: 311px;
-    height: 305px;
-    left: 785px;
-    top: 500px;
-
-    background: #05CD99;
-    opacity: 0.46;
-}
-
-.vector-199 {
-    position: fixed;
-    width: 137px;
-    height: 165px;
-    left: 1551px;
-    top: 258px;
-
-    background: #FFB547;
-    opacity: 0.46;
+    left: calc((100% - 1596px) / 2 + 704px);
+    top: 44.27%;
 }
 
 .rectangle-723 {
     position: fixed;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
 
     background: rgba(255, 255, 255, 0.45);
-    backdrop-filter: blur(172px);
+    backdrop-filter: blur(80px);
 }
 
 .website-shared {
@@ -185,16 +163,18 @@ html {
     
         .website-shared .home-banner .carousel-dot {
             position: absolute;
-            top: 700px;
             left: 81px;
+            top: calc(50% + 200px);
         }
 
         .website-shared .home-banner .intro-wrapper {
+            display: flex;
+            align-items: center;
         }
 
         .website-shared .home-banner .intro {
             margin-left: 81px;
-            margin-top: 177px;
+            margin-bottom: 48px;
         }
 
         .website-shared .home-banner .intro-title {
@@ -239,6 +219,9 @@ html {
 
         .website-shared .home-banner .cover-wrapper {
             height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .website-shared .home-banner .cover {
@@ -248,7 +231,7 @@ html {
 
         .website-shared .home-banner .home-banner__slider-wrapper {
             background: rgba(247, 249, 253, 0.8);
-            backdrop-filter: blur(48px);
+            /*backdrop-filter: blur(48px);*/
             position: absolute;
             width: 100vw;
             height: 106px;
@@ -310,6 +293,10 @@ html {
 
         .website-shared .home-content .home-content__item {
             padding-top: 100px;
+        }
+        
+        .website-shared .home-content .home-content__item:first-child {
+            margin-top: 100px;
         }
 
             .website-shared .home-content .home-content__item .framework-diagram {
@@ -467,7 +454,6 @@ html {
     }
 
         .website-shared .menuable-title__content .m-list {
-            background: #F6F8FD;
             border-radius: 0 0 16px 16px;
             padding: 16px 0;
         }
