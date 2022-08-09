@@ -2,34 +2,92 @@
 @inherits AutoScrollComponentBase
 
 <div class="home-banner">
-    <MRow NoGutters Style="height: 100%">
-        <MCol Cols="12" Lg="6" Class="intro-wrapper">
-            <div class="intro">
-                <div class="intro-title">企业级多端组件库</div>
-                <div class="intro-subtitle">基于Material Design , MAUI的最佳拍档</div>
-                <div class="intro-actions d-flex align-center">
-                    <MButton Class="gradual-btn" Text Ripple="false">开始使用</MButton>
-                    <MButton Text Ripple="false" Class="text-capitalize">
-                        <MIcon Class="mr-2">mdi-github</MIcon>
-                        Github
-                    </MButton>
-                    @if (!IsMobile)
-                    {
-                        <MButton Text Ripple="false" Style="text-decoration:underline;border-width: 0;height:36px;font-size:22px;line-height:36px; padding:0px 0px; height:auto;">
-                            即刻体验PRO
-                            <div style="margin-left:14px;border-style:solid; border-color:transparent; border-width:5px 0 5px 5px; border-left-color:#323232;"></div>
-                        </MButton>
-                    }
-                </div>
-            </div>
-        </MCol>
-        <MCol Cols="12" Lg="6" Class="cover-wrapper">
-            <MImage Src="_content/MASA.OfficialWebsite.Shared/images/blazor_banner.png"
-                    Width="@("100%")" Height="@("100%")"
-                    MaxWidth="874" MaxHeight="874" />
-        </MCol>
-    </MRow>
-
+    <MCarousel @bind-Value="_carouselValue" Style="position: relative"
+               ShowArrows="false" HideDelimiters
+               Cycle Continuous Height="@("100%")">
+        <MCarouselItem>
+            <MRow NoGutters Style="height: 100%">
+                <MCol Cols="12" Lg="6" Class="intro-wrapper">
+                    <div class="intro">
+                        <div class="intro-title">企业级多端组件库</div>
+                        <div class="intro-subtitle">基于Material Design , MAUI的最佳拍档</div>
+                        <div class="intro-actions d-flex align-center">
+                            <MButton Class="gradual-btn" Text Ripple="false">开始使用</MButton>
+                            <MButton Text Ripple="false" Class="text-capitalize">
+                                <MIcon Class="mr-2">mdi-github</MIcon>
+                                Github
+                            </MButton>
+                            @if (!IsMobile)
+                            {
+                                <MButton Text Ripple="false" Style="text-decoration:underline;border-width: 0;height:36px;font-size:22px;line-height:36px; padding:0px 0px; height:auto;">
+                                    即刻体验PRO
+                                    <div style="margin-left:14px;border-style:solid; border-color:transparent; border-width:5px 0 5px 5px; border-left-color:#323232;"></div>
+                                </MButton>
+                            }
+                        </div>
+                    </div>
+                </MCol>
+                <MCol Cols="12" Lg="6" Class="cover-wrapper">
+                    <MImage Src="_content/MASA.OfficialWebsite.Shared/images/blazor_banner.png"
+                            Contain
+                            Width="@("100%")" Height="@("100%")"
+                            MaxWidth="BannerMaxSize" MaxHeight="BannerMaxSize" />
+                </MCol>
+            </MRow>
+        </MCarouselItem>
+        <MCarouselItem>
+            <MRow NoGutters Style="height: 100%">
+                <MCol Cols="12" Lg="6" Class="intro-wrapper">
+                    <div class="intro">
+                        <div class="intro-title">企业级多端组件库</div>
+                        <div class="intro-subtitle">基于Material Design , MAUI的最佳拍档</div>
+                        <div class="intro-actions d-flex align-center">
+                            <MButton Class="gradual-btn" Text Ripple="false">开始使用</MButton>
+                            <MButton Text Ripple="false" Class="text-capitalize">
+                                <MIcon Class="mr-2">mdi-github</MIcon>
+                                Github
+                            </MButton>
+                            @if (!IsMobile)
+                            {
+                                <MButton Text Ripple="false" Style="text-decoration:underline;border-width: 0;height:36px;font-size:22px;line-height:36px; padding:0px 0px; height:auto;">
+                                    即刻体验PRO
+                                    <div style="margin-left:14px;border-style:solid; border-color:transparent; border-width:5px 0 5px 5px; border-left-color:#323232;"></div>
+                                </MButton>
+                            }
+                        </div>
+                    </div>
+                </MCol>
+                <MCol Cols="12" Lg="6" Class="cover-wrapper">
+                    <MImage Src="_content/MASA.OfficialWebsite.Shared/images/blazor_banner2.png"
+                            Contain
+                            Width="@("100%")" Height="@("100%")"
+                            MaxWidth="BannerMaxSize" MaxHeight="BannerMaxSize" />
+                </MCol>
+            </MRow>
+        </MCarouselItem>
+        <MItemGroup Class="carousel-dot" @bind-Value="_carouselValue"
+                    ActiveClass="primary--text"
+                    Mandatory>
+            <MItem>
+                <MButton Icon Small="!IsMobile" XSmall="IsMobile"
+                         Class="@($"regular3--text mr-n2 {context.ActiveClass}")"
+                         OnClick="() => context.Toggle()">
+                    <MIcon XSmall="IsMobile">
+                        mdi-circle-medium
+                    </MIcon>
+                </MButton>
+            </MItem>
+            <MItem>
+                <MButton Icon Small="!IsMobile" XSmall="IsMobile"
+                         Class="@($"regular3--text mr-n2 {context.ActiveClass}")"
+                         OnClick="() => context.Toggle()">
+                    <MIcon XSmall="IsMobile">
+                        mdi-circle-medium
+                    </MIcon>
+                </MButton>
+            </MItem>
+        </MItemGroup>
+    </MCarousel>
     @if (IsMobile)
     {
         <div class="home-banner__slider-wrapper"

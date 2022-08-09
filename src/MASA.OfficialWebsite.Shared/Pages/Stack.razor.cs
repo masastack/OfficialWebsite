@@ -34,5 +34,7 @@
         };
 
         protected override int? Page => 1;
+
+        private StringNumber BannerMaxSize => IsMobile ? 375 : 874;
     }
 }
