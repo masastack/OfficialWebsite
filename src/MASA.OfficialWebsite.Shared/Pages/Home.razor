@@ -21,7 +21,12 @@
                         </div>
                     </div>
                 </MCol>
-                <MCol Cols="12" Lg="6" Class="cover-wrapper">
+                <MCol Cols="12" Lg="6" Class="cover-wrapper"
+                      @ontouchstart="OnTouchstart"
+                      @ontouchmove="OnTouchmove"
+                      __internal_preventDefault_ontouchmove
+                      @ontouchend="OnTouchend"
+                      @ontouchcancel="OnTouchend">
                     <MImage Src="_content/MASA.OfficialWebsite.Shared/images/banner1.png"
                             Contain Width="@("100%")" Height="@("100%")"
                             MaxWidth="BannerMaxSize" MaxHeight="BannerMaxSize" />
@@ -35,7 +40,7 @@
                         <div class="intro-title">传统.NET中大型项目升级宝典</div>
                         <div class="intro-subtitle">使用MASA Stack对现有.NET程序进行现代化改造</div>
                         <div class="intro-actions">
-                            <MButton Class="gradual-btn" Text Ripple="false" Href="/framework">了解更多</MButton>
+                            <MButton Class="gradual-btn" Text Ripple="false" Href="/stack">了解更多</MButton>
                             <MButton Text Ripple="false" Class="text-capitalize"
                                      Href="https://github.com/masastack" Target="_blank">
                                 <MIcon Class="mr-2">mdi-github</MIcon>
@@ -44,7 +49,12 @@
                         </div>
                     </div>
                 </MCol>
-                <MCol Cols="12" Lg="6" Class="cover-wrapper">
+                <MCol Cols="12" Lg="6" Class="cover-wrapper"
+                      @ontouchstart="OnTouchstart"
+                      @ontouchmove="OnTouchmove"
+                      __internal_preventDefault_ontouchmove
+                      @ontouchend="OnTouchend"
+                      @ontouchcancel="OnTouchend">
                     <MImage Src="_content/MASA.OfficialWebsite.Shared/images/banner2.png"
                             Contain Width="@("100%")" Height="@("100%")"
                             MaxWidth="BannerMaxSize" MaxHeight="BannerMaxSize" />
@@ -67,7 +77,12 @@
                         </div>
                     </div>
                 </MCol>
-                <MCol Cols="12" Lg="6" Class="cover-wrapper">
+                <MCol Cols="12" Lg="6" Class="cover-wrapper"
+                      @ontouchstart="OnTouchstart"
+                      @ontouchmove="OnTouchmove"
+                      __internal_preventDefault_ontouchmove
+                      @ontouchend="OnTouchend"
+                      @ontouchcancel="OnTouchend">
                     <MImage Src="_content/MASA.OfficialWebsite.Shared/images/banner3.png"
                             Contain Width="@("100%")" Height="@("100%")"
                             MaxWidth="BannerMaxSize" MaxHeight="BannerMaxSize" />
