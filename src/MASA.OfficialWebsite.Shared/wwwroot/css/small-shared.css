@@ -502,12 +502,12 @@
     color: #485585;
 }
 
-.activity-content {
+.activity-content1 {
     margin: 0;
 }
 
 .activity-content__select {
-    margin-left: 24px;
+    margin-left: 12px;
 }
 
 .activity-content__card {
@@ -515,8 +515,8 @@
 }
 
 .activity-detail__image {
-    margin-top: 24px;
-    border-radius: 8px;
+    margin: 24px 16px;
+    border-radius: 16px;
     width:auto;
 }
 
@@ -524,8 +524,26 @@
     text-decoration: underline;
     border-width: 0;
     height: 36px;
-    font-size: 24px;
-    line-height: 36px;
+    font-size: 16px;
+    line-height: 24px;
     padding: 0px 0px;
     height: auto;
 }
+
+.website-shared .activity-content {
+    max-width: 1596px;
+    margin: 0 auto;
+    padding-bottom: 100px;
+}
+
+    .website-shared .activity-content .activity-content__item {
+        padding-top: 25px;
+    }
+
+    .website-shared .activity-content .activity-content__item-header {
+        margin: 16px auto;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 30px;
+        color: #323D6F;
+    }
