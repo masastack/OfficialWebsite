@@ -196,7 +196,7 @@
                         <MCard Color="transparent" Flat Dark Class="footer-content__item footer-content__focus">
                             <MCardTitle>关注我们</MCardTitle>
                             <MCardText>
-                                <MMenu OpenOnClick NudgeBottom="8" NudgeLeft="@NudgeLeft" OffsetY>
+                                <MMenu OpenOnClick="IsMobile" OpenOnHover="!IsMobile" CloseOnClick NudgeBottom="8" NudgeLeft="@NudgeLeft" OffsetY>
                                     <ActivatorContent>
                                         <MButton
                                             Width="@IconSize"
@@ -218,15 +218,25 @@
                                     </ChildContent>
                                 </MMenu>
 
-                                <MButton Width="@IconSize"
-                                         Height="@IconSize"
-                                         Outlined Icon
-                                         Color="white"
-                                         Class="mr-9">
-                                    <MIcon Large="!IsMobile">
-                                        mdi-qqchat
-                                    </MIcon>
-                                </MButton>
+                                <MMenu OpenOnClick="IsMobile" OpenOnHover="!IsMobile" CloseOnClick NudgeBottom="8" NudgeLeft="@NudgeLeft" OffsetY>
+                                    <ActivatorContent>
+                                        <MButton Width="@IconSize"
+                                                 Height="@IconSize"
+                                                 Outlined Icon
+                                                 Color="white"
+                                                 Class="mr-9"
+                                                 @attributes="@context.Attrs">
+                                            <MIcon Large="!IsMobile">
+                                                mdi-qqchat
+                                            </MIcon>
+                                        </MButton>
+                                    </ActivatorContent>
+                                    <ChildContent>
+                                        <MImage Src="_content/MASA.OfficialWebsite.Shared/images/contact-qq.png"
+                                                Width="WeChatSize">
+                                        </MImage>
+                                    </ChildContent>
+                                </MMenu>
 
                                 <MButton Width="@IconSize"
                                          Height="@IconSize"
