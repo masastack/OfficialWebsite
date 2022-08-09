@@ -25,22 +25,24 @@
                 @if (item.IsSubheader)
                 {
                     <MSubheader Style="height: auto"
-                                Class="subtitle3 emphasis--text">
+                        Class="subtitle3 emphasis--text">
                         @item.Subheader
                     </MSubheader>
                 }
                 else
                 {
-                    <MListItem Href="@item.Href">
+                    <MListItem Href="@item.Href" Disabled="@item.Disabled">
                         @if (item.Image is not null)
                         {
                             <MListItemAvatar Tile Size="40" Class="mt-0 mb-0">
                                 <MImage Src="@item.Image" alt="@item.Title"
-                                        Height="30" Width="30" Contain />
+                            Height="30" Width="30" Contain />
                             </MListItemAvatar>
                         }
                         <MListItemContent>
-                            <MListItemTitle Class="h8 regular--text">@item.Title</MListItemTitle>
+                            <MListItemTitle Class="h8 regular--text">
+                                <div style="@item.Style"> @item.Title</div>
+                            </MListItemTitle>
                             <MListItemSubtitle Class="body2 regular3--text">@item.Subtitle</MListItemSubtitle>
                         </MListItemContent>
                         @if (item.Href is not null)
@@ -93,6 +95,23 @@
 
         public bool IsSubheader => Subheader is not null;
 
+        public bool Disabled { get; set; }
+
+        public string Style
+        {
+            get
+            {
+                if (Disabled)
+                {
+                    return "color: #A3AED0;";
+                }
+                else
+                {
+                    return "color: #485585;";
+                }
+            }
+        }
+
         public NavItem(string subheader)
         {
             Subheader = subheader;
@@ -114,6 +133,11 @@
         public NavItem(string title, string subtitle, string image, string href) : this(title, subtitle, image)
         {
             Href = href;
+        }
+
+        public NavItem(string title, string subtitle, string image, string href, bool disabled) : this(title, subtitle, image, href)
+        {
+            Disabled = disabled;
         }
     }
 
