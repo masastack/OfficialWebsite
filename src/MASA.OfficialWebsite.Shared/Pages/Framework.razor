@@ -50,14 +50,14 @@
         @if (IsMobile)
         {
             <MImage Class="framework-diagram"
-                Src="_content/MASA.OfficialWebsite.Shared/images/masaframework2.png"
+                Src="_content/MASA.OfficialWebsite.Shared/images/masaframework2.svg"
                 Contain>
             </MImage>
         }
         else
         {
             <MImage Class="framework-diagram"
-                Src="_content/MASA.OfficialWebsite.Shared/images/masaframework1.png"
+                Src="_content/MASA.OfficialWebsite.Shared/images/masaframework1.svg"
                 Height="663"
                 Contain>
             </MImage>
@@ -180,10 +180,10 @@
         </div>
         <MRow NoGutters="IsMobile" class="building-block__item-cards">
             <MCol Cols="6" Md="6">
-                <BuildingBlockCard Title="MASA Blazor PRO" Content="专业版" Class="building-block-card"></BuildingBlockCard>
+                <BuildingBlockCard Title="MASA Blazor PRO" Content="专业版" Class="building-block-card" IsButton></BuildingBlockCard>
             </MCol>
             <MCol Cols="6" Md="6">
-                <BuildingBlockCard Title="MASA Blazor pure" Content="纯净版" Class="building-block-card building-block-card__margin-left"></BuildingBlockCard>
+                <BuildingBlockCard Title="MASA Blazor Pure" Content="纯净版" IsButton=false Class="building-block-card building-block-card__margin-left"></BuildingBlockCard>
             </MCol>
         </MRow>
     </div>

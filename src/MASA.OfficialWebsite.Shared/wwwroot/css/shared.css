@@ -33,11 +33,12 @@ html {
         background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(83.29deg, #6946FF 5.89%, #05CD99 101.4%);
         background-origin: border-box;
         background-clip: content-box, border-box;
-        box-shadow: 2px 1000px 1px #fffffff7 inset;
+        box-shadow: 2px 1000px 1px #F0F3FA inset;
     }
 
     .website-shared .appbar {
         backdrop-filter: blur(48px);
+        opacity: 0.9;
     }
 
     .website-shared .m-toolbar__content {
@@ -538,10 +539,11 @@ html {
             line-height: 27px;
             letter-spacing: 0.01em;
             color: #7681AB;
+            margin-top: 48px;
         }
 
         .website-shared .why-card .why-card__li {
-            margin-top: 48px;
+            margin-left:10px;
             vertical-align: middle
         }
 
@@ -574,6 +576,25 @@ html {
             text-align: center;
         }
 
+.building-block-card__actions{
+    display: flex;
+}
+
+.building-block-card__gradual-btn {
+    border: solid 3px transparent !important;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(83.29deg, #6946FF 5.89%, #05CD99 101.4%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 2px 1000px 1px #FFFFFF inset;
+    margin: 8px auto;
+}
+
+.building-block-card__actions .m-btn {
+    height: 62px !important;
+    width: 157px;
+    border-radius: 40px;
+}
+
     .website-shared .home-content .building-block__item-cards {
         margin-top: 100px;
     }
@@ -600,6 +621,10 @@ html {
             letter-spacing: 0.02em;
             color: #323D6F;
         }
+
+.blazor-card__margin-bottom {
+    margin-bottom: 100px;
+}
 
         .website-shared .blazor-card .blazor-card__description {
             margin-top: 20px;
@@ -675,11 +700,15 @@ html {
     margin-left: 48px;
 }
 
-.activity-detail__image {
-    border-radius: 16px;
-    width: 800px;
-    margin: 96px auto 0;
-}
+    .activity-content__select-radius{
+        border-radius: 10px;
+    }
+
+    .activity-detail__image {
+        border-radius: 16px;
+        width: 800px;
+        margin: 96px auto 0;
+    }
 
 .activity-detail__button-text {
     text-decoration: underline;
