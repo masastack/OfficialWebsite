@@ -378,10 +378,11 @@
         font-size: 16px;
         line-height: 24px;
         color: #7681AB;
+        margin-top: 24px;
     }
 
     .website-shared .why-card .why-card__li {
-        margin-top: 24px;
+       
     }
 
 .website-shared .building-block-card {
@@ -391,14 +392,33 @@
     gap: 24px;
     background: #FFFFFF;
     border-radius: 8px;
-    height: 107px;
+    height: 113px;
+}
+
+.building-block-card__actions {
+    display: flex;
+}
+
+.building-block-card__gradual-btn {
+    border: solid 3px transparent !important;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(83.29deg, #6946FF 5.89%, #05CD99 101.4%);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 1px 1000px 1px #FFFFFF inset;
+    margin: 4px auto;
+}
+
+.building-block-card__actions .m-btn {
+    height: 37px !important;
+    width: 90px;
+    border-radius: 24px;
 }
 
     .website-shared .building-block-card .building-block-card__title {
         font-weight: 700;
-        font-size: 20px;
-        line-height: 30px;
-        letter-spacing: 0.01em;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.5px;
         color: #1B2559;
         text-align: center;
     }
@@ -508,6 +528,14 @@
 
 .activity-content__select {
     margin-left: 12px;
+}
+
+.activity-content__select-radius {
+    border-radius: 0;
+}
+
+.my-select .m-input__control > .m-input__slot {
+    background: transparent !important;
 }
 
 .activity-content__card {
