@@ -53,7 +53,7 @@
     @if (IsMobile)
     {
         <MNavigationDrawer @bind-Value="_drawer" Fixed Temporary Right Width="315">
-            <MList Class="menu-list mt-1" Style="height: 100%; overflow-y: auto;" Elevation="0" Subheader TwoLine>
+            <MList Class="menu-list mt-1" Style="height: 100%; overflow-y: auto; padding-top:24px;" Elevation="0" Subheader TwoLine>
                 @foreach (var item in AllNavItems)
                 {
                     @if (item.IsSubheader)
@@ -70,7 +70,7 @@
                             {
                                 <MListItemAvatar Tile Size="40" Class="mt-0 mb-0">
                                     <MImage Src="@item.Image" alt="@item.Title"
-                            Height="30" Width="30" Contain />
+                            Height="@item.Size" Width="@item.Size" Contain />
                                 </MListItemAvatar>
                             }
                             <MListItemContent>
