@@ -15,7 +15,7 @@ window.MasaOfficialWebsite.addWindowScrollEvent = (page) => {
     let targetTop = 0;
 
     const number = Math.ceil(offsetY / innerHeight)
-    
+
     if (direction === 'next') {
       targetTop = innerHeight * number
     } else if (direction === 'previous') {
@@ -31,7 +31,7 @@ window.MasaOfficialWebsite.addWindowScrollEvent = (page) => {
 
   const listenerWrapper = e => {
     const offsetY = document.body.scrollTop || document.documentElement.scrollTop;
-    
+
     if (!preOffsetY) {
       preOffsetY = offsetY
       return
@@ -67,6 +67,37 @@ window.MasaOfficialWebsite.scrollToNext = () => {
   const offsetY = document.body.scrollTop || document.documentElement.scrollTop;
   const n = Math.ceil((offsetY / innerHeight) || 1)
   animationScrollTo(innerHeight * n)
+}
+
+window.MasaOfficialWebsite.scrollToPrev = () => {
+  const innerHeight = window.innerHeight || document.body.clientHeight
+  const offsetY = document.body.scrollTop || document.documentElement.scrollTop;
+  const n = Math.ceil((offsetY / innerHeight) || 1)
+  if (n - 1 > -1) {
+    animationScrollTo(innerHeight * (n - 1))
+  }
+}
+
+window.MasaOfficialWebsite.scrollToNextForTouch = () => {
+  const innerHeight = window.innerHeight || document.body.clientHeight
+  const offsetY = document.body.scrollTop || document.documentElement.scrollTop;
+
+  if (offsetY < innerHeight) {
+    const n = Math.ceil((offsetY / innerHeight) || 1)
+    animationScrollTo(innerHeight * n)
+  }
+}
+
+window.MasaOfficialWebsite.scrollToPrevForTouch = () => {
+  const innerHeight = window.innerHeight || document.body.clientHeight
+  const offsetY = document.body.scrollTop || document.documentElement.scrollTop;
+
+  if (offsetY < innerHeight) {
+    const n = Math.ceil((offsetY / innerHeight) || 1)
+    if (n - 1 > -1) {
+      animationScrollTo(innerHeight * (n - 1))
+    }
+  }
 }
 
 window.MasaOfficialWebsite.scrollTo = (selector) => {

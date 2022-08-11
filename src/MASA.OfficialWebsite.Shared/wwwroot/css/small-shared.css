@@ -3,9 +3,10 @@
     overflow-x: hidden;
 }
 
-.website-shared .gradual-btn {
-    border: solid 2px transparent !important;
-}
+    .website-shared .gradual-btn {
+        border: solid 2px transparent !important;
+        box-shadow: 2px 1000px 1px #F0F3FA inset;
+    }
 
 .website-shared .appbar {
     background-color: rgba(240, 243, 250, 1) !important;
