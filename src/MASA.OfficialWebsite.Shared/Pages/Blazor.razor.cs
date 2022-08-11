@@ -41,13 +41,13 @@ public partial class Blazor : AutoScrollComponentBase
             case "left2right":
             {
                 var nextValue = _carouselValue.ToInt32() + 1;
-                _carouselValue = nextValue > 2 ? 0 : nextValue;
+                _carouselValue = nextValue > 1 ? 0 : nextValue;
                 break;
             }
             case "right2left":
             {
                 var prevValue = _carouselValue.ToInt32() - 1;
-                _carouselValue = prevValue < 0 ? 2 : prevValue;
+                _carouselValue = prevValue < 0 ? 1 : prevValue;
                 break;
             }
         }
