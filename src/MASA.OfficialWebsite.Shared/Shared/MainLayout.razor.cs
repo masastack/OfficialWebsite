@@ -1,4 +1,7 @@
-﻿namespace MASA.OfficialWebsite.Shared.Shared;
+﻿using Microsoft.AspNetCore.Components.Routing;
+using Microsoft.AspNetCore.Components.Web;
+
+namespace MASA.OfficialWebsite.Shared.Shared;
 
 public partial class MainLayout : IDisposable
 {
@@ -17,27 +20,37 @@ public partial class MainLayout : IDisposable
     private static readonly List<NavMenu.NavItem> StudyNavItems = new()
     {
         new NavMenu.NavItem("学习中心"),
-        new NavMenu.NavItem("学习路径","", "_content/MASA.OfficialWebsite.Shared/images/bule-dot.svg", "/learningpath", 12),
+        new NavMenu.NavItem("学习路径", "", "_content/MASA.OfficialWebsite.Shared/images/bule-dot.svg", "/learningpath", 12),
         new NavMenu.NavItem("博客站点", "", "_content/MASA.OfficialWebsite.Shared/images/bule-dot.svg", "https://blogs.masastack.com", 12),
-        new NavMenu.NavItem("文档站点","", "_content/MASA.OfficialWebsite.Shared/images/bule-dot.svg", "https://docs.masastack.com", 12),
+        new NavMenu.NavItem("文档站点", "", "_content/MASA.OfficialWebsite.Shared/images/bule-dot.svg", "https://docs.masastack.com", 12),
         new NavMenu.NavItem("社区活动", "", "_content/MASA.OfficialWebsite.Shared/images/bule-dot.svg", "/activity", 12),
     };
 
     private static readonly List<NavMenu.NavItem> AboutUsItems = new()
     {
         new NavMenu.NavItem("关于我们"),
-        new NavMenu.NavItem("关于我们","", "_content/MASA.OfficialWebsite.Shared/images/bule-dot.svg", "/aboutus", 12)
+        new NavMenu.NavItem("关于我们", "", "_content/MASA.OfficialWebsite.Shared/images/bule-dot.svg", "/aboutus", 12)
     };
 
     private static List<NavMenu.NavItem> AllNavItems => ProductNavItems.Concat(StudyNavItems).Concat(AboutUsItems).ToList();
 
+    private static List<string> ExcludeRoutes = new() { "learningpath" };
+
     private bool _drawer;
 
+    private double _startY;
+    private double _deltaY;
+    private double _offsetY;
+    private string? _direction;
+
     private bool IsMobile { get; set; }
+    private string CurrentRelativePath { get; set; }
 
     private int IconSize => IsMobile ? 40 : 60;
     private int WeChatSize => IsMobile ? 120 : 200;
     private int NudgeLeft => WeChatSize / 2 - IconSize / 2;
+
+    private bool PreventTouch => !IsMobile || ExcludeRoutes.Contains(CurrentRelativePath);
 
     protected override void OnInitialized()
     {
@@ -46,6 +59,15 @@ public partial class MainLayout : IDisposable
         IsMobile = MasaBlazor.Breakpoint.Mobile;
 
         MasaBlazor.Breakpoint.OnUpdate += BreakpointOnOnUpdate;
+
+        var uri = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+        CurrentRelativePath = uri;
+        NavigationManager.LocationChanged += NavigationManagerOnLocationChanged;
+    }
+
+    private void NavigationManagerOnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        CurrentRelativePath = NavigationManager.ToBaseRelativePath(e.Location);
     }
 
     private Task BreakpointOnOnUpdate()
@@ -57,8 +79,69 @@ public partial class MainLayout : IDisposable
         });
     }
 
+    protected void OnTouchstart(TouchEventArgs args)
+    {
+        if (PreventTouch) return;
+
+        ResetTouchStatus();
+        _startY = args.Touches[0].ClientY;
+    }
+
+    protected void OnTouchmove(TouchEventArgs args)
+    {
+        if (PreventTouch) return;
+
+        var touch = args.Touches[0];
+        _deltaY = touch.ClientY < 0 ? 0 : touch.ClientY - _startY;
+        _offsetY = Math.Abs(_deltaY);
+
+        const int lockDirectionDistance = 10;
+        if (string.IsNullOrEmpty(_direction) || _offsetY < lockDirectionDistance)
+        {
+            _direction = _deltaY < 0 ? "top2bottom" : "bottom2top";
+        }
+    }
+
+    protected async Task OnTouchend(TouchEventArgs args)
+    {
+        if (PreventTouch) return;
+
+        switch (_direction)
+        {
+            case "top2bottom":
+            {
+                await ScrollToNextForTouch();
+                break;
+            }
+            case "bottom2top":
+            {
+                await ScrollToPrevForTouch();
+                break;
+            }
+        }
+    }
+
+    protected async Task ScrollToNextForTouch()
+    {
+        await Js.InvokeVoidAsync("MasaOfficialWebsite.scrollToNextForTouch");
+    }
+
+    protected async Task ScrollToPrevForTouch()
+    {
+        await Js.InvokeVoidAsync("MasaOfficialWebsite.scrollToPrevForTouch");
+    }
+
+    private void ResetTouchStatus()
+    {
+        _direction = "";
+        _startY = 0;
+        _deltaY = 0;
+        _offsetY = 0;
+    }
+
     public void Dispose()
     {
         MasaBlazor.Breakpoint.OnUpdate -= BreakpointOnOnUpdate;
+        NavigationManager.LocationChanged -= NavigationManagerOnLocationChanged;
     }
 }

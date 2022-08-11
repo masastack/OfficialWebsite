@@ -22,7 +22,10 @@ public class AutoScrollComponentBase : ComponentBase, IAsyncDisposable
 
             await RemoveWindowScrollEvent();
 
-            await AddWindowScrollEvent(Page);
+            if (!IsMobile)
+            {
+                await AddWindowScrollEvent(Page);
+            }
         }
     }
 
@@ -30,7 +33,7 @@ public class AutoScrollComponentBase : ComponentBase, IAsyncDisposable
     {
         await base.OnAfterRenderAsync(firstRender);
 
-        if (firstRender)
+        if (firstRender && !IsMobile)
         {
             await AddWindowScrollEvent(Page);
             StateHasChanged();

@@ -1,5 +1,7 @@
 ﻿@inherits LayoutComponentBase
 @inject MasaBlazor MasaBlazor
+@inject IJSRuntime Js
+@inject NavigationManager NavigationManager
 
 <MApp Class="masa website-shared">
 
@@ -101,7 +103,10 @@
         </MNavigationDrawer>
     }
 
-    <MMain>
+    <MMain @ontouchstart="OnTouchstart"
+           @ontouchmove="OnTouchmove"
+           @ontouchend="OnTouchend"
+           @ontouchcancel="OnTouchend">
         <CascadingValue Value="IsMobile" Name="@nameof(IsMobile)">
             @Body
         </CascadingValue>
