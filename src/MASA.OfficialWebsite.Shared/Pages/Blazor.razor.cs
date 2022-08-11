@@ -1,11 +1,63 @@
-﻿namespace MASA.OfficialWebsite.Shared.Pages
+﻿using Microsoft.AspNetCore.Components.Web;
+
+namespace MASA.OfficialWebsite.Shared.Pages;
+
+public partial class Blazor : AutoScrollComponentBase
 {
-    public partial class Blazor : AutoScrollComponentBase
+    private double _startX;
+    private double _deltaX;
+    private double _offsetX;
+    private string? _direction;
+
+    protected override int? Page => 1;
+
+    private StringNumber _carouselValue = 0;
+
+    private StringNumber BannerMaxSize => IsMobile ? 375 : 874;
+
+    private void OnTouchstart(TouchEventArgs args)
     {
-        protected override int? Page => 1;
+        ResetTouchStatus();
+        _startX = args.Touches[0].ClientX;
+    }
 
-        private StringNumber _carouselValue = 0;
+    private void OnTouchmove(TouchEventArgs args)
+    {
+        var touch = args.Touches[0];
+        _deltaX = touch.ClientX < 0 ? 0 : touch.ClientX - _startX;
+        _offsetX = Math.Abs(_deltaX);
 
-        private StringNumber BannerMaxSize => IsMobile ? 375 : 874;
+        const int lockDirectionDistance = 10;
+        if (string.IsNullOrEmpty(_direction) || _offsetX < lockDirectionDistance)
+        {
+            _direction = _deltaX < 0 ? "left2right" : "right2left";
+        }
+    }
+
+    private void OnTouchend(TouchEventArgs args)
+    {
+        switch (_direction)
+        {
+            case "left2right":
+            {
+                var nextValue = _carouselValue.ToInt32() + 1;
+                _carouselValue = nextValue > 2 ? 0 : nextValue;
+                break;
+            }
+            case "right2left":
+            {
+                var prevValue = _carouselValue.ToInt32() - 1;
+                _carouselValue = prevValue < 0 ? 2 : prevValue;
+                break;
+            }
+        }
+    }
+
+    private void ResetTouchStatus()
+    {
+        _direction = "";
+        _startX = 0;
+        _deltaX = 0;
+        _offsetX = 0;
     }
 }
