@@ -52,6 +52,11 @@ namespace MASA.OfficialWebsite.Shared.Pages
             await Js.InvokeVoidAsync("MasaOfficialWebsite.scrollToNext");
         }
 
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            await Js.InvokeVoidAsync("setTitle", "社区活动");
+        }
+
         private static readonly List<Activity> AllActivities = new()
         {
             new Activity("MASA Blazor 社区例会", "基于Material Design , MAUI的最佳拍档",

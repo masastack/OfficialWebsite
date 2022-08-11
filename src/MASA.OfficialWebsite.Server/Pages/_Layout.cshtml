@@ -7,6 +7,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="MASA|.NET|dotnet|云原生|PaaS|微服务|Dapr|Blazor|MAUI|开发框架|DDD|webassembly|数闪科技"/>
+    <meta name="description" content="数闪科技致力于用 .NET技术打造核心产品MASA Stack，提供一站式.NET现代应用开发交付解决方案，赋能 560万.NET开发者转型为数字化人才，从而让企业获得 持续的创新力 和 新的增长机会，帮助企业找到数字化转型的最佳路径！" />
     <base href="~/" />
     <link href="css/site.css" rel="stylesheet" />
 
@@ -21,6 +23,9 @@
     <link rel="icon" href="https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png" type="image/x-icon" />
     <title>MASA Stack</title>
     <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
+    <script>
+         setTitle = (title) => { document.title = title; };
+    </script>
 </head>
 <body>
 @RenderBody()

@@ -31,7 +31,7 @@
                 }
                 else
                 {
-                    <MListItem Href="@item.Href" Disabled="@item.Disabled">
+                    <MListItem Href="@item.Href" Disabled="@item.Disabled" Class="home-menu-hover">
                         @if (item.Image is not null)
                         {
                             <MListItemAvatar Tile Size="40" Class="mt-0 mb-0">
@@ -45,14 +45,6 @@
                             </MListItemTitle>
                             <MListItemSubtitle Class="body2 regular3--text">@item.Subtitle</MListItemSubtitle>
                         </MListItemContent>
-                        @if (item.Href is not null)
-                        {
-                            <MListItemAction>
-                                <MButton Icon Small>
-                                    <MIcon Size="16">mdi-arrow-right</MIcon>
-                                </MButton>
-                            </MListItemAction>
-                        }
                     </MListItem>
                 }
             }

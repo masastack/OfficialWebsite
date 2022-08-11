@@ -219,6 +219,10 @@ html {
                     margin-right: 24px;
                 }
 
+.home-menu-hover:hover {
+    background: #F6F8FD;
+}
+
         .website-shared .home-banner .cover-wrapper {
             height: 100%;
             display: flex;

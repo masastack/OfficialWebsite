@@ -15,6 +15,14 @@ public partial class Blazor : AutoScrollComponentBase
 
     private StringNumber BannerMaxSize => IsMobile ? 375 : 874;
 
+    [Inject]
+    private IJSRuntime JSRuntime { get; set; } = null!;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JSRuntime.InvokeVoidAsync("setTitle", "MASA Blazor - 企业级多端组件库");
+    }
+
     private void OnTouchstart(TouchEventArgs args)
     {
         ResetTouchStatus();
