@@ -131,6 +131,10 @@
             border-radius: 40px;
         }
 
+            .website-shared .home-banner .intro-actions .m-btn .m-btn__content{
+                line-height: 14px;
+            }
+
             .website-shared .home-banner .intro-actions .m-btn:first-child {
                 margin-right: 16px;
             }
