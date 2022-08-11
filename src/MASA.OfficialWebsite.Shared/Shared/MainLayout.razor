@@ -52,7 +52,7 @@
 
     @if (IsMobile)
     {
-        <MNavigationDrawer @bind-Value="_drawer" Absolute Temporary Right Width="315">
+        <MNavigationDrawer @bind-Value="_drawer" Fixed Temporary Right Width="315">
             <MList Class="menu-list mt-1" Style="height: 100%; overflow-y: auto;" Elevation="0" Subheader TwoLine>
                 @foreach (var item in AllNavItems)
                 {
