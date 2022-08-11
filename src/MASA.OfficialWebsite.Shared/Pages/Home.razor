@@ -168,59 +168,56 @@
 </div>
 
 <div class="home-content">
-    <div class="home-content__item full-page d-flex align-center" id="product-content">
-        <div>
-            <div class="home-content__item-header">
-                <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">产品</MenuableTitle>
-                <div class="home-content__item-subtitle">Modern App & Service Architecture</div>
-            </div>
-            <MRow NoGutters="IsMobile" class="home-content__item-cards">
-                <MCol Cols="12" Md="4">
-                    <ProductCard Title="MASA Stack"
-                                 Href="/stack"
-                                 Image="https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png"
-                                 Description="开源企业级云原生技术底座 PaaS，包含企业IT现代应用开发交付的全部板块，如流量治理、服务治理、数据治理、可观测性、DevOps等一站式解决方案">
-                    </ProductCard>
-                </MCol>
-                <MCol Cols="12" Md="4">
-                    <ProductCard Title="MASA Framework"
-                                 Href="/framework"
-                                 Image="_content/MASA.OfficialWebsite.Shared/images/framework_logo.png"
-                                 Description=".NET下一代微服务开发框架，内嵌分布式运行时——Dapr云原生最佳实践，能够快速实现分布式、微服务、DDD，SaaS等现代应用开发">
-                    </ProductCard>
-                </MCol>
-                <MCol Cols="12" Md="4">
-                    <ProductCard Title="MASA Blazor"
-                                 Href="/blazor"
-                                 Image="_content/MASA.OfficialWebsite.Shared/images/blazor_logo.png"
-                                 Description="基于Material设计规范的Blazor组件库，打造企业级.NET全栈解决方案，具有模块化、响应式和优秀的性能，并实现MAUI多端适配">
-                    </ProductCard>
-                </MCol>
-            </MRow>
+    <div class="home-content__item full-page" id="product-content">
+        <div class="home-content__item-header">
+            <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">产品</MenuableTitle>
+            <div class="home-content__item-subtitle">Modern App & Service Architecture</div>
         </div>
+        <MRow NoGutters="IsMobile" class="home-content__item-cards">
+            <MCol Cols="12" Md="4">
+                <ProductCard Title="MASA Stack"
+                             Href="/stack"
+                             Image="https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png"
+                             Description="开源企业级云原生技术底座 PaaS，包含企业IT现代应用开发交付的全部板块，如流量治理、服务治理、数据治理、可观测性、DevOps等一站式解决方案">
+                </ProductCard>
+            </MCol>
+            <MCol Cols="12" Md="4">
+                <ProductCard Title="MASA Framework"
+                             Href="/framework"
+                             Image="_content/MASA.OfficialWebsite.Shared/images/framework_logo.png"
+                             Description=".NET下一代微服务开发框架，内嵌分布式运行时——Dapr云原生最佳实践，能够快速实现分布式、微服务、DDD，SaaS等现代应用开发">
+                </ProductCard>
+            </MCol>
+            <MCol Cols="12" Md="4">
+                <ProductCard Title="MASA Blazor"
+                             Href="/blazor"
+                             Image="_content/MASA.OfficialWebsite.Shared/images/blazor_logo.png"
+                             Description="基于Material设计规范的Blazor组件库，打造企业级.NET全栈解决方案，具有模块化、响应式和优秀的性能，并实现MAUI多端适配">
+                </ProductCard>
+            </MCol>
+        </MRow>
     </div>
 
     <div class="home-content__item full-page fire" id="activity-content">
-        <div>
-            <div class="home-content__item-header">
-                <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">最新活动</MenuableTitle>
-                <div class="home-content__item-subtitle">最新社区活动预告与往期回顾</div>
-            </div>
-            <MRow NoGutters="IsMobile" class="home-content__item-cards">
-                @foreach (var item in Activities.OrderByDescending(a => a.StartAt).Take(3))
-                {
-                    <MCol Cols="12" Md="4">
-                        <ActivityCard Title="@item.Title"
-                                      Subtitle="@item.Subtitle"
-                                      Cover="@item.Cover"
-                                      Date="@item.Date"
-                                      StartTime="@item.StartTime"
-                                      EndTime="@item.EndTime"
-                                      Type="@item.Type">
-                        </ActivityCard>
-                    </MCol>
-                }
-            </MRow>
+        <div class="home-content__item-header">
+            <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">最新活动</MenuableTitle>
+            <div class="home-content__item-subtitle">最新社区活动预告与往期回顾</div>
+        </div>
+        <MRow NoGutters="IsMobile" class="home-content__item-cards">
+            @foreach (var item in Activities.OrderByDescending(a => a.StartAt).Take(3))
+            {
+                <MCol Cols="12" Md="4">
+                    <ActivityCard Title="@item.Title"
+                                  Subtitle="@item.Subtitle"
+                                  Cover="@item.Cover"
+                                  Date="@item.Date"
+                                  StartTime="@item.StartTime"
+                                  EndTime="@item.EndTime"
+                                  Type="@item.Type">
+                    </ActivityCard>
+                </MCol>
+            }
+        </MRow>
 
             <More Href="/activity">更多活动</More>
         </div>
