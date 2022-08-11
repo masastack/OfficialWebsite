@@ -2,14 +2,6 @@
 {
     public partial class Framework : AutoScrollComponentBase
     {
-        [Inject]
-        private IJSRuntime JSRuntime { get; set; } = null!;
-
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            await JSRuntime.InvokeVoidAsync("setTitle", "MASA Framework - .NET下一代微服务开发框架");
-        }
-
         private static readonly List<MenuableTitleItem> MenuableTitleItems = new()
         {
             new MenuableTitleItem("BuildingBlocks", "构建块", "#building-blocks-content"),

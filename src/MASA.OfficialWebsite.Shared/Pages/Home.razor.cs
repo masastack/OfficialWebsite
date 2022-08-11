@@ -4,14 +4,6 @@ namespace MASA.OfficialWebsite.Shared.Pages;
 
 public partial class Home : AutoScrollComponentBase
 {
-    [Inject]
-    private IJSRuntime JSRuntime { get; set; } = null!;
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        await JSRuntime.InvokeVoidAsync("setTitle", "MASA Stack - .NET开源企业级云原生技术底座 PaaS");
-    }
-
     private static readonly List<Activity> Activities = new()
     {
         new Activity("MASA Stack 社区例会", "MASA Stack最新进度汇报",

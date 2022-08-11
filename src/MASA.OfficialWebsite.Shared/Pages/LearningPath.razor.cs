@@ -14,11 +14,6 @@ namespace MASA.OfficialWebsite.Shared.Pages
         [CascadingParameter(Name = "IsMobile")]
         private bool IsMobile { get; set; }
 
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            await Js.InvokeVoidAsync("setTitle", "学习路径");
-        }
-
         private async Task ScrollToNext()
         {
             await Js.InvokeVoidAsync("MasaOfficialWebsite.scrollToNext");

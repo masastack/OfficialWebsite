@@ -2,14 +2,6 @@
 {
     public partial class Stack : AutoScrollComponentBase
     {
-        [Inject]
-        private IJSRuntime JSRuntime { get; set; } = null!;
-
-        protected override async Task OnAfterRenderAsync(bool firstRender)
-        {
-            await JSRuntime.InvokeVoidAsync("setTitle", "MASA Stack - 开源企业级云原生技术底座 PaaS");
-        }
-
         private static readonly List<string> WhyContent1 = new()
         {
             ".NET应用交付“保姆级”护航",
