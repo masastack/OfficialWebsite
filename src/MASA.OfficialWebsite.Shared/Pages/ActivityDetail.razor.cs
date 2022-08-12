@@ -14,16 +14,24 @@ namespace MASA.OfficialWebsite.Shared.Pages
         [CascadingParameter(Name = "IsMobile")]
         private bool IsMobile { get; set; }
 
+        [Inject]
+        public NavigationManager? NavigationManager { get; set; }
+
         private static readonly List<MenuableTitleItem> MenuableTitleItems = new()
         {
-            new MenuableTitleItem("活动详情", "", "#activity-detail"),
             new MenuableTitleItem("视频回放", "", "#activity-video"),
+            new MenuableTitleItem("活动详情", "", "#activity-detail"),
             new MenuableTitleItem("资料下载", "", "#active-file"),
         };
 
         private async Task ScrollToNext()
         {
             await Js.InvokeVoidAsync("MasaOfficialWebsite.scrollToNext");
+        }
+
+        private void DownLoadFiles()
+        {
+            NavigationManager.NavigateTo("http://masa-cdn.oss-cn-hangzhou.aliyuncs.com/files/MASA%20Framework%E7%9A%84%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5.pdf", false);
         }
     }
 }
