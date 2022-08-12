@@ -6,15 +6,9 @@ public partial class Home : AutoScrollComponentBase
 {
     private static readonly List<Activity> Activities = new()
     {
-        new Activity("MASA Stack 社区例会", "MASA Stack最新进度汇报",
-            "_content/MASA.OfficialWebsite.Shared/images/activity1.png",
-            DateTime.Now, 2, ActivityType.Live),
-        new Activity("MASA Stack 社区例会", "MASA Stack最新进度汇报",
-            "_content/MASA.OfficialWebsite.Shared/images/activity1.png",
-            DateTime.Now, 3, ActivityType.Offline),
-        new Activity("MASA Stack 社区例会", "MASA Stack最新进度汇报",
-            "_content/MASA.OfficialWebsite.Shared/images/activity1.png",
-            DateTime.Now, 1, ActivityType.LookBack),
+        new Activity("MASA Framework实战课程开课", "大咖云集，共同助力",
+                "_content/MASA.OfficialWebsite.Shared/images/activity2.jpg",
+                new DateTime(2022, 7, 25), 2, ActivityType.Live)
     };
 
     private static readonly List<MenuableTitleItem> MenuableTitleItems = new()

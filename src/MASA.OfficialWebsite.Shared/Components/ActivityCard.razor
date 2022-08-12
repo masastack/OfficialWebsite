@@ -14,7 +14,7 @@
         </MAvatar>
         <PBlockText PrimaryClass="activity-card__title" SecondaryClass="activity-card__subtitle">
             <PrimaryContent>
-                @Title
+                <div @onclick="GoTo">@Title</div>
                 @if (Type.HasValue)
                 {
                     var (label, color) = FormatType(Type.Value);
@@ -51,8 +51,14 @@
     [Parameter]
     public string? Subtitle { get; set; }
 
+    [Parameter]
+    public string? Href { get; set; } = "/activityDetail";
+
     [Parameter, EditorRequired]
     public ActivityType? Type { get; set; }
+
+    [Inject]
+    public NavigationManager? NavigationManager { get; set; }
 
     private (string text, string color) FormatType(ActivityType type)
     {
@@ -62,7 +68,12 @@
             ActivityType.Offline => ("线下", "blue"),
             ActivityType.LookBack => ("回顾", "grey"),
             _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
-            };
+        };
+    }
+
+    private void GoTo()
+    {
+        NavigationManager.NavigateTo(Href, false);
     }
 
 }

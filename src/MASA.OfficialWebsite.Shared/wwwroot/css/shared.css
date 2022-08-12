@@ -443,21 +443,26 @@ html {
             margin-bottom: 4px;
         }
 
-        .website-shared .activity-card .activity-card__subtitle {
-            font-weight: 500;
-            font-size: 18px;
-            line-height: 27px;
-            display: flex;
-            align-items: center;
-            letter-spacing: 0.01em;
-            color: #A3AED0;
-        }
+            .website-shared .activity-card .activity-card__title:hover{
+                cursor: pointer;
+            }
 
-    .website-shared .menuable-title__content {
-        box-shadow: none;
-        width: 375px;
-        filter: drop-shadow(0px 18px 40px rgba(112, 144, 176, 0.12));
-    }
+            .website-shared .activity-card .activity-card__subtitle {
+                font-weight: 500;
+                font-size: 18px;
+                line-height: 27px;
+                display: flex;
+                align-items: center;
+                letter-spacing: 0.01em;
+                color: #A3AED0;
+            }
+
+
+        .website-shared .menuable-title__content {
+            box-shadow: none;
+            width: 375px;
+            filter: drop-shadow(0px 18px 40px rgba(112, 144, 176, 0.12));
+        }
 
         .website-shared .menuable-title__content .m-list {
             border-radius: 0 0 16px 16px;
@@ -728,11 +733,11 @@ html {
             height: auto;
         }
 
-.website-shared .activity-content {
-    max-width: 1596px;
-    margin: 0 auto;
-    padding-bottom: 100px;
-}
+    .website-shared .activity-content {
+        max-width: 1596px;
+        margin: 0 auto;
+        padding-bottom: 100px;
+    }
 
     .website-shared .activity-content .activity-content__item {
         padding-top: 50px;
