@@ -10,7 +10,7 @@
                 <div style="margin-top:18px; margin-left:16px; margin-right:16px;">
                     <div class="activity-header__title">最新活动</div>
                     <div style="margin-top:18px;border-radius: 16px;" @onclick="GoToDetail">
-                        <MImage Src="_content/MASA.OfficialWebsite.Shared/images/m_activity2.jpg" Height="@("100%")" Width="@("100%")" />
+                        <MImage Style="cursor:pointer;" Src="_content/MASA.OfficialWebsite.Shared/images/m_activity2.jpg" Height="@("100%")" Width="@("100%")" />
                     </div>
                 </div>
             </MCol>
@@ -42,7 +42,7 @@
                                 <div class="activity-header__subtitle">@item.Title</div>
                                 <div class="activity-header__description">@item.Subtitle</div>
                                 <div style="margin-top:24px;" @onclick="GoToDetail">
-                                    <MImage Src="@item.Cover" Width="1029" Height="578" />
+                                    <MImage Style="cursor:pointer;" Src="@item.Cover" Width="1029" Height="578" />
                                 </div>
                             </MCard>
                         </MWindowItem>

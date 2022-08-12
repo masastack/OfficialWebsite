@@ -56,7 +56,7 @@ namespace MASA.OfficialWebsite.Shared.Pages
         {
             new Activity("MASA Framework实战课程开课", "大咖云集，共同助力",
                 "_content/MASA.OfficialWebsite.Shared/images/activity2.jpg",
-                new DateTime(2022, 7, 25), 2, ActivityType.Live)
+                new DateTime(2022, 7, 22, 14, 0, 0), 2, ActivityType.Live)
         };
 
         private void CheckActivity(EventArgs eventargs, int index)
