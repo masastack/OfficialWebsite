@@ -4,7 +4,7 @@
         <span class="activity-card__time">@StartTime.ToString("HH:mm") - @EndTime.ToString("HH:mm")</span>
     </div>
 
-    <div class="activity-card__desc">
+    <div class="activity-card__desc"  @onclick="GoTo">
         <MImage Src="@Cover" Height="@(IsMobile ? null : 290)" Width="@(IsMobile ? "100%" : null)" Contain Style="border-radius: 16px;"></MImage>
     </div>
 

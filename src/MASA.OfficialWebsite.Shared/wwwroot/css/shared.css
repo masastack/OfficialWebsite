@@ -420,6 +420,7 @@ html {
         }
 
         .website-shared .activity-card .activity-card__desc {
+            cursor: pointer;
             margin-bottom: 16px;
         }
 
