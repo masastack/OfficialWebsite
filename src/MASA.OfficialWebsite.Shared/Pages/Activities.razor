@@ -9,10 +9,9 @@
             <MCol>
                 <div style="margin-top:18px; margin-left:16px; margin-right:16px;">
                     <div class="activity-header__title">最新活动</div>
-                    <div style="margin-top:18px;border-radius: 16px;">
+                    <div style="margin-top:18px;border-radius: 16px;" @onclick="GoToDetail">
                         <MImage Src="_content/MASA.OfficialWebsite.Shared/images/m_activity2.jpg" Height="@("100%")" Width="@("100%")" />
                     </div>
-                    <div></div>
                 </div>
             </MCol>
         </MRow>
@@ -43,22 +42,25 @@
                                 <div class="activity-header__subtitle">@item.Title</div>
                                 <div class="activity-header__description">@item.Subtitle</div>
                                 <div style="margin-top:24px;" @onclick="GoToDetail">
-                                    <MImage Src="@item.Cover" Width="1029" Height="578"/>
+                                    <MImage Src="@item.Cover" Width="1029" Height="578" />
                                 </div>
                             </MCard>
                         </MWindowItem>
                     }
                 </MWindow>
             </MCol>
-            <MCol>
-                <div class="d-flex flex-column" style="margin-top:140px;">
-                    @for (int i = 0; i < AllActivities.Count; i++)
-                    {
-                        var j = i;
-                        <div class="status-point" @onclick="@(e=>CheckActivity(e,j))"></div>
-                    }
-                </div>
-            </MCol>
+            @if (AllActivities.Count > 1)
+            {
+                <MCol>
+                    <div class="d-flex flex-column" style="margin-top:140px;">
+                        @for (int i = 0; i < AllActivities.Count; i++)
+                        {
+                            var j = i;
+                            <div class="status-point" @onclick="@(e=>CheckActivity(e,j))"></div>
+                        }
+                    </div>
+                </MCol>
+            }
         </MRow>
     }
 </div>
@@ -141,15 +143,18 @@
                 </MRow>
             }
         </div>
-        @if (IsMobile)
+        @if (AllActivities.Count > 6)
         {
-            <div class="d-flex justify-center activity-header__description" style="margin-top:30px;">更多活动...</div>
-        }
-        else
-        {
-            <div style="margin-top:50px;margin-bottom:100px ;float:right;">
-                <MPagination @bind-Value="_page" Length="4"></MPagination>
-            </div>
+            if (IsMobile)
+            {
+                <div class="d-flex justify-center activity-header__description" style="margin-top:30px;">更多活动...</div>
+            }
+            else
+            {
+                <div style="margin-top:50px;margin-bottom:100px ;float:right;">
+                    <MPagination @bind-Value="_page" Length="4"></MPagination>
+                </div>
+            }
         }
     </div>
 </div>

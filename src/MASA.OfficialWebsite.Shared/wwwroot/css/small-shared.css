@@ -553,6 +553,10 @@
     width:auto;
 }
 
+.activity-detail__image-height {
+    height: 55vw;
+}
+
 .activity-detail__button-text {
     text-decoration: underline;
     border-width: 0;
