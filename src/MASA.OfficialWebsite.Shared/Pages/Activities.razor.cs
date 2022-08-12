@@ -54,24 +54,9 @@ namespace MASA.OfficialWebsite.Shared.Pages
 
         private static readonly List<Activity> AllActivities = new()
         {
-            new Activity("MASA Blazor 社区例会", "基于Material Design , MAUI的最佳拍档",
+            new Activity("实战课程开课", "大咖云集，共同助力",
                 "_content/MASA.OfficialWebsite.Shared/images/activity2.jpg",
-                DateTime.Now, 2, ActivityType.Live),
-            new Activity("MASA Blazor 社区例会", "基于Material Design , MAUI的最佳拍档",
-                "_content/MASA.OfficialWebsite.Shared/images/activity2.jpg",
-                DateTime.Now.AddDays(-1), 3, ActivityType.Offline),
-            new Activity("MASA Blazor 社区例会", "基于Material Design , MAUI的最佳拍档",
-                "_content/MASA.OfficialWebsite.Shared/images/activity2.jpg",
-                DateTime.Now.AddDays(-2), 1, ActivityType.LookBack),
-            new Activity("MASA Blazor 社区例会", "基于Material Design , MAUI的最佳拍档",
-                "_content/MASA.OfficialWebsite.Shared/images/activity2.jpg",
-                DateTime.Now.AddDays(-3), 2, ActivityType.Live),
-            new Activity("MASA Blazor 社区例会", "基于Material Design , MAUI的最佳拍档",
-                "_content/MASA.OfficialWebsite.Shared/images/activity2.jpg",
-                DateTime.Now.AddDays(-4), 3, ActivityType.Offline),
-            new Activity("MASA Blazor 社区例会", "基于Material Design , MAUI的最佳拍档",
-                "_content/MASA.OfficialWebsite.Shared/images/activity2.jpg",
-                DateTime.Now.AddYears(-1), 1, ActivityType.LookBack)
+                new DateTime(2022, 7, 22), 2, ActivityType.Live)
         };
 
         private void CheckActivity(EventArgs eventargs, int index)
