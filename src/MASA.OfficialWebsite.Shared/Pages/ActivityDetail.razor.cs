@@ -31,7 +31,7 @@ namespace MASA.OfficialWebsite.Shared.Pages
 
         private void DownLoadFiles()
         {
-            NavigationManager.NavigateTo("http://masa-cdn.oss-cn-hangzhou.aliyuncs.com/files/1.%20MASA%20Framework%E7%9A%84%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5.pdf", false);
+            NavigationManager.NavigateTo("https://cdn.masastack.com/files/1.%20MASA%20Framework%E7%9A%84%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5.pdf", false);
         }
     }
 }
