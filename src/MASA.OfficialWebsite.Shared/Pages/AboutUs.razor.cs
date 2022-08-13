@@ -2,5 +2,5 @@
 
 public partial class AboutUs: AutoScrollComponentBase
 {
-    protected override int? Page => 1;
+    protected override int? Page => 0;
 }
