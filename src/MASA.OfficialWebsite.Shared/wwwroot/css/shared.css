@@ -329,6 +329,7 @@ html {
             text-align: center;
             color: #323D6F;
             margin-bottom: 16px;
+            cursor: auto;
         }
 
         .website-shared .home-content .home-content__item-subtitle {
