@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MASA.OfficialWebsite.Shared.Pages
+﻿namespace MASA.OfficialWebsite.Shared.Pages
 {
-    public partial class Activities
+    public partial class Activities : AutoScrollComponentBase
     {
         [Inject]
-        private IJSRuntime Js { get; set; } = null!;
-
-        [CascadingParameter(Name = "IsMobile")]
-        private bool IsMobile { get; set; }
+        public NavigationManager NavigationManager { get; set; } = null!;
 
         private int _page = 1;
 
@@ -22,7 +13,7 @@ namespace MASA.OfficialWebsite.Shared.Pages
 
         private ActivityType? _channel = null;
 
-        private List<Item<int>> yearItems = new()
+        private List<Item<int>> _yearItems = new()
         {
             new Item<int>("2022", 2022),
             new Item<int>("2021", 2021),
@@ -30,7 +21,7 @@ namespace MASA.OfficialWebsite.Shared.Pages
             new Item<int>("2019", 2019)
         };
 
-        private List<Item<int>> activityTypeItems = new()
+        private List<Item<int>> _activityTypeItems = new()
         {
             new Item<int>("社区例会", 1),
             new Item<int>("产品发布会", 2),
@@ -38,19 +29,12 @@ namespace MASA.OfficialWebsite.Shared.Pages
             new Item<int>("Meetup", 4),
         };
 
-        private List<Item<ActivityType>> channelItems = new()
+        private List<Item<ActivityType>> _channelItems = new()
         {
             new Item<ActivityType>("线上直播", ActivityType.Live),
             new Item<ActivityType>("线下", ActivityType.Offline),
             new Item<ActivityType>("回放", ActivityType.LookBack)
         };
-        [Inject]
-        public NavigationManager? NavigationManager { get; set; }
-        private StringNumber _carouselValue = 0;
-        private async Task ScrollToNext()
-        {
-            await Js.InvokeVoidAsync("MasaOfficialWebsite.scrollToNext");
-        }
 
         private static readonly List<Activity> AllActivities = new()
         {
@@ -58,6 +42,10 @@ namespace MASA.OfficialWebsite.Shared.Pages
                 "https://cdn.masastack.com/images/activity2.jpg",
                 new DateTime(2022, 7, 22, 14, 0, 0), 2, ActivityType.Live)
         };
+
+        private StringNumber _carouselValue = 0;
+
+        protected override int? Page => 1;
 
         private void CheckActivity(EventArgs eventargs, int index)
         {

@@ -10,7 +10,7 @@ window.MasaOfficialWebsite.addWindowScrollEvent = (page) => {
     const innerHeight = window.innerHeight || document.body.clientHeight
     const offsetY = document.body.scrollTop || document.documentElement.scrollTop;
 
-    if (page && offsetY > innerHeight * page) return
+    if (page === -1 || page && offsetY > innerHeight * page) return
 
     let targetTop = 0;
 

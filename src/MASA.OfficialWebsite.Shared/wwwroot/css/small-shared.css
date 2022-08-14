@@ -510,6 +510,7 @@
     }
 
 .activity-header__title {
+    margin-top: 0;
     font-size: 34px;
     line-height: 51px;
     font-weight: 700;
@@ -541,6 +542,7 @@
 
 .my-select .m-input__control > .m-input__slot {
     background: transparent !important;
+    font-size: 14px;
 }
 
 .activity-content__card {

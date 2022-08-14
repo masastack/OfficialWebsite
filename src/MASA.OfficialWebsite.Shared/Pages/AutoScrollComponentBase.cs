@@ -10,6 +10,9 @@ public class AutoScrollComponentBase : ComponentBase, IAsyncDisposable
 
     private bool _prevIsMobile;
 
+    /// <summary>
+    /// -1: disabled, 0: all, other
+    /// </summary>
     protected virtual int? Page => IsMobile ? 1 : null;
 
     protected override async Task OnParametersSetAsync()

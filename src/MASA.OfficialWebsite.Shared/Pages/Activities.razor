@@ -1,30 +1,28 @@
 ﻿@page "/activity"
+@inherits AutoScrollComponentBase
 
 <PageTitle>社区活动</PageTitle>
 
 <div class="home-banner">
     @if (IsMobile)
     {
-        <MRow NoGutters>
-            <MCol>
-                <div style="margin-top:18px; margin-left:16px; margin-right:16px;">
-                    <div class="activity-header__title">最新活动</div>
-                    <div style="margin-top:18px;border-radius: 16px;" @onclick="GoToDetail">
-                        <MImage Style="cursor:pointer;" Src="https://cdn.masastack.com/images/m_activity2.jpg" Height="@("100%")" Width="@("100%")" />
-                    </div>
-                </div>
-            </MCol>
-        </MRow>
-        @if (IsMobile)
-        {
-            <div class="home-banner__slider-wrapper"
-         style="background-image: url('https://cdn.masastack.com/images/mUnion.png'); background-size: 100% 100%">
-                <div style="display: contents" @onclick="ScrollToNext">
-                    <MIcon Small Color="#E2E7F4">mdi-chevron-double-up</MIcon>
-                    <div class="more">全部活动</div>
-                </div>
+        <div style="padding: 14px 16px; height: 100%">
+            <div class="activity-header__title">最新活动</div>
+            <div style="padding-top:18px; border-radius:16px; height: calc(100% - 69px);overflow: hidden">
+                <MImage Style="cursor:pointer;"
+                        Src="https://cdn.masastack.com/images/m_activity2.jpg"
+                        Width="@("100%")"
+                        Contain
+                        @onclick="GoToDetail" />
             </div>
-        }
+        </div>
+        <div class="home-banner__slider-wrapper"
+             style="background-image: url('https://cdn.masastack.com/images/mUnion.png'); background-size: 100% 100%">
+            <div style="display: contents" @onclick="ScrollToNext">
+                <MIcon Small Color="#E2E7F4">mdi-chevron-double-up</MIcon>
+                <div class="more">全部活动</div>
+            </div>
+        </div>
     }
     else
     {
@@ -56,7 +54,7 @@
                         @for (int i = 0; i < AllActivities.Count; i++)
                         {
                             var j = i;
-                            <div class="status-point" @onclick="@(e=>CheckActivity(e,j))"></div>
+                            <div class="status-point" @onclick="@(e => CheckActivity(e, j))"></div>
                         }
                     </div>
                 </MCol>
@@ -68,45 +66,84 @@
 <div class="home-content">
     <div class="home-content__item">
         <div class="activity-content1">
-            <MRow NoGutters>
-                <MCol Cols="12" Md="4" Class="d-flex">
-                    <div>
+            @if (IsMobile)
+            {
+                <MRow NoGutters>
+                    <MCol Cols="4">
                         <MSelect @bind-Value="@_year"
                                  Solo
-                                 Items="@yearItems"
+                                 Items="@_yearItems"
                                  ItemText="u => u.Label"
                                  ItemValue="u => u.Value"
                                  Class="my-select activity-content__select-radius"
                                  Flat>
                         </MSelect>
-                    </div>
-                    <div class="activity-content__select">
+                    </MCol>
+                    <MCol Cols="4">
                         <MSelect @bind-Value="@_activityType"
                                  Solo
                                  Label="活动类型"
-                                 Items="@activityTypeItems"
+                                 Items="@_activityTypeItems"
                                  ItemText="u => u.Label"
                                  ItemValue="u => u.Value"
-                                 Clearable
                                  Class="my-select activity-content__select-radius"
                                  Flat>
                         </MSelect>
-                    </div>
-                    <div class="activity-content__select">
+                    </MCol>
+                    <MCol Cols="4">
                         <MSelect @bind-Value="@_channel"
                                  Solo
                                  Label="渠道"
-                                 Items="@channelItems"
+                                 Items="@_channelItems"
                                  ItemText="u => u.Label"
                                  ItemValue="u => u.Value"
                                  Class="my-select activity-content__select-radius"
-                                 Clearable
                                  Flat>
                         </MSelect>
-                    </div>
-                </MCol>
-            </MRow>
-
+                    </MCol>
+                </MRow>
+            }
+            else
+            {
+                <MRow>
+                    <MCol Cols="4">
+                        <MRow>
+                            <MCol Cols="4">
+                                <MSelect @bind-Value="@_year"
+                                         Solo
+                                         Items="@_yearItems"
+                                         ItemText="u => u.Label"
+                                         ItemValue="u => u.Value"
+                                         Class="my-select activity-content__select-radius"
+                                         Flat>
+                                </MSelect>
+                            </MCol>
+                            <MCol Cols="4">
+                                <MSelect @bind-Value="@_activityType"
+                                         Solo
+                                         Label="活动类型"
+                                         Items="@_activityTypeItems"
+                                         ItemText="u => u.Label"
+                                         ItemValue="u => u.Value"
+                                         Class="my-select activity-content__select-radius"
+                                         Flat>
+                                </MSelect>
+                            </MCol>
+                            <MCol Cols="4">
+                                <MSelect @bind-Value="@_channel"
+                                         Solo
+                                         Label="渠道"
+                                         Items="@_channelItems"
+                                         ItemText="u => u.Label"
+                                         ItemValue="u => u.Value"
+                                         Class="my-select activity-content__select-radius"
+                                         Flat>
+                                </MSelect>
+                            </MCol>
+                        </MRow>
+                    </MCol>
+                </MRow>
+            }
         </div>
         <div>
             <MRow NoGutters="IsMobile">
@@ -114,12 +151,12 @@
                 {
                     <MCol Cols="12" Md="4" Class="activity-content__card">
                         <ActivityCard Title="@item.Title"
-                                  Subtitle="@item.Subtitle"
-                                  Cover="@item.Cover"
-                                  Date="@item.Date"
-                                  StartTime="@item.StartTime"
-                                  EndTime="@item.EndTime"
-                                  Type="@item.Type">
+                                      Subtitle="@item.Subtitle"
+                                      Cover="@item.Cover"
+                                      Date="@item.Date"
+                                      StartTime="@item.StartTime"
+                                      EndTime="@item.EndTime"
+                                      Type="@item.Type">
                         </ActivityCard>
                     </MCol>
                 }
@@ -131,13 +168,13 @@
                     {
                         <MCol Cols="12" Md="4" Class="activity-content__card">
                             <ActivityCard Title="@item.Title"
-                                  Subtitle="@item.Subtitle"
-                                  Cover="@item.Cover"
-                                  Date="@item.Date"
-                                  StartTime="@item.StartTime"
-                                  EndTime="@item.EndTime"
-                                  Href="/activityDetail"
-                                  Type="@item.Type">
+                                          Subtitle="@item.Subtitle"
+                                          Cover="@item.Cover"
+                                          Date="@item.Date"
+                                          StartTime="@item.StartTime"
+                                          EndTime="@item.EndTime"
+                                          Href="/activityDetail"
+                                          Type="@item.Type">
                             </ActivityCard>
                         </MCol>
                     }
