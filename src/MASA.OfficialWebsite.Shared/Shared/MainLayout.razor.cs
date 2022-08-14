@@ -98,7 +98,10 @@ public partial class MainLayout : IDisposable
         const int lockDirectionDistance = 10;
         if (string.IsNullOrEmpty(_direction) || _offsetY < lockDirectionDistance)
         {
-            _direction = _deltaY < 0 ? "top2bottom" : "bottom2top";
+            if (_offsetY > 50)
+            {
+                _direction = _deltaY < 0 ? "top2bottom" : "bottom2top";
+            }
         }
     }
 
