@@ -5,6 +5,14 @@ namespace MASA.OfficialWebsite.Shared.Shared;
 
 public partial class MainLayout : IDisposable
 {
+    private static readonly List<NavMenu.NavItem> DocumentNavItems = new ()
+    {
+        new NavMenu.NavItem("文档中心"),
+        new NavMenu.NavItem("MASA Stack", "开源企业级云原生技术底座 PaaS", "https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png", "https://docs.masastack.com/Stack/guide/introduce.html", 30),
+        new NavMenu.NavItem("MASA Framework", ".NET下一代微服务开发框架", "https://cdn.masastack.com/images/framework_logo.png", "https://docs.masastack.com/Framework/guide/concepts.html#buildingblock", 30),
+        new NavMenu.NavItem("MASA Blazor", "打造企业级多端组件库", "https://cdn.masastack.com/images/blazor_logo.png", "https://blazor.masastack.com/getting-started/installation", 30),
+    };
+
     private static readonly List<NavMenu.NavItem> ProductNavItems = new()
     {
         new NavMenu.NavItem("产品中心"),
@@ -32,7 +40,7 @@ public partial class MainLayout : IDisposable
         new NavMenu.NavItem("关于我们", "", "https://cdn.masastack.com/images/bule-dot.svg", "/aboutus", 12)
     };
 
-    private static List<NavMenu.NavItem> AllNavItems => ProductNavItems.Concat(StudyNavItems).Concat(AboutUsItems).ToList();
+    private static List<NavMenu.NavItem> AllNavItems => ProductNavItems.Concat(DocumentNavItems).Concat(StudyNavItems).Concat(AboutUsItems).ToList();
 
     private static List<string> ExcludeRoutes = new() { "learningpath" };
 
