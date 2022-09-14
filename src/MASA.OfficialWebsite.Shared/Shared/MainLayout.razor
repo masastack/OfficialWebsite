@@ -42,6 +42,10 @@
         }
         else
         {
+            <NavMenu Items="@DocumentNavItems">
+                <MButton Text @attributes="@context.Attrs">文档</MButton>
+            </NavMenu>
+
             <NavMenu Items="@ProductNavItems">
                 <MButton Text @attributes="@context.Attrs">产品</MButton>
             </NavMenu>
