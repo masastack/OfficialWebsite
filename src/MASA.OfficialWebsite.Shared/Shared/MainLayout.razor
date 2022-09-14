@@ -42,19 +42,20 @@
         }
         else
         {
-            <NavMenu Items="@DocumentNavItems">
-                <MButton Text @attributes="@context.Attrs">文档</MButton>
-            </NavMenu>
-
-            <NavMenu Items="@ProductNavItems">
+            if(IsShow)
+            {
+                <MButton Text Class="nav h8 emphasis2--text" OnClick="GotoDucument">文档</MButton>
+            }
+            
+            <NavMenu Items="@ProductNavItems" OnMenuClick="MenuClickHandleAsync">
                 <MButton Text @attributes="@context.Attrs">产品</MButton>
             </NavMenu>
 
-            <NavMenu Items="@StudyNavItems">
+            <NavMenu Items="@StudyNavItems" OnMenuClick="MenuClickHandleAsync">
                 <MButton Text @attributes="@context.Attrs">学习</MButton>
             </NavMenu>
 
-            <MButton Text Class="nav h8 emphasis2--text" Href="/aboutus">关于我们</MButton>
+            <MButton Text Class="nav h8 emphasis2--text" Href="/aboutus" OnClick="()=>IsShow=false">关于我们</MButton>
         }
     </MAppBar>
 
