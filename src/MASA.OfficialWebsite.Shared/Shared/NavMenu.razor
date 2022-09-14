@@ -31,7 +31,7 @@
                 }
                 else
                 {
-                    <MListItem Href="@item.Href" Disabled="@item.Disabled" Class="home-menu-hover">
+                    <MListItem Href="@item.Href" Disabled="@item.Disabled" Class="home-menu-hover" OnClick="()=> IsShowDocument(item)">
                         @if (item.Image is not null)
                         {
                             <MListItemAvatar Tile Size="40" Class="mt-0 mb-0">
@@ -66,11 +66,25 @@
     [Parameter]
     public bool OpenOnClick { get; set; }
 
+    [Inject]
+    public NavigationManager NavigationManager{ get; set; }
+
+    [Parameter]
+    public EventCallback<string> OnMenuClick { get; set; }
+
     protected override void OnParametersSet()
     {
         base.OnParametersSet();
 
         Items ??= new List<NavItem>();
+    }
+
+    private async Task IsShowDocument(NavItem item)
+    {
+        if (OnMenuClick.HasDelegate)
+        {
+            await OnMenuClick.InvokeAsync(item.Href);
+        }
     }
 
     public class NavItem
