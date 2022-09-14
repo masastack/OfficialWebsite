@@ -15,7 +15,8 @@ stages:
 variables:
   DOCKER_Offical_WebSite_PATH: src/MASA.OfficialWebsite.Server/Dockerfile
   NEW_IMAGE_Offical_WebSite_Dev: $CI_ALI_REGISTRY_DOMAIN/masa/masa-official-website:dev-$CI_PIPELINE_ID
-  NEW_IMAGE_Offical_WebSite: $CI_ALI_REGISTRY_DOMAIN/masa/masa-official-website:$CI_COMMIT_TAG
+  # NEW_IMAGE_Offical_WebSite: $CI_ALI_REGISTRY_DOMAIN/masa/masa-official-website:$CI_COMMIT_TAG
+  NEW_IMAGE_Offical_WebSite: $CI_ALI_REGISTRY_DOMAIN/masa/masa-official-website:$CI_PIPELINE_ID
 
 
 docker-build-dev:
@@ -69,7 +70,7 @@ deploy-prd:
   before_script:
     - docker login -u $CI_ALI_REGISTRY_USER -p $CI_ALI_REGISTRY_PASSWD $CI_ALI_REGISTRY_DOMAIN 
   only:
-    - tags
+    - main
   script:
     - echo $KUBE_CONFIG_BLAZOR_PRD | base64 -d > ./config
     - kubectl --kubeconfig ./config set image deployment/masa-official-website masa-official-website=$NEW_IMAGE_Offical_WebSite -n masa-official-website
