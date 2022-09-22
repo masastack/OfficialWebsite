@@ -52,7 +52,13 @@ public partial class MainLayout : IDisposable
 
     private bool PreventTouch => !IsMobile || ExcludeRoutes.Contains(CurrentRelativePath);
 
-    private bool IsShow { get; set; }
+    public bool IsShow { get; set; }
+
+    public void SetShow(bool show)
+    {
+        IsShow = show;
+        StateHasChanged();
+    }
 
     protected override void OnInitialized()
     {
