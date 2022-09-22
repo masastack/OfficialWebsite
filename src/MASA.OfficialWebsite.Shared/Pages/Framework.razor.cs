@@ -2,6 +2,9 @@
 {
     public partial class Framework : AutoScrollComponentBase
     {
+        [CascadingParameter(Name = "MainLayout")]
+        public MainLayout MainLayout { get; set; }
+
         private static readonly List<MenuableTitleItem> MenuableTitleItems = new()
         {
             new MenuableTitleItem("BuildingBlocks", "构建块", "#building-blocks-content"),
@@ -37,5 +40,14 @@
         protected override int? Page => 1;
 
         private StringNumber BannerMaxSize => IsMobile ? 375 : 874;
+
+        protected override void OnAfterRender(bool firstRender)
+        {
+            if (firstRender)
+            {
+                MainLayout.SetShow(true);
+            }
+            base.OnAfterRender(firstRender);
+        }
     }
 }

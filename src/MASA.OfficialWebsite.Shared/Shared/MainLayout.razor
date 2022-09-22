@@ -26,7 +26,7 @@
              Color="transparent"
              Flat
              Dense>
-        <a href="/">
+        <a href="/" @onclick="()=>SetShow(false)">
             <img src="https://cdn.masastack.com/images/logo-h-en.svg"
                  height="@(IsMobile ? 30 : 36)"
                  alt="logo" />
@@ -107,7 +107,9 @@
            @ontouchend="OnTouchend"
            @ontouchcancel="OnTouchend">
         <CascadingValue Value="IsMobile" Name="@nameof(IsMobile)">
-            @Body
+            <CascadingValue Value="this" Name="MainLayout">
+                 @Body
+            </CascadingValue>
         </CascadingValue>
     </MMain>
 

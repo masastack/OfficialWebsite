@@ -2,6 +2,9 @@
 {
     public partial class Stack : AutoScrollComponentBase
     {
+        [CascadingParameter(Name = "MainLayout")]
+        public MainLayout MainLayout { get; set; }
+
         private static readonly List<string> WhyContent1 = new()
         {
             ".NET应用交付“保姆级”护航",
@@ -32,9 +35,18 @@
             new MenuableTitleItem("Data Factory", "数据治理解决方案", "#data-factory-content"),
             new MenuableTitleItem("Why MASA Stack", "为什么选择MASA Stack?", "#why-masa-stack-content"),
         };
-
+        
         protected override int? Page => 1;
 
         private StringNumber BannerMaxSize => IsMobile ? 375 : 874;
+
+        protected override void OnAfterRender(bool firstRender)
+        {
+            if (firstRender)
+            {
+                MainLayout.SetShow(true);
+            }
+            base.OnAfterRender(firstRender);
+        }
     }
 }
