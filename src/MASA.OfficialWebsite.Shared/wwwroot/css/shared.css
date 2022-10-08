@@ -162,6 +162,10 @@ html {
         height: calc(100vh - 206px);
     }
     
+    .website-shared .home-banner.without-carousels {
+        height: calc(100vh - 100px);
+    }
+    
         .website-shared .home-banner .carousel-dot {
             position: absolute;
             left: 81px;
