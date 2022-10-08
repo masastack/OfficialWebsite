@@ -35,8 +35,6 @@
             new MenuableTitleItem("Data Factory", "数据治理解决方案", "#data-factory-content"),
             new MenuableTitleItem("Why MASA Stack", "为什么选择MASA Stack?", "#why-masa-stack-content"),
         };
-        
-        protected override int? Page => 1;
 
         private StringNumber BannerMaxSize => IsMobile ? 375 : 874;
 
