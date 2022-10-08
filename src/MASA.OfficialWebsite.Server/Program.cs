@@ -1,3 +1,5 @@
+using Masa.Blazor;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,7 +7,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddMasaBlazor(options =>
 {
-    options.Theme.Primary = "#4318ff";
+    options.ConfigureTheme(theme => { theme.Themes.Light.Primary = "#4318ff"; });
+    options.ConfigureBreakpoint(breakpoint => { breakpoint.MobileBreakpoint = Breakpoints.Sm; });
 });
 
 var app = builder.Build();

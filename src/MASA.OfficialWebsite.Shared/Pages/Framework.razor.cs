@@ -37,8 +37,6 @@
             "定期社区例会，线上线下Meetup互动"
         };
 
-        protected override int? Page => 1;
-
         private StringNumber BannerMaxSize => IsMobile ? 375 : 874;
 
         protected override void OnAfterRender(bool firstRender)

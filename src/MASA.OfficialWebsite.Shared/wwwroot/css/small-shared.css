@@ -72,6 +72,10 @@
 .website-shared .home-banner {
     height: calc(100vh - 48px);
 }
+
+.website-shared .home-banner.without-carousels {
+    height: calc(100vh - 48px);
+}
     
     .website-shared .home-banner .carousel-dot {
         position: absolute;
@@ -268,6 +272,7 @@
         letter-spacing: normal;
         color: #7681AB;
         margin-bottom: 24px;
+        min-height: unset;
         height: auto;
     }
 

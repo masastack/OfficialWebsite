@@ -45,8 +45,6 @@
 
         private StringNumber _carouselValue = 0;
 
-        protected override int? Page => 1;
-
         private void CheckActivity(EventArgs eventargs, int index)
         {
             _carouselValue = index;

@@ -111,7 +111,7 @@ public partial class MainLayout : IDisposable
         });
     }
 
-    private void GotoDucument()
+    private void GotoDocument()
     {
         var href = NavigationManager.Uri;
         if(href.EndsWith("/stack"))

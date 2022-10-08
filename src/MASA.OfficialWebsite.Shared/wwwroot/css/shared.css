@@ -162,6 +162,10 @@ html {
         height: calc(100vh - 206px);
     }
     
+    .website-shared .home-banner.without-carousels {
+        height: calc(100vh - 100px);
+    }
+    
         .website-shared .home-banner .carousel-dot {
             position: absolute;
             left: 81px;
@@ -352,7 +356,7 @@ html {
 
     .website-shared .product-card {
         padding: 48px 48px 22px;
-        height: 462px;
+        min-height: 462px;
         background: rgba(255, 255, 255, 0.5);
         backdrop-filter: blur(140px);
         border-radius: 24px;
@@ -386,7 +390,7 @@ html {
             letter-spacing: 0.03em;
             color: #7681AB;
             margin-bottom: 24px;
-            height: 135px;
+            min-height: 135px;
         }
 
         .website-shared .product-card .product-card__footer {
