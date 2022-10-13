@@ -16,7 +16,7 @@
         private static readonly List<string> WhyContent2 = new()
         {
             "全职开源团队，快速响应",
-            "MIT协议，可放心商用",
+            "Apache-2.0 协议，可放心商用",
             "微软代码规范，欢迎共同维护"
         };
 
