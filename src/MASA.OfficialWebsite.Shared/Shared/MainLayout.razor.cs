@@ -120,7 +120,7 @@ public partial class MainLayout : IDisposable
         }
         else if(href.EndsWith("/framework"))
         {
-            NavigationManager.NavigateTo("https://docs.masastack.com/Framework/guide/concepts.html#buildingblock");
+            NavigationManager.NavigateTo("https://docs.masastack.com/framework/concepts/overview");
         }
         else if(href.EndsWith("/blazor"))
         {
