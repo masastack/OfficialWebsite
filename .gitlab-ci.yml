@@ -43,7 +43,7 @@ deploy-dev:
     - main  
   script:
     - echo $KUBE_CONFIG_DEV_YDY  | base64 -d > ./config
-    - kubectl --kubeconfig ./config set image deployment/masa-official-website masa-official-website=$NEW_IMAGE_Offical_WebSite_Dev -n masa-official-website-dev
+    - kubectl --kubeconfig ./config set image deployment/masa-official-website masa-official-website=$NEW_IMAGE_Offical_WebSite_Dev -n masastack-dev
   retry: 2
 
 docker-build-prd:
