@@ -1,5 +1,5 @@
 ﻿<MCard Height=@Height Class="@Class" Flat>
-    @if (IsImageRight)
+    @if (LeftImage)
     {
         <div class="d-flex align-center">
             <MImage Src="@Image" Width="66" Height="66"
@@ -11,7 +11,7 @@
         <div class="common-card__subtitle">@SubTitle</div>
         <div class="common-card__content">@Content</div>
     </div>
-    @if (!IsImageRight)
+    @if (!LeftImage)
     {
         <div class="d-flex align-center">
             <MImage Src="@Image" Width="66" Height="66"
@@ -34,7 +34,7 @@
     public string? Image { get; set; }
 
     [Parameter]
-    public bool IsImageRight { get; set; }
+    public bool LeftImage { get; set; }
 
     [Parameter]
     public string? Class { get; set; }

@@ -1,33 +1,43 @@
-﻿@page "/activityDetail"
+﻿@page "/activityDetail/{id}"
 
 <div class="activity-content">
-    <div class="activity-content__item" id="activity-video">
-        <div class="activity-content__item-header">
-            <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">视频回放</MenuableTitle>
+    @if (!string.IsNullOrWhiteSpace(_data?.Video))
+    {
+        <div class="activity-content__item" id="activity-video">
+            <div class="activity-content__item-header">
+                <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">视频回放</MenuableTitle>
+            </div>
+            <div class="d-flex justify-center activity-detail__image activity-detail__image-height">
+                <iframe _ngcontent-flink-c48=""
+                        scrolling="no" border="0" frameborder="no" framespacing="0" width=100%
+                        allowfullscreen="allowfullscreen"
+                        src="@_data.Video">
+                </iframe>
+            </div>
         </div>
-        <div class="d-flex justify-center activity-detail__image activity-detail__image-height">
-            <iframe _ngcontent-flink-c48="" 
-            scrolling="no" border="0" frameborder="no" framespacing="0"  width=100%
-            allowfullscreen="allowfullscreen"  
-            src="//player.bilibili.com/player.html?aid=343814267&bvid=BV1h94y1D7tw&cid=783315594&page=1&high_quality=1"></iframe>
+    }
+    @if (!string.IsNullOrWhiteSpace(_data?.Cover))
+    {
+        <div class="activity-content__item" id="activity-detail">
+            <div class="d-flex justify-center activity-content__item-header">
+                <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">活动详情</MenuableTitle>
+            </div>
+            <div class="activity-detail__image">
+                <MImage Src="@_data.Cover" Height="@("100%")" Width="@("100%")" />
+            </div>
         </div>
-    </div>
-    <div class="activity-content__item" id="activity-detail">
-        <div class="d-flex justify-center activity-content__item-header">
-            <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">活动详情</MenuableTitle>
+    }
+    @if (!string.IsNullOrWhiteSpace(_data?.File))
+    {
+        <div class="activity-content__item" id="active-file">
+            <div class="activity-content__item-header">
+                <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">资料下载</MenuableTitle>
+            </div>
+            <div class="activity-detail__image">
+                <MButton Text Ripple="false" Class="activity-detail__button-text" OnClick="() => DownLoadFiles(_data.File)">
+                    MASA Framework的设计理念.pdf
+                </MButton>
+            </div>
         </div>
-        <div class="activity-detail__image">
-            <MImage Src="https://cdn.masastack.com/images/m_activity22.jpg" Height="@("100%")" Width="@("100%")" />
-        </div>
-    </div>
-    <div class="activity-content__item" id="active-file">
-        <div class="activity-content__item-header">
-            <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">资料下载</MenuableTitle>
-        </div>
-        <div class="activity-detail__image">
-            <MButton Text Ripple="false" Class="activity-detail__button-text" OnClick="DownLoadFiles">
-                MASA Framework的设计理念.pdf
-            </MButton>
-        </div>
-    </div>
+    }
 </div>

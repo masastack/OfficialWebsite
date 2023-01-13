@@ -37,14 +37,5 @@
         };
 
         private StringNumber BannerMaxSize => IsMobile ? 375 : 874;
-
-        protected override void OnAfterRender(bool firstRender)
-        {
-            if (firstRender)
-            {
-                MainLayout.SetShow(true);
-            }
-            base.OnAfterRender(firstRender);
-        }
     }
 }
