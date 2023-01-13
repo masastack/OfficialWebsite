@@ -11,7 +11,6 @@ stages:
   - docker-prd
   - deploy-prd
 
-
 variables:
   DOCKER_Offical_WebSite_PATH: src/MASA.OfficialWebsite.Server/Dockerfile
   NEW_IMAGE_Offical_WebSite_Dev: $CI_ALI_REGISTRY_DOMAIN/masa/masa-official-website:dev-$CI_PIPELINE_ID
@@ -43,8 +42,8 @@ deploy-dev:
   only:
     - main  
   script:
-    - echo $KUBE_CONFIG_DEV | base64 -d > ./config
-    - kubectl --kubeconfig ./config set image deployment/masa-official-website masa-official-website=$NEW_IMAGE_Offical_WebSite_Dev -n masa-official-website-dev
+    - echo $KUBE_CONFIG_DEV_YDY  | base64 -d > ./config
+    - kubectl --kubeconfig ./config set image deployment/masa-official-website masa-official-website=$NEW_IMAGE_Offical_WebSite_Dev -n masastack-dev
   retry: 2
 
 docker-build-prd:
