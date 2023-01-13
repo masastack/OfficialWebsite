@@ -2,7 +2,9 @@
 
 public enum ActivityType
 {
-    Live,
-    Offline,
-    LookBack,
+    All,
+    CommunityMeeting,
+    ProductLaunching,
+    Training,
+    Meetup
 }

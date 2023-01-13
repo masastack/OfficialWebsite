@@ -52,13 +52,7 @@ public partial class MainLayout : IDisposable
 
     private bool PreventTouch => !IsMobile || ExcludeRoutes.Contains(CurrentRelativePath);
 
-    public bool IsShow { get; set; }
-
-    public void SetShow(bool show)
-    {
-        IsShow = show;
-        StateHasChanged();
-    }
+    private bool _isShow;
 
     protected override void OnInitialized()
     {
@@ -72,27 +66,13 @@ public partial class MainLayout : IDisposable
         CurrentRelativePath = uri;
         NavigationManager.LocationChanged += NavigationManagerOnLocationChanged;
         var hrefs = new List<string> { "/stack", "/framework", "/blazor" };
-        if (hrefs.Any(p => NavigationManager.Uri.Contains(p)))
-        {
-            IsShow = true;
-        }
-        else
-        {
-            IsShow = false;
-        }
+        _isShow = hrefs.Any(p => NavigationManager.Uri.Contains(p));
     }
 
     private Task MenuClickHandleAsync(string href)
     {
         var hrefs = new List<string> { "/stack", "/framework", "/blazor" };
-        if (hrefs.Any(p=> href.Contains(p)))
-        {
-            IsShow = true;
-        }
-        else
-        {
-            IsShow = false;
-        }
+        _isShow = hrefs.Any(href.Contains);
 
         return Task.CompletedTask;
     }
@@ -111,20 +91,28 @@ public partial class MainLayout : IDisposable
         });
     }
 
-    private void GotoDocument()
+    private string ComputedHref
     {
-        var href = NavigationManager.Uri;
-        if(href.EndsWith("/stack"))
+        get
         {
-            NavigationManager.NavigateTo("https://docs.masastack.com/Stack/guide/introduce.html");
-        }
-        else if(href.EndsWith("/framework"))
-        {
-            NavigationManager.NavigateTo("https://docs.masastack.com/Framework/guide/concepts.html#buildingblock");
-        }
-        else if(href.EndsWith("/blazor"))
-        {
-            NavigationManager.NavigateTo("https://blazor.masastack.com/getting-started/installation");
+            var href = NavigationManager.Uri;
+
+            if (href.EndsWith("/stack"))
+            {
+                return "https://docs.masastack.com/stack/auth/get-started";
+            }
+
+            if (href.EndsWith("/framework"))
+            {
+                return "https://docs.masastack.com/framework/concepts/overview";
+            }
+
+            if (href.EndsWith("/blazor"))
+            {
+                return "https://docs.masastack.com/blazor/getting-started/installation";
+            }
+
+            return "https://docs.masastack.com";
         }
     }
 

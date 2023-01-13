@@ -10,10 +10,10 @@
             <div class="activity-header__title">最新活动</div>
             <div style="padding-top:18px; border-radius:16px; height: calc(100% - 69px);overflow: hidden">
                 <MImage Style="cursor:pointer;"
-                        Src="https://cdn.masastack.com/images/m_activity2.jpg"
+                        Src="@LatestActivity.Cover2"
                         Width="@("100%")"
                         Contain
-                        @onclick="GoToDetail" />
+                        @onclick="@(() => GoToDetail(LatestActivity.Id))" />
             </div>
         </div>
         <div class="home-banner__slider-wrapper"
@@ -27,34 +27,65 @@
     else
     {
         <MRow NoGutters>
-            <MCol>
-                <MWindow Value="_carouselValue">
-                    @foreach (var item in AllActivities.OrderByDescending(a => a.StartAt))
+            <MCol Cols="8">
+                <MCarousel Vertical
+                           HideDelimiters
+                           Mandatory
+                           Cycle
+                           Continuous
+                           ShowArrows="false"
+                           Style="padding-left: 81px"
+                           Height="@("100%")"
+                           @bind-Value="_carouselValue">
+                    @foreach (var item in Latest5Activities)
                     {
-                        <MWindowItem>
-                            <MCard Style="margin-left: 243px;background-color:transparent;" Flat>
+                        <MCarouselItem>
+                            <MCard Style="background-color:transparent;" Flat>
                                 <div class="d-flex activity-header__title">
-                                    <div style="color:#323D6F;">@item.Date.Month-@item.Date.Day</div>
+                                    <div style="color:#323D6F;">@item.Date.ToString("MM-dd")</div>
                                     <div style="margin-left:16px; color:#E9EDF7;">@item.Date.Year</div>
                                 </div>
                                 <div class="activity-header__subtitle">@item.Title</div>
                                 <div class="activity-header__description">@item.Subtitle</div>
-                                <div style="margin-top:24px;" @onclick="GoToDetail">
-                                    <MImage Style="cursor:pointer;" Src="@item.Cover" Width="1029" Height="578" />
+                                <div style="margin-top:24px;cursor: pointer;" @onclick="() => GoToDetail(item.Id)">
+                                    <MImage Src="@item.Cover" Width="@("100%")" />
                                 </div>
                             </MCard>
-                        </MWindowItem>
+                        </MCarouselItem>
                     }
-                </MWindow>
+                </MCarousel>
             </MCol>
-            @if (AllActivities.Count > 1)
+            @if (Latest5Activities.Count > 1)
             {
-                <MCol>
-                    <div class="d-flex flex-column" style="margin-top:140px;">
-                        @for (int i = 0; i < AllActivities.Count; i++)
+                <MCol Cols="4">
+                    <div class="ml-6" style="margin-top:188px;">
+                        @for (int i = 0; i < Latest5Activities.Count; i++)
                         {
                             var j = i;
-                            <div class="status-point" @onclick="@(e => CheckActivity(e, j))"></div>
+                            var item = Latest5Activities[j];
+
+                            <MHover>
+                                <div class="d-flex" @onclick="() => CheckActivity(j)"
+                                     style="min-height: 96px"
+                                     @attributes="@context.Attrs">
+                                    <MButton Icon
+                                             Class="mt-2"
+                                             Color="@((context.Hover || _carouselValue == j) ? "primary" : "#A3AED0")">
+                                        <MIcon Size="@(context.Hover ? 24 : 8)">mdi-circle</MIcon>
+                                    </MButton>
+                                    @if (context.Hover)
+                                    {
+                                        <div>
+                                            <div style="font-size: 30px;font-weight: 400;line-height: 51px;letter-spacing: 0.02em;">
+                                                @item.Date.ToString("MM - dd")
+                                            </div>
+                                            <div class="emphasis2--text">
+                                                @item.Title
+                                            </div>
+                                        </div>
+                                    }
+                                </div >
+                            </MHover>
                         }
                     </div>
                 </MCol>
@@ -80,21 +111,10 @@
                         </MSelect>
                     </MCol>
                     <MCol Cols="4">
-                        <MSelect @bind-Value="@_activityType"
+                        <MSelect @bind-Value="@_type"
                                  Solo
                                  Label="活动类型"
                                  Items="@_activityTypeItems"
-                                 ItemText="u => u.Label"
-                                 ItemValue="u => u.Value"
-                                 Class="my-select activity-content__select-radius"
-                                 Flat>
-                        </MSelect>
-                    </MCol>
-                    <MCol Cols="4">
-                        <MSelect @bind-Value="@_channel"
-                                 Solo
-                                 Label="渠道"
-                                 Items="@_channelItems"
                                  ItemText="u => u.Label"
                                  ItemValue="u => u.Value"
                                  Class="my-select activity-content__select-radius"
@@ -119,21 +139,10 @@
                                 </MSelect>
                             </MCol>
                             <MCol Cols="4">
-                                <MSelect @bind-Value="@_activityType"
+                                <MSelect @bind-Value="@_type"
                                          Solo
                                          Label="活动类型"
                                          Items="@_activityTypeItems"
-                                         ItemText="u => u.Label"
-                                         ItemValue="u => u.Value"
-                                         Class="my-select activity-content__select-radius"
-                                         Flat>
-                                </MSelect>
-                            </MCol>
-                            <MCol Cols="4">
-                                <MSelect @bind-Value="@_channel"
-                                         Solo
-                                         Label="渠道"
-                                         Items="@_channelItems"
                                          ItemText="u => u.Label"
                                          ItemValue="u => u.Value"
                                          Class="my-select activity-content__select-radius"
@@ -147,41 +156,15 @@
         </div>
         <div>
             <MRow NoGutters="IsMobile">
-                @foreach (var item in AllActivities.OrderByDescending(a => a.StartAt).Take(3))
+                @foreach (var item in FilteredActivities.Take(6))
                 {
                     <MCol Cols="12" Md="4" Class="activity-content__card">
-                        <ActivityCard Title="@item.Title"
-                                      Subtitle="@item.Subtitle"
-                                      Cover="@item.Cover"
-                                      Date="@item.Date"
-                                      StartTime="@item.StartTime"
-                                      EndTime="@item.EndTime"
-                                      Type="@item.Type">
-                        </ActivityCard>
+                        <ActivityCard Data="item" />
                     </MCol>
                 }
             </MRow>
-            @if (AllActivities.OrderByDescending(a => a.StartAt).Skip(3).Take(3).Count() > 0)
-            {
-                <MRow NoGutters="IsMobile">
-                    @foreach (var item in AllActivities.OrderByDescending(a => a.StartAt).Skip(3).Take(3))
-                    {
-                        <MCol Cols="12" Md="4" Class="activity-content__card">
-                            <ActivityCard Title="@item.Title"
-                                          Subtitle="@item.Subtitle"
-                                          Cover="@item.Cover"
-                                          Date="@item.Date"
-                                          StartTime="@item.StartTime"
-                                          EndTime="@item.EndTime"
-                                          Href="/activityDetail"
-                                          Type="@item.Type">
-                            </ActivityCard>
-                        </MCol>
-                    }
-                </MRow>
-            }
         </div>
-        @if (AllActivities.Count > 6)
+        @if (s_allActivities.Count > 6)
         {
             if (IsMobile)
             {
