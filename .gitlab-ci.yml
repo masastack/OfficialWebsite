@@ -37,8 +37,8 @@ deploy-dev:
   stage: deploy-dev
   tags:
     - linux-shell
-  before_script:
-    - docker login -u $CI_ALI_REGISTRY_USER --password-stdin $CI_ALI_REGISTRY_PASSWD $CI_ALI_REGISTRY_DOMAIN 
+#   before_script:
+#     - docker login --username=$CI_ALI_REGISTRY_USER --password=$CI_ALI_REGISTRY_PASSWD $CI_ALI_REGISTRY_DOMAIN 
   only:
     - main  
   script:
@@ -51,7 +51,7 @@ docker-build-prd:
   tags:
     - linux-shell
   before_script:
-    - docker login -u $CI_ALI_REGISTRY_USER --password-stdin $CI_ALI_REGISTRY_PASSWD $CI_ALI_REGISTRY_DOMAIN 
+    - docker login --username=$CI_ALI_REGISTRY_USER --password=$CI_ALI_REGISTRY_PASSWD $CI_ALI_REGISTRY_DOMAIN
   only:
     - main  
   script:
@@ -66,8 +66,8 @@ deploy-prd:
   stage: deploy-prd
   tags:
     - linux-shell
-  before_script:
-    - docker login -u $CI_ALI_REGISTRY_USER -p $CI_ALI_REGISTRY_PASSWD $CI_ALI_REGISTRY_DOMAIN 
+#   before_script:
+#     - docker login --username=$CI_ALI_REGISTRY_USER --password=$CI_ALI_REGISTRY_PASSWD $CI_ALI_REGISTRY_DOMAIN
   only:
     - main
   script:
