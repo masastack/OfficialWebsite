@@ -89,7 +89,7 @@
     }
 
     .website-shared .home-banner .intro {
-        max-width: 285px;
+        max-width: 320px;
         float: none;
         text-align: center;
         margin: 35px auto;
@@ -97,12 +97,12 @@
 
     .website-shared .home-banner .intro-title {
         font-weight: 700;
-        font-size: 34px;
-        line-height: 51px;
+        font-size: 28px;
+        line-height: 34px;
         text-align: center;
         letter-spacing: 0.02em;
         color: #323D6F;
-        width: 278px;
+        width: 300px;
         display: inline-block;
         margin-bottom: 8px;
     }
@@ -121,8 +121,8 @@
     .website-shared .home-banner .intro-actions {
         justify-content: center;
     }
-
-        .website-shared .home-banner .intro-actions .m-btn {
+    
+        .website-shared .home-banner .intro-actions .m-btn:not(.demo-btn) {
             font-weight: 500;
             font-size: 14px;
             line-height: 21px;
@@ -136,11 +136,11 @@
             border-radius: 40px;
         }
 
-            .website-shared .home-banner .intro-actions .m-btn .m-btn__content{
+            .website-shared .home-banner .intro-actions .m-btn:not(.demo-btn) .m-btn__content{
                 line-height: 14px;
             }
 
-            .website-shared .home-banner .intro-actions .m-btn:first-child {
+            .website-shared .home-banner .intro-actions .m-btn:not(.demo-btn):first-child {
                 margin-right: 16px;
             }
 

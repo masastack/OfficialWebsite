@@ -190,7 +190,8 @@ html {
             letter-spacing: -0.5px;
             color: #323D6F;
             margin-bottom: 24px;
-            width: 477px;
+            width: 100%;
+            white-space: pre-wrap;
         }
 
         .website-shared .home-banner .intro-subtitle {
@@ -204,9 +205,10 @@ html {
 
         .website-shared .home-banner .intro-actions {
             display: flex;
+            align-items: center;
         }
 
-            .website-shared .home-banner .intro-actions .m-btn {
+            .website-shared .home-banner .intro-actions .m-btn:not(.demo-btn) {
                 font-weight: 700;
                 font-size: 20px;
                 line-height: 30px;
@@ -750,4 +752,18 @@ html {
 
 .m-window-x-transition-enter-active, .m-window-x-transition-leave-active, .m-window-x-reverse-transition-enter-active, .m-window-x-reverse-transition-leave-active, .m-window-y-transition-enter-active, .m-window-y-transition-leave-active, .m-window-y-reverse-transition-enter-active, .m-window-y-reverse-transition-leave-active {
     transition: 0.6s cubic-bezier(0.25, 0.8, 0.5, 1);
+}
+
+.demo-btn__tooltip {
+    background: white;
+    color: #FFF;
+    font-size: 14px;
+    line-height: 22px;
+    padding: 5px 16px;
+    opacity: 0;
+    word-break: break-all;
+}
+
+.demo-btn__tooltip.menuable__content__active {
+    opacity: .7;
 }
