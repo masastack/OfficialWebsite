@@ -9,7 +9,7 @@ public partial class Activities : AutoScrollComponentBase
 
     private int _year = -1;
 
-    private ActivityType _type = ActivityType.All;
+    private ActivityType _type = ActivityType.None;
 
     private List<Item<int>> _yearItems = new()
     {
@@ -20,7 +20,7 @@ public partial class Activities : AutoScrollComponentBase
 
     private List<Item<ActivityType>> _activityTypeItems = new()
     {
-        new Item<ActivityType>("全部", ActivityType.All),
+        new Item<ActivityType>("全部", ActivityType.None),
         new Item<ActivityType>("社区例会", ActivityType.CommunityMeeting),
         new Item<ActivityType>("产品发布会", ActivityType.ProductLaunching),
         new Item<ActivityType>("培训", ActivityType.Training),
@@ -33,10 +33,12 @@ public partial class Activities : AutoScrollComponentBase
             "MASA Stack 1.0 发布会",
             "MASA技术团队年终巨献，开启.NET生态新篇章",
             "https://cdn.masastack.com/images/activity_1.0.png",
-            "https://cdn.masastack.com/images/activity_detail_1.0.png",
+            "https://cdn.masastack.com/images/m_activity_1.0.svg",
             new DateTime(2023, 1, 16, 14, 0, 0),
             4,
+            ActivityProduct.Stack,
             ActivityType.ProductLaunching,
+            ActivityMode.Online,
             "v1-launching"),
         new Activity(
             "MASA Framework实战课程开课",
@@ -45,7 +47,9 @@ public partial class Activities : AutoScrollComponentBase
             "https://cdn.masastack.com/images/m_activity2.jpg",
             new DateTime(2022, 7, 22, 14, 0, 0),
             2,
+            ActivityProduct.Framework,
             ActivityType.Training,
+            ActivityMode.Online,
             "training-launching")
     };
 
@@ -54,7 +58,7 @@ public partial class Activities : AutoScrollComponentBase
     private List<Activity> Latest5Activities => s_allActivities.OrderByDescending(u => u.StartAt).Take(5).ToList();
 
     private IEnumerable<Activity> FilteredActivities
-        => s_allActivities.Where(u => (_year == -1 || u.StartAt.Year == _year) && (_type == ActivityType.All || u.Type == _type))
+        => s_allActivities.Where(u => (_year == -1 || u.StartAt.Year == _year) && (_type == ActivityType.None || u.Type == _type))
                           .OrderByDescending(u => u.StartAt);
 
     private StringNumber _carouselValue = 0;

@@ -10,7 +10,7 @@ public class Activity
 
     public string Cover { get; set; }
 
-    public string Cover2 { get; set; }
+    public string MobileCover { get; set; }
 
     public DateTime StartAt { get; set; }
 
@@ -21,22 +21,37 @@ public class Activity
 
     public ActivityType Type { get; set; }
 
+    public ActivityMode Mode { get; set; }
+    
+    public ActivityProduct Product { get; set; }
+
     public DateOnly Date => DateOnly.FromDateTime(StartAt);
 
     public TimeOnly StartTime => TimeOnly.FromDateTime(StartAt);
 
     public TimeOnly EndTime => TimeOnly.FromDateTime(StartAt).AddHours(Duration);
 
-    public Activity(string title, string subtitle, string cover, string cover2, DateTime startAt, double duration, ActivityType type,
+    public Activity(
+        string title,
+        string subtitle,
+        string cover,
+        string mobileCover,
+        DateTime startAt,
+        double duration,
+        ActivityProduct product,
+        ActivityType type,
+        ActivityMode mode,
         string? id = null)
     {
         Title = title;
         Subtitle = subtitle;
         Cover = cover;
-        Cover2 = cover2;
+        MobileCover = mobileCover;
         StartAt = startAt;
         Duration = duration;
+        Product = product;
         Type = type;
+        Mode = mode;
         Id = id;
     }
 }

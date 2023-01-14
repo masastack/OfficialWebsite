@@ -23,7 +23,7 @@
                 <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">活动详情</MenuableTitle>
             </div>
             <div class="activity-detail__image">
-                <MImage Src="@_data.Cover" Height="@("100%")" Width="@("100%")" />
+                <MImage Src="@(IsMobile ? _data.MobileCover : _data.Cover)" />
             </div>
         </div>
     }
