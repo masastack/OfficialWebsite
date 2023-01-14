@@ -10,7 +10,7 @@
             <div class="activity-header__title">最新活动</div>
             <div style="padding-top:18px; border-radius:16px; height: calc(100% - 69px);overflow: hidden">
                 <MImage Style="cursor:pointer;"
-                        Src="@LatestActivity.Cover2"
+                        Src="@LatestActivity.MobileCover"
                         Width="@("100%")"
                         Contain
                         @onclick="@(() => GoToDetail(LatestActivity.Id))" />
@@ -96,64 +96,6 @@
 
 <div class="home-content">
     <div class="home-content__item">
-        <div class="activity-content1">
-            @if (IsMobile)
-            {
-                <MRow NoGutters>
-                    <MCol Cols="4">
-                        <MSelect @bind-Value="@_year"
-                                 Solo
-                                 Items="@_yearItems"
-                                 ItemText="u => u.Label"
-                                 ItemValue="u => u.Value"
-                                 Class="my-select activity-content__select-radius"
-                                 Flat>
-                        </MSelect>
-                    </MCol>
-                    <MCol Cols="4">
-                        <MSelect @bind-Value="@_type"
-                                 Solo
-                                 Label="活动类型"
-                                 Items="@_activityTypeItems"
-                                 ItemText="u => u.Label"
-                                 ItemValue="u => u.Value"
-                                 Class="my-select activity-content__select-radius"
-                                 Flat>
-                        </MSelect>
-                    </MCol>
-                </MRow>
-            }
-            else
-            {
-                <MRow>
-                    <MCol Cols="4">
-                        <MRow>
-                            <MCol Cols="4">
-                                <MSelect @bind-Value="@_year"
-                                         Solo
-                                         Items="@_yearItems"
-                                         ItemText="u => u.Label"
-                                         ItemValue="u => u.Value"
-                                         Class="my-select activity-content__select-radius"
-                                         Flat>
-                                </MSelect>
-                            </MCol>
-                            <MCol Cols="4">
-                                <MSelect @bind-Value="@_type"
-                                         Solo
-                                         Label="活动类型"
-                                         Items="@_activityTypeItems"
-                                         ItemText="u => u.Label"
-                                         ItemValue="u => u.Value"
-                                         Class="my-select activity-content__select-radius"
-                                         Flat>
-                                </MSelect>
-                            </MCol>
-                        </MRow>
-                    </MCol>
-                </MRow>
-            }
-        </div>
         <div>
             <MRow NoGutters="IsMobile">
                 @foreach (var item in FilteredActivities.Take(6))

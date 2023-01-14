@@ -9,16 +9,25 @@
     </div>
 
     <div class="activity-card__footer">
-        <MAvatar Size="36" Color="#D9D1FF" Class="activity-card__group">
-            <MIcon Color="#4318FF" Small>mdi-account-group</MIcon>
-        </MAvatar>
+        @{
+            var logo = GetProductLogo(Data.Product);
+
+            if (logo is not null)
+            {
+                <MAvatar Size="36" Color="#D9D1FF" Class="activity-card__group">
+                    <MImage Src="@logo" Width="20" Height="20" Contain Style="border-radius: 0;"></MImage>
+                </MAvatar>
+            }
+        }
         <PBlockText PrimaryClass="activity-card__title" SecondaryClass="activity-card__subtitle">
             <PrimaryContent>
                 <div @onclick="GoTo">@Data.Title</div>
-                @if (Data.Type != ActivityType.All)
-                {
-                    var (label, color) = FormatType(Data.Type);
-                    <MChip Dark Label Small Color="@color" Class="ml-2">@label</MChip>
+                @{
+                    var value = FormatActivityMode(Data.Mode);
+                    if (value.HasValue)
+                    {
+                        <MChip Dark Label Small Color="@value.Value.color" Class="ml-2">@value.Value.text</MChip>
+                    }
                 }
             </PrimaryContent>
             <SecondaryContent>
@@ -34,21 +43,31 @@
     public bool IsMobile { get; set; }
 
     [Inject]
-    public NavigationManager? NavigationManager { get; set; } = null!;
+    public NavigationManager NavigationManager { get; set; } = null!;
 
     [Parameter, EditorRequired]
     public Activity Data { get; set; } = null!;
 
-    private (string text, string color) FormatType(ActivityType type)
+    private static Dictionary<ActivityProduct, string?> s_productMap = new()
     {
-        return type switch
+        { ActivityProduct.Stack, "https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png?x-oss-process=image/resize,l_20" },
+        { ActivityProduct.Framework, "https://cdn.masastack.com/images/framework_logo.png?x-oss-process=image/resize,l_20" },
+        { ActivityProduct.Blazor, "https://cdn.masastack.com/stack/images/website/masa-blazor/miniLogo.png?x-oss-process=image/resize,l_20" }
+    };
+
+    private (string text, string color)? FormatActivityMode(ActivityMode mode)
+    {
+        return mode switch
         {
-            ActivityType.CommunityMeeting => ("社区例会", "green"),
-            ActivityType.ProductLaunching => ("产品发布会", "blue"),
-            ActivityType.Training => ("培训", "pink"),
-            ActivityType.Meetup => ("线下聚会", "purple"),
-            _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
+            ActivityMode.Online => ("直播", "green"),
+            ActivityMode.Offline => ("线下", "blue"),
+            _ => null
             };
+    }
+
+    private string? GetProductLogo(ActivityProduct product)
+    {
+        return s_productMap.GetValueOrDefault(product);
     }
 
     private void GoTo()

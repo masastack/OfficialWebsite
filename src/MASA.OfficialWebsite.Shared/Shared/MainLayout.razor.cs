@@ -8,7 +8,7 @@ public partial class MainLayout : IDisposable
     private static readonly List<NavMenu.NavItem> ProductNavItems = new()
     {
         new NavMenu.NavItem("产品中心"),
-        new NavMenu.NavItem("MASA Stack", "开源企业级云原生技术底座 PaaS", "https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png", "/stack", 30),
+        new NavMenu.NavItem("MASA Stack", "开源企业级开发者门户 平台工程", "https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png", "/stack", 30),
         new NavMenu.NavItem("MASA Framework", ".NET下一代微服务开发框架", "https://cdn.masastack.com/images/framework_logo.png", "/framework", 30),
         new NavMenu.NavItem("MASA Blazor", "打造企业级多端组件库", "https://cdn.masastack.com/images/blazor_logo.png", "/blazor", 30),
         new NavMenu.NavItem("解决方案"),

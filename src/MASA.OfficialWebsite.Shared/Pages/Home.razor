@@ -1,7 +1,7 @@
 ﻿@page "/"
 @inherits AutoScrollComponentBase
 
-<PageTitle>MASA Stack - .NET开源企业级云原生技术底座 PaaS</PageTitle>
+<PageTitle>MASA Stack - 开源企业级开发者门户 平台工程</PageTitle>
 
 <div class="home-banner">
     <MCarousel @bind-Value="_carouselValue" Style="position: relative"
@@ -11,7 +11,7 @@
             <MRow NoGutters Style="height: 100%">
                 <MCol Cols="12" Lg="6" Class="intro-wrapper">
                     <div class="intro">
-                        <div class="intro-title">开源企业级开发者门户平台工程</div>
+                        <div class="intro-title">开源企业级开发者门户 平台工程</div>
                         <div class="intro-subtitle">让开发者聚焦业务价值的实现</div>
                         <div class="intro-actions">
                             <MButton Class="gradual-btn" Text Ripple="false" Href="/stack">了解更多</MButton>
@@ -131,7 +131,7 @@
                         <MCol Class="slider-item" Cols="4" @onclick="() => _carouselValue = 0">
                             <div class="number @context.ActiveClass">01</div>
                             <PBlockText Style="width: calc(100% - 56px)"
-                                        Primary="开源企业级开发者门户平台工程"
+                                        Primary="开源企业级开发者门户 平台工程"
                                         Secondary="让开发者聚焦业务价值的实现"
                                         PrimaryClass="@($"h6 text-truncate {(context.Active ? "emphasis--text" : "regular--text")} mb-2")"
                                         SecondaryClass="@($"subtitle text-truncate {(context.Active ? "regular2--text" : "regular3--text")} ")">
@@ -177,14 +177,14 @@
                 <ProductCard Title="MASA Stack"
                              Href="/stack"
                              Image="https://cdn.masastack.com/images/home_logn.svg"
-                             Description="开源企业级开发者门户，平台工程，包含企业IT现代化应用开发交付的全部板块，如应用治理、服务编排与集成、数据治理、可观测性、DevOps研发协作、AI智能等一站式解决方案">
+                             Description="开源企业级开发者门户  平台工程，包含企业IT现代化应用开发交付的全部板块，如应用治理、服务编排与集成、数据治理、可观测性、DevOps研发协作、AI智能等一站式解决方案">
                 </ProductCard>
             </MCol>
             <MCol Cols="12" Md="4">
                 <ProductCard Title="MASA Framework"
                              Href="/framework"
                              Image="https://cdn.masastack.com/images/framework_logo.svg"
-                             Description=".NET下一代微服务开发框架，内嵌分布式运行时——Dapr云原生最佳实践，能够快速实现分布式、微服务、DDD，SaaS等现代化应用开发">
+                             Description=".NET下一代微服务开发框架，内嵌分布式运行时——Dapr云原生最佳实践，能够快速实现分布式、微服务、DDD、SaaS等现代化应用开发">
                 </ProductCard>
             </MCol>
             <MCol Cols="12" Md="4">
@@ -203,7 +203,7 @@
             <div class="home-content__item-subtitle">最新社区活动预告与往期回顾</div>
         </div>
         <MRow NoGutters="IsMobile" class="home-content__item-cards">
-            @foreach (var item in Activities.OrderByDescending(a => a.StartAt).Take(3))
+            @foreach (var item in s_activities.OrderByDescending(a => a.StartAt).Take(3))
             {
                 <MCol Cols="12" Md="4">
                     <ActivityCard Data="item" />

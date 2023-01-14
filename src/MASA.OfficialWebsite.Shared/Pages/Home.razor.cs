@@ -4,7 +4,7 @@ namespace MASA.OfficialWebsite.Shared.Pages;
 
 public partial class Home : AutoScrollComponentBase
 {
-    private static readonly List<Activity> Activities = new()
+    private static readonly List<Activity> s_activities = new()
     {
         new Activity(
             "MASA Stack 1.0 发布会",
@@ -13,7 +13,9 @@ public partial class Home : AutoScrollComponentBase
             "",
             new DateTime(2023, 1, 16, 14, 0, 0),
             4,
+            ActivityProduct.Stack,
             ActivityType.ProductLaunching,
+            ActivityMode.Online,
             "v1-launching"),
         new Activity(
             "MASA Framework实战课程开课",
@@ -22,8 +24,11 @@ public partial class Home : AutoScrollComponentBase
             "",
             new DateTime(2022, 7, 22, 14, 0, 0),
             2,
+            ActivityProduct.Framework,
             ActivityType.Training,
-            "training-launching")
+            ActivityMode.Online,
+            "training-launching"
+        )
     };
 
     private static readonly List<MenuableTitleItem> MenuableTitleItems = new()
