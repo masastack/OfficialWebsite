@@ -7,8 +7,8 @@
     <MRow NoGutters Style="height: 100%">
         <MCol Cols="12" Lg="6" Class="intro-wrapper">
             <div class="intro">
-                <div class="intro-title">开源企业级开发者门户 平台工程</div>
-                <div class="intro-subtitle">.NET开发者云原生第一步</div>
+                <div class="intro-title">开源企业级开发者门户&#10;平台工程</div>
+                <div class="intro-subtitle">让开发者聚焦业务价值的实现</div>
                 <div class="intro-actions">
                     <MButton Class="gradual-btn" Text Ripple="false" Href="https://docs.masastack.com/stack/auth/get-started">开始使用</MButton>
                     <MButton Text Ripple="false" Class="text-capitalize"
@@ -16,6 +16,43 @@
                         <MIcon Class="mr-2">mdi-github</MIcon>
                         Github
                     </MButton>
+                    @if (!IsMobile)
+                    {
+                        <MMenu OffsetY Top OpenOnHover NudgeTop="8" CloseDelay="100"
+                               CloseOnContentClick="false"
+                               ContentClass="demo-btn__tooltip">
+                            <ActivatorContent>
+                                <MButton Class="demo-btn rounded-pill emphasis--text ml-4 text-capitalize"
+                                         Text
+                                         Href="https://auth-ui-demo.masastack.com/"
+                                         Target="_blank"
+                                         Large
+                                         Style="font-size: 20px"
+                                         @attributes="@context.Attrs">
+                                    <span class="text-decoration-underline">
+                                        Live demo
+                                    </span>
+                                    <MIcon Right>mdi-open-in-new</MIcon>
+                                </MButton>
+                            </ActivatorContent>
+                            <ChildContent>
+                                <div class="regular--text">
+                                    <div>
+                                        Username：
+                                        <PCopyableText Class="d-inline-block">
+                                            Guest
+                                        </PCopyableText>
+                                    </div>
+                                    <div>
+                                        Password：
+                                        <PCopyableText Class="d-inline-block">
+                                            guest123
+                                        </PCopyableText>
+                                    </div>
+                                </div>
+                            </ChildContent>
+                        </MMenu>
+                    }
                 </div>
             </div>
         </MCol>
@@ -39,250 +76,250 @@
     }
 </div>
 <div class="home-content">
-    <div class="home-content__item" id="basic-ability-content">
-        <div class="home-content__item-header">
-            <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">BASIC ABILITY</MenuableTitle>
-            <div class="home-content__item-subtitle">现代应用治理解决方案</div>
-        </div>
-        <MRow NoGutters="IsMobile" class="home-content__item-cards">
-            <MCol Cols="12" Md="6">
-                <CommonCard Height=172
-                            Class="common-card"
-                            Image="https://cdn.masastack.com/images/Auth.svg"
-                            Content="内置RBAC3标准，集成诸多平台用户认证与访问管理，支持OIDC标准扩展接入"
-                            Title="Auth"
-                            LeftImage=true
-                            SubTitle="权限中心">
-                </CommonCard>
-            </MCol>
-            <MCol Cols="12" Md="6">
-                <CommonCard Class="d-flex justify-space-between common-card"
-                            Height=172
-                            Image="https://cdn.masastack.com/images/Scheduler.svg"
-                            Content="统一调度，支持多种模式触发智能任务调度，智能worker弹性伸缩"
-                            Title="Scheduler"
-                            LeftImage=false
-                            SubTitle="调度中心">
-                </CommonCard>
-            </MCol>
-            <MCol Cols="12" Md="6">
-                <CommonCard Height=196
-                            Class="common-card"
-                            Image="https://cdn.masastack.com/images/WorkFlow.svg"
-                            Content="依据CNCF Serverless Workflow规范，集成诸多开源服务或中间件，支撑数据处理事件编排、API聚合等场景支持Dapr标准API"
-                            Title="WorkFlow"
-                            LeftImage=true
-                            SubTitle="工作流">
-                </CommonCard>
-            </MCol>
-            <MCol Cols="12" Md="6">
-                <CommonCard Class="d-flex justify-space-between common-card"
-                            Height=196
-                            Image="https://cdn.masastack.com/images/MicroFE.svg"
-                            Content="Blazor微前端解决方案，为Blazor提供工程化最佳实践"
-                            Title="Micro FE"
-                            LeftImage=false
-                            SubTitle="微前端">
-                </CommonCard>
-            </MCol>
-            <MCol Cols="12" Md="6">
-                <CommonCard Height=172
-                            Class="common-card"
-                            Image="https://cdn.masastack.com/images/Insights.svg"
-                            Content="基于ML.NET，内嵌诸多成熟模型，应用于AIOps、RPA、预测性维护等场景"
-                            Title="Insights"
-                            LeftImage=true
-                            SubTitle="洞察">
-                </CommonCard>
-            </MCol>
-            <MCol Cols="12" Md="6">
-                <CommonCard Class="d-flex justify-space-between common-card"
-                            Height=172
-                            Image="https://cdn.masastack.com/images/Security.svg"
-                            Content="一站式安全解决方案，包含访问控制、数据安全、审计等适用于混合云、物联网等领域"
-                            Title="Security"
-                            LeftImage=false
-                            SubTitle="安全">
-                </CommonCard>
-            </MCol>
-            <MCol Cols="12" Md="6">
-                <CommonCard Height=196
-                            Class="common-card"
-                            Image="https://cdn.masastack.com/images/YARP.svg"
-                            Content="基于YARP定制，可支撑大流量高性能场景，内置API全生命周期管理，适用于K8S南北流量治理，新老架构升级等场景"
-                            Title="YARP"
-                            LeftImage=true
-                            SubTitle="网关">
-                </CommonCard>
-            </MCol>
-            <MCol Cols="12" Md="6">
-                <CommonCard Class="d-flex justify-space-between common-card"
-                            Height=196
-                            Image="https://cdn.masastack.com/images/Functions.svg"
-                            Content="基于OpenFunction，Dapr，KEDA，打造.NET领域函数计算解决方案"
-                            Title="Function"
-                            LeftImage=false
-                            SubTitle="函数计数">
-                </CommonCard>
-            </MCol>
-            <MCol Cols="12" Md="6">
-                <CommonCard Height=172
-                            Class="common-card"
-                            Image="https://cdn.masastack.com/images/MC.svg"
-                            Content="支持站内信、短信、邮件、模板消息，统一消息管理，统一消息调度"
-                            Title="MC"
-                            LeftImage=true
-                            SubTitle="消息中心">
-                </CommonCard>
-            </MCol>
-            <MCol Cols="12" Md="6">
-                <CommonCard Height=172
-                            Class="d-flex justify-space-between common-card"
-                            Image="https://cdn.masastack.com/images/ApiManagement.png"
-                            Content="对流程编排、数据服务等场景暴露的API的管理，流量治理的相关配置能力"
-                            Title="API Management"
-                            LeftImage=false
-                            SubTitle="API管理">
-                </CommonCard>
-            </MCol>
-        </MRow>
+<div class="home-content__item" id="basic-ability-content">
+    <div class="home-content__item-header">
+        <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">BASIC ABILITY</MenuableTitle>
+        <div class="home-content__item-subtitle">现代应用治理解决方案</div>
     </div>
-    <div class="home-content__item" id="operator-content">
-        <div class="home-content__item-header">
-            <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">OPERATOR</MenuableTitle>
-            <div class="home-content__item-subtitle">高效运维解决方案</div>
-        </div>
-        <MRow NoGutters="IsMobile" class="home-content__item-cards">
-            <MCol Cols="12" Md="6">
-                <CommonCard Height=196
-                            Class="common-card"
-                            Image="https://cdn.masastack.com/images/PM.svg"
-                            Content="提供项目管理一站式解决方案，是应用持续交付的基础支撑"
-                            Title="PM"
-                            LeftImage=true
-                            SubTitle="项目管理">
-                </CommonCard>
-            </MCol>
-            <MCol Cols="12" Md="6">
-                <CommonCard Class="d-flex justify-space-between common-card"
-                            Height=196
-                            Image="https://cdn.masastack.com/images/DCC.svg"
-                            Content="支持多级配置缓存，支持服务配置热更新，及标准的配置变更管理流程，并支持Dapr标准API"
-                            Title="DCC"
-                            LeftImage=false
-                            SubTitle="配置中心">
-                </CommonCard>
-            </MCol>
-            <MCol Cols="12" Md="6">
-                <CommonCard Height=172
-                            Class="common-card"
-                            Image="https://cdn.masastack.com/images/TSC.svg"
-                            Content="基于openTelementry标准，兼容开源可视化监控组件，如ES，Prometheus，Grafana接入"
-                            Title="TSC"
-                            LeftImage=true
-                            SubTitle="故障排查控制台">
-                </CommonCard>
-            </MCol>
-            <MCol Cols="12" Md="6">
-                <CommonCard Class="d-flex justify-space-between common-card"
-                            Height=172
-                            Image="https://cdn.masastack.com/images/Alerts.svg"
-                            Content="内置灵活的告警规则引擎，无缝集成MC与TSC，开放Webhook对接"
-                            Title="Alert"
-                            LeftImage=false
-                            SubTitle="告警中心">
-                </CommonCard>
-            </MCol>
-            <MCol Cols="12" Md="6">
-                <CommonCard Height=172
-                            Class="common-card"
-                            Image="https://cdn.masastack.com/images/DevOps.svg"
-                            Content="开发运维一体化，代码库、CI/CD和任务管理"
-                            Title="DevOps"
-                            LeftImage=true
-                            SubTitle="开发运维">
-                </CommonCard>
-            </MCol>
-        </MRow>
+    <MRow NoGutters="IsMobile" class="home-content__item-cards">
+        <MCol Cols="12" Md="6">
+            <CommonCard Height=172
+                        Class="common-card"
+                        Image="https://cdn.masastack.com/images/Auth.svg"
+                        Content="内置RBAC3标准，集成诸多平台用户认证与访问管理，支持OIDC标准扩展接入"
+                        Title="Auth"
+                        LeftImage=true
+                        SubTitle="权限中心">
+            </CommonCard>
+        </MCol>
+        <MCol Cols="12" Md="6">
+            <CommonCard Class="d-flex justify-space-between common-card"
+                        Height=172
+                        Image="https://cdn.masastack.com/images/Scheduler.svg"
+                        Content="统一调度，支持多种模式触发智能任务调度，智能worker弹性伸缩"
+                        Title="Scheduler"
+                        LeftImage=false
+                        SubTitle="调度中心">
+            </CommonCard>
+        </MCol>
+        <MCol Cols="12" Md="6">
+            <CommonCard Height=196
+                        Class="common-card"
+                        Image="https://cdn.masastack.com/images/WorkFlow.svg"
+                        Content="依据CNCF Serverless Workflow规范，集成诸多开源服务或中间件，支撑数据处理事件编排、API聚合等场景支持Dapr标准API"
+                        Title="WorkFlow"
+                        LeftImage=true
+                        SubTitle="工作流">
+            </CommonCard>
+        </MCol>
+        <MCol Cols="12" Md="6">
+            <CommonCard Class="d-flex justify-space-between common-card"
+                        Height=196
+                        Image="https://cdn.masastack.com/images/MicroFE.svg"
+                        Content="Blazor微前端解决方案，为Blazor提供工程化最佳实践"
+                        Title="Micro FE"
+                        LeftImage=false
+                        SubTitle="微前端">
+            </CommonCard>
+        </MCol>
+        <MCol Cols="12" Md="6">
+            <CommonCard Height=172
+                        Class="common-card"
+                        Image="https://cdn.masastack.com/images/Insights.svg"
+                        Content="基于ML.NET，内嵌诸多成熟模型，应用于AIOps、RPA、预测性维护等场景"
+                        Title="Insights"
+                        LeftImage=true
+                        SubTitle="洞察">
+            </CommonCard>
+        </MCol>
+        <MCol Cols="12" Md="6">
+            <CommonCard Class="d-flex justify-space-between common-card"
+                        Height=172
+                        Image="https://cdn.masastack.com/images/Security.svg"
+                        Content="一站式安全解决方案，包含访问控制、数据安全、审计等适用于混合云、物联网等领域"
+                        Title="Security"
+                        LeftImage=false
+                        SubTitle="安全">
+            </CommonCard>
+        </MCol>
+        <MCol Cols="12" Md="6">
+            <CommonCard Height=196
+                        Class="common-card"
+                        Image="https://cdn.masastack.com/images/YARP.svg"
+                        Content="基于YARP定制，可支撑大流量高性能场景，内置API全生命周期管理，适用于K8S南北流量治理，新老架构升级等场景"
+                        Title="YARP"
+                        LeftImage=true
+                        SubTitle="网关">
+            </CommonCard>
+        </MCol>
+        <MCol Cols="12" Md="6">
+            <CommonCard Class="d-flex justify-space-between common-card"
+                        Height=196
+                        Image="https://cdn.masastack.com/images/Functions.svg"
+                        Content="基于OpenFunction，Dapr，KEDA，打造.NET领域函数计算解决方案"
+                        Title="Function"
+                        LeftImage=false
+                        SubTitle="函数计数">
+            </CommonCard>
+        </MCol>
+        <MCol Cols="12" Md="6">
+            <CommonCard Height=172
+                        Class="common-card"
+                        Image="https://cdn.masastack.com/images/MC.svg"
+                        Content="支持站内信、短信、邮件、模板消息，统一消息管理，统一消息调度"
+                        Title="MC"
+                        LeftImage=true
+                        SubTitle="消息中心">
+            </CommonCard>
+        </MCol>
+        <MCol Cols="12" Md="6">
+            <CommonCard Height=172
+                        Class="d-flex justify-space-between common-card"
+                        Image="https://cdn.masastack.com/images/ApiManagement.png"
+                        Content="对流程编排、数据服务等场景暴露的API的管理，流量治理的相关配置能力"
+                        Title="API Management"
+                        LeftImage=false
+                        SubTitle="API管理">
+            </CommonCard>
+        </MCol>
+    </MRow>
+</div>
+<div class="home-content__item" id="operator-content">
+    <div class="home-content__item-header">
+        <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">OPERATOR</MenuableTitle>
+        <div class="home-content__item-subtitle">高效运维解决方案</div>
     </div>
-    <div class="home-content__item" id="data-factory-content">
-        <div class="home-content__item-header">
-            <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">DATA FACTORY</MenuableTitle>
-            <div class="home-content__item-subtitle">数据治理解决方案</div>
-        </div>
-        <MRow NoGutters="IsMobile" class="home-content__item-cards">
-            <MCol Cols="12" Md="6">
-                <CommonCard Height=196
-                            Class="common-card"
-                            Image="https://cdn.masastack.com/images/Metadata.svg"
-                            Content="覆盖元数据采集、加工、管理全流程，以支撑标签系统、ETL、低代码建模等场景"
-                            Title="Metadata"
-                            LeftImage=true
-                            SubTitle="元数据">
-                </CommonCard>
-            </MCol>
-            <MCol Cols="12" Md="6">
-                <CommonCard Class="d-flex justify-space-between common-card"
-                            Height=196
-                            Image="https://cdn.masastack.com/images/ETL.svg"
-                            Content="基于MASA Workflow打造分布式数据处理引擎，支持各类数据库的输入输出，适用于数据迁移、数据入仓\湖、流批一体等解决方案"
-                            Title="ETL"
-                            LeftImage=false
-                            SubTitle="数据管道">
-                </CommonCard>
-            </MCol>
-            <MCol Cols="12" Md="6">
-                <CommonCard Height=172
-                            Class="common-card"
-                            Image="https://cdn.masastack.com/images/BigDataApi.svg"
-                            Content="将数据分析能力、标签对象以API的形式对外提供服务支持GraphQL和OData查询规范"
-                            Title="Big Data API"
-                            LeftImage=true
-                            SubTitle="数据服务">
-                </CommonCard>
-            </MCol>
-            <MCol Cols="12" Md="6">
-                <CommonCard Class="d-flex justify-space-between common-card"
-                            Height=172
-                            Image="https://cdn.masastack.com/images/View.svg"
-                            Content="基于开源echarts搭建的，低代码的可视化工具，适用于即席分析、大屏展示、BI等场景"
-                            Title="View"
-                            LeftImage=false
-                            SubTitle="数据可视化">
-                </CommonCard>
-            </MCol>
-        </MRow>
+    <MRow NoGutters="IsMobile" class="home-content__item-cards">
+        <MCol Cols="12" Md="6">
+            <CommonCard Height=196
+                        Class="common-card"
+                        Image="https://cdn.masastack.com/images/PM.svg"
+                        Content="提供项目管理一站式解决方案，是应用持续交付的基础支撑"
+                        Title="PM"
+                        LeftImage=true
+                        SubTitle="项目管理">
+            </CommonCard>
+        </MCol>
+        <MCol Cols="12" Md="6">
+            <CommonCard Class="d-flex justify-space-between common-card"
+                        Height=196
+                        Image="https://cdn.masastack.com/images/DCC.svg"
+                        Content="支持多级配置缓存，支持服务配置热更新，及标准的配置变更管理流程，并支持Dapr标准API"
+                        Title="DCC"
+                        LeftImage=false
+                        SubTitle="配置中心">
+            </CommonCard>
+        </MCol>
+        <MCol Cols="12" Md="6">
+            <CommonCard Height=172
+                        Class="common-card"
+                        Image="https://cdn.masastack.com/images/TSC.svg"
+                        Content="基于openTelementry标准，兼容开源可视化监控组件，如ES，Prometheus，Grafana接入"
+                        Title="TSC"
+                        LeftImage=true
+                        SubTitle="故障排查控制台">
+            </CommonCard>
+        </MCol>
+        <MCol Cols="12" Md="6">
+            <CommonCard Class="d-flex justify-space-between common-card"
+                        Height=172
+                        Image="https://cdn.masastack.com/images/Alerts.svg"
+                        Content="内置灵活的告警规则引擎，无缝集成MC与TSC，开放Webhook对接"
+                        Title="Alert"
+                        LeftImage=false
+                        SubTitle="告警中心">
+            </CommonCard>
+        </MCol>
+        <MCol Cols="12" Md="6">
+            <CommonCard Height=172
+                        Class="common-card"
+                        Image="https://cdn.masastack.com/images/DevOps.svg"
+                        Content="开发运维一体化，代码库、CI/CD和任务管理"
+                        Title="DevOps"
+                        LeftImage=true
+                        SubTitle="开发运维">
+            </CommonCard>
+        </MCol>
+    </MRow>
+</div>
+<div class="home-content__item" id="data-factory-content">
+    <div class="home-content__item-header">
+        <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">DATA FACTORY</MenuableTitle>
+        <div class="home-content__item-subtitle">数据治理解决方案</div>
     </div>
-    <div class="home-content__item" id="why-masa-stack-content">
-        <div class="home-content__item-header">
-            <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">WHY MASA STACK</MenuableTitle>
-            <div class="home-content__item-subtitle">为什么选择MASA Stack?</div>
-        </div>
-        <MRow NoGutters="IsMobile" class="home-content__item-cards">
-            <MCol Cols="12" Md="4">
-                <WhyCard Image="https://cdn.masastack.com/images/icon1.svg"
-                         Title=".NET优先"
-                         IsMobile="IsMobile"
-                         Icon="https://cdn.masastack.com/images/v-icon1.svg"
-                         WhyContents="WhyContent1">
-                </WhyCard>
-            </MCol>
-            <MCol Cols="12" Md="4">
-                <WhyCard Image="https://cdn.masastack.com/images/icon2.svg"
-                         Title="开源"
-                         IsMobile="IsMobile"
-                         Icon="https://cdn.masastack.com/images/v-icon2.svg"
-                         WhyContents="WhyContent2">
-                </WhyCard>
-            </MCol>
-            <MCol Cols="12" Md="4">
-                <WhyCard Image="https://cdn.masastack.com/images/icon3.svg"
-                         Title="社区"
-                         IsMobile="IsMobile"
-                         Icon="https://cdn.masastack.com/images/v-icon3.svg"
-                         WhyContents="WhyContent3">
-                </WhyCard>
-            </MCol>
-        </MRow>
+    <MRow NoGutters="IsMobile" class="home-content__item-cards">
+        <MCol Cols="12" Md="6">
+            <CommonCard Height=196
+                        Class="common-card"
+                        Image="https://cdn.masastack.com/images/Metadata.svg"
+                        Content="覆盖元数据采集、加工、管理全流程，以支撑标签系统、ETL、低代码建模等场景"
+                        Title="Metadata"
+                        LeftImage=true
+                        SubTitle="元数据">
+            </CommonCard>
+        </MCol>
+        <MCol Cols="12" Md="6">
+            <CommonCard Class="d-flex justify-space-between common-card"
+                        Height=196
+                        Image="https://cdn.masastack.com/images/ETL.svg"
+                        Content="基于MASA Workflow打造分布式数据处理引擎，支持各类数据库的输入输出，适用于数据迁移、数据入仓\湖、流批一体等解决方案"
+                        Title="ETL"
+                        LeftImage=false
+                        SubTitle="数据管道">
+            </CommonCard>
+        </MCol>
+        <MCol Cols="12" Md="6">
+            <CommonCard Height=172
+                        Class="common-card"
+                        Image="https://cdn.masastack.com/images/BigDataApi.svg"
+                        Content="将数据分析能力、标签对象以API的形式对外提供服务支持GraphQL和OData查询规范"
+                        Title="Big Data API"
+                        LeftImage=true
+                        SubTitle="数据服务">
+            </CommonCard>
+        </MCol>
+        <MCol Cols="12" Md="6">
+            <CommonCard Class="d-flex justify-space-between common-card"
+                        Height=172
+                        Image="https://cdn.masastack.com/images/View.svg"
+                        Content="基于开源echarts搭建的，低代码的可视化工具，适用于即席分析、大屏展示、BI等场景"
+                        Title="View"
+                        LeftImage=false
+                        SubTitle="数据可视化">
+            </CommonCard>
+        </MCol>
+    </MRow>
+</div>
+<div class="home-content__item" id="why-masa-stack-content">
+    <div class="home-content__item-header">
+        <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">WHY MASA STACK</MenuableTitle>
+        <div class="home-content__item-subtitle">为什么选择MASA Stack?</div>
     </div>
+    <MRow NoGutters="IsMobile" class="home-content__item-cards">
+        <MCol Cols="12" Md="4">
+            <WhyCard Image="https://cdn.masastack.com/images/icon1.svg"
+                     Title=".NET优先"
+                     IsMobile="IsMobile"
+                     Icon="https://cdn.masastack.com/images/v-icon1.svg"
+                     WhyContents="WhyContent1">
+            </WhyCard>
+        </MCol>
+        <MCol Cols="12" Md="4">
+            <WhyCard Image="https://cdn.masastack.com/images/icon2.svg"
+                     Title="开源"
+                     IsMobile="IsMobile"
+                     Icon="https://cdn.masastack.com/images/v-icon2.svg"
+                     WhyContents="WhyContent2">
+            </WhyCard>
+        </MCol>
+        <MCol Cols="12" Md="4">
+            <WhyCard Image="https://cdn.masastack.com/images/icon3.svg"
+                     Title="社区"
+                     IsMobile="IsMobile"
+                     Icon="https://cdn.masastack.com/images/v-icon3.svg"
+                     WhyContents="WhyContent3">
+            </WhyCard>
+        </MCol>
+    </MRow>
+</div>
 </div>
