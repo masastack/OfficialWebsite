@@ -16,43 +16,6 @@
                         <MIcon Class="mr-2">mdi-github</MIcon>
                         Github
                     </MButton>
-                    @if (!IsMobile)
-                    {
-                        <MMenu OffsetY Top OpenOnHover NudgeTop="8" CloseDelay="100"
-                               CloseOnContentClick="false"
-                               ContentClass="demo-btn__tooltip">
-                            <ActivatorContent>
-                                <MButton Class="demo-btn rounded-pill emphasis--text ml-4 text-capitalize"
-                                         Text
-                                         Href="https://auth-ui-demo.masastack.com/"
-                                         Target="_blank"
-                                         Large
-                                         Style="font-size: 20px"
-                                         @attributes="@context.Attrs">
-                                    <span class="text-decoration-underline">
-                                        Live demo
-                                    </span>
-                                    <MIcon Right>mdi-open-in-new</MIcon>
-                                </MButton>
-                            </ActivatorContent>
-                            <ChildContent>
-                                <div class="regular--text">
-                                    <div>
-                                        Username：
-                                        <PCopyableText Class="d-inline-block">
-                                            Guest
-                                        </PCopyableText>
-                                    </div>
-                                    <div>
-                                        Password：
-                                        <PCopyableText Class="d-inline-block">
-                                            guest123
-                                        </PCopyableText>
-                                    </div>
-                                </div>
-                            </ChildContent>
-                        </MMenu>
-                    }
                 </div>
             </div>
         </MCol>
@@ -175,7 +138,7 @@
         <MCol Cols="12" Md="6">
             <CommonCard Height=172
                         Class="d-flex justify-space-between common-card"
-                        Image="https://cdn.masastack.com/images/ApiManagement.png"
+                        Image="https://cdn.masastack.com/images/ApiManagement.svg"
                         Content="对流程编排、数据服务等场景暴露的API的管理，流量治理的相关配置能力"
                         Title="API Management"
                         LeftImage=false
