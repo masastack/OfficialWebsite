@@ -591,3 +591,17 @@
         line-height: 30px;
         color: #323D6F;
     }
+
+.about-company-cover {
+    border-radius:8px;
+    margin-top:24px;
+    flex:none;
+}
+
+.about-desc {
+    text-indent:24px;
+    font-size:12px;
+    line-height:18px;
+    font-weight:500;
+}
+

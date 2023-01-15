@@ -750,10 +750,6 @@ html {
         color: #323D6F;
     }
 
-.m-window-x-transition-enter-active, .m-window-x-transition-leave-active, .m-window-x-reverse-transition-enter-active, .m-window-x-reverse-transition-leave-active, .m-window-y-transition-enter-active, .m-window-y-transition-leave-active, .m-window-y-reverse-transition-enter-active, .m-window-y-reverse-transition-leave-active {
-    transition: 0.6s cubic-bezier(0.25, 0.8, 0.5, 1);
-}
-
 .demo-btn__tooltip {
     background: white;
     color: #FFF;
@@ -766,4 +762,21 @@ html {
 
 .demo-btn__tooltip.menuable__content__active {
     opacity: .7;
+}
+
+.about-company-cover {
+    border-radius:28px;
+    margin-top:120px;
+    flex:none;
+}
+
+.about-desc {
+    text-indent:48px;
+    font-size:24px;
+    line-height:48px;
+    letter-spacing:0.04em;
+}
+
+.m-window-x-transition-enter-active, .m-window-x-transition-leave-active, .m-window-x-reverse-transition-enter-active, .m-window-x-reverse-transition-leave-active, .m-window-y-transition-enter-active, .m-window-y-transition-leave-active, .m-window-y-reverse-transition-enter-active, .m-window-y-reverse-transition-leave-active {
+    transition: 0.6s cubic-bezier(0.25, 0.8, 0.5, 1);
 }
