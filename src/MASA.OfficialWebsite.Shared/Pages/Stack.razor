@@ -16,6 +16,43 @@
                         <MIcon Class="mr-2">mdi-github</MIcon>
                         Github
                     </MButton>
+                    @if (!IsMobile)
+                    {
+                        <MMenu OffsetY Top OpenOnHover NudgeTop="8" CloseDelay="100"
+                               CloseOnContentClick="false"
+                               ContentClass="demo-btn__tooltip">
+                            <ActivatorContent>
+                                <MButton Class="demo-btn rounded-pill emphasis--text ml-4 text-capitalize"
+                                         Text
+                                         Href="https://auth-ui-demo.masastack.com/"
+                                         Target="_blank"
+                                         Large
+                                         Style="font-size: 20px"
+                                         @attributes="@context.Attrs">
+                                    <span class="text-decoration-underline">
+                                        Live demo
+                                    </span>
+                                    <MIcon Right>mdi-open-in-new</MIcon>
+                                </MButton>
+                            </ActivatorContent>
+                            <ChildContent>
+                                <div class="regular--text">
+                                    <div>
+                                        Username：
+                                        <PCopyableText Class="d-inline-block" Text="guest">
+                                            guest
+                                        </PCopyableText>
+                                    </div>
+                                    <div>
+                                        Password：
+                                        <PCopyableText Class="d-inline-block" Text="guest123">
+                                            guest123
+                                        </PCopyableText>
+                                    </div>
+                                </div>
+                            </ChildContent>
+                        </MMenu>
+                    }
                 </div>
             </div>
         </MCol>
