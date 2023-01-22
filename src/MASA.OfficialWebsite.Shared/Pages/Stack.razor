@@ -18,37 +18,43 @@
                     </MButton>
                     @if (!IsMobile)
                     {
-                        <MMenu OffsetY Top OpenOnHover NudgeTop="8" CloseDelay="100"
+                        <MMenu OffsetY Top NudgeTop="8" CloseDelay="100"
                                CloseOnContentClick="false"
                                ContentClass="demo-btn__tooltip">
                             <ActivatorContent>
                                 <MButton Class="demo-btn rounded-pill emphasis--text ml-4 text-capitalize"
                                          Text
-                                         Href="https://auth-ui-demo.masastack.com/"
-                                         Target="_blank"
                                          Large
                                          Style="font-size: 20px"
                                          @attributes="@context.Attrs">
                                     <span class="text-decoration-underline">
                                         Live demo
                                     </span>
-                                    <MIcon Right>mdi-open-in-new</MIcon>
                                 </MButton>
                             </ActivatorContent>
                             <ChildContent>
-                                <div class="regular--text">
-                                    <div>
-                                        Username：
-                                        <PCopyableText Class="d-inline-block" Text="guest">
-                                            guest
-                                        </PCopyableText>
+                                <div class="d-flex align-center">
+                                    <div class="regular--text">
+                                        <div>
+                                            Username:
+                                            <PCopyableText Class="d-inline-block" Text="guest">
+                                                guest
+                                            </PCopyableText>
+                                        </div>
+                                        <div>
+                                            Password:
+                                            <PCopyableText Class="d-inline-block" Text="guest123">
+                                                guest123
+                                            </PCopyableText>
+                                        </div>
                                     </div>
-                                    <div>
-                                        Password：
-                                        <PCopyableText Class="d-inline-block" Text="guest123">
-                                            guest123
-                                        </PCopyableText>
-                                    </div>
+                                    <MButton Icon
+                                             Color="primary"
+                                             Href="https://auth-ui-demo.masastack.com/"
+                                             Target="_blank"
+                                             Class="ml-2">
+                                        <MIcon>mdi-open-in-new</MIcon>
+                                    </MButton>
                                 </div>
                             </ChildContent>
                         </MMenu>
