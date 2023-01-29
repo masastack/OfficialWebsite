@@ -23,8 +23,6 @@ docker-build-dev:
   tags:
     - linux-shell
   before_script:
-    - git config --global --unset https.proxy
-    - git config --global --unset http.proxy
     - docker login --username=$CI_ALI_REGISTRY_USER --password=$CI_ALI_REGISTRY_PASSWD $CI_ALI_REGISTRY_DOMAIN
   only:
     - main  
