@@ -100,7 +100,7 @@ html {
 
             .website-shared .footer-content .footer-content__logo .m-image {
                 margin: 0 auto 48px;
-            }
+            }`
 
         .website-shared .footer-content .footer-content__item {
         }
@@ -114,6 +114,12 @@ html {
             display: flex;
             align-items: center;
             margin-bottom: 36px;
+        }
+
+        .website-shared .footer-content .footer-content__item.business .contact-item > a {
+            font-size: 18px;
+            color: white;
+            text-decoration: none;
         }
 
         .website-shared .footer-content .footer-content__item.business .contact-item:last-child {

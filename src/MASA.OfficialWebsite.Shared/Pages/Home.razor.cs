@@ -55,7 +55,7 @@ public partial class Home : AutoScrollComponentBase
     private static readonly List<(string Major, string? Minor)> WhyContent3 = new()
     {
         ("定制化培训服务", null),
-        ("标准课程培训（初级、中级、高级、架构师", null),
+        ("标准课程培训（初级、中级、高级、架构师）", null),
         ("外聘讲师培训", null),
     };
 
