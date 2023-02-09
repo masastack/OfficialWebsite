@@ -120,90 +120,102 @@
          alt="footer" />
     <MFooter Color="#4318ff" Dark Padless>
         <MRow NoGutters Class="footer-content">
-            @if (!IsMobile)
-            {
-                <MCol Cols="12" Md="7">
-                    <MCard Color="transparent" Flat Dark
-                           Class="footer-content__item footer-content__map">
-                        <MCardTitle>网站地图</MCardTitle>
-                        <MCardText>
-                            <MRow>
-                                <MCol Cols="3" class="map-item">
-                                    <div class="map-item__title">
-                                        <span class="prefix"></span> 产品中心
-                                    </div>
-                                    <ul>
-                                        <li>
-                                            <a href="/stack">MASA Stack</a>
-                                        </li>
-                                        <li>
-                                            <a href="/framework">MASA Framework</a>
-                                        </li>
-                                        <li>
-                                            <a href="/blazor">MASA Blazor</a>
-                                        </li>
-                                    </ul>
-                                </MCol>
-                                <MCol Cols="3" class="map-item">
-                                    <div class="map-item__title">
-                                        <span class="prefix"></span>解决方案
-                                    </div>
-                                    <ul>
-                                        <li>
-                                            <a>MASA Cloud</a>
-                                        </li>
-                                        <li>
-                                            <a>MASA IoT</a>
-                                        </li>
-                                        <li>
-                                            <a>传统.NET架构升级</a>
-                                        </li>
-                                    </ul>
-                                </MCol>
-                                <MCol Cols="3" class="map-item">
-                                    <div class="map-item__title">
-                                        <span class="prefix"></span>学习中心
-                                    </div>
-                                    <ul>
-                                        <li>
-                                            <a href="/learningpath">学习路径</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://blogs.masastack.com">博客站点</a>
-                                        </li>
-                                        <li>
-                                            <a href="https://docs.masastack.com">文档站点</a>
-                                        </li>
-                                        <li>
-                                            <a href="/activity">社区活动</a>
-                                        </li>
-                                    </ul>
-                                </MCol>
-                                <MCol Cols="3" class="map-item">
-                                    <div class="map-item__title">
-                                        <span class="prefix"></span>关于我们
-                                    </div>
-                                    <ul>
-                                        <li>
-                                            <a href="/aboutus#aboutus_companyinfo">公司介绍</a>
-                                        </li>
-                                        <li>
-                                            <a href="/aboutus#aboutus_contactus">联系我们</a>
-                                        </li>
-                                        <li>
-                                            <a href="/aboutus#aboutus_contactus">商务合作</a>
-                                        </li>
-                                    </ul>
-                                </MCol>
-                            </MRow>
+            <MCol Class="map" Cols="12" Md="7">
+                <MCard Color="transparent" Flat Dark
+                       Class="footer-content__item footer-content__map">
+                    <MCardTitle>网站地图</MCardTitle>
+                    <MCardText>
+                        <MRow>
+                            <MCol Cols="3" class="map-item">
+                                <div class="map-item__title">
+                                    <span class="prefix"></span> 产品中心
+                                </div>
+                                <ul>
+                                    <li>
+                                        <a href="/stack">MASA Stack</a>
+                                    </li>
+                                    <li>
+                                        <a href="/framework">MASA Framework</a>
+                                    </li>
+                                    <li>
+                                        <a href="/blazor">MASA Blazor</a>
+                                    </li>
+                                </ul>
+                            </MCol>
+                            <MCol Cols="3" class="map-item">
+                                <div class="map-item__title">
+                                    <span class="prefix"></span>解决方案
+                                </div>
+                                <ul>
+                                    <li>
+                                        <a>MASA Cloud</a>
+                                    </li>
+                                    <li>
+                                        <a>MASA IoT</a>
+                                    </li>
+                                    <li>
+                                        <a>传统.NET架构升级</a>
+                                    </li>
+                                </ul>
+                            </MCol>
+                            <MCol Cols="3" class="map-item">
+                                <div class="map-item__title">
+                                    <span class="prefix"></span>学习中心
+                                </div>
+                                <ul>
+                                    <li>
+                                        <a href="/learningpath">学习路径</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://blogs.masastack.com">博客站点</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://docs.masastack.com">文档站点</a>
+                                    </li>
+                                    <li>
+                                        <a href="/activity">社区活动</a>
+                                    </li>
+                                </ul>
+                            </MCol>
+                            <MCol Cols="3" class="map-item">
+                                <div class="map-item__title">
+                                    <span class="prefix"></span>关于我们
+                                </div>
+                                <ul>
+                                    <li>
+                                        <a href="/aboutus#aboutus_companyinfo">公司介绍</a>
+                                    </li>
+                                    <li>
+                                        <a href="/aboutus#aboutus_contactus">联系我们</a>
+                                    </li>
+                                    <li>
+                                        <a href="/aboutus#aboutus_contactus">商务合作</a>
+                                    </li>
+                                </ul>
+                            </MCol>
+                        </MRow>
 
-                        </MCardText>
-                    </MCard>
-                </MCol>
-            }
+                    </MCardText>
+                </MCard>
+            </MCol>
 
             <MCol Cols="12" OffsetMd="2" Md="3">
                 <MRow NoGutters>
+                    <MCol Cols="12">
+                        <MCard Color="transparent" Flat Dark Class="footer-content__item business">
+                            <MCardTitle>商务合作</MCardTitle>
+                            <MCardText Class="contacts">
+                                <div class="contact-item">
+                                    <MIcon Class="mr-3">mdi-email</MIcon>
+                                    <a href="mailto:marketing@masastack.com" style="font-size: 18px" class="white--text">marketing@masastack.com</a>
+                                </div>
+                                <div class="contact-item">
+                                    <MIcon Class="mr-3">mdi-phone</MIcon>
+                                    <span style="font-size: 18px">13989775601</span>
+                                </div>
+                            </MCardText>
+                        </MCard>
+                    </MCol>
                     <MCol Cols="12">
                         <MCard Color="transparent" Flat Dark Class="footer-content__item footer-content__focus">
                             <MCardTitle>关注我们</MCardTitle>
@@ -262,12 +274,6 @@
                                          width="@(IsMobile ? 24 : 36)" />
                                 </MButton>
                             </MCardText>
-                        </MCard>
-                    </MCol>
-                    <MCol Cols="12">
-                        <MCard Color="transparent" Flat Dark Class="footer-content__item">
-                            <MCardTitle>商务合作</MCardTitle>
-                            <a href=mailto:marketing@masastack.com class="m-card__text" style="text-decoration:none;">marketing@masastack.com</a>
                         </MCard>
                     </MCol>
                 </MRow>

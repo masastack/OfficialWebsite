@@ -1,0 +1,58 @@
+﻿<MSheet Class="service-card" Style="@Style">
+    <div class="header">
+        <span>
+            <MImage Src="@Image"
+                    Height="80"
+                    Width="80"
+                    Contain
+                    Class="header-icon" />
+        </span>
+        <div class="header-title">@Title</div>
+    </div>
+
+    <div class="contents">
+        @if (Contents is not null)
+        {
+            foreach (var (major, minor) in Contents)
+            {
+                <div class="content-item">
+                    <div class="major">
+                        <MIcon Size="20" Color="@IconColor">@Icon</MIcon>
+                        <div style="margin-left: 10px">@major</div>
+                    </div>
+                    @if (!string.IsNullOrWhiteSpace(minor))
+                    {
+                        <div class="regular3--text minor">@minor</div>
+                    }
+                </div>
+            }
+        }
+    </div>
+</MSheet>
+
+@code {
+
+    [Parameter]
+    public string? Image { get; set; }
+
+    [Parameter, EditorRequired]
+    public string? Icon { get; set; }
+
+    [Parameter]
+    public string? IconColor { get; set; } = "primary";
+
+    [Parameter]
+    public string? Title { get; set; }
+
+    [Parameter]
+    public List<(string Major, string? Minor)>? Contents { get; set; }
+
+    [Parameter]
+    public bool IsMobile { get; set; }
+
+    public string? Style
+    {
+        get { return !IsMobile ? "height: 100%;" : ""; }
+    }
+
+}
