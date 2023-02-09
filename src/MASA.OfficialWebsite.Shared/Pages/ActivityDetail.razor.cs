@@ -32,7 +32,7 @@
             },
             {
                 "v1-launching",
-                new Data("//player.bilibili.com/player.html?aid=222878030&bvid=BV1E8411A78X&cid=969400545&page=1",
+                new Data("//player.bilibili.com/player.html?aid=392957693&bvid=BV1pd4y1V7qh&cid=969406701&page=1",
                     "https://cdn.masastack.com/images/activity_detail_1.0.svg",
                     "https://cdn.masastack.com/images/m_activity_detail_1.0.svg",
                     null)

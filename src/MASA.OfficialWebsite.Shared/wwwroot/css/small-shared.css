@@ -49,6 +49,18 @@
         line-height: 18px;
         margin-top: 24px;
     }
+    
+    .website-shared .footer-content .map {
+        display: none;
+    }
+    
+    .website-shared .footer-content .footer-content__item .contacts {
+        align-items: center;
+    }
+
+    .website-shared .footer-content .footer-content__item.business .contact-item {
+        margin-bottom: 14px;
+    }
 
     .website-shared .footer-content .footer-content__item .m-card__title {
         font-weight: 700;
