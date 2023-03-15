@@ -36,6 +36,13 @@
                     "https://cdn.masastack.com/images/activity_detail_1.0.svg",
                     "https://cdn.masastack.com/images/m_activity_detail_1.0.svg",
                     null)
+            },
+            {
+                "meetup-230318",
+                new Data(null,
+                    "https://cdn.masastack.com/images/activity_detail_sz_230318.png",
+                    "https://cdn.masastack.com/images/m_activity_detail_sz_230318.png",
+                    null)
             }
         };
 
