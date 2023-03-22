@@ -39,7 +39,7 @@
             },
             {
                 "meetup-230318",
-                new Data(null,
+                new Data("//player.bilibili.com/player.html?aid=993829754&bvid=BV1Cx4y1w7kU&cid=1062779954&page=1",
                     "https://cdn.masastack.com/images/activity_detail_sz_230318.png",
                     "https://cdn.masastack.com/images/m_activity_detail_sz_230318.png",
                     null)
