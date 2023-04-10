@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using static MASA.OfficialWebsite.Shared.Data.ActivityData
 @inherits AutoScrollComponentBase
 
 <PageTitle>MASA Stack - 开源企业级开发者门户 平台工程</PageTitle>
@@ -203,7 +204,7 @@
             <div class="home-content__item-subtitle">最新社区活动预告与往期回顾</div>
         </div>
         <MRow NoGutters="IsMobile" class="home-content__item-cards">
-            @foreach (var item in s_activities.OrderByDescending(a => a.StartAt).Take(3))
+            @foreach (var item in AllActivities.OrderByDescending(a => a.StartAt).Take(3))
             {
                 <MCol Cols="12" Md="4">
                     <ActivityCard Data="item" />

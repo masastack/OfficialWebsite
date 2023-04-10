@@ -4,44 +4,6 @@ namespace MASA.OfficialWebsite.Shared.Pages;
 
 public partial class Home : AutoScrollComponentBase
 {
-    private static readonly List<Activity> s_activities = new()
-    {
-        new Activity(
-            "2023年深圳.NET线下技术沙龙",
-            "MASA技术团队来深圳啦！",
-            "https://cdn.masastack.com/images/activity_sz_230318.png",
-            "https://cdn.masastack.com/images/m_activity_sz_230318.svg",
-            new DateTime(2023, 3, 18, 13, 30, 0),
-            4,
-            ActivityProduct.None,
-            ActivityType.Meetup,
-            ActivityMode.Offline,
-            "meetup-230318"),
-        new Activity(
-            "MASA Stack 1.0 发布会",
-            "MASA技术团队年终巨献，开启.NET生态新篇章",
-            "https://cdn.masastack.com/images/activity_1.0.png",
-            "",
-            new DateTime(2023, 1, 16, 14, 0, 0),
-            4,
-            ActivityProduct.Stack,
-            ActivityType.ProductLaunching,
-            ActivityMode.Online,
-            "v1-launching"),
-        new Activity(
-            "MASA Framework实战课程开课",
-            "大咖云集，共同助力",
-            "https://cdn.masastack.com/images/activity2.jpg",
-            "",
-            new DateTime(2022, 7, 22, 14, 0, 0),
-            2,
-            ActivityProduct.Framework,
-            ActivityType.Training,
-            ActivityMode.Online,
-            "training-launching"
-        )
-    };
-
     private static readonly List<MenuableTitleItem> MenuableTitleItems = new()
     {
         new MenuableTitleItem("产品", "Modern App & Service Architecture", "#product-content"),

@@ -1,5 +1,6 @@
 ﻿@page "/activity"
 @inherits AutoScrollComponentBase
+@using static MASA.OfficialWebsite.Shared.Data.ActivityData
 
 <PageTitle>社区活动</PageTitle>
 
@@ -106,7 +107,7 @@
                 }
             </MRow>
         </div>
-        @if (s_allActivities.Count > 6)
+        @if (AllActivities.Count > 6)
         {
             if (IsMobile)
             {
