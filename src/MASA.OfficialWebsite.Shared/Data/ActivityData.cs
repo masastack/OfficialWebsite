@@ -75,7 +75,7 @@ public static class ActivityData
         },
         {
             "meetup-230415",
-            new Models.ActivityDetail(null,
+            new Models.ActivityDetail("//player.bilibili.com/player.html?aid=612597471&bvid=BV1Dh4y1W7rZ&cid=1099972463&page=1",
                 "https://cdn.masastack.com/images/activity_detail_cd_230415.png",
                 "https://cdn.masastack.com/images/m_activity_detail_cd_230415.png",
                 null)
