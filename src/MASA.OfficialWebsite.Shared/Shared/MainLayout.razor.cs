@@ -99,7 +99,7 @@ public partial class MainLayout : IDisposable
 
             if (href.EndsWith("/stack"))
             {
-                return "https://docs.masastack.com/stack/auth/get-started";
+                return "https://docs.masastack.com/stack/stack/introduce";
             }
 
             if (href.EndsWith("/framework"))
