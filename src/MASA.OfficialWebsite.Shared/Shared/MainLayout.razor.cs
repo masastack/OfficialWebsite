@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.AspNetCore.Http.Internal;
 
 namespace MASA.OfficialWebsite.Shared.Shared;
 
@@ -34,7 +35,9 @@ public partial class MainLayout : IDisposable
 
     private static List<NavMenu.NavItem> AllNavItems => ProductNavItems.Concat(StudyNavItems).Concat(AboutUsItems).ToList();
 
-    private static List<string> ExcludeRoutes = new() { "learningpath" };
+    private static List<string> ExcludeRoutes = new() { "/learningpath" };
+
+    private static string[] _products = { "stack", "framework", "blazor" };
 
     private bool _drawer;
 
@@ -44,13 +47,13 @@ public partial class MainLayout : IDisposable
     private string? _direction;
 
     private bool IsMobile { get; set; }
-    private string CurrentRelativePath { get; set; }
+    private string CurrentAbsolutePath { get; set; }
 
     private int IconSize => IsMobile ? 40 : 60;
     private int WeChatSize => IsMobile ? 120 : 200;
     private int NudgeLeft => WeChatSize / 2 - IconSize / 2;
 
-    private bool PreventTouch => !IsMobile || ExcludeRoutes.Contains(CurrentRelativePath);
+    private bool PreventTouch => !IsMobile || ExcludeRoutes.Contains(CurrentAbsolutePath);
 
     private bool _isShow;
 
@@ -62,24 +65,27 @@ public partial class MainLayout : IDisposable
 
         MasaBlazor.Breakpoint.OnUpdate += BreakpointOnOnUpdate;
 
-        var uri = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
-        CurrentRelativePath = uri;
         NavigationManager.LocationChanged += NavigationManagerOnLocationChanged;
-        var hrefs = new List<string> { "/stack", "/framework", "/blazor" };
-        _isShow = hrefs.Any(p => NavigationManager.Uri.Contains(p));
-    }
 
-    private Task MenuClickHandleAsync(string href)
-    {
-        var hrefs = new List<string> { "/stack", "/framework", "/blazor" };
-        _isShow = hrefs.Any(href.Contains);
-
-        return Task.CompletedTask;
+        ResolveLocation();
     }
 
     private void NavigationManagerOnLocationChanged(object? sender, LocationChangedEventArgs e)
     {
-        CurrentRelativePath = NavigationManager.ToBaseRelativePath(e.Location);
+        var isProductPage = ResolveLocation();
+
+        if (_isShow != isProductPage)
+        {
+            _isShow = isProductPage;
+
+            InvokeAsync(StateHasChanged);
+        }
+    }
+
+    private bool ResolveLocation()
+    {
+        CurrentAbsolutePath = NavigationManager.GetAbsolutePath();
+        return _products.Any(p => CurrentAbsolutePath.StartsWith($"/{p}"));
     }
 
     private Task BreakpointOnOnUpdate()

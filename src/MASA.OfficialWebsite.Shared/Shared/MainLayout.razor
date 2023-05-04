@@ -47,11 +47,11 @@
             <MButton Text Class="nav h8 emphasis2--text" Href="@ComputedHref" Target="_blank">文档</MButton>
         }
 
-        <NavMenu Items="@ProductNavItems" OnMenuClick="MenuClickHandleAsync">
+        <NavMenu Items="@ProductNavItems">
             <MButton Text @attributes="@context.Attrs">产品</MButton>
         </NavMenu>
 
-        <NavMenu Items="@StudyNavItems" OnMenuClick="MenuClickHandleAsync">
+        <NavMenu Items="@StudyNavItems">
             <MButton Text @attributes="@context.Attrs">学习</MButton>
         </NavMenu>
 
