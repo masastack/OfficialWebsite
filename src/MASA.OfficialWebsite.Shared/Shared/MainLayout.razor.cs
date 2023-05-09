@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.AspNetCore.Components.Web;
-using Microsoft.AspNetCore.Http.Internal;
 
 namespace MASA.OfficialWebsite.Shared.Shared;
 
