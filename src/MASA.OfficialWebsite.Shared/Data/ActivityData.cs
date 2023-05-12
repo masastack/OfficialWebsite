@@ -5,27 +5,16 @@ public static class ActivityData
     public static readonly List<Activity> AllActivities = new()
     {
         new Activity(
-            "2023年成都.NET线下技术沙龙",
-            "MASA技术团队来成都啦！",
-            "https://cdn.masastack.com/images/activity_cd_230415.png",
-            "https://cdn.masastack.com/images/m_activity_cd_230415.png",
-            new DateTime(2023, 4, 15, 13, 30, 0),
-            4,
-            ActivityProduct.None,
-            ActivityType.Meetup,
-            ActivityMode.Offline,
-            "meetup-230415"),
-        new Activity(
-            "2023年深圳.NET线下技术沙龙",
-            "MASA技术团队来深圳啦！",
-            "https://cdn.masastack.com/images/activity_sz_230318.png",
-            "https://cdn.masastack.com/images/m_activity_sz_230318.svg",
-            new DateTime(2023, 3, 18, 13, 30, 0),
-            4,
-            ActivityProduct.None,
-            ActivityType.Meetup,
-            ActivityMode.Offline,
-            "meetup-230318"),
+            "MASA Framework实战课程开课",
+            "大咖云集，共同助力",
+            "https://cdn.masastack.com/images/activity2.jpg",
+            "https://cdn.masastack.com/images/m_activity2.jpg",
+            new DateTime(2022, 7, 22, 14, 0, 0),
+            2,
+            ActivityProduct.Framework,
+            ActivityType.Training,
+            ActivityMode.Online,
+            "training-launching"),
         new Activity(
             "MASA Stack 1.0 发布会",
             "MASA技术团队年终巨献，开启.NET生态新篇章",
@@ -38,16 +27,38 @@ public static class ActivityData
             ActivityMode.Online,
             "v1-launching"),
         new Activity(
-            "MASA Framework实战课程开课",
-            "大咖云集，共同助力",
-            "https://cdn.masastack.com/images/activity2.jpg",
-            "https://cdn.masastack.com/images/m_activity2.jpg",
-            new DateTime(2022, 7, 22, 14, 0, 0),
-            2,
-            ActivityProduct.Framework,
-            ActivityType.Training,
-            ActivityMode.Online,
-            "training-launching")
+            "2023年深圳.NET线下技术沙龙",
+            "MASA技术团队来深圳啦！",
+            "https://cdn.masastack.com/images/activity_sz_230318.png",
+            "https://cdn.masastack.com/images/m_activity_sz_230318.svg",
+            new DateTime(2023, 3, 18, 13, 30, 0),
+            4,
+            ActivityProduct.None,
+            ActivityType.Meetup,
+            ActivityMode.Offline,
+            "meetup-230318"),
+        new Activity(
+            "2023年成都.NET线下技术沙龙",
+            "MASA技术团队来成都啦！",
+            "https://cdn.masastack.com/images/activity_cd_230415.png",
+            "https://cdn.masastack.com/images/m_activity_cd_230415.png",
+            new DateTime(2023, 4, 15, 13, 30, 0),
+            4,
+            ActivityProduct.None,
+            ActivityType.Meetup,
+            ActivityMode.Offline,
+            "meetup-230415"),
+        new Activity(
+            "2023年北京.NET线下技术沙龙",
+            "MASA技术团队来北京啦！",
+            "https://cdn.masastack.com/images/activity_bj_230520.png",
+            "https://cdn.masastack.com/images/m_activity_bj_230520.png",
+            new DateTime(2023, 5, 20, 13, 30, 0),
+            4.5,
+            ActivityProduct.None,
+            ActivityType.Meetup,
+            ActivityMode.Offline,
+            "meetup-230520"),
     };
 
     public static readonly Dictionary<string, ActivityDetail> AllActivityDetails = new()
@@ -78,6 +89,13 @@ public static class ActivityData
             new Models.ActivityDetail("//player.bilibili.com/player.html?aid=612597471&bvid=BV1Dh4y1W7rZ&cid=1099972463&page=1",
                 "https://cdn.masastack.com/images/activity_detail_cd_230415.png",
                 "https://cdn.masastack.com/images/m_activity_detail_cd_230415.png",
+                null)
+        },
+        {
+            "meetup-230520",
+            new Models.ActivityDetail(null,
+                "https://cdn.masastack.com/images/activity_detail_bj_230520.png",
+                "https://cdn.masastack.com/images/m_activity_detail_bj_230520.png",
                 null)
         }
     };
