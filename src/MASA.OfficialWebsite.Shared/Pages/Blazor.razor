@@ -7,7 +7,7 @@
     <MCarousel @bind-Value="_carouselValue" Style="position: relative"
                ShowArrows="false" HideDelimiters
                Cycle Continuous Height="@("100%")">
-        <MCarouselItem>
+        <MCarouselItem Eager>
             <MRow NoGutters Style="height: 100%">
                 <MCol Cols="12" Lg="6" Class="intro-wrapper">
                     <div class="intro">
@@ -49,7 +49,7 @@
                 </MCol>
             </MRow>
         </MCarouselItem>
-        <MCarouselItem>
+        <MCarouselItem Eager>
             <MRow NoGutters Style="height: 100%">
                 <MCol Cols="12" Lg="6" Class="intro-wrapper">
                     <div class="intro">

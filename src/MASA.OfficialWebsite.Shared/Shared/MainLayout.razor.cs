@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components.Routing;
+﻿using Masa.Blazor;
+using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.AspNetCore.Components.Web;
 
 namespace MASA.OfficialWebsite.Shared.Shared;
@@ -38,12 +39,13 @@ public partial class MainLayout : IDisposable
 
     private static string[] _products = { "stack", "framework", "blazor" };
 
-    private bool _drawer;
+    private bool? _drawer;
 
     private double _startY;
     private double _deltaY;
     private double _offsetY;
     private string? _direction;
+    private bool _breakpointFirstUpdate = true;
 
     private bool IsMobile { get; set; }
     private string CurrentAbsolutePath { get; set; }
@@ -62,11 +64,22 @@ public partial class MainLayout : IDisposable
 
         IsMobile = MasaBlazor.Breakpoint.Mobile;
 
-        MasaBlazor.Breakpoint.OnUpdate += BreakpointOnOnUpdate;
+        MasaBlazor.Breakpoint.OnUpdate += MasaBlazorOnBreakpointChanged;
 
         NavigationManager.LocationChanged += NavigationManagerOnLocationChanged;
 
         ResolveLocation();
+    }
+
+    private void MasaBlazorOnBreakpointChanged(object? sender, BreakpointChangedEventArgs e)
+    {
+        // if (e.FirstUpdate || e.MobileChanged)
+        if (_breakpointFirstUpdate || e.MobileChanged)
+        {
+            _breakpointFirstUpdate = false;
+            IsMobile = MasaBlazor.Breakpoint.Mobile;
+            InvokeAsync(StateHasChanged);
+        }
     }
 
     private void NavigationManagerOnLocationChanged(object? sender, LocationChangedEventArgs e)
@@ -85,15 +98,6 @@ public partial class MainLayout : IDisposable
     {
         CurrentAbsolutePath = NavigationManager.GetAbsolutePath();
         return _products.Any(p => CurrentAbsolutePath.StartsWith($"/{p}"));
-    }
-
-    private Task BreakpointOnOnUpdate()
-    {
-        return InvokeAsync(() =>
-        {
-            IsMobile = MasaBlazor.Breakpoint.Mobile;
-            StateHasChanged();
-        });
     }
 
     private string ComputedHref
@@ -186,7 +190,7 @@ public partial class MainLayout : IDisposable
 
     public void Dispose()
     {
-        MasaBlazor.Breakpoint.OnUpdate -= BreakpointOnOnUpdate;
+        MasaBlazor.Breakpoint.OnUpdate -= MasaBlazorOnBreakpointChanged;
         NavigationManager.LocationChanged -= NavigationManagerOnLocationChanged;
     }
 }
