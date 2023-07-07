@@ -7,7 +7,7 @@
 
 <MApp Class="masa website-shared">
 
-@if (!IsMobile)
+@if (!_isMobile)
 {
     <div style="position: absolute;width: 100vw;height: 100vh;">
         <svg class="vector-197" width="811" height="489" viewBox="0 0 811 489" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -21,20 +21,20 @@
 }
 
 <MAppBar App
-         Height="@(IsMobile ? 48 : 100)"
+         Height="@(_isMobile ? 48 : 100)"
          Class="appbar"
          Color="transparent"
          Flat
          Dense>
     <a href="/" @onclick="() => _isShow = false">
         <img src="https://cdn.masastack.com/images/logo-h-en.svg"
-             height="@(IsMobile ? 30 : 36)"
+             height="@(_isMobile ? 30 : 36)"
              alt="logo" />
     </a>
 
     <MSpacer />
 
-    @if (IsMobile)
+    @if (_isMobile)
     {
         <MButton Icon OnClick="() => _drawer = true">
             <MIcon>mdi-menu</MIcon>
@@ -47,11 +47,11 @@
             <MButton Text Class="nav h8 emphasis2--text" Href="@ComputedHref" Target="_blank">文档</MButton>
         }
 
-        <NavMenu Items="@ProductNavItems">
+        <NavMenu Items="@s_productNavItems">
             <MButton Text @attributes="@context.Attrs">产品</MButton>
         </NavMenu>
 
-        <NavMenu Items="@StudyNavItems">
+        <NavMenu Items="@s_studyNavItems">
             <MButton Text @attributes="@context.Attrs">学习</MButton>
         </NavMenu>
 
@@ -59,7 +59,7 @@
     }
 </MAppBar>
 
-@if (IsMobile)
+@if (_isMobile)
 {
     <MNavigationDrawer @bind-Value="_drawer" Fixed Temporary Right Width="315">
         <MList Class="menu-list mt-1" Style="height: 100%; overflow-y: auto; padding-top:24px;" Elevation="0" Subheader TwoLine>
@@ -106,7 +106,7 @@
        @ontouchmove="OnTouchmove"
        @ontouchend="OnTouchend"
        @ontouchcancel="OnTouchend">
-    <CascadingValue Value="IsMobile" Name="@nameof(IsMobile)">
+    <CascadingValue Value="_isMobile" Name="IsMobile">
         <CascadingValue Value="this" Name="MainLayout">
             @Body
         </CascadingValue>
@@ -220,7 +220,7 @@
                         <MCard Color="transparent" Flat Dark Class="footer-content__item footer-content__focus">
                             <MCardTitle>关注我们</MCardTitle>
                             <MCardText>
-                                <MMenu OpenOnClick="IsMobile" OpenOnHover="!IsMobile" CloseOnClick NudgeBottom="8" NudgeLeft="@NudgeLeft" OffsetY>
+                                <MMenu OpenOnClick="_isMobile" OpenOnHover="!_isMobile" CloseOnClick NudgeBottom="8" NudgeLeft="@NudgeLeft" OffsetY>
                                     <ActivatorContent>
                                         <MButton
                                             Width="@IconSize"
@@ -230,7 +230,7 @@
                                             Color="white"
                                             Class="mr-9"
                                             @attributes="@context.Attrs">
-                                            <MIcon Large="!IsMobile">
+                                            <MIcon Large="!_isMobile">
                                                 mdi-wechat
                                             </MIcon>
                                         </MButton>
@@ -242,7 +242,7 @@
                                     </ChildContent>
                                 </MMenu>
 
-                                <MMenu OpenOnClick="IsMobile" OpenOnHover="!IsMobile" CloseOnClick NudgeBottom="8" NudgeLeft="@NudgeLeft" OffsetY>
+                                <MMenu OpenOnClick="_isMobile" OpenOnHover="!_isMobile" CloseOnClick NudgeBottom="8" NudgeLeft="@NudgeLeft" OffsetY>
                                     <ActivatorContent>
                                         <MButton Width="@IconSize"
                                                  Height="@IconSize"
@@ -250,7 +250,7 @@
                                                  Color="white"
                                                  Class="mr-9"
                                                  @attributes="@context.Attrs">
-                                            <MIcon Large="!IsMobile">
+                                            <MIcon Large="!_isMobile">
                                                 mdi-qqchat
                                             </MIcon>
                                         </MButton>
@@ -271,7 +271,7 @@
                                          Target="_blank">
                                     <img src="https://cdn.masastack.com/images/bilibili.png"
                                          alt="bilibili"
-                                         width="@(IsMobile ? 24 : 36)" />
+                                         width="@(_isMobile ? 24 : 36)" />
                                 </MButton>
                             </MCardText>
                         </MCard>
@@ -279,7 +279,7 @@
                 </MRow>
             </MCol>
             <MCol Cols="12" Class="footer-content__logo">
-                @if (!IsMobile)
+                @if (!_isMobile)
                 {
                     <MImage Src="https://cdn.masastack.com/images/logo-h-cn__white.png"
                             Width="180" Contain />

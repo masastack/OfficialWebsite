@@ -5,9 +5,6 @@ namespace MASA.OfficialWebsite.Shared.Pages;
 public partial class ActivityDetail
 {
     [Inject]
-    private IJSRuntime Js { get; set; } = null!;
-
-    [Inject]
     public NavigationManager NavigationManager { get; set; } = null!;
 
     [CascadingParameter(Name = "IsMobile")]
@@ -16,7 +13,7 @@ public partial class ActivityDetail
     [Parameter]
     public string Id { get; set; } = null!;
 
-    private static readonly List<MenuableTitleItem> MenuableTitleItems = new()
+    private static readonly List<MenuableTitleItem> s_menuableTitleItems = new()
     {
         new MenuableTitleItem("视频回放", "", "#activity-video"),
         new MenuableTitleItem("活动详情", "", "#activity-detail"),

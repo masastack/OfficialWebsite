@@ -5,7 +5,7 @@
     {
         <div class="activity-content__item" id="activity-video">
             <div class="activity-content__item-header">
-                <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">视频回放</MenuableTitle>
+                <MenuableTitle Disabled="!IsMobile" Items="s_menuableTitleItems">视频回放</MenuableTitle>
             </div>
             <div class="d-flex justify-center activity-detail__image activity-detail__image-height">
                 <iframe _ngcontent-flink-c48=""
@@ -20,7 +20,7 @@
     {
         <div class="activity-content__item" id="activity-detail">
             <div class="activity-content__item-header">
-                <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">活动详情</MenuableTitle>
+                <MenuableTitle Disabled="!IsMobile" Items="s_menuableTitleItems">活动详情</MenuableTitle>
             </div>
             <div class="activity-detail__image">
                 <MImage Src="@(IsMobile ? _data.MobileCover : _data.Cover)" />
@@ -31,7 +31,7 @@
     {
         <div class="activity-content__item" id="active-file">
             <div class="activity-content__item-header">
-                <MenuableTitle Disabled="!IsMobile" Items="MenuableTitleItems">资料下载</MenuableTitle>
+                <MenuableTitle Disabled="!IsMobile" Items="s_menuableTitleItems">资料下载</MenuableTitle>
             </div>
             <div class="activity-detail__image">
                 <MButton Text Ripple="false" Class="activity-detail__button-text" OnClick="() => DownLoadFiles(_data.File)">

@@ -1,6 +1,6 @@
 ﻿namespace MASA.OfficialWebsite.Shared.Pages;
 
-using static MASA.OfficialWebsite.Shared.Data.ActivityData;
+using static Data.ActivityData;
 
 public partial class Activities : AutoScrollComponentBase
 {

@@ -26,18 +26,18 @@
                 @if (item.IsSubheader)
                 {
                     <MSubheader Style="height: auto"
-                        Class="subtitle3 emphasis--text">
+                                Class="subtitle3 emphasis--text">
                         @item.Subheader
                     </MSubheader>
                 }
                 else
                 {
-                    <MListItem Href="@item.Href" Disabled="@item.Disabled" Class="home-menu-hover" OnClick="()=> IsShowDocument(item)">
+                    <MListItem Href="@item.Href" Disabled="@item.Disabled" Class="home-menu-hover" OnClick="() => IsShowDocument(item)">
                         @if (item.Image is not null)
                         {
                             <MListItemAvatar Tile Size="40" Class="mt-0 mb-0">
                                 <MImage Src="@item.Image" alt="@item.Title"
-                            Height="@item.Size" Width="@item.Size" Contain />
+                                        Height="@item.Size" Width="@item.Size" Contain />
                             </MListItemAvatar>
                         }
                         <MListItemContent>
@@ -56,19 +56,16 @@
 @code {
 
     [Parameter]
-    public RenderFragment<ActivatorProps> ChildContent { get; set; }
+    public RenderFragment<ActivatorProps>? ChildContent { get; set; }
 
     [Parameter, EditorRequired]
-    public IList<NavItem> Items { get; set; }
+    public IList<NavItem> Items { get; set; } = new List<NavItem>();
 
     [Parameter]
     public bool OpenOnHover { get; set; } = true;
 
     [Parameter]
     public bool OpenOnClick { get; set; }
-
-    [Inject]
-    public NavigationManager NavigationManager{ get; set; }
 
     [Parameter]
     public EventCallback<string> OnMenuClick { get; set; }
