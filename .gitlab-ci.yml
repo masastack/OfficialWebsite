@@ -71,7 +71,7 @@ deploy-prd:
   only:
     - main
   script:
-    - echo $KUBE_CONFIG_MASA_PRD | base64 -d > ./config
+    - echo $KUBE_CONFIG_MASA_YDY | base64 -d > ./config
     - kubectl --kubeconfig ./config set image deployment/masa-official-website masa-official-website=$NEW_IMAGE_Offical_WebSite -n masa-official-website
   retry: 2
   when: manual
