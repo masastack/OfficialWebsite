@@ -1,0 +1,28 @@
+﻿<MCard Class="aboutus-card" Flat>
+    <div>
+        <SerializableImage Src="@Image"
+                           Height="@($"{ImageHeight}px")"
+                           Width="@($"{ImageWidth}px")"
+                           Class="aboutus-card__image" Contain />
+    </div>
+    <div class="aboutus-card__description">
+        @Description
+    </div>
+</MCard>
+
+@code {
+
+    [Parameter, EditorRequired]
+    public string? Image { get; set; }
+
+    [Parameter, EditorRequired]
+    public string? Description { get; set; }
+
+    [Parameter]
+    public bool IsMobile { get; set; }
+
+    public int ImageHeight => IsMobile ? 105 : 210;
+
+    public int ImageWidth => IsMobile ? 140 : 280;
+
+}

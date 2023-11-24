@@ -1,0 +1,36 @@
+﻿@inject MasaBlazor MasaBlazor
+@rendermode InteractiveServer
+
+<MMenu OpenOnClick="IsMobile" OpenOnHover="!IsMobile" CloseOnClick NudgeBottom="8" NudgeLeft="@NudgeLeft" OffsetY Permanent>
+    <ActivatorContent>
+        <MButton
+            Width="@IconSize"
+            Height="@IconSize"
+            Outlined
+            Icon
+            Color="white"
+            Class="mr-9"
+            @attributes="@context.Attrs">
+            <MIcon Large="!IsMobile">
+                mdi-wechat
+            </MIcon>
+        </MButton>
+    </ActivatorContent>
+    <ChildContent>
+        <MImage Src="https://cdn.masastack.com/images/contact.png"
+                Width="Size">
+        </MImage>
+    </ChildContent>
+</MMenu>
+
+@code {
+
+    private bool IsMobile => MasaBlazor.Breakpoint.Mobile;
+
+    private int Size => IsMobile ? 120 : 200;
+
+    private int IconSize =>  IsMobile ? 40 : 60;
+
+    private int NudgeLeft => Size / 2 - IconSize / 2;
+
+}

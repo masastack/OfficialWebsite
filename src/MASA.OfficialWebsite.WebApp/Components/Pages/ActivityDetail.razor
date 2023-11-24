@@ -1,0 +1,43 @@
+﻿@page "/activityDetail/{id}"
+
+<div class="activity-content">
+    @if (!string.IsNullOrWhiteSpace(_data?.Video))
+    {
+        <div class="activity-content__item" id="activity-video">
+            <div class="activity-content__item-header">
+                <MenuableTitle Disabled="!IsMobile" Items="s_menuableTitleItems">视频回放</MenuableTitle>
+            </div>
+            <div class="d-flex justify-center activity-detail__image activity-detail__image-height">
+                <iframe _ngcontent-flink-c48=""
+                        scrolling="no" border="0" frameborder="no" framespacing="0" width=100%
+                        allowfullscreen="allowfullscreen"
+                        src="@_data.Video">
+                </iframe>
+            </div>
+        </div>
+    }
+    @if (!string.IsNullOrWhiteSpace(_data?.Cover))
+    {
+        <div class="activity-content__item" id="activity-detail">
+            <div class="activity-content__item-header">
+                <MenuableTitle Disabled="!IsMobile" Items="s_menuableTitleItems">活动详情</MenuableTitle>
+            </div>
+            <div class="activity-detail__image">
+                <MImage Src="@(IsMobile ? _data.MobileCover : _data.Cover)" />
+            </div>
+        </div>
+    }
+    @if (!string.IsNullOrWhiteSpace(_data?.File))
+    {
+        <div class="activity-content__item" id="active-file">
+            <div class="activity-content__item-header">
+                <MenuableTitle Disabled="!IsMobile" Items="s_menuableTitleItems">资料下载</MenuableTitle>
+            </div>
+            <div class="activity-detail__image">
+                <MButton Text Ripple="false" Class="activity-detail__button-text" OnClick="() => DownLoadFiles(_data.File)">
+                    MASA Framework的设计理念.pdf
+                </MButton>
+            </div>
+        </div>
+    }
+</div>

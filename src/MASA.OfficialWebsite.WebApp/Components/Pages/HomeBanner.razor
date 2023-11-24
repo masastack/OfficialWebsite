@@ -1,0 +1,202 @@
+﻿@inherits AutoScrollComponentBase
+@rendermode InteractiveServer
+
+<div class="home-banner">
+    <MSwiper @bind-Index="_carouselValue"
+             Style="position: relative"
+             Height="@("100%")">
+        <MSwiperSlide>
+            <MRow NoGutters Style="height: 100%">
+                <MCol Cols="12" Lg="6" Class="intro-wrapper">
+                    <div class="intro">
+                        <div class="intro-title">开源企业级开发者门户&#10;平台工程</div>
+                        <div class="intro-subtitle">让开发者聚焦业务价值的实现</div>
+                        <div class="intro-actions">
+                            <MButton Class="gradual-btn" Text Ripple="false" Href="/stack">了解更多</MButton>
+                            <MButton Text Ripple="false" Class="text-capitalize"
+                                     Href="https://github.com/masastack" Target="_blank">
+                                <MIcon Class="mr-2">mdi-github</MIcon>
+                                Github
+                            </MButton>
+                        </div>
+                    </div>
+                </MCol>
+                <MCol Cols="12" Lg="6" Class="cover-wrapper"
+                      @ontouchstart="OnTouchstart"
+                      @ontouchmove="OnTouchmove"
+                      @ontouchend="OnTouchend"
+                      @ontouchcancel="OnTouchend">
+                    <SerializableImage Src="https://cdn.masastack.com/images/banner1.png"
+                                       Contain Width="@("100%")" Height="@("100%")"
+                                       MaxWidth="BannerMaxSize" MaxHeight="BannerMaxSize" />
+                </MCol>
+            </MRow>
+        </MSwiperSlide>
+        <MSwiperSlide>
+            <MRow NoGutters Style="height: 100%">
+                <MCol Cols="12" Lg="6" Class="intro-wrapper">
+                    <div class="intro">
+                        <div class="intro-title">传统.NET中大型项目&#10;升级宝典</div>
+                        <div class="intro-subtitle">使用MASA Stack对现有.NET程序进行现代化改造</div>
+                        <div class="intro-actions">
+                            <MButton Class="gradual-btn" Text Ripple="false" Href="/stack">了解更多</MButton>
+                        </div>
+                    </div>
+                </MCol>
+                <MCol Cols="12" Lg="6" Class="cover-wrapper"
+                      @ontouchstart="OnTouchstart"
+                      @ontouchmove="OnTouchmove"
+                      @ontouchend="OnTouchend"
+                      @ontouchcancel="OnTouchend">
+                    <SerializableImage Src="https://cdn.masastack.com/images/banner2.png"
+                                       Contain Width="@("100%")" Height="@("100%")"
+                                       MaxWidth="BannerMaxSize" MaxHeight="BannerMaxSize" />
+                </MCol>
+            </MRow>
+        </MSwiperSlide>
+        <MSwiperSlide>
+            <MRow NoGutters Style="height: 100%">
+                <MCol Cols="12" Lg="6" Class="intro-wrapper">
+                    <div class="intro">
+                        <div class="intro-title">.NET开发者迈向云原生&#10;如何选择？</div>
+                        <div class="intro-subtitle">.NET数字化转型人才成长最优解</div>
+                        <div class="intro-actions">
+                            <MButton Class="gradual-btn" Text Ripple="false" Href="/framework">了解更多</MButton>
+                        </div>
+                    </div>
+                </MCol>
+                <MCol Cols="12" Lg="6" Class="cover-wrapper"
+                      @ontouchstart="OnTouchstart"
+                      @ontouchmove="OnTouchmove"
+                      @ontouchend="OnTouchend"
+                      @ontouchcancel="OnTouchend">
+                    <SerializableImage Src="https://cdn.masastack.com/images/banner3.png"
+                                       Contain
+                                       Width="@("100%")"
+                                       Height="@("100%")"
+                                       MaxWidth="BannerMaxSize"
+                                       MaxHeight="BannerMaxSize" />
+                </MCol>
+            </MRow>
+        </MSwiperSlide>
+        <MSwiperAutoplay />
+        @if (IsMobile)
+        {
+            <MSwiperPagination Clickable Class="carousel-dot" />
+        }
+    </MSwiper>
+
+    @if (IsMobile)
+    {
+        <div class="home-banner__slider-wrapper"
+             style="background-image: url('https://cdn.masastack.com/images/mUnion.png'); background-size: 100% 100%">
+            <div style="display: contents" @onclick="ScrollToNext">
+                <MIcon Small Color="#E2E7F4">mdi-chevron-double-up</MIcon>
+                <div class="more">更多产品</div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="home-banner__slider-wrapper">
+            <MItemGroup Value="_carouselValue"
+                        ValueChanged="v => _carouselValue = v.ToInt32()"
+                        ActiveClass="active">
+                <MRow NoGutters Class="slider">
+                    <MItem>
+                        <MCol Class="slider-item" Cols="4" @onclick="() => _carouselValue = 0">
+                            <div class="number @context.ActiveClass">01</div>
+                            <PBlockText Style="width: calc(100% - 56px)"
+                                        Primary="开源企业级开发者门户 平台工程"
+                                        Secondary="让开发者聚焦业务价值的实现"
+                                        PrimaryClass="@($"h6 text-truncate {(context.Active ? "emphasis--text" : "regular--text")} mb-2")"
+                                        SecondaryClass="@($"subtitle text-truncate {(context.Active ? "regular2--text" : "regular3--text")} ")">
+                            </PBlockText>
+                        </MCol>
+                    </MItem>
+                    <MItem>
+                        <MCol Class="slider-item" Cols="4" @onclick="() => _carouselValue = 1">
+                            <div class="number @context.ActiveClass">02</div>
+                            <PBlockText Style="width: calc(100% - 56px)"
+                                        Primary="传统.NET中大型项目升级宝典"
+                                        Secondary="使用MASA Stack对现有.NET程序进行现代化改造"
+                                        PrimaryClass="@($"h6 text-truncate {(context.Active ? "emphasis--text" : "regular--text")} mb-2")"
+                                        SecondaryClass="@($"subtitle text-truncate {(context.Active ? "regular2--text" : "regular3--text")} ")">
+                            </PBlockText>
+                        </MCol>
+                    </MItem>
+                    <MItem>
+                        <MCol Class="slider-item" Cols="4" @onclick="() => _carouselValue = 2">
+                            <div class="number @context.ActiveClass">03</div>
+                            <PBlockText Style="width: calc(100% - 56px)"
+                                        Primary=".NET开发者迈向云原生如何选择？"
+                                        Secondary=".NET数字化转型人才成长最优解"
+                                        PrimaryClass="@($"h6 text-truncate {(context.Active ? "emphasis--text" : "regular--text")} mb-2")"
+                                        SecondaryClass="@($"subtitle text-truncate {(context.Active ? "regular2--text" : "regular3--text")} ")">
+                            </PBlockText>
+                        </MCol>
+                    </MItem>
+                </MRow>
+            </MItemGroup>
+        </div>
+    }
+</div>
+
+@code {
+
+    private int _carouselValue = 0;
+
+    private double _startX;
+    private double _deltaX;
+    private double _offsetX;
+    private string? _direction;
+
+    private void ResetTouchStatus()
+    {
+        _direction = "";
+        _startX = 0;
+        _deltaX = 0;
+        _offsetX = 0;
+    }
+
+    private int BannerMaxSize => IsMobile ? 375 : 874;
+
+    private void OnTouchstart(TouchEventArgs args)
+    {
+        ResetTouchStatus();
+        _startX = args.Touches[0].ClientX;
+    }
+
+    private void OnTouchmove(TouchEventArgs args)
+    {
+        var touch = args.Touches[0];
+        _deltaX = touch.ClientX < 0 ? 0 : touch.ClientX - _startX;
+        _offsetX = Math.Abs(_deltaX);
+
+        const int lockDirectionDistance = 10;
+        if (string.IsNullOrEmpty(_direction) || _offsetX < lockDirectionDistance)
+        {
+            _direction = _deltaX < 0 ? "left2right" : "right2left";
+        }
+    }
+
+    private void OnTouchend(TouchEventArgs args)
+    {
+        switch (_direction)
+        {
+            case "left2right":
+            {
+                var nextValue = _carouselValue + 1;
+                _carouselValue = nextValue > 2 ? 0 : nextValue;
+                break;
+            }
+            case "right2left":
+            {
+                var prevValue = _carouselValue - 1;
+                _carouselValue = prevValue < 0 ? 2 : prevValue;
+                break;
+            }
+        }
+    }
+
+}

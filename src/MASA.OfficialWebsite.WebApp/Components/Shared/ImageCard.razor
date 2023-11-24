@@ -1,0 +1,32 @@
+﻿@rendermode InteractiveServer
+
+<MCard Class="d-flex justify-center" Style="align-items: center;background-color:transparent;" Flat>
+    <SerializableImage Src="@Image"
+                       Height="@($"{ImageHeight}px")"
+                       Width="@($"{ImageWidth}px")"
+                       Class="blazor-card__margin-bottom"
+                       Style="flex:none;" />
+</MCard>
+
+@code {
+
+    [Parameter]
+    public string? Image { get; set; }
+
+    [Parameter]
+    public int Height { get; set; }
+
+    [Parameter]
+    public int Width { get; set; }
+
+    [Parameter]
+    public int MobileWidth { get; set; }
+
+    [Parameter]
+    public bool IsMobile { get; set; }
+
+    private int ImageHeight => IsMobile ? 48 : Height;
+
+    private int ImageWidth => IsMobile ? MobileWidth : Width;
+
+}

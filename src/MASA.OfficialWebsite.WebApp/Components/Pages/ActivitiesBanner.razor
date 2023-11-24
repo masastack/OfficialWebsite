@@ -1,0 +1,117 @@
+﻿@inherits AutoScrollComponentBase
+@rendermode InteractiveServer
+
+<div class="home-banner">
+    @if (IsMobile)
+    {
+        <div style="padding: 14px 16px; height: 100%">
+            <div class="activity-header__title">最新活动</div>
+            <div style="padding-top:18px; border-radius:16px; height: calc(100% - 69px);overflow: hidden">
+                <MImage Style="cursor:pointer;"
+                        Src="@LatestActivity.MobileCover"
+                        Width="@("100%")"
+                        Contain
+                        @onclick="@(() => GoToDetail(LatestActivity.Id))" />
+            </div>
+        </div>
+        <div class="home-banner__slider-wrapper"
+             style="background-image: url('https://cdn.masastack.com/images/mUnion.png'); background-size: 100% 100%">
+            <div style="display: contents" @onclick="ScrollToNext">
+                <MIcon Small Color="#E2E7F4">mdi-chevron-double-up</MIcon>
+                <div class="more">全部活动</div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <MRow NoGutters>
+            <MCol Cols="8">
+                <MCarousel Vertical
+                           HideDelimiters
+                           Mandatory
+                           Cycle
+                           Continuous
+                           ShowArrows="false"
+                           Style="padding-left: 81px"
+                           Height="@("100%")"
+                           @bind-Value="_carouselValue">
+                    @foreach (var item in Latest5Activities)
+                    {
+                        <MCarouselItem>
+                            <MCard Style="background-color:transparent;" Flat>
+                                <div class="d-flex activity-header__title">
+                                    <div style="color:#323D6F;">@item.Date.ToString("MM-dd")</div>
+                                    <div style="margin-left:16px; color:#E9EDF7;">@item.Date.Year</div>
+                                </div>
+                                <div class="activity-header__subtitle">@item.Title</div>
+                                <div class="activity-header__description">@item.Subtitle</div>
+                                <div style="margin-top:24px;cursor: pointer;" @onclick="() => GoToDetail(item.Id)">
+                                    <SerializableImage Src="@item.Cover" Width="@("100%")" />
+                                </div>
+                            </MCard>
+                        </MCarouselItem>
+                    }
+                </MCarousel>
+            </MCol>
+            @if (Latest5Activities.Count > 1)
+            {
+                <MCol Cols="4">
+                    <div class="ml-6" style="margin-top:188px;">
+                        @for (int i = 0; i < Latest5Activities.Count; i++)
+                        {
+                            var j = i;
+                            var item = Latest5Activities[j];
+
+                            <MHover>
+                                <div class="d-flex" @onclick="() => CheckActivity(j)"
+                                     style="min-height: 96px"
+                                     @attributes="@context.Attrs">
+                                    <MButton Icon
+                                             Class="mt-2"
+                                             Color="@((context.Hover || _carouselValue == j) ? "primary" : "#A3AED0")">
+                                        <MIcon Size="@(context.Hover ? 24 : 8)">mdi-circle</MIcon>
+                                    </MButton>
+                                    @if (context.Hover)
+                                    {
+                                        <div>
+                                            <div style="font-size: 30px;font-weight: 400;line-height: 51px;letter-spacing: 0.02em;">
+                                                @item.Date.ToString("MM - dd")
+                                            </div>
+                                            <div class="emphasis2--text">
+                                                @item.Title
+                                            </div>
+                                        </div>
+                                    }
+                                </div >
+                            </MHover>
+                        }
+                    </div>
+                </MCol>
+            }
+        </MRow>
+    }
+</div>
+
+@code {
+
+    [Inject]
+    public NavigationManager NavigationManager { get; set; } = null!;
+
+    private StringNumber _carouselValue = 0;
+
+    private void CheckActivity(int index)
+    {
+        _carouselValue = index;
+    }
+
+    private void GoToDetail(string? id)
+    {
+        if (id is null)
+        {
+            return;
+        }
+
+        NavigationManager.NavigateTo($"/activityDetail/{id}", false);
+    }
+
+}

@@ -1,0 +1,14 @@
+﻿@rendermode InteractiveServer
+
+<NavMenu Items="@Items">
+    <MButton Text @attributes="@context.Attrs">@Title</MButton>
+</NavMenu>
+
+@code {
+
+    [Parameter, EditorRequired] public string? Title { get; set; }
+
+    [Parameter, EditorRequired]
+    public IList<NavItem> Items { get; set; } = new List<NavItem>();
+
+}

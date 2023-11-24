@@ -1,0 +1,38 @@
+﻿@rendermode InteractiveServer
+
+<MImage Src="@Src"
+        MaxHeight="@MaxHeight"
+        MaxWidth="@MaxWidth"
+        Width="@Width"
+        Height="@Height"
+        Contain="@Contain"
+        Style="@Style"
+        Class="@Class"
+        alt="@Alt">
+</MImage>
+
+@code {
+
+    // TODO: The MaxHeight and MaxWidth type is StringNumber,
+    // it's not serializable parameter type.
+    // So we move to a single component for now.
+
+    [Parameter] public string? MaxHeight { get; set; }
+
+    [Parameter] public string? MaxWidth { get; set; }
+
+    [Parameter] public string? Height { get; set; }
+
+    [Parameter] public string? Width { get; set; }
+
+    [Parameter] public string? Src { get; set; }
+
+    [Parameter] public bool Contain { get; set; }
+
+    [Parameter] public string? Style { get; set; }
+
+    [Parameter] public string? Alt { get; set; }
+
+    [Parameter] public string? Class { get; set; }
+
+}
