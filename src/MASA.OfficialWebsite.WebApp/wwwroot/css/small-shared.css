@@ -66,7 +66,7 @@
         font-weight: 700;
         font-size: 16px;
         line-height: 24px;
-        margin-bottom: 0px;
+        margin-bottom: 0;
         justify-content: center;
     }
 
@@ -481,7 +481,7 @@
     }
 
     .website-shared .blazor-card .blazor-card__title {
-        margin-top: 0px;
+        margin-top: 0;
         display: flex;
         align-items: center;
         font-weight: 700;
@@ -517,7 +517,7 @@
 }
 
     .website-shared .aboutus-card .aboutus-card__image {
-        margin-top:0px;
+        margin-top:0;
     }
 
     .website-shared .aboutus-card .aboutus-card__description {
@@ -580,11 +580,9 @@
 .activity-detail__button-text {
     text-decoration: underline;
     border-width: 0;
-    height: 36px;
     font-size: 16px;
     line-height: 24px;
-    padding: 0px 0px;
-    height: auto;
+    padding: 0 0;
 }
 
 .website-shared .activity-content {

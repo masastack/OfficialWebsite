@@ -4,7 +4,7 @@
 
 <MApp Class="masa website-shared">
 
-    @if (!_isMobile)
+    @if (!IsMobile)
     {
         <div style="position: absolute;width: 100vw;height: 100vh;">
             <svg class="vector-197" width="811" height="489" viewBox="0 0 811 489" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -17,7 +17,7 @@
         </div>
     }
 
-    @if (_isMobile)
+    @if (IsMobile)
     {
         <MobileAppBar NavItems="AllNavItems" />
     }
@@ -148,7 +148,7 @@
                                              Target="_blank">
                                         <img src="https://cdn.masastack.com/images/bilibili.png"
                                              alt="bilibili"
-                                             width="@(_isMobile ? 24 : 36)" />
+                                             width="@(IsMobile ? 24 : 36)" />
                                     </MButton>
                                 </MCardText>
                             </MCard>
@@ -156,7 +156,7 @@
                     </MRow>
                 </MCol>
                 <MCol Cols="12" Class="footer-content__logo">
-                    @if (!_isMobile)
+                    @if (!IsMobile)
                     {
                         <MImage Src="https://cdn.masastack.com/images/logo-h-cn__white.png"
                                 Width="180" Contain />

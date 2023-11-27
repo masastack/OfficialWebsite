@@ -16,17 +16,9 @@
             </div>
         </div>
     }
-    @if (!string.IsNullOrWhiteSpace(_data?.Cover))
-    {
-        <div class="activity-content__item" id="activity-detail">
-            <div class="activity-content__item-header">
-                <MenuableTitle Disabled="!IsMobile" Items="s_menuableTitleItems" Title="活动详情"></MenuableTitle>
-            </div>
-            <div class="activity-detail__image">
-                <MImage Src="@(IsMobile ? _data.MobileCover : _data.Cover)" />
-            </div>
-        </div>
-    }
+
+    @CoverContent(IsMobile ? _data?.MobileCover : _data?.Cover);
+
     @if (!string.IsNullOrWhiteSpace(_data?.File))
     {
         <div class="activity-content__item" id="active-file">
@@ -41,3 +33,22 @@
         </div>
     }
 </div>
+
+@code {
+
+    private RenderFragment CoverContent(string? cover) => __builder =>
+    {
+        if (!string.IsNullOrWhiteSpace(cover))
+        {
+            <div class="activity-content__item" id="activity-detail">
+                <div class="activity-content__item-header">
+                    <MenuableTitle Disabled="!IsMobile" Items="s_menuableTitleItems" Title="活动详情"></MenuableTitle>
+                </div>
+                <div class="activity-detail__image">
+                    <SerializableImage Src="@cover" />
+                </div>
+            </div>
+        }
+    };
+
+}

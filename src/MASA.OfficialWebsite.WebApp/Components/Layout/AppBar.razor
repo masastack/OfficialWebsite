@@ -1,4 +1,5 @@
 ﻿@inject MasaBlazor MasaBlazor
+@using Microsoft.AspNetCore.Components.Sections
 
 <MAppBar App
          Height="@BarHeight"
@@ -13,6 +14,8 @@
     </a>
 
     <MSpacer />
+    
+    <SectionOutlet SectionName="document" />
 
     @ChildContent
 </MAppBar>

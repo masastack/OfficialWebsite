@@ -1,5 +1,4 @@
-﻿using MASA.OfficialWebsite.WebApp.Components.Shared;
-using MASA.OfficialWebsite.WebApp.Models;
+﻿using MASA.OfficialWebsite.WebApp.Models;
 
 namespace MASA.OfficialWebsite.WebApp.Components.Layout;
 
@@ -34,47 +33,7 @@ public partial class MainLayout
 
     private static List<NavItem> AllNavItems => s_productNavItems.Concat(s_studyNavItems).Concat(s_aboutUsItems).ToList();
 
-    private static readonly List<string> s_excludeRoutes = new() { "/learningpath" };
+    private bool IsMobile => MasaBlazor.Breakpoint.Mobile;
 
-    private static readonly string[] s_products = { "stack", "framework", "blazor" };
-
-    private bool _isMobile;
-    private bool _isShow;
-    private bool? _drawer;
-
-    private int IconSize => _isMobile ? 40 : 60;
-    
-    private string ComputedHref
-    {
-        get
-        {
-            var href = NavigationManager.Uri;
-
-            if (href.EndsWith("/stack"))
-            {
-                return "https://docs.masastack.com/stack/stack/introduce";
-            }
-
-            if (href.EndsWith("/framework"))
-            {
-                return "https://docs.masastack.com/framework/concepts/overview";
-            }
-
-            if (href.EndsWith("/blazor"))
-            {
-                return "https://docs.masastack.com/blazor/getting-started/installation";
-            }
-
-            return "https://docs.masastack.com";
-        }
-    }
-
-    protected override void OnInitialized()
-    {
-        base.OnInitialized();
-
-        _isMobile = MasaBlazor.Breakpoint.Mobile;
-
-        Console.Out.WriteLine("MasaBlazor.Breakpoint.Mobile: " + MasaBlazor.Breakpoint.Mobile);
-    }
+    private int IconSize => IsMobile ? 40 : 60;
 }

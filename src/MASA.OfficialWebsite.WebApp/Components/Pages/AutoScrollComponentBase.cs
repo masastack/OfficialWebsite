@@ -8,12 +8,5 @@ public class AutoScrollComponentBase : ComponentBase
     [Inject]
     private MasaBlazor MasaBlazor { get; set; } = null!;
 
-    protected bool IsMobile { get; set; }
-
-    protected override void OnInitialized()
-    {
-        base.OnInitialized();
-
-        IsMobile = MasaBlazor.Breakpoint.Mobile;
-    }
+    protected bool IsMobile => MasaBlazor.Breakpoint.Mobile;
 }

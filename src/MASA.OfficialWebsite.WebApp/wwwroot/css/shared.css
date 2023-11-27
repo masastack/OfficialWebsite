@@ -123,7 +123,7 @@ html {
         }
 
         .website-shared .footer-content .footer-content__item.business .contact-item:last-child {
-            margin-bottom: 0px;
+            margin-bottom: 0;
         }
         
             .website-shared .footer-content .footer-content__item .m-card__title {
@@ -503,7 +503,7 @@ html {
         }
 
         .website-shared .common-card .common-card__title {
-            font-family: 'Roboto';
+            font-family: 'Roboto', sans-serif;
             font-style: normal;
             font-weight: 700;
             font-size: 24px;
@@ -515,7 +515,7 @@ html {
         }
 
         .website-shared .common-card .common-card__subtitle {
-            font-family: 'Roboto';
+            font-family: 'Roboto', sans-serif;
             font-style: normal;
             font-weight: 700;
             font-size: 16px;
@@ -526,7 +526,7 @@ html {
         }
 
         .website-shared .common-card .common-card__content {
-            font-family: 'Roboto';
+            font-family: 'Roboto', sans-serif;
             font-style: normal;
             font-weight: 400;
             font-size: 16px;
@@ -786,11 +786,9 @@ html {
         .activity-detail__button-text {
             text-decoration: underline;
             border-width: 0;
-            height: 36px;
             font-size: 24px;
             line-height: 36px;
-            padding: 0px 0px;
-            height: auto;
+            padding: 0 0;
         }
 
     .website-shared .activity-content {
