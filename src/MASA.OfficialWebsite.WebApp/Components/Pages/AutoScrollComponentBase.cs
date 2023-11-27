@@ -1,18 +1,19 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
+﻿using Masa.Blazor;
+using Microsoft.AspNetCore.Components;
 
 namespace MASA.OfficialWebsite.WebApp.Components.Pages;
 
 public class AutoScrollComponentBase : ComponentBase
 {
     [Inject]
-    protected IJSRuntime Js { get; set; } = null!;
+    private MasaBlazor MasaBlazor { get; set; } = null!;
 
-    [CascadingParameter(Name = "IsMobile")]
     protected bool IsMobile { get; set; }
 
-    protected async Task ScrollToNext()
+    protected override void OnInitialized()
     {
-        await Js.InvokeVoidAsync("MasaOfficialWebsite.scrollToNext");
+        base.OnInitialized();
+
+        IsMobile = MasaBlazor.Breakpoint.Mobile;
     }
 }

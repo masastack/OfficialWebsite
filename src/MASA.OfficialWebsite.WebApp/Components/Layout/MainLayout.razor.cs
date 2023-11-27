@@ -74,5 +74,7 @@ public partial class MainLayout
         base.OnInitialized();
 
         _isMobile = MasaBlazor.Breakpoint.Mobile;
+
+        Console.Out.WriteLine("MasaBlazor.Breakpoint.Mobile: " + MasaBlazor.Breakpoint.Mobile);
     }
 }

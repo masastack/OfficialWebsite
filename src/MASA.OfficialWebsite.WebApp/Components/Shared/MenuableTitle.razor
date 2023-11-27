@@ -1,9 +1,11 @@
-﻿<MMenu OffsetY
+﻿@rendermode InteractiveServer
+
+<MMenu OffsetY
        Disabled="Disabled"
        ContentClass="menuable-title__content">
     <ActivatorContent>
         <div class="d-flex align-center justify-center home-content__item-title" @attributes="@context.Attrs">
-            @ChildContent
+            @Title
             @if (!Disabled)
             {
                 <MIcon Style="color:#323D6F;">mdi-chevron-down</MIcon>
@@ -29,9 +31,6 @@
 {
     [Inject]
     private IJSRuntime Js { get; set; } = null!;
-
-    [Parameter]
-    public RenderFragment? ChildContent { get; set; }
 
     [Parameter]
     public string? Class { get; set; }

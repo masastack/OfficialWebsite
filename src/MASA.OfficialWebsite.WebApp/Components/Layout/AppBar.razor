@@ -1,0 +1,28 @@
+﻿@inject MasaBlazor MasaBlazor
+
+<MAppBar App
+         Height="@BarHeight"
+         Class="appbar"
+         Color="transparent"
+         Flat
+         Dense>
+    <a href="/">
+        <img src="https://cdn.masastack.com/images/logo-h-en.svg"
+             height="@LogoHeight"
+             alt="logo" />
+    </a>
+
+    <MSpacer />
+
+    @ChildContent
+</MAppBar>
+
+@code {
+
+    [Parameter] public int BarHeight { get; set; }
+
+    [Parameter] public int LogoHeight { get; set; }
+
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+
+}

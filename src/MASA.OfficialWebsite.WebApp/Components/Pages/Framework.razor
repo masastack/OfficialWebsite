@@ -31,13 +31,7 @@
 
     @if (IsMobile)
     {
-        <div class="home-banner__slider-wrapper"
-             style="background-image: url('https://cdn.masastack.com/images/mUnion.png'); background-size: 100% 100%">
-            <div style="display: contents" @onclick="ScrollToNext">
-                <MIcon Small Color="#E2E7F4">mdi-chevron-double-up</MIcon>
-                <div class="more">构建块</div>
-            </div>
-        </div>
+        <InteractiveMore MoreText="构建块" />
     }
 </div>
 
@@ -63,7 +57,7 @@
 
     <div class="home-content__item" id="building-blocks-content">
         <div class="home-content__item-header">
-            <MenuableTitle Disabled="!IsMobile" Items="s_menuableTitleItems">BUILDING BLOCKS</MenuableTitle>
+            <MenuableTitle Disabled="!IsMobile" Items="s_menuableTitleItems" Title="BUILDING BLOCKS"></MenuableTitle>
             <div class="home-content__item-subtitle">构建块</div>
         </div>
         <MRow NoGutters="IsMobile" class="building-block__item-cards">
@@ -140,7 +134,7 @@
 
     <div class="home-content__item" id="utils-content">
         <div class="home-content__item-header">
-            <MenuableTitle Disabled="!IsMobile" Items="s_menuableTitleItems">UTILS</MenuableTitle>
+            <MenuableTitle Disabled="!IsMobile" Items="s_menuableTitleItems" Title="UTILS"></MenuableTitle>
             <div class="home-content__item-subtitle">通用类库集合</div>
         </div>
         <MRow NoGutters="IsMobile" class="building-block__item-cards">
@@ -172,7 +166,7 @@
 
     <div class="home-content__item" id="template-content">
         <div class="home-content__item-header">
-            <MenuableTitle Disabled="!IsMobile" Items="s_menuableTitleItems">TEMPLATE</MenuableTitle>
+            <MenuableTitle Disabled="!IsMobile" Items="s_menuableTitleItems" Title="TEMPLATE"></MenuableTitle>
             <div class="home-content__item-subtitle">项目模板</div>
         </div>
         <MRow NoGutters="IsMobile" class="building-block__item-cards">
@@ -187,7 +181,7 @@
 
     <div class="home-content__item" id="why-masa-framework-content">
         <div class="home-content__item-header">
-            <MenuableTitle Disabled="!IsMobile" Items="s_menuableTitleItems">WHY MASA FRAMEWORK</MenuableTitle>
+            <MenuableTitle Disabled="!IsMobile" Items="s_menuableTitleItems" Title="WHY MASA FRAMEWORK"></MenuableTitle>
             <div class="home-content__item-subtitle">为什么选择MASA Framework?</div>
         </div>
         <MRow NoGutters="IsMobile" class="home-content__item-cards">

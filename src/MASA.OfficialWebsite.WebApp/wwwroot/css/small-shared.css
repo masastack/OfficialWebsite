@@ -91,9 +91,10 @@
     
     .website-shared .home-banner .carousel-dot {
         position: absolute;
-        top: calc(100vh - 165px);
+        top: calc(100vh - 175px);
         left: 8px;
         z-index: 1;
+        width: auto;
     }
 
     .website-shared .home-banner .intro-wrapper {
@@ -143,7 +144,6 @@
             gap: 10px;
             width: 100px;
             height: 40px;
-            padding: 14px 36px;
             border: 2px solid #A3AED0;
             border-radius: 40px;
         }
@@ -177,6 +177,7 @@
         flex-direction: column;
         align-items: center;
         padding-top: 26px;
+        z-index: 1;
     }
 
         .website-shared .home-banner .home-banner__slider-wrapper .more {

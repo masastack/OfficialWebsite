@@ -384,17 +384,13 @@ html {
             padding-top: 16px;
             padding-bottom: 8px;
             margin-bottom: 24px;
+            text-align: center;
         }
-
-            .website-shared .product-card .product-card__header .m-image {
-                margin: 0 auto 24px;
-            }
 
         .website-shared .product-card .product-card__title {
             font-weight: 700;
             font-size: 34px;
             line-height: 51px;
-            text-align: center;
             letter-spacing: 0.02em;
             color: #1B2559;
         }

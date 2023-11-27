@@ -24,13 +24,12 @@
 
 <body>
 <Routes />
+<SsrAppProvider @rendermode="@InteractiveServer"></SsrAppProvider>
 
 <script src="_framework/blazor.web.js"></script>
 <script src="_content/BlazorComponent/js/blazor-component.js"></script>
+<script src="js/shared.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.2.0/swiper-bundle.min.js"></script>
-<script>
-    // window.BlazorComponent.interop.ssr.initTheme();
-</script>
 </body>
 
 </html>

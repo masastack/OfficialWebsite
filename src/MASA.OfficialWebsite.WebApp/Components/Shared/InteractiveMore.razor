@@ -1,0 +1,21 @@
+﻿@rendermode InteractiveServer
+@inject IJSRuntime JS
+
+<div class="home-banner__slider-wrapper"
+     style="background-image: url('https://cdn.masastack.com/images/mUnion.png'); background-size: 100% 100%">
+    <div style="display: contents" @onclick="ScrollToNext">
+        <MIcon Small Color="#E2E7F4">mdi-chevron-double-up</MIcon>
+        <div class="more">@MoreText</div>
+    </div>
+</div>
+
+@code {
+
+    [Parameter] public string? MoreText { get; set; }
+
+    private async Task ScrollToNext()
+    {
+        await JS.InvokeVoidAsync("MasaOfficialWebsite.scrollToNext");
+    }
+
+}

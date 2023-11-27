@@ -4,250 +4,169 @@
 
 <MApp Class="masa website-shared">
 
-@if (!_isMobile)
-{
-    <div style="position: absolute;width: 100vw;height: 100vh;">
-        <svg class="vector-197" width="811" height="489" viewBox="0 0 811 489" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path opacity="0.17" d="M169.501 19.2565C-212.467 219.758 154.518 435.832 286 477.257C439.359 525.574 674.775 413.608 776.57 298.243C878.365 182.878 733 139.256 609 139.256C305 139.256 320.001 -59.7435 169.501 19.2565Z" fill="#4318FF" />
-        </svg>
-        <svg class="vector-198" xmlns="http://www.w3.org/2000/svg" width="311" height="305" viewBox="0 0 311 305" fill="none">
-            <path opacity="0.46" d="M86.9623 8.73412C-90.9182 57.6102 53.7769 97.8286 86.9623 172.986C125.669 260.648 161.598 328.962 219.778 296.992C315.867 244.191 314.765 136.66 308.678 118.692C302.591 100.724 247.311 -35.3247 86.9623 8.73412Z" fill="#05CD99" />
-        </svg>
-        <div class="rectangle-723"></div>
-    </div>
-}
-
-<MAppBar App
-         Height="@(_isMobile ? 48 : 100)"
-         Class="appbar"
-         Color="transparent"
-         Flat
-         Dense>
-    <a href="/" @onclick="() => _isShow = false">
-        <img src="https://cdn.masastack.com/images/logo-h-en.svg"
-             height="@(_isMobile ? 30 : 36)"
-             alt="logo" />
-    </a>
-
-    <MSpacer />
+    @if (!_isMobile)
+    {
+        <div style="position: absolute;width: 100vw;height: 100vh;">
+            <svg class="vector-197" width="811" height="489" viewBox="0 0 811 489" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path opacity="0.17" d="M169.501 19.2565C-212.467 219.758 154.518 435.832 286 477.257C439.359 525.574 674.775 413.608 776.57 298.243C878.365 182.878 733 139.256 609 139.256C305 139.256 320.001 -59.7435 169.501 19.2565Z" fill="#4318FF" />
+            </svg>
+            <svg class="vector-198" xmlns="http://www.w3.org/2000/svg" width="311" height="305" viewBox="0 0 311 305" fill="none">
+                <path opacity="0.46" d="M86.9623 8.73412C-90.9182 57.6102 53.7769 97.8286 86.9623 172.986C125.669 260.648 161.598 328.962 219.778 296.992C315.867 244.191 314.765 136.66 308.678 118.692C302.591 100.724 247.311 -35.3247 86.9623 8.73412Z" fill="#05CD99" />
+            </svg>
+            <div class="rectangle-723"></div>
+        </div>
+    }
 
     @if (_isMobile)
     {
-        <MButton Icon OnClick="() => _drawer = true">
-            <MIcon>mdi-menu</MIcon>
-        </MButton>
+        <MobileAppBar NavItems="AllNavItems" />
     }
     else
     {
-        if (_isShow)
-        {
-            <MButton Text Class="nav h8 emphasis2--text" Href="@ComputedHref" Target="_blank">文档</MButton>
-        }
-
-        <SerializableNavMenu Items="@s_productNavItems" Title="产品" />
-
-        <SerializableNavMenu Items="@s_studyNavItems" Title="学习" />
-
-        <MButton Text Class="nav h8 emphasis2--text" Href="/aboutus" OnClick="() => _isShow = false">关于我们</MButton>
+        <DesktopAppBar ProductNavItems="s_productNavItems" StudyNavItems="s_studyNavItems" />
     }
-</MAppBar>
 
-@if (_isMobile)
-{
-    <MNavigationDrawer @bind-Value="_drawer" Fixed Temporary Right Width="315">
-        <MList Class="menu-list mt-1" Style="height: 100%; overflow-y: auto; padding-top:24px;" Elevation="0" Subheader TwoLine>
-            @foreach (var item in AllNavItems)
-            {
-                @if (item.IsSubheader)
-                {
-                    <MSubheader Style="height: auto"
-                                Class="subtitle3 emphasis--text">
-                        @item.Subheader
-                    </MSubheader>
-                }
-                else
-                {
-                    <MListItem Href="@item.Href" Disabled="@item.Disabled" Class="home-menu-hover">
-                        @if (item.Image is not null)
-                        {
-                            <MListItemAvatar Tile Size="40" Class="mt-0 mb-0">
-                                <SerializableImage Src="@item.Image"
-                                                   Alt="@item.Title"
-                                                   Height="@($"{item.Size}px")"
-                                                   Width="@($"{item.Size}px")"
-                                                   Contain />
-                            </MListItemAvatar>
-                        }
-                        <MListItemContent >
-                            <MListItemTitle Class="h8 regular--text">
-                                @if (item.Disabled)
-                                {
-                                    <div style="color: #A3AED0;">@item.Title</div>
-                                }
-                                else
-                                {
-                                    <div style="color: #485585;">@item.Title</div>
-                                }
-                            </MListItemTitle>
-                            <MListItemSubtitle Class="body2 regular3--text">@item.Subtitle</MListItemSubtitle>
-                        </MListItemContent>
-                    </MListItem>
-                }
-            }
-        </MList>
-    </MNavigationDrawer>
-}
+    <MMain>
+        @Body
+    </MMain>
 
-<MMain
-    @* @ontouchstart="OnTouchstart" *@
-    @*  @ontouchmove="OnTouchmove" *@
-    @*  @ontouchend="OnTouchend" *@
-    @*  @ontouchcancel="OnTouchend" *@
->
-    <CascadingValue Value="_isMobile" Name="IsMobile">
-        <CascadingValue Value="this" Name="MainLayout">
-            @Body
-        </CascadingValue>
-    </CascadingValue>
-</MMain>
+    <div style="position: relative">
+        <img src="https://cdn.masastack.com/images/footer.png"
+             class="mb-n2"
+             style="width: 100vw"
+             alt="footer" />
+        <MFooter Color="#4318ff" Dark Padless>
+            <MRow NoGutters Class="footer-content">
+                <MCol Class="map" Cols="12" Md="7">
+                    <MCard Color="transparent" Flat Dark
+                           Class="footer-content__item footer-content__map">
+                        <MCardTitle>网站地图</MCardTitle>
+                        <MCardText>
+                            <MRow>
+                                <MCol Cols="3" class="map-item">
+                                    <div class="map-item__title">
+                                        <span class="prefix"></span> 产品中心
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <a href="/stack">MASA Stack</a>
+                                        </li>
+                                        <li>
+                                            <a href="/framework">MASA Framework</a>
+                                        </li>
+                                        <li>
+                                            <a href="/blazor">MASA Blazor</a>
+                                        </li>
+                                    </ul>
+                                </MCol>
+                                <MCol Cols="3" class="map-item">
+                                    <div class="map-item__title">
+                                        <span class="prefix"></span>解决方案
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <a>MASA Cloud</a>
+                                        </li>
+                                        <li>
+                                            <a>MASA IoT</a>
+                                        </li>
+                                        <li>
+                                            <a>传统.NET架构升级</a>
+                                        </li>
+                                    </ul>
+                                </MCol>
+                                <MCol Cols="3" class="map-item">
+                                    <div class="map-item__title">
+                                        <span class="prefix"></span>学习中心
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <a href="/learningpath">学习路径</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://blogs.masastack.com">博客站点</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://docs.masastack.com">文档站点</a>
+                                        </li>
+                                        <li>
+                                            <a href="/activity">社区活动</a>
+                                        </li>
+                                    </ul>
+                                </MCol>
+                                <MCol Cols="3" class="map-item">
+                                    <div class="map-item__title">
+                                        <span class="prefix"></span>关于我们
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <a href="/aboutus#aboutus_companyinfo">公司介绍</a>
+                                        </li>
+                                        <li>
+                                            <a href="/aboutus#aboutus_contactus">联系我们</a>
+                                        </li>
+                                        <li>
+                                            <a href="/aboutus#aboutus_contactus">商务合作</a>
+                                        </li>
+                                    </ul>
+                                </MCol>
+                            </MRow>
 
-<div style="position: relative">
-    <img src="https://cdn.masastack.com/images/footer.png"
-         class="mb-n2"
-         style="width: 100vw"
-         alt="footer" />
-    <MFooter Color="#4318ff" Dark Padless>
-        <MRow NoGutters Class="footer-content">
-            <MCol Class="map" Cols="12" Md="7">
-                <MCard Color="transparent" Flat Dark
-                       Class="footer-content__item footer-content__map">
-                    <MCardTitle>网站地图</MCardTitle>
-                    <MCardText>
-                        <MRow>
-                            <MCol Cols="3" class="map-item">
-                                <div class="map-item__title">
-                                    <span class="prefix"></span> 产品中心
-                                </div>
-                                <ul>
-                                    <li>
-                                        <a href="/stack">MASA Stack</a>
-                                    </li>
-                                    <li>
-                                        <a href="/framework">MASA Framework</a>
-                                    </li>
-                                    <li>
-                                        <a href="/blazor">MASA Blazor</a>
-                                    </li>
-                                </ul>
-                            </MCol>
-                            <MCol Cols="3" class="map-item">
-                                <div class="map-item__title">
-                                    <span class="prefix"></span>解决方案
-                                </div>
-                                <ul>
-                                    <li>
-                                        <a>MASA Cloud</a>
-                                    </li>
-                                    <li>
-                                        <a>MASA IoT</a>
-                                    </li>
-                                    <li>
-                                        <a>传统.NET架构升级</a>
-                                    </li>
-                                </ul>
-                            </MCol>
-                            <MCol Cols="3" class="map-item">
-                                <div class="map-item__title">
-                                    <span class="prefix"></span>学习中心
-                                </div>
-                                <ul>
-                                    <li>
-                                        <a href="/learningpath">学习路径</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://blogs.masastack.com">博客站点</a>
-                                    </li>
-                                    <li>
-                                        <a href="https://docs.masastack.com">文档站点</a>
-                                    </li>
-                                    <li>
-                                        <a href="/activity">社区活动</a>
-                                    </li>
-                                </ul>
-                            </MCol>
-                            <MCol Cols="3" class="map-item">
-                                <div class="map-item__title">
-                                    <span class="prefix"></span>关于我们
-                                </div>
-                                <ul>
-                                    <li>
-                                        <a href="/aboutus#aboutus_companyinfo">公司介绍</a>
-                                    </li>
-                                    <li>
-                                        <a href="/aboutus#aboutus_contactus">联系我们</a>
-                                    </li>
-                                    <li>
-                                        <a href="/aboutus#aboutus_contactus">商务合作</a>
-                                    </li>
-                                </ul>
-                            </MCol>
-                        </MRow>
+                        </MCardText>
+                    </MCard>
+                </MCol>
 
-                    </MCardText>
-                </MCard>
-            </MCol>
+                <MCol Cols="12" OffsetMd="2" Md="3">
+                    <MRow NoGutters>
+                        <MCol Cols="12">
+                            <MCard Color="transparent" Flat Dark Class="footer-content__item business">
+                                <MCardTitle>商务合作</MCardTitle>
+                                <MCardText Class="contacts">
+                                    <div class="contact-item">
+                                        <MIcon Class="mr-3">mdi-email</MIcon>
+                                        <a href="mailto:marketing@masastack.com">marketing@masastack.com</a>
+                                    </div>
+                                    <div class="contact-item">
+                                        <MIcon Class="mr-3">mdi-phone</MIcon>
+                                        <a href="tel:13989775601">13989775601</a>
+                                    </div>
+                                </MCardText>
+                            </MCard>
+                        </MCol>
+                        <MCol Cols="12">
+                            <MCard Color="transparent" Flat Dark Class="footer-content__item footer-content__focus">
+                                <MCardTitle>关注我们</MCardTitle>
+                                <MCardText>
+                                    <WeChatBtn />
+                                    <QQChatBtn />
+                                    <MButton Width="@IconSize"
+                                             Height="@IconSize"
+                                             Outlined
+                                             Icon
+                                             Color="white"
+                                             Href="https://space.bilibili.com/1961811453"
+                                             Target="_blank">
+                                        <img src="https://cdn.masastack.com/images/bilibili.png"
+                                             alt="bilibili"
+                                             width="@(_isMobile ? 24 : 36)" />
+                                    </MButton>
+                                </MCardText>
+                            </MCard>
+                        </MCol>
+                    </MRow>
+                </MCol>
+                <MCol Cols="12" Class="footer-content__logo">
+                    @if (!_isMobile)
+                    {
+                        <MImage Src="https://cdn.masastack.com/images/logo-h-cn__white.png"
+                                Width="180" Contain />
+                    }
 
-            <MCol Cols="12" OffsetMd="2" Md="3">
-                <MRow NoGutters>
-                    <MCol Cols="12">
-                        <MCard Color="transparent" Flat Dark Class="footer-content__item business">
-                            <MCardTitle>商务合作</MCardTitle>
-                            <MCardText Class="contacts">
-                                <div class="contact-item">
-                                    <MIcon Class="mr-3">mdi-email</MIcon>
-                                    <a href="mailto:marketing@masastack.com">marketing@masastack.com</a>
-                                </div>
-                                <div class="contact-item">
-                                    <MIcon Class="mr-3">mdi-phone</MIcon>
-                                    <a href="tel:13989775601">13989775601</a>
-                                </div>
-                            </MCardText>
-                        </MCard>
-                    </MCol>
-                    <MCol Cols="12">
-                        <MCard Color="transparent" Flat Dark Class="footer-content__item footer-content__focus">
-                            <MCardTitle>关注我们</MCardTitle>
-                            <MCardText>
-                                <WeChatBtn />
-                                <QQChatBtn />
-                                <MButton Width="@IconSize"
-                                         Height="@IconSize"
-                                         Outlined
-                                         Icon
-                                         Color="white"
-                                         Href="https://space.bilibili.com/1961811453"
-                                         Target="_blank">
-                                    <img src="https://cdn.masastack.com/images/bilibili.png"
-                                         alt="bilibili"
-                                         width="@(_isMobile ? 24 : 36)" />
-                                </MButton>
-                            </MCardText>
-                        </MCard>
-                    </MCol>
-                </MRow>
-            </MCol>
-            <MCol Cols="12" Class="footer-content__logo">
-                @if (!_isMobile)
-                {
-                    <MImage Src="https://cdn.masastack.com/images/logo-h-cn__white.png"
-                            Width="180" Contain />
-                }
-
-                <div>温州数闪科技有限公司 - <a class="text-decoration-none white--text" href="https://beian.miit.gov.cn" target="_blank">浙ICP备2021013592号-1</a></div>
-            </MCol>
-        </MRow>
-    </MFooter>
-</div>
+                    <div>温州数闪科技有限公司 - <a class="text-decoration-none white--text" href="https://beian.miit.gov.cn" target="_blank">浙ICP备2021013592号-1</a></div>
+                </MCol>
+            </MRow>
+        </MFooter>
+    </div>
 </MApp>
 
 <div id="blazor-error-ui">

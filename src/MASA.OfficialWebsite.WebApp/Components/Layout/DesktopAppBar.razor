@@ -1,0 +1,23 @@
+﻿<AppBar BarHeight="100" LogoHeight="36">
+    @* if (_isShow) *@
+    @* { *@
+    @*     <MButton Text Class="nav h8 emphasis2--text" Href="@ComputedHref" Target="_blank">文档</MButton> *@
+    @* } *@
+
+    <SerializableNavMenu Items="@ProductNavItems" Title="产品" />
+
+    <SerializableNavMenu Items="@StudyNavItems" Title="学习" />
+
+    <MButton Text Class="nav h8 emphasis2--text" Href="/aboutus"
+             @* OnClick="() => _isShow = false" *@>
+        关于我们
+    </MButton>
+</AppBar>
+
+@code {
+
+    [Parameter] public List<NavItem> ProductNavItems { get; set; } = new();
+
+    [Parameter] public List<NavItem> StudyNavItems { get; set; } = new();
+
+}

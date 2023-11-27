@@ -14,13 +14,8 @@
                         @onclick="@(() => GoToDetail(LatestActivity.Id))" />
             </div>
         </div>
-        <div class="home-banner__slider-wrapper"
-             style="background-image: url('https://cdn.masastack.com/images/mUnion.png'); background-size: 100% 100%">
-            <div style="display: contents" @onclick="ScrollToNext">
-                <MIcon Small Color="#E2E7F4">mdi-chevron-double-up</MIcon>
-                <div class="more">全部活动</div>
-            </div>
-        </div>
+
+        <InteractiveMore MoreText="全部活动" />
     }
     else
     {

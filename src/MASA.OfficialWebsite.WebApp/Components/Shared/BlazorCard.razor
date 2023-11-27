@@ -5,6 +5,7 @@
             <img src="@Image" Height="@ImageHeight" Width="@ImageHeight" alt="@Title" />
         </div>
     }
+
     <div>
         <div class="blazor-card__title">@Title</div>
 
@@ -12,11 +13,11 @@
             @Description
         </div>
     </div>
+
     @if (IsMobile && IsImageRight)
     {
         <div class="blazor-card__image">
-            <MImage Src="@Image" Height="@ImageHeight" Width="@ImageHeight"
-                    Contain />
+            <img src="@Image" height="@ImageHeight" width="@ImageHeight" alt="@Title" />
         </div>
     }
 </MCard>

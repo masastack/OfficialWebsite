@@ -1,0 +1,58 @@
+﻿@rendermode InteractiveServer
+
+<AppBar BarHeight="48" LogoHeight="30">
+    <MButton Icon OnClick="() => _drawer = true">
+        <MIcon>mdi-menu</MIcon>
+    </MButton>
+</AppBar>
+
+<MNavigationDrawer @bind-Value="_drawer" Fixed Temporary Right Width="315">
+    <MList Class="menu-list mt-1" Style="height: 100%; overflow-y: auto; padding-top:24px;" Elevation="0" Subheader TwoLine>
+        @foreach (var item in NavItems)
+        {
+            @if (item.IsSubheader)
+            {
+                <MSubheader Style="height: auto"
+                            Class="subtitle3 emphasis--text">
+                    @item.Subheader
+                </MSubheader>
+            }
+            else
+            {
+                <MListItem Href="@item.Href" Disabled="@item.Disabled" Class="home-menu-hover">
+                    @if (item.Image is not null)
+                    {
+                        <MListItemAvatar Tile Size="40" Class="mt-0 mb-0">
+                            <MImage Src="@item.Image"
+                                    alt="@item.Title"
+                                    Height="@item.Size"
+                                    Width="@item.Size"
+                                    Contain />
+                        </MListItemAvatar>
+                    }
+                    <MListItemContent >
+                        <MListItemTitle Class="h8 regular--text">
+                            @if (item.Disabled)
+                            {
+                                <div style="color: #A3AED0;">@item.Title</div>
+                            }
+                            else
+                            {
+                                <div style="color: #485585;">@item.Title</div>
+                            }
+                        </MListItemTitle>
+                        <MListItemSubtitle Class="body2 regular3--text">@item.Subtitle</MListItemSubtitle>
+                    </MListItemContent>
+                </MListItem>
+            }
+        }
+    </MList>
+</MNavigationDrawer>
+
+@code {
+
+    private bool? _drawer;
+
+    [Parameter] public List<NavItem> NavItems { get; set; } = new();
+
+}

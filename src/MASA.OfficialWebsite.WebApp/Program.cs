@@ -1,12 +1,21 @@
+using Masa.Blazor;
 using MASA.OfficialWebsite.WebApp.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
-       .AddInteractiveServerComponents();
+       .AddInteractiveServerComponents()
+       .AddHubOptions(options =>
+       {
+           options.MaximumReceiveMessageSize =  36 * 1024;
+       });
 
-builder.Services.AddMasaBlazor();
+builder.Services.AddMasaBlazor(options =>
+{
+    options.ConfigureTheme(theme => { theme.Themes.Light.Primary = "#4318ff"; });
+    options.ConfigureBreakpoint(breakpoint => { breakpoint.MobileBreakpoint = Breakpoints.Sm; });
+});
 
 var app = builder.Build();
 
@@ -25,6 +34,5 @@ app.UseAntiforgery();
 
 app.MapRazorComponents<App>()
    .AddInteractiveServerRenderMode();
-   
 
 app.Run();

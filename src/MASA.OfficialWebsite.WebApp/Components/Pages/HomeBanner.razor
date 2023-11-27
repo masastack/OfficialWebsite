@@ -21,14 +21,15 @@
                         </div>
                     </div>
                 </MCol>
-                <MCol Cols="12" Lg="6" Class="cover-wrapper"
-                      @ontouchstart="OnTouchstart"
-                      @ontouchmove="OnTouchmove"
-                      @ontouchend="OnTouchend"
-                      @ontouchcancel="OnTouchend">
-                    <SerializableImage Src="https://cdn.masastack.com/images/banner1.png"
-                                       Contain Width="@("100%")" Height="@("100%")"
-                                       MaxWidth="BannerMaxSize" MaxHeight="BannerMaxSize" />
+                <MCol Cols="12" Lg="6" Class="cover-wrapper">
+                    <MImage Src="https://cdn.masastack.com/images/banner1.png"
+                            Contain
+                            Style="margin-left: 36px"
+                            Width="@("100%")"
+                            Height="@("100%")"
+                            MaxWidth="@BannerMaxSize"
+                            MaxHeight="@BannerMaxSize"
+                            MinHeight="@BannerMaxSize"/>
                 </MCol>
             </MRow>
         </MSwiperSlide>
@@ -43,14 +44,14 @@
                         </div>
                     </div>
                 </MCol>
-                <MCol Cols="12" Lg="6" Class="cover-wrapper"
-                      @ontouchstart="OnTouchstart"
-                      @ontouchmove="OnTouchmove"
-                      @ontouchend="OnTouchend"
-                      @ontouchcancel="OnTouchend">
-                    <SerializableImage Src="https://cdn.masastack.com/images/banner2.png"
-                                       Contain Width="@("100%")" Height="@("100%")"
-                                       MaxWidth="BannerMaxSize" MaxHeight="BannerMaxSize" />
+                <MCol Cols="12" Lg="6" Class="cover-wrapper">
+                    <MImage Src="https://cdn.masastack.com/images/banner2.png"
+                            Contain
+                            Width="@("100%")"
+                            Height="@("100%")"
+                            MaxWidth="@BannerMaxSize"
+                            MaxHeight="@BannerMaxSize"
+                            MinHeight="@BannerMaxSize"/>
                 </MCol>
             </MRow>
         </MSwiperSlide>
@@ -65,17 +66,14 @@
                         </div>
                     </div>
                 </MCol>
-                <MCol Cols="12" Lg="6" Class="cover-wrapper"
-                      @ontouchstart="OnTouchstart"
-                      @ontouchmove="OnTouchmove"
-                      @ontouchend="OnTouchend"
-                      @ontouchcancel="OnTouchend">
-                    <SerializableImage Src="https://cdn.masastack.com/images/banner3.png"
-                                       Contain
-                                       Width="@("100%")"
-                                       Height="@("100%")"
-                                       MaxWidth="BannerMaxSize"
-                                       MaxHeight="BannerMaxSize" />
+                <MCol Cols="12" Lg="6" Class="cover-wrapper">
+                    <MImage Src="https://cdn.masastack.com/images/banner3.png"
+                            Contain
+                            Width="@("100%")"
+                            Height="@("100%")"
+                            MaxWidth="@BannerMaxSize"
+                            MaxHeight="@BannerMaxSize"
+                            MinHeight="@BannerMaxSize"/>
                 </MCol>
             </MRow>
         </MSwiperSlide>
@@ -88,13 +86,7 @@
 
     @if (IsMobile)
     {
-        <div class="home-banner__slider-wrapper"
-             style="background-image: url('https://cdn.masastack.com/images/mUnion.png'); background-size: 100% 100%">
-            <div style="display: contents" @onclick="ScrollToNext">
-                <MIcon Small Color="#E2E7F4">mdi-chevron-double-up</MIcon>
-                <div class="more">更多产品</div>
-            </div>
-        </div>
+        <InteractiveMore MoreText="更多产品" />
     }
     else
     {
@@ -160,43 +152,5 @@
     }
 
     private int BannerMaxSize => IsMobile ? 375 : 874;
-
-    private void OnTouchstart(TouchEventArgs args)
-    {
-        ResetTouchStatus();
-        _startX = args.Touches[0].ClientX;
-    }
-
-    private void OnTouchmove(TouchEventArgs args)
-    {
-        var touch = args.Touches[0];
-        _deltaX = touch.ClientX < 0 ? 0 : touch.ClientX - _startX;
-        _offsetX = Math.Abs(_deltaX);
-
-        const int lockDirectionDistance = 10;
-        if (string.IsNullOrEmpty(_direction) || _offsetX < lockDirectionDistance)
-        {
-            _direction = _deltaX < 0 ? "left2right" : "right2left";
-        }
-    }
-
-    private void OnTouchend(TouchEventArgs args)
-    {
-        switch (_direction)
-        {
-            case "left2right":
-            {
-                var nextValue = _carouselValue + 1;
-                _carouselValue = nextValue > 2 ? 0 : nextValue;
-                break;
-            }
-            case "right2left":
-            {
-                var prevValue = _carouselValue - 1;
-                _carouselValue = prevValue < 0 ? 2 : prevValue;
-                break;
-            }
-        }
-    }
 
 }
