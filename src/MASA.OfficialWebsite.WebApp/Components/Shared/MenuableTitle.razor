@@ -1,0 +1,73 @@
+﻿@rendermode InteractiveServer
+@implements IDisposable
+
+<MMenu OffsetY
+       Disabled="@(Disabled || !MasaBlazor.Breakpoint.Mobile)"
+       ContentClass="menuable-title__content">
+    <ActivatorContent>
+        <div class="d-flex align-center justify-center home-content__item-title" @attributes="@context.Attrs">
+            @Title
+            @if (!Disabled)
+            {
+                <MIcon Style="color:#323D6F;" Class="hidden-md-and-up">mdi-chevron-down</MIcon>
+            }
+        </div>
+    </ActivatorContent>
+    <ChildContent>
+        <MList Dense Flat TwoLine>
+            @foreach (var item in Items)
+            {
+                <MListItem OnClick="@(() => ScrollTo(item.Selector))">
+                    <MListItemContent>
+                        <MListItemTitle Class="h8 regular--text">@item.Title</MListItemTitle>
+                        <MListItemSubtitle Class="body2 regular3--text">@item.Subtitle</MListItemSubtitle>
+                    </MListItemContent>
+                </MListItem>
+            }
+        </MList>
+    </ChildContent>
+</MMenu>
+
+@code
+{
+
+    [Inject]
+    MasaBlazor MasaBlazor { get; set; } = null!;
+
+    [Inject]
+    private IJSRuntime Js { get; set; } = null!;
+
+    [Parameter]
+    public string? Class { get; set; }
+
+    [Parameter]
+    public string? Title { get; set; }
+
+    [Parameter]
+    public List<MenuableTitleItem> Items { get; set; } = new();
+
+    [Parameter]
+    public bool Disabled { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        MasaBlazor.MobileChanged += MasaBlazorOnMobileChanged;
+    }
+
+    private void MasaBlazorOnMobileChanged(object? sender, MobileChangedEventArgs e)
+    {
+        InvokeAsync(StateHasChanged);
+    }
+
+    private async Task ScrollTo(string selector)
+    {
+        await Js.InvokeVoidAsync("MasaOfficialWebsite.scrollTo", selector);
+    }
+
+    public void Dispose()
+    {
+        MasaBlazor.MobileChanged -= MasaBlazorOnMobileChanged;
+    }
+}

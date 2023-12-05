@@ -1,0 +1,197 @@
+﻿@inherits LayoutComponentBase
+
+<MApp Class="masa website-shared">
+
+    <div class="hidden-sm-and-down" style="position: absolute;width: 100vw;height: 100vh;">
+        <svg class="vector-197" width="811" height="489" viewBox="0 0 811 489" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path opacity="0.17" d="M169.501 19.2565C-212.467 219.758 154.518 435.832 286 477.257C439.359 525.574 674.775 413.608 776.57 298.243C878.365 182.878 733 139.256 609 139.256C305 139.256 320.001 -59.7435 169.501 19.2565Z" fill="#4318FF" />
+        </svg>
+        <svg class="vector-198" xmlns="http://www.w3.org/2000/svg" width="311" height="305" viewBox="0 0 311 305" fill="none">
+            <path opacity="0.46" d="M86.9623 8.73412C-90.9182 57.6102 53.7769 97.8286 86.9623 172.986C125.669 260.648 161.598 328.962 219.778 296.992C315.867 244.191 314.765 136.66 308.678 118.692C302.591 100.724 247.311 -35.3247 86.9623 8.73412Z" fill="#05CD99" />
+        </svg>
+        <div class="rectangle-723"></div>
+    </div>
+    
+    <MobileAppBar NavItems="AllNavItems" @rendermode="InteractiveServer" />
+    
+    <DesktopAppBar ProductNavItems="productNavItems"
+                   StudyNavItems="studyNavItems" />
+
+    <MMain>
+        @Body
+    </MMain>
+
+    <div style="position: relative">
+        <img src="https://cdn.masastack.com/images/footer.png"
+             class="mb-n2"
+             style="width: 100vw"
+             alt="footer" />
+        <MFooter Color="#4318ff" Dark Padless>
+            <MRow NoGutters Class="footer-content">
+                <MCol Class="map" Cols="12" Md="7">
+                    <MCard Color="transparent" Flat Dark
+                           Class="footer-content__item footer-content__map">
+                        <MCardTitle>网站地图</MCardTitle>
+                        <MCardText>
+                            <MRow>
+                                <MCol Cols="3" class="map-item">
+                                    <div class="map-item__title">
+                                        <span class="prefix"></span> 产品中心
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <a href="/stack">MASA Stack</a>
+                                        </li>
+                                        <li>
+                                            <a href="/framework">MASA Framework</a>
+                                        </li>
+                                        <li>
+                                            <a href="/blazor">MASA Blazor</a>
+                                        </li>
+                                    </ul>
+                                </MCol>
+                                <MCol Cols="3" class="map-item">
+                                    <div class="map-item__title">
+                                        <span class="prefix"></span>解决方案
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <a>MASA Cloud</a>
+                                        </li>
+                                        <li>
+                                            <a>MASA IoT</a>
+                                        </li>
+                                        <li>
+                                            <a>传统.NET架构升级</a>
+                                        </li>
+                                    </ul>
+                                </MCol>
+                                <MCol Cols="3" class="map-item">
+                                    <div class="map-item__title">
+                                        <span class="prefix"></span>学习中心
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <a href="/learningpath">学习路径</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://blogs.masastack.com">博客站点</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://docs.masastack.com">文档站点</a>
+                                        </li>
+                                        <li>
+                                            <a href="/activity">社区活动</a>
+                                        </li>
+                                    </ul>
+                                </MCol>
+                                <MCol Cols="3" class="map-item">
+                                    <div class="map-item__title">
+                                        <span class="prefix"></span>关于我们
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <a href="/aboutus#aboutus_companyinfo">公司介绍</a>
+                                        </li>
+                                        <li>
+                                            <a href="/aboutus#aboutus_contactus">联系我们</a>
+                                        </li>
+                                        <li>
+                                            <a href="/aboutus#aboutus_contactus">商务合作</a>
+                                        </li>
+                                    </ul>
+                                </MCol>
+                            </MRow>
+
+                        </MCardText>
+                    </MCard>
+                </MCol>
+
+                <MCol Cols="12" OffsetMd="2" Md="3">
+                    <MRow NoGutters>
+                        <MCol Cols="12">
+                            <MCard Color="transparent" Flat Dark Class="footer-content__item business">
+                                <MCardTitle>商务合作</MCardTitle>
+                                <MCardText Class="contacts">
+                                    <div class="contact-item">
+                                        <MIcon Dark Class="mr-3">mdi-email</MIcon>
+                                        <a href="mailto:marketing@masastack.com">marketing@masastack.com</a>
+                                    </div>
+                                    <div class="contact-item">
+                                        <MIcon Dark Class="mr-3">mdi-phone</MIcon>
+                                        <a href="tel:13989775601">13989775601</a>
+                                    </div>
+                                </MCardText>
+                            </MCard>
+                        </MCol>
+                        <MCol Cols="12">
+                            <MCard Color="transparent" Flat Dark Class="footer-content__item footer-content__focus">
+                                <MCardTitle>关注我们</MCardTitle>
+                                <MCardText>
+                                    <WeChatBtn />
+                                    <QQChatBtn />
+                                    <MButton Class="follow-us-icon"
+                                             Outlined
+                                             Icon
+                                             Color="white"
+                                             Href="https://space.bilibili.com/1961811453"
+                                             Target="_blank">
+                                        <img class="cover"
+                                             src="https://cdn.masastack.com/images/bilibili.png"
+                                             alt="bilibili" />
+                                    </MButton>
+                                </MCardText>
+                            </MCard>
+                        </MCol>
+                    </MRow>
+                </MCol>
+                <MCol Cols="12" Class="footer-content__logo">
+                    <img src="https://cdn.masastack.com/images/logo-h-cn__white.png"
+                         width="180"
+                         alt="logo"
+                         class="hidden-sm-and-down" />
+                    <div>温州数闪科技有限公司 - <a class="text-decoration-none white--text" href="https://beian.miit.gov.cn" target="_blank">浙ICP备2021013592号-1</a></div>
+                </MCol>
+            </MRow>
+        </MFooter>
+    </div>
+</MApp>
+
+<div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>
+
+@code {
+
+    private static readonly List<NavItem> productNavItems =
+    [
+        new NavItem("产品中心"),
+        new NavItem("MASA Stack", "开源企业级开发者门户 平台工程", "https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png", "/stack", 30),
+        new NavItem("MASA Framework", ".NET下一代微服务开发框架", "https://cdn.masastack.com/images/framework_logo.png", "/framework", 30),
+        new NavItem("MASA Blazor", "打造企业级多端组件库", "https://cdn.masastack.com/images/blazor_logo.png", "/blazor", 30),
+        new NavItem("解决方案"),
+        new NavItem("MASA Cloud", "下一代商业软件平台", "https://cdn.masastack.com/images/bule-dot.svg", null, 12, true),
+        new NavItem("传统 .NET 架构升级", "传统.NET中大型项目升级宝典", "https://cdn.masastack.com/images/bule-dot.svg", null, 12, true),
+        new NavItem("MASA IoT", "通过连接2.0助力数字化转型", "https://cdn.masastack.com/images/bule-dot.svg", null, 12, true)
+    ];
+
+    private static readonly List<NavItem> studyNavItems =
+    [
+        new NavItem("学习中心"),
+        new NavItem("学习路径", "", "https://cdn.masastack.com/images/bule-dot.svg", "/learningpath", 12),
+        new NavItem("博客站点", "", "https://cdn.masastack.com/images/bule-dot.svg", "https://blogs.masastack.com", 12),
+        new NavItem("文档站点", "", "https://cdn.masastack.com/images/bule-dot.svg", "https://docs.masastack.com", 12),
+        new NavItem("社区活动", "", "https://cdn.masastack.com/images/bule-dot.svg", "/activity", 12)
+    ];
+
+    private static readonly List<NavItem> aboutUsItems =
+    [
+        new NavItem("关于我们"),
+        new NavItem("关于我们", "", "https://cdn.masastack.com/images/bule-dot.svg", "/aboutus", 12)
+    ];
+
+    private static List<NavItem> AllNavItems => productNavItems.Concat(studyNavItems).Concat(aboutUsItems).ToList();
+
+}

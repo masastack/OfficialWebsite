@@ -1,0 +1,31 @@
+﻿<div style="text-align: right">
+    <MButton Right Text Href="@Href" Disabled="Disabled"
+             Style=@($"{Style};color: #485585;")>
+        @ChildContent
+        @if (IsMobile)
+        {
+            <MIcon Small Size="16">mdi-menu-right</MIcon>
+        }
+        else
+        {
+            <MIcon>mdi-menu-right</MIcon>
+        }
+    </MButton>
+</div>
+
+@code {
+
+    [CascadingParameter(Name = "IsMobile")]
+    public bool IsMobile { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public string? Href { get; set; }
+
+    private string Style => IsMobile ? "font-weight: 500;font-size: 12px;line-height: 18px;color: #A3AED0;" : "font-size: 18px;line-height: 27px;letter-spacing: 0.01rem;";
+
+    private bool Disabled => string.IsNullOrEmpty(Href);
+
+}

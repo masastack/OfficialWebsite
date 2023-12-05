@@ -1,0 +1,48 @@
+﻿@rendermode InteractiveServer
+@inject MasaBlazor MasaBlazor
+@implements IDisposable
+
+<MCard Class="d-flex justify-center" Style="align-items: center;background-color:transparent;" Flat>
+    <SerializableImage Src="@Image"
+                       Height="@($"{ImageHeight}px")"
+                       Width="@($"{ImageWidth}px")"
+                       Class="blazor-card__margin-bottom"
+                       Style="flex:none;" />
+</MCard>
+
+@code {
+
+    [Parameter]
+    public string? Image { get; set; }
+
+    [Parameter]
+    public int Height { get; set; }
+
+    [Parameter]
+    public int Width { get; set; }
+
+    [Parameter]
+    public int MobileWidth { get; set; }
+
+    private int ImageHeight => MasaBlazor.Breakpoint.Mobile ? 48 : Height;
+
+    private int ImageWidth => MasaBlazor.Breakpoint.Mobile ? MobileWidth : Width;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        MasaBlazor.MobileChanged += MasaBlazorOnMobileChanged;
+    }
+
+    private void MasaBlazorOnMobileChanged(object? sender, MobileChangedEventArgs e)
+    {
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        MasaBlazor.MobileChanged -= MasaBlazorOnMobileChanged;
+    }
+
+}
