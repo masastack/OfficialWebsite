@@ -1,16 +1,10 @@
-﻿using BlazorComponent;
-using MASA.OfficialWebsite.WebApp.Components.Layout;
-using MASA.OfficialWebsite.WebApp.Models;
-using Microsoft.AspNetCore.Components;
+﻿using MASA.OfficialWebsite.WebApp.Models;
 
 namespace MASA.OfficialWebsite.WebApp.Components.Pages;
 
 public partial class Stack : AutoScrollComponentBase
 {
-    [CascadingParameter(Name = "MainLayout")]
-    public MainLayout MainLayout { get; set; } = null!;
-
-    private static readonly List<string> s_whyContent1 =
+    private static readonly List<string> sWhyContent1 =
     [
         ".NET应用交付“保姆级”护航",
         "性能指标强悍，可担当电商、物联网等大流量场景的坚实底座",
@@ -18,14 +12,14 @@ public partial class Stack : AutoScrollComponentBase
         "富含软件工程实践、项目管理方法论"
     ];
 
-    private static readonly List<string> s_whyContent2 =
+    private static readonly List<string> sWhyContent2 =
     [
         "全职开源团队，快速响应",
         "Apache-2.0 协议，可放心商用",
         "微软代码规范，欢迎共同维护"
     ];
 
-    private static readonly List<string> s_whyContent3 =
+    private static readonly List<string> sWhyContent3 =
     [
         "多位.NET领域大咖推荐",
         "共同引领微软技术生态",
@@ -33,7 +27,7 @@ public partial class Stack : AutoScrollComponentBase
         "定期社区例会，线上线下Meetup互动"
     ];
 
-    private static readonly List<MenuableTitleItem> s_menuableTitleItems =
+    private static readonly List<MenuableTitleItem> sMenuableTitleItems =
     [
         new MenuableTitleItem("Basic Ability", "现代应用治理解决方案", "#basic-ability-content"),
         new MenuableTitleItem("Operator", "高效运维解决方案", "#operator-content"),
@@ -41,7 +35,7 @@ public partial class Stack : AutoScrollComponentBase
         new MenuableTitleItem("Why MASA Stack", "为什么选择MASA Stack?", "#why-masa-stack-content")
     ];
 
-    private static readonly List<StackFeature> _basicAbilityFeatures =
+    private static readonly List<StackFeature> basicAbilityFeatures =
     [
         new("Auth", "权限中心", "内置RBAC3标准，集成诸多平台用户认证与访问管理，支持OIDC标准扩展接入", "https://cdn.masastack.com/images/Auth.svg", 172),
         new("Scheduler", "调度中心", "统一调度，支持多种模式触发智能任务调度，智能worker弹性伸缩", "https://cdn.masastack.com/images/Scheduler.svg", 172, true),
@@ -56,7 +50,7 @@ public partial class Stack : AutoScrollComponentBase
         new("API Management", "API管理", "对流程编排、数据服务等场景暴露的API的管理，流量治理的相关配置能力", "https://cdn.masastack.com/images/ApiManagement.svg", 172, true),
     ];
 
-    private static readonly List<StackFeature> _operatorFeatures =
+    private static readonly List<StackFeature> operatorFeatures =
     [
         new("PM","项目管理", "提供项目管理一站式解决方案，是应用持续交付的基础支撑", "https://cdn.masastack.com/images/PM.svg", 196),
         new("DCC","配置中心", "支持多级配置缓存，支持服务配置热更新，及标准的配置变更管理流程，并支持Dapr标准API", "https://cdn.masastack.com/images/DCC.svg", 196, true),
@@ -65,7 +59,7 @@ public partial class Stack : AutoScrollComponentBase
         new("DevOps","开发运维", "开发运维一体化，代码库、CI/CD和任务管理", "https://cdn.masastack.com/images/DevOps.svg", 172),
     ];
 
-    private static readonly List<StackFeature> _dataFactoryFeatures =
+    private static readonly List<StackFeature> dataFactoryFeatures =
     [
         new("Metadata","元数据", "覆盖元数据采集、加工、管理全流程，以支撑标签系统、ETL、低代码建模等场景", "https://cdn.masastack.com/images/Metadata.svg", 196),
         new("ETL","数据管道", "基于MASA Workflow打造分布式数据处理引擎，支持各类数据库的输入输出，适用于数据迁移、数据入仓\\湖、流批一体等解决方案", "https://cdn.masastack.com/images/ETL.svg", 196, true),
@@ -73,7 +67,5 @@ public partial class Stack : AutoScrollComponentBase
         new("View","数据可视化", "基于开源echarts搭建的，低代码的可视化工具，适用于即席分析、大屏展示、BI等场景", "https://cdn.masastack.com/images/View.svg", 172, true),
     ];
 
-    private string BannerMaxSize => IsMobile ? "375px" : "874px";
-
-    public record StackFeature(string Title, string SubTitle, string Content, string Image, int Height, bool rightImage = false);
+    public record StackFeature(string Title, string SubTitle, string Content, string Image, int Height, bool RightImage = false);
 }

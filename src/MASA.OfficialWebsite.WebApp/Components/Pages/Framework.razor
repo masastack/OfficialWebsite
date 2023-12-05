@@ -32,44 +32,33 @@
             <SerializableImage Src="https://cdn.masastack.com/images/banner4.png"
                                Contain
                                Width="@("100%")"
-                               Height="@("100%")"
-                               MaxWidth="@BannerMaxSize"
-                               MaxHeight="@BannerMaxSize" />
+                               Height="@("100%")" />
         </MCol>
     </MRow>
 
-    @if (IsMobile)
-    {
-        <InteractiveMore MoreText="构建块" />
-    }
+    <InteractiveMore Class="hidden-md-and-up" MoreText="构建块" />
 </div>
 
 <div class="home-content">
-
     <div class="home-content__item">
-        @if (IsMobile)
-        {
-            <SerializableImage Class="framework-diagram"
-                               Src="https://cdn.masastack.com/images/masaframework2.svg"
-                               Contain>
-            </SerializableImage>
-        }
-        else
-        {
-            <SerializableImage Class="framework-diagram"
-                               Src="https://cdn.masastack.com/images/masaframework1.svg"
-                               Height="@("663px")"
-                               Contain>
-            </SerializableImage>
-        }
+        <SerializableImage Class="framework-diagram hidden-md-and-up"
+                           Src="https://cdn.masastack.com/images/masaframework2.svg"
+                           Contain>
+        </SerializableImage>
+
+        <SerializableImage Class="framework-diagram hidden-sm-and-down"
+                           Src="https://cdn.masastack.com/images/masaframework1.svg"
+                           Height="@("663px")"
+                           Contain>
+        </SerializableImage>
     </div>
 
     <div class="home-content__item" id="building-blocks-content">
         <div class="home-content__item-header">
-            <MenuableTitle Disabled="!IsMobile" Items="s_menuableTitleItems" Title="BUILDING BLOCKS"></MenuableTitle>
+            <MenuableTitle Items="s_menuableTitleItems" Title="BUILDING BLOCKS"></MenuableTitle>
             <div class="home-content__item-subtitle">构建块</div>
         </div>
-        <MRow NoGutters="IsMobile" class="building-block__item-cards">
+        <MRow Class="building-block__item-cards no-gutters-on-mobile">
             <MCol Cols="6" Md="3">
                 <BuildingBlockCard Title="StackSdks" Content="MASA Stack SDK" Class="building-block-card building-block-card__margin-bottom"></BuildingBlockCard>
             </MCol>
@@ -83,7 +72,7 @@
                 <BuildingBlockCard Title="Configuration" Content="配置" Class="building-block-card building-block-card__margin-left building-block-card__margin-bottom"></BuildingBlockCard>
             </MCol>
         </MRow>
-        <MRow NoGutters="IsMobile">
+        <MRow Class="no-gutters-on-mobile">
             <MCol Cols="6" Md="3">
                 <BuildingBlockCard Title="Data" Content="数据" Class="building-block-card building-block-card__margin-bottom"></BuildingBlockCard>
             </MCol>
@@ -97,7 +86,7 @@
                 <BuildingBlockCard Title="Bindings" Content="绑定" Class="building-block-card building-block-card__margin-left building-block-card__margin-bottom"></BuildingBlockCard>
             </MCol>
         </MRow>
-        <MRow NoGutters="IsMobile">
+        <MRow Class="no-gutters-on-mobile">
             <MCol Cols="6" Md="3">
                 <BuildingBlockCard Title="Isolation" Content="隔离性" Class="building-block-card building-block-card__margin-bottom"></BuildingBlockCard>
             </MCol>
@@ -111,7 +100,7 @@
                 <BuildingBlockCard Title="Services" Content="服务" Class="building-block-card building-block-card__margin-left building-block-card__margin-bottom"></BuildingBlockCard>
             </MCol>
         </MRow>
-        <MRow NoGutters="IsMobile">
+        <MRow Class="no-gutters-on-mobile">
             <MCol Cols="6" Md="3">
                 <BuildingBlockCard Title="R/W Splitting" Content="读写分离" Class="building-block-card building-block-card__margin-bottom"></BuildingBlockCard>
             </MCol>
@@ -125,7 +114,7 @@
                 <BuildingBlockCard Title="Testable" Content="可测试性" Class="building-block-card building-block-card__margin-left building-block-card__margin-bottom"></BuildingBlockCard>
             </MCol>
         </MRow>
-        <MRow NoGutters="IsMobile">
+        <MRow Class="no-gutters-on-mobile">
             <MCol Cols="6" Md="3">
                 <BuildingBlockCard Title="Consistency" Content="一致性" Class="building-block-card building-block-card__margin-bottom"></BuildingBlockCard>
             </MCol>
@@ -143,10 +132,10 @@
 
     <div class="home-content__item" id="utils-content">
         <div class="home-content__item-header">
-            <MenuableTitle Disabled="!IsMobile" Items="s_menuableTitleItems" Title="UTILS"></MenuableTitle>
+            <MenuableTitle Items="s_menuableTitleItems" Title="UTILS"></MenuableTitle>
             <div class="home-content__item-subtitle">通用类库集合</div>
         </div>
-        <MRow NoGutters="IsMobile" class="building-block__item-cards">
+        <MRow Class="building-block__item-cards no-gutters-on-mobile">
             <MCol Cols="6" Md="3">
                 <BuildingBlockCard Title="Configuration" Content="配置" Class="building-block-card building-block-card__margin-bottom"></BuildingBlockCard>
             </MCol>
@@ -160,7 +149,7 @@
                 <BuildingBlockCard Title="Exceptions" Content="异常处理" Class="building-block-card building-block-card__margin-left building-block-card__margin-bottom"></BuildingBlockCard>
             </MCol>
         </MRow>
-        <MRow NoGutters="IsMobile">
+        <MRow Class="no-gutters-on-mobile">
             <MCol Cols="6" Md="3">
                 <BuildingBlockCard Title="Extensions" Content="扩展" Class="building-block-card building-block-card__margin-bottom"></BuildingBlockCard>
             </MCol>
@@ -173,31 +162,15 @@
         </MRow>
     </div>
 
-    <div class="home-content__item" id="template-content">
-        <div class="home-content__item-header">
-            <MenuableTitle Disabled="!IsMobile" Items="s_menuableTitleItems" Title="TEMPLATE"></MenuableTitle>
-            <div class="home-content__item-subtitle">项目模板</div>
-        </div>
-        <MRow NoGutters="IsMobile" class="building-block__item-cards">
-            <MCol Cols="6" Md="6">
-                <BuildingBlockCard Title="MASA Blazor PRO" Content="专业版" Class="building-block-card" IsButton="!IsMobile"></BuildingBlockCard>
-            </MCol>
-            <MCol Cols="6" Md="6">
-                <BuildingBlockCard Title="MASA Blazor Pure" Content="纯净版" IsButton=false Class="building-block-card building-block-card__margin-left"></BuildingBlockCard>
-            </MCol>
-        </MRow>
-    </div>
-
     <div class="home-content__item" id="why-masa-framework-content">
         <div class="home-content__item-header">
-            <MenuableTitle Disabled="!IsMobile" Items="s_menuableTitleItems" Title="WHY MASA FRAMEWORK"></MenuableTitle>
+            <MenuableTitle Items="s_menuableTitleItems" Title="WHY MASA FRAMEWORK"></MenuableTitle>
             <div class="home-content__item-subtitle">为什么选择MASA Framework?</div>
         </div>
-        <MRow NoGutters="IsMobile" class="home-content__item-cards">
+        <MRow Class="home-content__item-cards no-gutters-on-mobile">
             <MCol Cols="12" Md="4">
                 <WhyCard Image="https://cdn.masastack.com/images/icon4.svg"
                          Title="现代应用开发体验"
-                         IsMobile="IsMobile"
                          Icon="https://cdn.masastack.com/images/v-icon1.svg"
                          WhyContents="s_whyContent1">
                 </WhyCard>
@@ -205,7 +178,6 @@
             <MCol Cols="12" Md="4">
                 <WhyCard Image="https://cdn.masastack.com/images/icon2.svg"
                          Title="开源"
-                         IsMobile="IsMobile"
                          Icon="https://cdn.masastack.com/images/v-icon2.svg"
                          WhyContents="s_whyContent2">
                 </WhyCard>
@@ -213,7 +185,6 @@
             <MCol Cols="12" Md="4">
                 <WhyCard Image="https://cdn.masastack.com/images/icon3.svg"
                          Title="社区"
-                         IsMobile="IsMobile"
                          Icon="https://cdn.masastack.com/images/v-icon3.svg"
                          WhyContents="s_whyContent3">
                 </WhyCard>

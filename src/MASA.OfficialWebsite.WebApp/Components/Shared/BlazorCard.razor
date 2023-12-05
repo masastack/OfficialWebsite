@@ -1,11 +1,7 @@
-﻿<MCard Class="@Class" Flat>
-    @if (!IsMobile || (IsMobile && !IsImageRight))
-    {
-        <div class="blazor-card__image">
-            <img src="@Image" Height="@ImageHeight" Width="@ImageHeight" alt="@Title" />
-        </div>
-    }
-
+﻿<MCard Class="@($"blazor-card blazor-card__margin-bottom {(IsImageRight ? "img--right" : "")}")" Flat>
+    <div class="blazor-card__image">
+        <img src="@Image" alt="@Title" />
+    </div>
     <div>
         <div class="blazor-card__title">@Title</div>
 
@@ -13,13 +9,6 @@
             @Description
         </div>
     </div>
-
-    @if (IsMobile && IsImageRight)
-    {
-        <div class="blazor-card__image">
-            <img src="@Image" height="@ImageHeight" width="@ImageHeight" alt="@Title" />
-        </div>
-    }
 </MCard>
 
 @code {
@@ -32,19 +21,6 @@
 
     [Parameter, EditorRequired]
     public string? Description { get; set; }
-
-    public string? Class
-    {
-        get { return IsMobile && IsImageRight ? "d-flex justify-space-between blazor-card blazor-card__margin-bottom" : "blazor-card blazor-card__margin-bottom"; }
-    }
-
-    public int ImageHeight
-    {
-        get { return IsMobile ? 48 : 96; }
-    }
-
-    [Parameter]
-    public bool IsMobile { get; set; }
 
     [Parameter]
     public bool IsImageRight { get; set; }

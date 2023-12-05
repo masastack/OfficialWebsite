@@ -317,6 +317,11 @@
     .website-shared .activity-card .activity-card__desc {
         margin-bottom: 8px;
     }
+    
+    .activity-card__desc .m-image {
+        height: auto;
+        width: 100%;
+    }
 
     .website-shared .activity-card .activity-card__title {
         font-weight: 700;
@@ -476,8 +481,18 @@
     height: 128px;
 }
 
+    .blazor-card.img--right {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+
     .website-shared .blazor-card .blazor-card__image {
         margin: 0 16px;
+    }
+
+    .blazor-card__image img {
+        height: 48px;
+        width: 48px;
     }
 
     .website-shared .blazor-card .blazor-card__title {
@@ -503,7 +518,7 @@
     }
 
 .blazor-card__margin-bottom {
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 }
 
 .website-shared .aboutus-card {
@@ -518,6 +533,11 @@
 
     .website-shared .aboutus-card .aboutus-card__image {
         margin-top:0;
+    }
+    
+    .aboutus-card__image {
+        height: 105px;
+        width: 140px;
     }
 
     .website-shared .aboutus-card .aboutus-card__description {
@@ -616,3 +636,44 @@
     font-weight:500;
 }
 
+.follow-us-icon {
+    width: 40px !important;
+    height: 40px !important;
+}
+
+.follow-us-icon .cover {
+    width: 24px;
+}
+
+.row.no-gutters-on-mobile {
+    margin: 0;
+}
+
+.no-gutters-on-mobile > .col-12,
+.no-gutters-on-mobile > .col-md-4,
+.no-gutters-on-mobile > .col-6 {
+    padding: 0;
+}
+
+.cover-wrapper .m-image {
+    max-height: 375px;
+    max-width: 375px;
+    min-height: 375px;
+}
+
+.aboutus__logo {
+    width: 160px;
+    height: 160px;
+    margin-top: -150px;
+}
+
+.aboutus__contact-img {
+    width: 140px;
+    height: 172px;
+    border-radius: 16px;
+    margin-top: 24px;
+}
+
+.m-main {
+    padding-top: 48px !important;
+}

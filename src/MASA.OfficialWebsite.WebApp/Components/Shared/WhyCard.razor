@@ -1,13 +1,10 @@
-﻿<MCard Class="why-card" Style="@Style" Flat>
+﻿<MCard Class="why-card fill-height-on-desktop" Flat>
     <div class="d-flex flex-column" style="width: 100%">
         <div class="d-flex align-center">
             <img src="@Image" width="48" height="48" alt="@Title" />
             <div class="why-card__title">@Title</div>
         </div>
-        @if (IsMobile)
-        {
-            <hr style="border: 0.5px solid #E2E7F4; margin-top:32px;" />
-        }
+        <hr style="border: 0.5px solid #E2E7F4; margin-top:32px;" class="hidden-md-and-up" />
         <div>
             @if (WhyContents is not null && WhyContents.Count > 0)
             {
@@ -36,13 +33,5 @@
 
     [Parameter]
     public List<string>? WhyContents { get; set; }
-
-    [Parameter]
-    public bool IsMobile { get; set; }
-
-    public string? Style
-    {
-        get { return !IsMobile ? "height: 100%;" : ""; }
-    }
 
 }

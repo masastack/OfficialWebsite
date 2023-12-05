@@ -441,6 +441,12 @@ html {
             cursor: pointer;
             margin-bottom: 16px;
         }
+        
+        .activity-card__desc .m-image {
+            border-radius: 16px;
+            height: 290px;
+            width: auto;
+        }
 
         .website-shared .activity-card .activity-card__footer {
             display: flex;
@@ -686,8 +692,12 @@ html {
         border-radius: 20px;
         height: 470px;
     }
-
         .website-shared .blazor-card .blazor-card__image {
+        }
+
+        .blazor-card__image img {
+            height: 96px;
+            width: 96px;
         }
 
         .website-shared .blazor-card .blazor-card__title {
@@ -726,6 +736,11 @@ html {
 
         .website-shared .aboutus-card .aboutus-card__image {
             margin-top: 24px;
+        }
+        
+        .aboutus-card__image {
+            height: 210px;
+            width: 280px;
         }
 
         .website-shared .aboutus-card .aboutus-card__description {
@@ -838,4 +853,41 @@ html {
 
 .m-window-x-transition-enter-active, .m-window-x-transition-leave-active, .m-window-x-reverse-transition-enter-active, .m-window-x-reverse-transition-leave-active, .m-window-y-transition-enter-active, .m-window-y-transition-leave-active, .m-window-y-reverse-transition-enter-active, .m-window-y-reverse-transition-leave-active {
     transition: 0.6s cubic-bezier(0.25, 0.8, 0.5, 1);
+}
+
+.follow-us-icon {
+    width: 60px !important;
+    height: 60px !important;
+}
+
+.follow-us-icon .cover {
+    width: 36px;
+}
+
+.fill-height-on-desktop {
+    height: 100%;
+}
+
+.cover-wrapper .m-image {
+    max-height: 874px;
+    max-width: 874px;
+    min-height: 874px;
+}
+
+.aboutus__logo {
+    width: 320px;
+    height: 320px;
+    margin-top: -100px;
+}
+
+.aboutus__contact-img {
+    flex: none;
+    width: 280px;
+    height: 345px;
+    border-radius: 16px;
+    margin-top: 120px;
+}
+
+.m-main {
+    padding-top: 100px !important;
 }

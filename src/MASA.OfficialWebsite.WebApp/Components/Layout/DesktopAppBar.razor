@@ -1,15 +1,8 @@
-﻿<AppBar BarHeight="100" LogoHeight="36">
-    @* if (_isShow) *@
-    @* { *@
-    @*     <MButton Text Class="nav h8 emphasis2--text" Href="@ComputedHref" Target="_blank">文档</MButton> *@
-    @* } *@
-
+﻿<AppBar Class="hidden-sm-and-down" BarHeight="100" LogoHeight="36">
+    <SectionOutlet SectionName="document" />
     <SerializableNavMenu Items="@ProductNavItems" Title="产品" />
-
     <SerializableNavMenu Items="@StudyNavItems" Title="学习" />
-
-    <MButton Text Class="nav h8 emphasis2--text" Href="/aboutus"
-             @* OnClick="() => _isShow = false" *@>
+    <MButton Text Class="nav h8 emphasis2--text" Href="/aboutus">
         关于我们
     </MButton>
 </AppBar>

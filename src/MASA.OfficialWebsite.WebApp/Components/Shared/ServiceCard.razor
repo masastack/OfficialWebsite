@@ -1,4 +1,4 @@
-﻿<MSheet Class="service-card" Style="@Style">
+﻿<MSheet Class="service-card fill-height-on-desktop">
     <div class="header">
         <img src="@Image" height="80" width="80" class="header-icon" alt="@Title" />
         <div class="header-title">@Title</div>
@@ -40,13 +40,5 @@
 
     [Parameter]
     public List<(string Major, string? Minor)>? Contents { get; set; }
-
-    [Parameter]
-    public bool IsMobile { get; set; }
-
-    public string? Style
-    {
-        get { return !IsMobile ? "height: 100%;" : ""; }
-    }
 
 }

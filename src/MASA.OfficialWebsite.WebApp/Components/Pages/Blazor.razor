@@ -24,36 +24,29 @@
                         <MIcon Class="mr-2">mdi-github</MIcon>
                         Github
                     </MButton>
-                    @if (!IsMobile)
-                    {
-                        <MButton Class="demo-btn rounded-pill emphasis--text ml-4 text-capitalize"
-                                 Text
-                                 Href="https://blazor-pro.masastack.com"
-                                 Target="_blank"
-                                 Large
-                                 Style="font-size: 20px">
-                            <span class="text-decoration-underline">
-                                即刻体验PRO
-                            </span>
-                            <MIcon Right>mdi-open-in-new</MIcon>
-                        </MButton>
-                    }
+                    <MButton Class="demo-btn rounded-pill emphasis--text ml-4 text-capitalize hidden-sm-and-down"
+                             Text
+                             Href="https://blazor-pro.masastack.com"
+                             Target="_blank"
+                             Large
+                             Style="font-size: 20px">
+                        <span class="text-decoration-underline">
+                            即刻体验PRO
+                        </span>
+                        <MIcon Right>mdi-open-in-new</MIcon>
+                    </MButton>
                 </div>
             </div>
         </MCol>
         <MCol Cols="12" Lg="6" Class="cover-wrapper">
             <SerializableImage Src="https://cdn.masastack.com/images/blazor_banner.png"
                                Contain
-                               Width="@("100%")" Height="@("100%")"
-                               MaxWidth="@BannerMaxSize"
-                               MaxHeight="@BannerMaxSize" />
+                               Width="@("100%")"
+                               Height="@("100%")" />
         </MCol>
     </MRow>
 
-    @if (IsMobile)
-    {
-        <InteractiveMore MoreText="WHY MASA BLAZOR" />
-    }
+    <InteractiveMore Class="hidden-md-and-up" MoreText="WHY MASA BLAZOR" />
 </div>
 
 <div class="home-content">
@@ -62,17 +55,15 @@
             <MenuableTitle Disabled="true" Title="WHY MASA BLAZOR"></MenuableTitle>
             <div class="home-content__item-subtitle">为什么选择MASA Blazor？</div>
         </div>
-        <MRow NoGutters="IsMobile" class="building-block__item-cards">
+        <MRow Class="building-block__item-cards no-gutters-on-mobile">
             <MCol Cols="12" Md="4">
                 <BlazorCard Image="https://cdn.masastack.com/images/icon5.svg"
-                            IsMobile="IsMobile"
                             Title="组件丰富"
                             Description="Vuetify基础组件1:1还原，还有更多实用的预置组件">
                 </BlazorCard>
             </MCol>
             <MCol Cols="12" Md="4">
                 <BlazorCard Image="https://cdn.masastack.com/images/icon6.svg"
-                            IsMobile="IsMobile"
                             IsImageRight="true"
                             Title="简易上手"
                             Description="全面丰富的文档，配套免费的视频教程">
@@ -80,16 +71,14 @@
             </MCol>
             <MCol Cols="12" Md="4">
                 <BlazorCard Image="https://cdn.masastack.com/images/icon7.svg"
-                            IsMobile="IsMobile"
                             Title="全职开源"
                             Description="全职团队维护，长期提供支持">
                 </BlazorCard>
             </MCol>
         </MRow>
-        <MRow NoGutters="IsMobile">
+        <MRow Class="no-gutters-on-mobile">
             <MCol Cols="12" Md="4">
                 <BlazorCard Image="https://cdn.masastack.com/images/icon8.svg"
-                            IsMobile="IsMobile"
                             IsImageRight="true"
                             Title="现代UI设计"
                             Description="设计风格现代，UI体验优秀">
@@ -97,14 +86,12 @@
             </MCol>
             <MCol Cols="12" Md="4">
                 <BlazorCard Image="https://cdn.masastack.com/images/icon9.svg"
-                            IsMobile="IsMobile"
                             Title=".NET 全栈"
                             Description="搭配MASA Framework实现开箱即用的.NET全栈开发">
                 </BlazorCard>
             </MCol>
             <MCol Cols="12" Md="4">
                 <BlazorCard Image="https://cdn.masastack.com/images/icon10.svg"
-                            IsMobile="IsMobile"
                             IsImageRight="true"
                             Title="社区活跃"
                             Description="用户实时互动，加入我们构建最开放的开源社区">
@@ -117,46 +104,39 @@
         <div class="home-content__item-header">
             <MenuableTitle Disabled="true" Title="用户信赖"></MenuableTitle>
         </div>
-        <MRow NoGutters="IsMobile" class="building-block__item-cards">
+        <MRow Class="building-block__item-cards no-gutters-on-mobile">
             <MCol Cols="6" Md="2">
-                <ImageCard IsMobile="IsMobile"
-                           Image="https://cdn.masastack.com/images/companylogo03.png"
+                <ImageCard Image="https://cdn.masastack.com/images/companylogo03.png"
                            Height="80"
                            Width="246"
                            MobileWidth="116" />
-
             </MCol>
             <MCol Cols="6" Md="2">
-                <ImageCard IsMobile="IsMobile"
-                           Image="https://cdn.masastack.com/images/companylogo01.png"
+                <ImageCard Image="https://cdn.masastack.com/images/companylogo01.png"
                            Height="80"
                            Width="246"
                            MobileWidth="139" />
             </MCol>
             <MCol Cols="6" Md="2">
-                <ImageCard IsMobile="IsMobile"
-                           Image="https://cdn.masastack.com/images/companylogo05.png"
+                <ImageCard Image="https://cdn.masastack.com/images/companylogo05.png"
                            Height="80"
                            Width="246"
                            MobileWidth="130" />
             </MCol>
             <MCol Cols="6" Md="2">
-                <ImageCard IsMobile="IsMobile"
-                           Image="https://cdn.masastack.com/images/companylogo06.png"
+                <ImageCard Image="https://cdn.masastack.com/images/companylogo06.png"
                            Height="80"
                            Width="246"
                            MobileWidth="129" />
             </MCol>
             <MCol Cols="6" Md="2">
-                <ImageCard IsMobile="IsMobile"
-                           Image="https://cdn.masastack.com/images/companylogo04.png"
+                <ImageCard Image="https://cdn.masastack.com/images/companylogo04.png"
                            Height="80"
                            Width="246"
                            MobileWidth="50" />
             </MCol>
             <MCol Cols="6" Md="2">
-                <ImageCard IsMobile="IsMobile"
-                           Image="https://cdn.masastack.com/images/companylogo02.png"
+                <ImageCard Image="https://cdn.masastack.com/images/companylogo02.png"
                            Height="80"
                            Width="246"
                            MobileWidth="128" />

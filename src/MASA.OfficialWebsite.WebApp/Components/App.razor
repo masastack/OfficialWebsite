@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
     <meta charset="utf-8" />
@@ -19,17 +19,17 @@
     <link rel="icon" href="https://cdn.masastack.com/stack/images/logo/MASAStack/logo.png" type="image/x-icon" />
 
     <HeadOutlet />
-    <MSsrThemeProvider @rendermode="@InteractiveServer"></MSsrThemeProvider>
+    <MSsrThemeProvider />
 </head>
 
 <body>
-<Routes />
-<SsrAppProvider @rendermode="@InteractiveServer"></SsrAppProvider>
+    <Routes />
+    <MSsrStateProvider @rendermode="InteractiveServer"></MSsrStateProvider>
 
-<script src="_framework/blazor.web.js"></script>
-<script src="_content/BlazorComponent/js/blazor-component.js"></script>
-<script src="js/shared.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.2.0/swiper-bundle.min.js"></script>
+    <script src="_framework/blazor.web.js"></script>
+    <script src="_content/BlazorComponent/js/blazor-component.js"></script>
+    <script src="js/shared.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/10.2.0/swiper-bundle.min.js"></script>
 </body>
 
 </html>

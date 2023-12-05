@@ -3,7 +3,7 @@
 
 <MAppBar App
          Height="@BarHeight"
-         Class="appbar"
+         Class="@($"appbar {Class}")"
          Color="transparent"
          Flat
          Dense>
@@ -14,8 +14,6 @@
     </a>
 
     <MSpacer />
-    
-    <SectionOutlet SectionName="document" />
 
     @ChildContent
 </MAppBar>
@@ -23,6 +21,8 @@
 @code {
 
     [Parameter] public int BarHeight { get; set; }
+
+    [Parameter] public string? Class { get; set; }
 
     [Parameter] public int LogoHeight { get; set; }
 

@@ -14,7 +14,6 @@ namespace MASA.OfficialWebsite.WebApp.Components.Pages
         {
             new MenuableTitleItem("BuildingBlocks", "构建块", "#building-blocks-content"),
             new MenuableTitleItem("Utils", "通用类库集合", "#utils-content"),
-            new MenuableTitleItem("Template", "项目模板", "#template-content"),
             new MenuableTitleItem("Why MASA Framework", "为什么选择MASA Framework?", "#why-masa-framework-content"),
         };
 
@@ -41,7 +40,5 @@ namespace MASA.OfficialWebsite.WebApp.Components.Pages
             "开放的社区",
             "定期社区例会，线上线下Meetup互动"
         };
-
-        private string BannerMaxSize => IsMobile ? "375px" : "874px";
     }
 }

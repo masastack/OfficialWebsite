@@ -1,7 +1,15 @@
 ﻿@inject MasaBlazor MasaBlazor
 @rendermode InteractiveServer
+@implements IDisposable
 
-<MMenu OpenOnClick="IsMobile" OpenOnHover="!IsMobile" CloseOnClick NudgeBottom="8" NudgeLeft="@NudgeLeft" OffsetY Permanent>
+<MMenu OpenOnClick="IsMobile"
+       OpenOnHover="!IsMobile"
+       CloseOnClick
+       NudgeBottom="8"
+       NudgeLeft="@NudgeLeft"
+       OffsetY
+       Permanent
+       @key="@IsMobile">
     <ActivatorContent>
         <MButton Width="@IconSize"
                  Height="@IconSize"
@@ -30,5 +38,22 @@
     private int IconSize =>  IsMobile ? 40 : 60;
 
     private int NudgeLeft => Size / 2 - IconSize / 2;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        MasaBlazor.MobileChanged += MasaBlazorOnMobileChanged;
+    }
+
+    private void MasaBlazorOnMobileChanged(object? sender, MobileChangedEventArgs e)
+    {
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        MasaBlazor.MobileChanged -= MasaBlazorOnMobileChanged;
+    }
 
 }

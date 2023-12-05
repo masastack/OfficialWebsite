@@ -5,7 +5,7 @@
     {
         <div class="activity-content__item" id="activity-video">
             <div class="activity-content__item-header">
-                <MenuableTitle Disabled="!IsMobile" Items="s_menuableTitleItems" Title="视频回放"></MenuableTitle>
+                <MenuableTitle Items="sMenuableTitleItems" Title="视频回放"></MenuableTitle>
             </div>
             <div class="d-flex justify-center activity-detail__image activity-detail__image-height">
                 <iframe _ngcontent-flink-c48=""
@@ -17,13 +17,13 @@
         </div>
     }
 
-    @CoverContent(IsMobile ? _data?.MobileCover : _data?.Cover);
+    @CoverContent(MasaBlazor.Breakpoint.Mobile ? _data?.MobileCover : _data?.Cover);
 
     @if (!string.IsNullOrWhiteSpace(_data?.File))
     {
         <div class="activity-content__item" id="active-file">
             <div class="activity-content__item-header">
-                <MenuableTitle Disabled="!IsMobile" Items="s_menuableTitleItems" Title="资料下载"></MenuableTitle>
+                <MenuableTitle Items="sMenuableTitleItems" Title="资料下载"></MenuableTitle>
             </div>
             <div class="activity-detail__image">
                 <MButton Text Ripple="false" Class="activity-detail__button-text" OnClick="() => DownLoadFiles(_data.File)">
@@ -42,7 +42,7 @@
         {
             <div class="activity-content__item" id="activity-detail">
                 <div class="activity-content__item-header">
-                    <MenuableTitle Disabled="!IsMobile" Items="s_menuableTitleItems" Title="活动详情"></MenuableTitle>
+                    <MenuableTitle Items="sMenuableTitleItems" Title="活动详情"></MenuableTitle>
                 </div>
                 <div class="activity-detail__image">
                     <SerializableImage Src="@cover" />

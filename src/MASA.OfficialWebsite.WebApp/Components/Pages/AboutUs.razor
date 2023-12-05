@@ -3,33 +3,13 @@
 
 <PageTitle>温州数闪科技有限公司</PageTitle>
 
-<div class="home-banner without-carousels d-flex align-center">
-    <MRow NoGutters>
-        <MCol>
-            <MCard class="d-flex justify-center" style="background-color:transparent;" Flat>
-                @if (IsMobile)
-                {
-                    <SerializableImage Src="https://cdn.masastack.com/images/logo_big.png"
-                                       Width="@("160px")"
-                                       Height="@("160px")"
-                                       Style="margin-top:-150px; flex:none;" />
-                }
-                else
-                {
-                    <SerializableImage Src="https://cdn.masastack.com/images/logo_big.png"
-                                       Width="@("320px")"
-                                       Height="@("320px")"
-                                       Style="margin-top:-100px;flex:none;" />
-                }
+<div class="home-banner without-carousels d-flex align-center justify-center">
+    <div class="d-flex justify-center">
+        <SerializableImage Src="https://cdn.masastack.com/images/logo_big.png"
+                           Class="aboutus__logo" />
+    </div>
 
-            </MCard>
-        </MCol>
-    </MRow>
-
-    @if (IsMobile)
-    {
-        <InteractiveMore MoreText="公司简介" />
-    }
+    <InteractiveMore Class="hidden-md-and-up" MoreText="公司简介" />
 </div>
 
 <div class="home-content">
@@ -37,8 +17,8 @@
         <div class="home-content__item-header" id="aboutus_companyinfo">
             <MenuableTitle Disabled="true" Title="公司简介"></MenuableTitle>
         </div>
-        <MRow NoGutters="IsMobile">
-            <MCol Cols="12" Md="12" Class="d-flex justify-center">
+        <MRow Class="no-gutters-on-mobile">
+            <MCol Cols="12" Class="d-flex justify-center">
                 <MCard style="background-color:transparent; width:980px;" Flat>
                     <MRow>
                         <MCol>
@@ -50,21 +30,18 @@
                 </MCard>
             </MCol>
         </MRow>
-        <MRow NoGutters="IsMobile">
+        <MRow Class="no-gutters-on-mobile">
             <MCol Cols="12" Md="4">
                 <AboutUsCard Image="https://cdn.masastack.com/images/shenzhenaddress.svg"
-                             Description="深圳市南山区深圳湾科技生态园2栋B座708"
-                             IsMobile="IsMobile" />
+                             Description="深圳市南山区深圳湾科技生态园2栋B座708" />
             </MCol>
             <MCol Cols="12" Md="4">
                 <AboutUsCard Image="https://cdn.masastack.com/images/hangzhouaddress.svg"
-                             Description="浙江省杭州市钱塘区新加坡科技园9幢12层"
-                             IsMobile="IsMobile" />
+                             Description="浙江省杭州市钱塘区新加坡科技园9幢12层" />
             </MCol>
             <MCol Cols="12" Md="4">
                 <AboutUsCard Image="https://cdn.masastack.com/images/wenzhouaddress.svg"
-                             Description="浙江省乐清市北白象镇长江路1号"
-                             IsMobile="IsMobile" />
+                             Description="浙江省乐清市北白象镇长江路1号" />
             </MCol>
         </MRow>
     </div>
@@ -73,28 +50,10 @@
             <div class="home-content__item-header" id="aboutus_contactus">
                 <MenuableTitle Disabled="true" Title="联系我们"></MenuableTitle>
             </div>
-            <MRow NoGutters="IsMobile">
-                <MCol Cols="12" Md="12" Class="d-flex justify-center">
-                    <MCard style="background-color:transparent;" Flat>
-                        <MRow>
-                            <MCol>
-                                @if (IsMobile)
-                                {
-                                    <SerializableImage Src="https://cdn.masastack.com/images/contact.png"
-                                                       Width="@("140px")"
-                                                       Height="@("172px")"
-                                                       Style="border-radius:16px;margin-top:24px;flex:none;" />
-                                }
-                                else
-                                {
-                                    <SerializableImage Src="https://cdn.masastack.com/images/contact.png"
-                                                       Width="@("280px")"
-                                                       Height="@("345px")"
-                                                       Style="border-radius:16px;margin-top:120px;flex:none;" />
-                                }
-                            </MCol>
-                        </MRow>
-                    </MCard>
+            <MRow Class="no-gutters-on-mobile">
+                <MCol Cols="12" Class="d-flex justify-center">
+                    <SerializableImage Src="https://cdn.masastack.com/images/contact.png"
+                                       Class="aboutus__contact-img" />
                 </MCol>
             </MRow>
         </div>

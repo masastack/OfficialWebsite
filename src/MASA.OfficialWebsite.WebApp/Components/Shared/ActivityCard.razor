@@ -7,11 +7,8 @@
     </div>
 
     <div class="activity-card__desc" @onclick="GoTo">
-        <MImage Src="@Data.Cover"
-                Height="@(IsMobile ? null : "290px")"
-                Width="@(IsMobile ? "100%" : null)"
-                Contain
-                Style="border-radius: 16px;">
+        <MImage Src="@Data.Cover" 
+                Contain>
         </MImage>
     </div>
 
@@ -45,9 +42,6 @@
 </MCard>
 
 @code {
-
-    [CascadingParameter(Name = "IsMobile")]
-    public bool IsMobile { get; set; }
 
     [Inject]
     public NavigationManager NavigationManager { get; set; } = null!;

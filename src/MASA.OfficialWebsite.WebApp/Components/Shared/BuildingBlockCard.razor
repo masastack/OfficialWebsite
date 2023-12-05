@@ -1,7 +1,7 @@
 ﻿<MCard Class="@Class" Flat>
     <div class="d-flex flex-column" style="width:100%">
         <div class="building-block-card__title">@Title</div>
-        @if (IsButton)
+        @if (Clickable)
         {
             <div class="building-block-card__actions">
                 <MButton Class="building-block-card__content building-block-card__gradual-btn" Text Ripple="false" Href="https://blazor-pro.masastack.com">
@@ -19,6 +19,7 @@
 </MCard>
 
 @code {
+
     [Parameter, EditorRequired]
     public string? Content { get; set; }
 
@@ -29,5 +30,6 @@
     public string? Class { get; set; }
 
     [Parameter]
-    public bool IsButton { get; set; }
+    public bool Clickable { get; set; }
+
 }

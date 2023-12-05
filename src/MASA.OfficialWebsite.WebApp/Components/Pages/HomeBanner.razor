@@ -26,10 +26,7 @@
                             Contain
                             Style="margin-left: 36px"
                             Width="@("100%")"
-                            Height="@("100%")"
-                            MaxWidth="@BannerMaxSize"
-                            MaxHeight="@BannerMaxSize"
-                            MinHeight="@BannerMaxSize"/>
+                            Height="@("100%")" />
                 </MCol>
             </MRow>
         </MSwiperSlide>
@@ -48,10 +45,7 @@
                     <MImage Src="https://cdn.masastack.com/images/banner2.png"
                             Contain
                             Width="@("100%")"
-                            Height="@("100%")"
-                            MaxWidth="@BannerMaxSize"
-                            MaxHeight="@BannerMaxSize"
-                            MinHeight="@BannerMaxSize"/>
+                            Height="@("100%")" />
                 </MCol>
             </MRow>
         </MSwiperSlide>
@@ -70,87 +64,61 @@
                     <MImage Src="https://cdn.masastack.com/images/banner3.png"
                             Contain
                             Width="@("100%")"
-                            Height="@("100%")"
-                            MaxWidth="@BannerMaxSize"
-                            MaxHeight="@BannerMaxSize"
-                            MinHeight="@BannerMaxSize"/>
+                            Height="@("100%")" />
                 </MCol>
             </MRow>
         </MSwiperSlide>
         <MSwiperAutoplay />
-        @if (IsMobile)
-        {
-            <MSwiperPagination Clickable Class="carousel-dot" />
-        }
+        <MSwiperPagination Clickable Class="carousel-dot hidden-md-and-up" />
     </MSwiper>
 
-    @if (IsMobile)
-    {
-        <InteractiveMore MoreText="更多产品" />
-    }
-    else
-    {
-        <div class="home-banner__slider-wrapper">
-            <MItemGroup Value="_carouselValue"
-                        ValueChanged="v => _carouselValue = v.ToInt32()"
-                        ActiveClass="active">
-                <MRow NoGutters Class="slider">
-                    <MItem>
-                        <MCol Class="slider-item" Cols="4" @onclick="() => _carouselValue = 0">
-                            <div class="number @context.ActiveClass">01</div>
-                            <PBlockText Style="width: calc(100% - 56px)"
-                                        Primary="开源企业级开发者门户 平台工程"
-                                        Secondary="让开发者聚焦业务价值的实现"
-                                        PrimaryClass="@($"h6 text-truncate {(context.Active ? "emphasis--text" : "regular--text")} mb-2")"
-                                        SecondaryClass="@($"subtitle text-truncate {(context.Active ? "regular2--text" : "regular3--text")} ")">
-                            </PBlockText>
-                        </MCol>
-                    </MItem>
-                    <MItem>
-                        <MCol Class="slider-item" Cols="4" @onclick="() => _carouselValue = 1">
-                            <div class="number @context.ActiveClass">02</div>
-                            <PBlockText Style="width: calc(100% - 56px)"
-                                        Primary="传统.NET中大型项目升级宝典"
-                                        Secondary="使用MASA Stack对现有.NET程序进行现代化改造"
-                                        PrimaryClass="@($"h6 text-truncate {(context.Active ? "emphasis--text" : "regular--text")} mb-2")"
-                                        SecondaryClass="@($"subtitle text-truncate {(context.Active ? "regular2--text" : "regular3--text")} ")">
-                            </PBlockText>
-                        </MCol>
-                    </MItem>
-                    <MItem>
-                        <MCol Class="slider-item" Cols="4" @onclick="() => _carouselValue = 2">
-                            <div class="number @context.ActiveClass">03</div>
-                            <PBlockText Style="width: calc(100% - 56px)"
-                                        Primary=".NET开发者迈向云原生如何选择？"
-                                        Secondary=".NET数字化转型人才成长最优解"
-                                        PrimaryClass="@($"h6 text-truncate {(context.Active ? "emphasis--text" : "regular--text")} mb-2")"
-                                        SecondaryClass="@($"subtitle text-truncate {(context.Active ? "regular2--text" : "regular3--text")} ")">
-                            </PBlockText>
-                        </MCol>
-                    </MItem>
-                </MRow>
-            </MItemGroup>
-        </div>
-    }
+    <InteractiveMore Class="hidden-md-and-up" MoreText="更多产品" />
+
+    <div class="home-banner__slider-wrapper hidden-sm-and-down">
+        <MItemGroup Value="_carouselValue"
+                    ValueChanged="v => _carouselValue = v.ToInt32()"
+                    ActiveClass="active">
+            <MRow NoGutters Class="slider">
+                <MItem>
+                    <MCol Class="slider-item" Cols="4" @onclick="() => _carouselValue = 0">
+                        <div class="number @context.ActiveClass">01</div>
+                        <PBlockText Style="width: calc(100% - 56px)"
+                                    Primary="开源企业级开发者门户 平台工程"
+                                    Secondary="让开发者聚焦业务价值的实现"
+                                    PrimaryClass="@($"h6 text-truncate {(context.Active ? "emphasis--text" : "regular--text")} mb-2")"
+                                    SecondaryClass="@($"subtitle text-truncate {(context.Active ? "regular2--text" : "regular3--text")} ")">
+                        </PBlockText>
+                    </MCol>
+                </MItem>
+                <MItem>
+                    <MCol Class="slider-item" Cols="4" @onclick="() => _carouselValue = 1">
+                        <div class="number @context.ActiveClass">02</div>
+                        <PBlockText Style="width: calc(100% - 56px)"
+                                    Primary="传统.NET中大型项目升级宝典"
+                                    Secondary="使用MASA Stack对现有.NET程序进行现代化改造"
+                                    PrimaryClass="@($"h6 text-truncate {(context.Active ? "emphasis--text" : "regular--text")} mb-2")"
+                                    SecondaryClass="@($"subtitle text-truncate {(context.Active ? "regular2--text" : "regular3--text")} ")">
+                        </PBlockText>
+                    </MCol>
+                </MItem>
+                <MItem>
+                    <MCol Class="slider-item" Cols="4" @onclick="() => _carouselValue = 2">
+                        <div class="number @context.ActiveClass">03</div>
+                        <PBlockText Style="width: calc(100% - 56px)"
+                                    Primary=".NET开发者迈向云原生如何选择？"
+                                    Secondary=".NET数字化转型人才成长最优解"
+                                    PrimaryClass="@($"h6 text-truncate {(context.Active ? "emphasis--text" : "regular--text")} mb-2")"
+                                    SecondaryClass="@($"subtitle text-truncate {(context.Active ? "regular2--text" : "regular3--text")} ")">
+                        </PBlockText>
+                    </MCol>
+                </MItem>
+            </MRow>
+        </MItemGroup>
+    </div>
 </div>
 
 @code {
 
     private int _carouselValue = 0;
-
-    private double _startX;
-    private double _deltaX;
-    private double _offsetX;
-    private string? _direction;
-
-    private void ResetTouchStatus()
-    {
-        _direction = "";
-        _startX = 0;
-        _deltaX = 0;
-        _offsetX = 0;
-    }
-
-    private int BannerMaxSize => IsMobile ? 375 : 874;
 
 }
