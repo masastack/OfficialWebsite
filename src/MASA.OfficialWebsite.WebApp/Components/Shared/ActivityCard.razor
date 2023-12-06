@@ -8,7 +8,8 @@
 
     <div class="activity-card__desc" @onclick="GoTo">
         <MImage Src="@Data.Cover" 
-                Contain>
+                Contain
+                Eager>
         </MImage>
     </div>
 
@@ -19,7 +20,7 @@
             if (logo is not null)
             {
                 <MAvatar Size="36" Color="#D9D1FF" Class="activity-card__group">
-                    <MImage Src="@logo" Width="20" Height="20" Contain Style="border-radius: 0;"></MImage>
+                    <MImage Src="@logo" Width="20" Height="20" Contain Eager Style="border-radius: 0;"></MImage>
                 </MAvatar>
             }
         }
