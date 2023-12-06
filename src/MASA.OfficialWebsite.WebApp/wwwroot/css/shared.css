@@ -95,11 +95,11 @@ html {
             font-weight: 400;
             font-size: 16px;
             line-height: 24px;
-            margin-top: 100px;
+            margin-top: 76px;
         }
 
-            .website-shared .footer-content .footer-content__logo .m-image {
-                margin: 0 auto 48px;
+            .website-shared .footer-content .footer-content__logo img {
+                margin-bottom: 24px;
             }
 
         .website-shared .footer-content .footer-content__item {
