@@ -8,6 +8,7 @@
     <meta name="description" content="数闪科技致力于用 .NET技术打造开源企业级开发者门户 平台工程 MASA Stack，提供一站式.NET现代化应用开发交付解决方案，赋能 560万.NET开发者转型为数字化人才，帮助企业降低数字化转型门槛，让变化更简单！" />
     <base href="/" />
     <link rel="stylesheet" href="_content/Masa.Blazor/css/masa-blazor.min.css" />
+    <link rel="stylesheet" href="_content/Masa.Blazor/css/masa-blazor.ssr.css" />
     <link rel="stylesheet" href="css/standard.css" />
     <link rel="stylesheet" href="css/shared.css" />
     <link rel="stylesheet" href="css/small-shared.css" media="(max-width: 960px)" />
@@ -24,7 +25,6 @@
 
 <body>
     <Routes />
-    <MSsrStateProvider @rendermode="InteractiveServer"></MSsrStateProvider>
 
     <script src="_framework/blazor.web.js"></script>
     <script src="_content/BlazorComponent/js/blazor-component.js"></script>

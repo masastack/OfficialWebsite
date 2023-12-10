@@ -38,7 +38,7 @@ html {
 
     .website-shared .appbar {
         backdrop-filter: blur(48px);
-        opacity: 0.9;
+        background-color: transparent !important;
     }
 
     .website-shared .m-toolbar__content {
@@ -49,39 +49,29 @@ html {
         margin: 0 auto;
     }
 
-    .website-shared .appbar .nav {
-        margin-right: 48px;
-    }
-
-        .website-shared .appbar .nav:last-child {
-            margin-right: 0;
-        }
-
-    .website-shared .menu-content {
-        box-shadow: none;
-        filter: drop-shadow(0px 18px 40px rgba(112, 144, 176, 0.12));
-        width: 455px;
-    }
-
-        .website-shared .menu-content .menu-list {
+        .website-shared .menu-list {
             background: #fff;
             padding: 36px 26px;
             border-radius: 16px 0 16px 16px;
+            width: 455px;
+            position: absolute;
+            margin-top: 6px;
+            transition: transform 0.3s ease-in-out;
         }
 
-            .website-shared .menu-content .menu-list .m-subheader, .website-shared .menu-content .menu-list .m-list-item {
+            .website-shared .menu-list .m-subheader, .website-shared .menu-list .m-list-item {
                 margin-bottom: 13px;
             }
 
-                .website-shared .menu-content .menu-list .m-list-item:last-child {
+                .website-shared .menu-list .m-list-item:last-child {
                     margin-bottom: 0;
                 }
 
-            .website-shared .menu-content .menu-list .m-list--dense .m-list-item .m-list-item__content, .m-list-item--dense .m-list-item__content {
+            .website-shared .menu-list .m-list--dense .m-list-item .m-list-item__content, .m-list-item--dense .m-list-item__content {
                 padding: 0;
             }
 
-            .website-shared .menu-content .menu-list .m-list-item__content > :not(:last-child) {
+            .website-shared .menu-list .m-list-item__content > :not(:last-child) {
                 margin-bottom: 0;
             }
 

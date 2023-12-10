@@ -1,90 +1,88 @@
-﻿<MMenu Left
-       OffsetY
-       NudgeBottom="4"
-       CloseDelay="100"
-       OpenOnHover="@OpenOnHover"
-       OpenOnClick="@OpenOnClick"
-       ContentClass="menu-content"
-       Permanent>
-    <ActivatorContent>
-        @{
-            string css = "nav h8 emphasis2--text";
+﻿@using BlazorComponent.Web
+@rendermode InteractiveServer
+@implements IOutsideClickJsCallback
+@implements IAsyncDisposable
+@inject OutsideClickJSModule OutsideClickJSModule
+@inject NavigationManager Navigation
 
-            if (context.Attrs.TryGetValue("class", out var val))
-            {
-                css += val.ToString();
-            }
-
-            context.Attrs["class"] = css;
+<MList Class="menu-list"
+       Style="@Style"
+       Elevation="0"
+       Subheader
+       TwoLine
+       Routable
+       @ref="_list">
+    @foreach (var item in Items)
+    {
+        @if (item.IsSubheader)
+        {
+            <MSubheader Style="height: auto"
+                        Class="subtitle3 emphasis--text">
+                @item.Subheader
+            </MSubheader>
         }
-
-        @ChildContent?.Invoke(context)
-    </ActivatorContent>
-    <ChildContent>
-        <MList Class="menu-list" Elevation="0" Subheader TwoLine Routable>
-            @foreach (var item in Items)
-            {
-                @if (item.IsSubheader)
+        else
+        {
+            <MListItem Href="@item.Href" ActiveClass="primary--text" Disabled="@item.Disabled" Class="home-menu-hover">
+                @if (item.Image is not null)
                 {
-                    <MSubheader Style="height: auto"
-                                Class="subtitle3 emphasis--text">
-                        @item.Subheader
-                    </MSubheader>
+                    <MListItemAvatar Tile Size="40" Class="mt-0 mb-0">
+                        <MImage Src="@item.Image" alt="@item.Title"
+                                Height="@item.Size" Width="@item.Size"
+                                Contain Eager />
+                    </MListItemAvatar>
                 }
-                else
-                {
-                    <MListItem Href="@item.Href" ActiveClass="primary--text" Disabled="@item.Disabled" Class="home-menu-hover" OnClick="() => IsShowDocument(item)">
-                        @if (item.Image is not null)
-                        {
-                            <MListItemAvatar Tile Size="40" Class="mt-0 mb-0">
-                                <MImage Src="@item.Image" alt="@item.Title"
-                                        Height="@item.Size" Width="@item.Size"
-                                        Contain Eager />
-                            </MListItemAvatar>
-                        }
-                        <MListItemContent>
-                            <MListItemTitle Class="h8 regular--text">
-                                <div style="@item.Style"> @item.Title</div>
-                            </MListItemTitle>
-                            <MListItemSubtitle Class="body2 regular3--text">@item.Subtitle</MListItemSubtitle>
-                        </MListItemContent>
-                    </MListItem>
-                }
-            }
-        </MList>
-    </ChildContent>
-</MMenu>
+                <MListItemContent>
+                    <MListItemTitle Class="h8 regular--text">
+                        <div style="@item.Style"> @item.Title</div>
+                    </MListItemTitle>
+                    <MListItemSubtitle Class="body2 regular3--text">@item.Subtitle</MListItemSubtitle>
+                </MListItemContent>
+            </MListItem>
+        }
+    }
+</MList>
 
 @code {
-
-    [Parameter]
-    public RenderFragment<ActivatorProps>? ChildContent { get; set; }
 
     [Parameter, EditorRequired]
     public IList<NavItem> Items { get; set; } = new List<NavItem>();
 
-    [Parameter]
-    public bool OpenOnHover { get; set; } = true;
+    [Parameter] public string? Style { get; set; }
 
-    [Parameter]
-    public bool OpenOnClick { get; set; }
+    [Parameter] public string QueryName { get; set; }
 
-    [Parameter]
-    public EventCallback<string> OnMenuClick { get; set; }
+    [Parameter] public IEnumerable<string> ActivatorSelectors { get; set; }
+
+    private MList _list = null!;
 
     protected override void OnParametersSet()
     {
         base.OnParametersSet();
 
         Items ??= new List<NavItem>();
+        ActivatorSelectors ??= Enumerable.Empty<string>();
     }
 
-    private async Task IsShowDocument(NavItem item)
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if (OnMenuClick.HasDelegate)
+        if (firstRender)
         {
-            await OnMenuClick.InvokeAsync(item.Href);
+            var selectors = ActivatorSelectors.ToList();
+            selectors.Add(_list.Ref.GetSelector());
+            await OutsideClickJSModule.InitializeAsync(this, selectors.ToArray());
         }
+    }
+
+    public async Task HandleOnOutsideClickAsync()
+    {
+        await Task.Delay(100);
+        Navigation.NavigateWithQueryParameter(QueryName, (bool?)null);
+    }
+
+    async ValueTask IAsyncDisposable.DisposeAsync()
+    {
+        await OutsideClickJSModule.Dispose();
     }
 
 }

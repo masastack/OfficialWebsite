@@ -1,0 +1,63 @@
+﻿@rendermode InteractiveServer
+@implements IOutsideClickJsCallback
+@implements IAsyncDisposable
+@inject NavigationManager Navigation
+@inject OutsideClickJSModule OutsideClickJSModule
+@attribute [StreamRendering]
+
+<div class="live-demo-menu @(_visible ? "visible" : "")">
+    <div class="regular--text">
+        <div>
+            Username:
+            <PCopyableText Class="d-inline-block" Text="guest">
+                guest
+            </PCopyableText>
+        </div>
+        <div>
+            Password:
+            <PCopyableText Class="d-inline-block" Text="guest123">
+                guest123
+            </PCopyableText>
+        </div>
+    </div>
+    <MButton Icon
+             Color="primary"
+             Href="https://auth-demo.masastack.com/"
+             OnClick="@(() => Navigation.NavigateWithQueryParameter("live-demo", (bool?)null))"
+             Target="_blank"
+             Class="demo-btn">
+        <MIcon>mdi-open-in-new</MIcon>
+    </MButton>
+</div>
+
+@code {
+
+    private bool _visible;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(1);
+
+        _visible = true;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await OutsideClickJSModule.InitializeAsync(this, ".live-demo-menu");
+        }
+    }
+
+    public async Task HandleOnOutsideClickAsync()
+    {
+        await Task.Delay(100);
+        Navigation.NavigateWithQueryParameter("live-demo", null);
+    }
+
+    async ValueTask IAsyncDisposable.DisposeAsync()
+    {
+        await OutsideClickJSModule.Dispose();
+    }
+
+}

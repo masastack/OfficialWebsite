@@ -1,8 +1,25 @@
 ﻿<AppBar Class="hidden-sm-and-down" BarHeight="100" LogoHeight="42">
     <SectionOutlet SectionName="document" />
-    <SerializableNavMenu Items="@ProductNavItems" Title="产品" />
-    <SerializableNavMenu Items="@StudyNavItems" Title="学习" />
-    <MButton Text Class="nav h8 emphasis2--text" Href="/aboutus">
+
+    <MInteractiveKeyTrigger WithWrapper
+                            Class="nav-menus"
+                            Style="position: relative"
+                            QueryName="nav-menu"
+                            QueryOptions="navMenuQueryOptions"
+                            QueryValue="@QueryValue"
+                            InteractiveComponentType="typeof(NavMenu)"
+                            InteractiveParameters="ProductNavMenuParameters">
+        <MButton Id="@($"{context}-nav-menu")" Class="mr-9 h8 emphasis2--text" Text>
+            @(context switch
+            {
+                "product" => "产品",
+                "study"   => "学习",
+                _         => context
+            })
+        </MButton>
+    </MInteractiveKeyTrigger>
+
+    <MButton Text Class="h8 emphasis2--text" Href="/aboutus">
         关于我们
     </MButton>
 </AppBar>
@@ -12,5 +29,20 @@
     [Parameter] public List<NavItem> ProductNavItems { get; set; } = new();
 
     [Parameter] public List<NavItem> StudyNavItems { get; set; } = new();
+
+    [SupplyParameterFromQuery(Name = "nav-menu")]
+    private string? QueryValue { get; set; }
+
+    private static string[] navMenuQueryOptions = { "product", "study" };
+
+    private bool IsProductNavMenu => QueryValue?.Equals("product", StringComparison.OrdinalIgnoreCase) is true;
+
+    private Dictionary<string, object> ProductNavMenuParameters => new()
+    {
+        { nameof(NavMenu.Items), IsProductNavMenu ? ProductNavItems : StudyNavItems },
+        { nameof(NavMenu.Style), IsProductNavMenu ? "transform: translateX(-388px);" : "transform: translateX(-286px);" },
+        { nameof(NavMenu.ActivatorSelectors), navMenuQueryOptions.Select(s => $"#{s}-nav-menu").ToArray() },
+        { nameof(NavMenu.QueryName), "nav-menu" }
+    };
 
 }

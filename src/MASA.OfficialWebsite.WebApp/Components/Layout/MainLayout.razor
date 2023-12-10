@@ -12,7 +12,7 @@
         <div class="rectangle-723"></div>
     </div>
     
-    <MobileAppBar NavItems="AllNavItems" @rendermode="InteractiveServer" />
+    <MobileAppBar NavItems="AllNavItems" />
     
     <DesktopAppBar ProductNavItems="productNavItems"
                    StudyNavItems="studyNavItems" />
@@ -128,8 +128,8 @@
                             <MCard Color="transparent" Flat Dark Class="footer-content__item footer-content__focus">
                                 <MCardTitle>关注我们</MCardTitle>
                                 <MCardText>
-                                    <WeChatBtn />
-                                    <QQChatBtn />
+                                    @* <WeChatBtn /> *@
+                                    @* <QQChatBtn /> *@
                                     <MButton Class="follow-us-icon"
                                              Outlined
                                              Icon
@@ -156,6 +156,8 @@
         </MFooter>
     </div>
 </MApp>
+
+<MSsrLayoutScript />
 
 <div id="blazor-error-ui">
     An unhandled error has occurred.

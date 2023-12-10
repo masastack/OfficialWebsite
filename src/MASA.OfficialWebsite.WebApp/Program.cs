@@ -13,7 +13,9 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddMasaBlazor(options =>
 {
-    options.ConfigureSSR(_ => { });
+    options.ConfigureSsr(options =>
+    {
+    });
     options.ConfigureTheme(theme => { theme.Themes.Light.Primary = "#4318ff"; });
     options.ConfigureBreakpoint(breakpoint => { breakpoint.MobileBreakpoint = Breakpoints.Sm; });
 });

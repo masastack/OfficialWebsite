@@ -31,6 +31,8 @@
         background: #FFFFFF;
         padding: 36px 8px;
         border-radius: 8px;
+        position: absolute;
+        
     }
 
         .website-shared .menu-content .menu-list .m-subheader, .website-shared .menu-content .menu-list .m-list-item {
