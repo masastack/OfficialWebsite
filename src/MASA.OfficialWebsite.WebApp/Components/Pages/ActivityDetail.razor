@@ -5,7 +5,7 @@
     {
         <div class="activity-content__item" id="activity-video">
             <div class="activity-content__item-header">
-                @* <MenuableTitle Items="sMenuableTitleItems" Title="视频回放"></MenuableTitle> *@
+                <MenuTitleInteractiveTrigger InteractiveValue="video" Items="sMenuableTitleItems" Title="视频回放" />
             </div>
             <div class="d-flex justify-center activity-detail__image activity-detail__image-height">
                 <iframe _ngcontent-flink-c48=""
@@ -23,10 +23,10 @@
     {
         <div class="activity-content__item" id="active-file">
             <div class="activity-content__item-header">
-                @* <MenuableTitle Items="sMenuableTitleItems" Title="资料下载"></MenuableTitle> *@
+                <MenuTitleInteractiveTrigger InteractiveValue="data" Items="sMenuableTitleItems" Title="资料下载" />
             </div>
             <div class="activity-detail__image">
-                <MButton Text Ripple="false" Class="activity-detail__button-text" OnClick="() => DownLoadFiles(_data.File)">
+                <MButton Text Ripple="false" Class="activity-detail__button-text" Href="@_data.File">
                     MASA Framework的设计理念.pdf
                 </MButton>
             </div>
@@ -42,10 +42,10 @@
         {
             <div class="activity-content__item" id="activity-detail">
                 <div class="activity-content__item-header">
-                    @* <MenuableTitle Items="sMenuableTitleItems" Title="活动详情"></MenuableTitle> *@
+                    <MenuTitleInteractiveTrigger InteractiveValue="detail" Items="sMenuableTitleItems" Title="活动详情" />
                 </div>
                 <div class="activity-detail__image">
-                    <SerializableImage Src="@cover" />
+                    <img src="@cover" width="100%" />
                 </div>
             </div>
         }

@@ -1,11 +1,10 @@
-﻿using BlazorComponent;
-using MASA.OfficialWebsite.WebApp.Components.Layout;
+﻿using MASA.OfficialWebsite.WebApp.Components.Layout;
 using MASA.OfficialWebsite.WebApp.Models;
 using Microsoft.AspNetCore.Components;
 
 namespace MASA.OfficialWebsite.WebApp.Components.Pages
 {
-    public partial class Framework : AutoScrollComponentBase
+    public partial class Framework
     {
         [CascadingParameter(Name = "MainLayout")]
         public MainLayout MainLayout { get; set; } = null!;

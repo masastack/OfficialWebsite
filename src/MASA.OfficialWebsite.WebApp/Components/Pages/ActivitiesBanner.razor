@@ -1,5 +1,4 @@
-﻿@inherits AutoScrollComponentBase
-@rendermode InteractiveServer
+﻿@rendermode InteractiveServer
 
 <div class="home-banner">
 
@@ -16,7 +15,7 @@
             </div>
         </div>
 
-        <InteractiveMore MoreText="全部活动" />
+        <NextView MoreText="全部活动" />
     </div>
 
     <MRow NoGutters Class="hidden-sm-and-down">
@@ -41,7 +40,7 @@
                             <div class="activity-header__subtitle">@item.Title</div>
                             <div class="activity-header__description">@item.Subtitle</div>
                             <div style="margin-top:24px;cursor: pointer;" @onclick="() => GoToDetail(item.Id)">
-                                <SerializableImage Src="@item.Cover" Width="@("100%")" />
+                                <MImage Src="@item.Cover" Width="@("100%")" />
                             </div>
                         </MCard>
                     </MCarouselItem>
@@ -56,27 +55,21 @@
                     {
                         var j = i;
                         var item = Latest5Activities[j];
+                        var active = _carouselValue == j;
 
                         <MHover>
                             <div class="d-flex" @onclick="() => CheckActivity(j)"
-                                 style="min-height: 96px"
+                                 style="min-height: 96px; cursor: pointer;"
                                  @attributes="@context.Attrs">
                                 <MButton Icon
                                          Class="mt-2"
-                                         Color="@((context.Hover || _carouselValue == j) ? "primary" : "#A3AED0")">
-                                    <MIcon Size="@(context.Hover ? 24 : 8)">mdi-circle</MIcon>
+                                         Color="@((context.Hover || active) ? "primary" : "#A3AED0")">
+                                    <MIcon Size="@(active ? 24 : 8)">mdi-circle</MIcon>
                                 </MButton>
-                                @if (context.Hover)
-                                {
-                                    <div>
-                                        <div style="font-size: 30px;font-weight: 400;line-height: 51px;letter-spacing: 0.02em;">
-                                            @item.Date.ToString("MM - dd")
-                                        </div>
-                                        <div class="emphasis2--text">
-                                            @item.Title
-                                        </div>
-                                    </div>
-                                }
+                                <div class="@(context.Hover || active ? "emphasis2--text" : "regular3--text")">
+                                    <h3>@item.Date.ToString("MM - dd")</h3>
+                                    <span>@item.Title</span>
+                                </div>
                             </div >
                         </MHover>
                     }

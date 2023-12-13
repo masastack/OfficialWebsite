@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace MASA.OfficialWebsite.WebApp.Components.Pages;
 
-public partial class Stack : AutoScrollComponentBase
+public partial class Stack
 {
     private static readonly List<string> sWhyContent1 =
     [
@@ -69,7 +69,4 @@ public partial class Stack : AutoScrollComponentBase
     ];
 
     public record StackFeature(string Title, string SubTitle, string Content, string Image, int Height, bool RightImage = false);
-    
-    [SupplyParameterFromQuery]
-    private bool BasicAbilityMenu { get; set; }
 }

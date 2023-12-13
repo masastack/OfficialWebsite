@@ -1,5 +1,4 @@
-﻿@inherits AutoScrollComponentBase
-@rendermode InteractiveServer
+﻿@rendermode InteractiveServer
 
 <div class="home-banner">
     <MSwiper @bind-Index="_carouselValue"
@@ -75,7 +74,7 @@
         <MSwiperPagination Clickable Class="carousel-dot hidden-md-and-up" />
     </MSwiper>
 
-    <InteractiveMore Class="hidden-md-and-up" MoreText="更多产品" />
+    <NextView Class="hidden-md-and-up" MoreText="更多产品" />
 
     <div class="home-banner__slider-wrapper hidden-sm-and-down">
         <MItemGroup Value="_carouselValue"

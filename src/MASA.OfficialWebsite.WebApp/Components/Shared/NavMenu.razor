@@ -1,17 +1,9 @@
-﻿@using BlazorComponent.Web
-@rendermode InteractiveServer
-@implements IOutsideClickJsCallback
-@implements IAsyncDisposable
-@inject OutsideClickJSModule OutsideClickJSModule
-@inject NavigationManager Navigation
+﻿@rendermode InteractiveServer
+@inherits MInteractivePopup
 
-<MList Class="menu-list"
-       Style="@Style"
-       Elevation="0"
-       Subheader
+<MList Subheader
        TwoLine
-       Routable
-       @ref="_list">
+       Routable>
     @foreach (var item in Items)
     {
         @if (item.IsSubheader)
@@ -48,41 +40,11 @@
     [Parameter, EditorRequired]
     public IList<NavItem> Items { get; set; } = new List<NavItem>();
 
-    [Parameter] public string? Style { get; set; }
-
-    [Parameter] public string QueryName { get; set; }
-
-    [Parameter] public IEnumerable<string> ActivatorSelectors { get; set; }
-
-    private MList _list = null!;
-
     protected override void OnParametersSet()
     {
         base.OnParametersSet();
 
         Items ??= new List<NavItem>();
-        ActivatorSelectors ??= Enumerable.Empty<string>();
-    }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            var selectors = ActivatorSelectors.ToList();
-            selectors.Add(_list.Ref.GetSelector());
-            await OutsideClickJSModule.InitializeAsync(this, selectors.ToArray());
-        }
-    }
-
-    public async Task HandleOnOutsideClickAsync()
-    {
-        await Task.Delay(100);
-        Navigation.NavigateWithQueryParameter(QueryName, (bool?)null);
-    }
-
-    async ValueTask IAsyncDisposable.DisposeAsync()
-    {
-        await OutsideClickJSModule.Dispose();
     }
 
 }

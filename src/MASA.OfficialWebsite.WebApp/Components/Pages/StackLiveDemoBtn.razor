@@ -1,9 +1,12 @@
 ﻿@inject NavigationManager Nav
 
-<MInteractiveTrigger WithWrapper
-                     Style="position: relative"
-                     QueryName="live-demo"
-                     QueryValue="LiveDemo"
+<MInteractiveTrigger WithPopup
+                     Top="-74"
+                     Left="16"
+                     PopupClass="live-demo-menu"
+                     QueryName="@nameof(LiveDemo)"
+                     QueryValue="@LiveDemo"
+                     InteractiveValue="true"
                      InteractiveComponentType="typeof(StackLiveDemoMenu)">
     <MButton Class="@($"demo-btn rounded-pill emphasis--text ml-4 text-capitalize mr-0 {Class}")"
              Text
@@ -19,7 +22,9 @@
 
     [Parameter] public string? Class { get; set; }
 
-    [SupplyParameterFromQuery(Name = "live-demo")]
+    [SupplyParameterFromQuery]
     public bool LiveDemo { get; set; }
+    
+    
 
 }

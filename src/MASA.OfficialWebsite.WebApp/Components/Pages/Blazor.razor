@@ -1,5 +1,4 @@
 ﻿@page "/blazor"
-@inherits AutoScrollComponentBase
 
 <PageTitle>温州数闪科技有限公司</PageTitle>
 
@@ -39,20 +38,18 @@
             </div>
         </MCol>
         <MCol Cols="12" Lg="6" Class="cover-wrapper">
-            <SerializableImage Src="https://cdn.masastack.com/images/blazor_banner.png"
-                               Contain
-                               Width="@("100%")"
-                               Height="@("100%")" />
+            <img src="https://cdn.masastack.com/images/blazor_banner.png"
+                 width="100%" />
         </MCol>
     </MRow>
 
-    <InteractiveMore Class="hidden-md-and-up" MoreText="WHY MASA BLAZOR" />
+    <NextViewInteractiveTrigger Class="hidden-md-and-up" MoreText="WHY MASA BLAZOR" />
 </div>
 
 <div class="home-content">
     <div class="home-content__item">
         <div class="home-content__item-header">
-            @* <MenuableTitle Disabled="true" Title="WHY MASA BLAZOR"></MenuableTitle> *@
+            <MenuTitle Title="WHY MASA BLAZOR" />
             <div class="home-content__item-subtitle">为什么选择MASA Blazor？</div>
         </div>
         <MRow Class="building-block__item-cards no-gutters-on-mobile">
@@ -102,44 +99,26 @@
 
     <div class="home-content__item">
         <div class="home-content__item-header">
-            @* <MenuableTitle Disabled="true" Title="用户信赖"></MenuableTitle> *@
+            <MenuTitle Title="用户信赖" />
         </div>
         <MRow Class="building-block__item-cards no-gutters-on-mobile">
             <MCol Cols="6" Md="2">
-                <ImageCard Image="https://cdn.masastack.com/images/companylogo03.png"
-                           Height="80"
-                           Width="246"
-                           MobileWidth="116" />
+                <img src="https://cdn.masastack.com/images/companylogo03.png" width="100%" />
             </MCol>
             <MCol Cols="6" Md="2">
-                <ImageCard Image="https://cdn.masastack.com/images/companylogo01.png"
-                           Height="80"
-                           Width="246"
-                           MobileWidth="139" />
+                <img src="https://cdn.masastack.com/images/companylogo01.png" width="100%" />
             </MCol>
             <MCol Cols="6" Md="2">
-                <ImageCard Image="https://cdn.masastack.com/images/companylogo05.png"
-                           Height="80"
-                           Width="246"
-                           MobileWidth="130" />
+                <img src="https://cdn.masastack.com/images/companylogo05.png" width="100%" />
             </MCol>
             <MCol Cols="6" Md="2">
-                <ImageCard Image="https://cdn.masastack.com/images/companylogo06.png"
-                           Height="80"
-                           Width="246"
-                           MobileWidth="129" />
+                <img src="https://cdn.masastack.com/images/companylogo06.png" width="100%" />
             </MCol>
             <MCol Cols="6" Md="2">
-                <ImageCard Image="https://cdn.masastack.com/images/companylogo04.png"
-                           Height="80"
-                           Width="246"
-                           MobileWidth="50" />
+                <img src="https://cdn.masastack.com/images/companylogo04.png" width="100%" />
             </MCol>
             <MCol Cols="6" Md="2">
-                <ImageCard Image="https://cdn.masastack.com/images/companylogo02.png"
-                           Height="80"
-                           Width="246"
-                           MobileWidth="128" />
+                <img src="https://cdn.masastack.com/images/companylogo02.png" width="100%" />
             </MCol>
         </MRow>
     </div>

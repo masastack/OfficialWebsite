@@ -6,8 +6,9 @@
                    Fixed
                    Temporary
                    Right
-                   Width="315">
-    <MList Class="menu-list mt-1" Style="height: 100%; overflow-y: auto; padding-top:24px;" Elevation="0" Subheader TwoLine Routable>
+                   Width="315"
+                   NoSsr>
+    <MList Class="mt-1" Style="height: 100%; overflow-y: auto; padding-top:24px;" Elevation="0" Subheader TwoLine Routable>
         @foreach (var item in NavItems)
         {
             @if (item.IsSubheader)

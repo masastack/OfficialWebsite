@@ -1,14 +1,16 @@
 ﻿<AppBar Class="hidden-sm-and-down" BarHeight="100" LogoHeight="42">
     <SectionOutlet SectionName="document" />
 
-    <MInteractiveKeyTrigger WithWrapper
-                            Class="nav-menus"
-                            Style="position: relative"
-                            QueryName="nav-menu"
-                            QueryOptions="navMenuQueryOptions"
-                            QueryValue="@QueryValue"
-                            InteractiveComponentType="typeof(NavMenu)"
-                            InteractiveParameters="ProductNavMenuParameters">
+    <MInteractiveTriggers Class="nav-menus"
+                          WithPopup
+                          Left="NavMenuLeft"
+                          PopupClass="menu-list"
+                          TValue="string"
+                          QueryName="nav-menu"
+                          QueryValue="@QueryValue"
+                          InteractiveValue="navMenuInteractiveValues"
+                          InteractiveComponentType="typeof(NavMenu)"
+                          InteractiveComponentParameters="ProductNavMenuParameters">
         <MButton Id="@($"{context}-nav-menu")" Class="mr-9 h8 emphasis2--text" Text>
             @(context switch
             {
@@ -17,7 +19,7 @@
                 _         => context
             })
         </MButton>
-    </MInteractiveKeyTrigger>
+    </MInteractiveTriggers>
 
     <MButton Text Class="h8 emphasis2--text" Href="/aboutus">
         关于我们
@@ -33,16 +35,15 @@
     [SupplyParameterFromQuery(Name = "nav-menu")]
     private string? QueryValue { get; set; }
 
-    private static string[] navMenuQueryOptions = { "product", "study" };
+    private static string[] navMenuInteractiveValues = { "product", "study" };
 
     private bool IsProductNavMenu => QueryValue?.Equals("product", StringComparison.OrdinalIgnoreCase) is true;
 
     private Dictionary<string, object> ProductNavMenuParameters => new()
     {
         { nameof(NavMenu.Items), IsProductNavMenu ? ProductNavItems : StudyNavItems },
-        { nameof(NavMenu.Style), IsProductNavMenu ? "transform: translateX(-388px);" : "transform: translateX(-286px);" },
-        { nameof(NavMenu.ActivatorSelectors), navMenuQueryOptions.Select(s => $"#{s}-nav-menu").ToArray() },
-        { nameof(NavMenu.QueryName), "nav-menu" }
     };
+
+    private int NavMenuLeft => IsProductNavMenu ? -388 : -286;
 
 }

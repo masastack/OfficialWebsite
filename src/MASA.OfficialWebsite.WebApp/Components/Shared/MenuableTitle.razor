@@ -1,5 +1,6 @@
 ﻿@rendermode InteractiveServer
 @inject NavigationManager Navigation
+@inherits NextTickComponentBase
 
 <MMenu Value="visible"
        ValueChanged="ValueChanged"
@@ -52,13 +53,12 @@
     private async Task ValueChanged(bool val)
     {
         var prevVisible = visible;
-        visible = val;
-        StateHasChanged();
 
-        await Task.Delay(300);
+        visible = val;
+
         if (prevVisible && !visible)
         {
-            Navigation.NavigateWithQueryParameter(QueryName, (bool?)null);
+            Navigation.NavigateTo(Navigation.GetUriWithQueryParameter(QueryName, (string?)null));
         }
     }
 
