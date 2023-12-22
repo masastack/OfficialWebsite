@@ -1,51 +1,30 @@
-﻿@rendermode InteractiveServer
+﻿@inject NavigationManager Nav
 
-<MMenu OffsetY
-       Top
-       NudgeTop="8"
-       CloseDelay="100"
-       CloseOnContentClick="false"
-       ContentClass="demo-btn__tooltip">
-    <ActivatorContent>
-        <MButton Class="@($"demo-btn rounded-pill emphasis--text ml-4 text-capitalize {Class}")"
-                 Text
-                 Large
-                 Style="font-size: 20px"
-                 @attributes="@context.Attrs">
-            <span class="text-decoration-underline">
-                Live demo
-            </span>
-        </MButton>
-    </ActivatorContent>
-    <ChildContent>
-        <div class="d-flex align-center">
-            <div class="regular--text">
-                <div>
-                    Username:
-                    <PCopyableText Class="d-inline-block" Text="guest">
-                        guest
-                    </PCopyableText>
-                </div>
-                <div>
-                    Password:
-                    <PCopyableText Class="d-inline-block" Text="guest123">
-                        guest123
-                    </PCopyableText>
-                </div>
-            </div>
-            <MButton Icon
-                     Color="primary"
-                     Href="https://auth-demo.masastack.com/"
-                     Target="_blank"
-                     Class="ml-2">
-                <MIcon>mdi-open-in-new</MIcon>
-            </MButton>
-        </div>
-    </ChildContent>
-</MMenu>
+<MInteractiveTrigger WithPopup
+                     Top="-74"
+                     Left="16"
+                     PopupClass="live-demo-menu"
+                     QueryName="@nameof(LiveDemo)"
+                     QueryValue="@LiveDemo"
+                     InteractiveValue="true"
+                     InteractiveComponentType="typeof(StackLiveDemoMenu)">
+    <MButton Class="@($"demo-btn rounded-pill emphasis--text ml-4 text-capitalize mr-0 {Class}")"
+             Text
+             Large
+             Style="font-size: 20px">
+        <span class="text-decoration-underline">
+            Live demo
+        </span>
+    </MButton>
+</MInteractiveTrigger>
 
 @code {
 
     [Parameter] public string? Class { get; set; }
+
+    [SupplyParameterFromQuery]
+    public bool LiveDemo { get; set; }
+    
+    
 
 }

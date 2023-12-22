@@ -1,8 +1,27 @@
 ﻿<AppBar Class="hidden-sm-and-down" BarHeight="100" LogoHeight="42">
     <SectionOutlet SectionName="document" />
-    <SerializableNavMenu Items="@ProductNavItems" Title="产品" />
-    <SerializableNavMenu Items="@StudyNavItems" Title="学习" />
-    <MButton Text Class="nav h8 emphasis2--text" Href="/aboutus">
+
+    <MInteractiveTriggers Class="nav-menus"
+                          WithPopup
+                          Left="NavMenuLeft"
+                          PopupClass="menu-list"
+                          TValue="string"
+                          QueryName="nav-menu"
+                          QueryValue="@QueryValue"
+                          InteractiveValue="navMenuInteractiveValues"
+                          InteractiveComponentType="typeof(NavMenu)"
+                          InteractiveComponentParameters="ProductNavMenuParameters">
+        <MButton Id="@($"{context}-nav-menu")" Class="mr-9 h8 emphasis2--text" Text>
+            @(context switch
+            {
+                "product" => "产品",
+                "study"   => "学习",
+                _         => context
+            })
+        </MButton>
+    </MInteractiveTriggers>
+
+    <MButton Text Class="h8 emphasis2--text" Href="/aboutus">
         关于我们
     </MButton>
 </AppBar>
@@ -12,5 +31,19 @@
     [Parameter] public List<NavItem> ProductNavItems { get; set; } = new();
 
     [Parameter] public List<NavItem> StudyNavItems { get; set; } = new();
+
+    [SupplyParameterFromQuery(Name = "nav-menu")]
+    private string? QueryValue { get; set; }
+
+    private static string[] navMenuInteractiveValues = { "product", "study" };
+
+    private bool IsProductNavMenu => QueryValue?.Equals("product", StringComparison.OrdinalIgnoreCase) is true;
+
+    private Dictionary<string, object> ProductNavMenuParameters => new()
+    {
+        { nameof(NavMenu.Items), IsProductNavMenu ? ProductNavItems : StudyNavItems },
+    };
+
+    private int NavMenuLeft => IsProductNavMenu ? -388 : -286;
 
 }

@@ -44,11 +44,6 @@ public partial class ActivityDetail : IDisposable
         _data = AllActivityDetails.GetValueOrDefault(Id);
     }
 
-    private void DownLoadFiles(string uri)
-    {
-        NavigationManager.NavigateTo(uri, false);
-    }
-
     public void Dispose()
     {
         MasaBlazor.MobileChanged -= MasaBlazorOnMobileChanged;

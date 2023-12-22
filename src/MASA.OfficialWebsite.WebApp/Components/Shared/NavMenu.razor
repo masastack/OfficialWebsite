@@ -1,90 +1,50 @@
-﻿<MMenu Left
-       OffsetY
-       NudgeBottom="4"
-       CloseDelay="100"
-       OpenOnHover="@OpenOnHover"
-       OpenOnClick="@OpenOnClick"
-       ContentClass="menu-content"
-       Permanent>
-    <ActivatorContent>
-        @{
-            string css = "nav h8 emphasis2--text";
+﻿@rendermode InteractiveServer
+@inherits MInteractivePopup
 
-            if (context.Attrs.TryGetValue("class", out var val))
-            {
-                css += val.ToString();
-            }
-
-            context.Attrs["class"] = css;
+<MList Subheader
+       TwoLine
+       Routable>
+    @foreach (var item in Items)
+    {
+        @if (item.IsSubheader)
+        {
+            <MSubheader Style="height: auto"
+                        Class="subtitle3 emphasis--text">
+                @item.Subheader
+            </MSubheader>
         }
-
-        @ChildContent?.Invoke(context)
-    </ActivatorContent>
-    <ChildContent>
-        <MList Class="menu-list" Elevation="0" Subheader TwoLine Routable>
-            @foreach (var item in Items)
-            {
-                @if (item.IsSubheader)
+        else
+        {
+            <MListItem Href="@item.Href" ActiveClass="primary--text" Disabled="@item.Disabled" Class="home-menu-hover">
+                @if (item.Image is not null)
                 {
-                    <MSubheader Style="height: auto"
-                                Class="subtitle3 emphasis--text">
-                        @item.Subheader
-                    </MSubheader>
+                    <MListItemAvatar Tile Size="40" Class="mt-0 mb-0">
+                        <MImage Src="@item.Image" alt="@item.Title"
+                                Height="@item.Size" Width="@item.Size"
+                                Contain Eager />
+                    </MListItemAvatar>
                 }
-                else
-                {
-                    <MListItem Href="@item.Href" ActiveClass="primary--text" Disabled="@item.Disabled" Class="home-menu-hover" OnClick="() => IsShowDocument(item)">
-                        @if (item.Image is not null)
-                        {
-                            <MListItemAvatar Tile Size="40" Class="mt-0 mb-0">
-                                <MImage Src="@item.Image" alt="@item.Title"
-                                        Height="@item.Size" Width="@item.Size"
-                                        Contain Eager />
-                            </MListItemAvatar>
-                        }
-                        <MListItemContent>
-                            <MListItemTitle Class="h8 regular--text">
-                                <div style="@item.Style"> @item.Title</div>
-                            </MListItemTitle>
-                            <MListItemSubtitle Class="body2 regular3--text">@item.Subtitle</MListItemSubtitle>
-                        </MListItemContent>
-                    </MListItem>
-                }
-            }
-        </MList>
-    </ChildContent>
-</MMenu>
+                <MListItemContent>
+                    <MListItemTitle Class="h8 regular--text">
+                        <div style="@item.Style"> @item.Title</div>
+                    </MListItemTitle>
+                    <MListItemSubtitle Class="body2 regular3--text">@item.Subtitle</MListItemSubtitle>
+                </MListItemContent>
+            </MListItem>
+        }
+    }
+</MList>
 
 @code {
 
-    [Parameter]
-    public RenderFragment<ActivatorProps>? ChildContent { get; set; }
-
     [Parameter, EditorRequired]
     public IList<NavItem> Items { get; set; } = new List<NavItem>();
-
-    [Parameter]
-    public bool OpenOnHover { get; set; } = true;
-
-    [Parameter]
-    public bool OpenOnClick { get; set; }
-
-    [Parameter]
-    public EventCallback<string> OnMenuClick { get; set; }
 
     protected override void OnParametersSet()
     {
         base.OnParametersSet();
 
         Items ??= new List<NavItem>();
-    }
-
-    private async Task IsShowDocument(NavItem item)
-    {
-        if (OnMenuClick.HasDelegate)
-        {
-            await OnMenuClick.InvokeAsync(item.Href);
-        }
     }
 
 }

@@ -1,0 +1,25 @@
+﻿@rendermode @(new InteractiveServerRenderMode(prerender: false))
+@inherits MInteractivePopup
+
+<div class="regular--text">
+    <div>
+        Username:
+        <PCopyableText Class="d-inline-block" Text="guest">
+            guest
+        </PCopyableText>
+    </div>
+    <div>
+        Password:
+        <PCopyableText Class="d-inline-block" Text="guest123">
+            guest123
+        </PCopyableText>
+    </div>
+</div>
+<MButton Icon
+         Color="primary"
+         Href="https://auth-demo.masastack.com/"
+         OnClick="@(() => NavigationManager.NavigateWithQueryParameter(QueryName, (bool?)null))"
+         Target="_blank"
+         Class="demo-btn">
+    <MIcon>mdi-open-in-new</MIcon>
+</MButton>

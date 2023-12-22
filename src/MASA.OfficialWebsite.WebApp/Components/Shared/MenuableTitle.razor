@@ -1,18 +1,14 @@
-﻿@rendermode InteractiveServer
-@implements IDisposable
+﻿@rendermode @(new InteractiveServerRenderMode(prerender: false))
+@inject NavigationManager Navigation
+@inherits NextTickComponentBase
 
-<MMenu OffsetY
-       Disabled="@(Disabled || !MasaBlazor.Breakpoint.Mobile)"
-       ContentClass="menuable-title__content">
-    <ActivatorContent>
-        <div class="d-flex align-center justify-center home-content__item-title" @attributes="@context.Attrs">
-            @Title
-            @if (!Disabled)
-            {
-                <MIcon Style="color:#323D6F;" Class="hidden-md-and-up">mdi-chevron-down</MIcon>
-            }
-        </div>
-    </ActivatorContent>
+<MMenu Value="visible"
+       ValueChanged="ValueChanged"
+       OffsetY
+       Eager
+       ContentClass="menuable-title__content"
+       ExternalActivator
+       Activator="@Activator">
     <ChildContent>
         <MList Dense Flat TwoLine>
             @foreach (var item in Items)
@@ -30,44 +26,44 @@
 
 @code
 {
-
-    [Inject]
-    MasaBlazor MasaBlazor { get; set; } = null!;
-
     [Inject]
     private IJSRuntime Js { get; set; } = null!;
-
-    [Parameter]
-    public string? Class { get; set; }
-
-    [Parameter]
-    public string? Title { get; set; }
 
     [Parameter]
     public List<MenuableTitleItem> Items { get; set; } = new();
 
     [Parameter]
-    public bool Disabled { get; set; }
+    public string? Activator { get; set; }
 
-    protected override void OnInitialized()
+    [Parameter]
+    public string? QueryName { get; set; }
+
+    private bool visible;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        base.OnInitialized();
-
-        MasaBlazor.MobileChanged += MasaBlazorOnMobileChanged;
+        if (firstRender)
+        {
+            await Task.Delay(100);
+            visible = true;
+            StateHasChanged();
+        }
     }
 
-    private void MasaBlazorOnMobileChanged(object? sender, MobileChangedEventArgs e)
+    private async Task ValueChanged(bool val)
     {
-        InvokeAsync(StateHasChanged);
+        var prevVisible = visible;
+
+        visible = val;
+
+        if (prevVisible && !visible)
+        {
+            Navigation.NavigateTo(Navigation.GetUriWithQueryParameter(QueryName, (string?)null));
+        }
     }
 
     private async Task ScrollTo(string selector)
     {
         await Js.InvokeVoidAsync("MasaOfficialWebsite.scrollTo", selector);
-    }
-
-    public void Dispose()
-    {
-        MasaBlazor.MobileChanged -= MasaBlazorOnMobileChanged;
     }
 }

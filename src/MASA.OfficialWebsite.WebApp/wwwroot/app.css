@@ -49,3 +49,35 @@ h1:focus {
 .darker-border-checkbox.form-check-input {
     border-color: #929292;
 }
+
+.m-application .pointer-events-none {
+    pointer-events: none;
+}
+
+@media (min-width: 600px) {
+    .m-application .pointer-events-sm-none {
+        pointer-events: none;
+    }
+}
+
+@media (min-width: 960px) {
+    .m-application .pointer-events-md-none {
+        pointer-events: none;
+    }
+
+    .m-application .pointer-events-md-none > .m-interactive__link {
+        pointer-events: none;
+    }
+}
+
+@media (min-width: 1264px) {
+    .m-application .pointer-events-lg-none {
+        pointer-events: none;
+    }
+}
+
+@media (min-width: 1904px) {
+    .m-application .pointer-events-xl-none {
+        pointer-events: none;
+    }
+}

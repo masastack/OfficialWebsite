@@ -31,6 +31,8 @@
         background: #FFFFFF;
         padding: 36px 8px;
         border-radius: 8px;
+        position: absolute;
+        
     }
 
         .website-shared .menu-content .menu-list .m-subheader, .website-shared .menu-content .menu-list .m-list-item {
@@ -645,6 +647,10 @@
     width: 24px;
 }
 
+.follow-us-icon .m-icon {
+    font-size: 24px !important;
+}
+
 .row.no-gutters-on-mobile {
     margin: 0;
 }
@@ -669,11 +675,30 @@
 
 .aboutus__contact-img {
     width: 140px;
-    height: 172px;
-    border-radius: 16px;
-    margin-top: 24px;
 }
 
 .m-main {
     padding-top: 48px !important;
+}
+
+#follow-us-image img {
+    width: 120px;
+}
+
+#follow-us-image.wechat {
+    left: -40px;
+    bottom: 40px;
+}
+
+#follow-us-image.qq {
+    left: 36px;
+    bottom: 40px;
+}
+
+.more-button {
+    font-size: 16px !important;
+}
+
+.more-button .m-icon {
+    font-size: 16px;
 }

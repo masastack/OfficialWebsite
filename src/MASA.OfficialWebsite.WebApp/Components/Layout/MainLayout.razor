@@ -11,9 +11,9 @@
         </svg>
         <div class="rectangle-723"></div>
     </div>
-    
-    <MobileAppBar NavItems="AllNavItems" @rendermode="InteractiveServer" />
-    
+
+    <MobileAppBar NavItems="AllNavItems" />
+
     <DesktopAppBar ProductNavItems="productNavItems"
                    StudyNavItems="studyNavItems" />
 
@@ -128,8 +128,20 @@
                             <MCard Color="transparent" Flat Dark Class="footer-content__item footer-content__focus">
                                 <MCardTitle>关注我们</MCardTitle>
                                 <MCardText>
-                                    <WeChatBtn />
-                                    <QQChatBtn />
+                                    <MInteractiveTriggers Class="d-inline"
+                                                          QueryName="@nameof(FollowUs)"
+                                                          QueryValue="@FollowUs"
+                                                          InteractiveValue="@(new[] { "wechat", "qq" })"
+                                                          InteractiveComponentType="typeof(FollowUsBtn)"
+                                                          InteractiveComponentParameters="@FollowUsParameters">
+                                        <MButton Outlined
+                                                 Icon
+                                                 Color="white"
+                                                 Class="follow-us-icon mr-9">
+                                            <MIcon>@(context == "wechat" ? "mdi-wechat" : "mdi-qqchat")</MIcon>
+                                        </MButton>
+                                    </MInteractiveTriggers>
+
                                     <MButton Class="follow-us-icon"
                                              Outlined
                                              Icon
@@ -157,6 +169,8 @@
     </div>
 </MApp>
 
+<MSsrLayoutScript />
+
 <div id="blazor-error-ui">
     An unhandled error has occurred.
     <a href="" class="reload">Reload</a>
@@ -164,6 +178,15 @@
 </div>
 
 @code {
+
+    [SupplyParameterFromQuery]
+    private string? FollowUs { get; set; }
+
+    private Dictionary<string, object> FollowUsParameters => new()
+    {
+        { nameof(FollowUsBtn.Image), FollowUs == "wechat" ? "https://cdn.masastack.com/images/contact.png" : "https://cdn.masastack.com/images/contact-qq.png" },
+        { nameof(FollowUsBtn.Class), FollowUs }
+    };
 
     private static readonly List<NavItem> productNavItems =
     [

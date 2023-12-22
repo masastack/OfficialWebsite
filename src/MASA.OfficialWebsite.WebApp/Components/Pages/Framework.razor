@@ -1,11 +1,10 @@
 ﻿@page "/framework"
-@inherits AutoScrollComponentBase
 
 <PageTitle>温州数闪科技有限公司</PageTitle>
 
 <SectionContent SectionName="document">
     <MButton Text
-             Class="nav h8 emphasis2--text"
+             Class="mr-9 h8 emphasis2--text"
              Href="https://docs.masastack.com/framework/concepts/overview"
              Target="_blank">
         文档
@@ -29,33 +28,27 @@
             </div>
         </MCol>
         <MCol Cols="12" Lg="6" Class="cover-wrapper">
-            <SerializableImage Src="https://cdn.masastack.com/images/banner4.png"
-                               Contain
-                               Width="@("100%")"
-                               Height="@("100%")" />
+            <img src="https://cdn.masastack.com/images/banner4.png"
+                 width="100%" />
         </MCol>
     </MRow>
 
-    <InteractiveMore Class="hidden-md-and-up" MoreText="构建块" />
+    <NextViewInteractiveTrigger Class="hidden-md-and-up" MoreText="构建块" />
 </div>
 
 <div class="home-content">
     <div class="home-content__item">
-        <SerializableImage Class="framework-diagram hidden-md-and-up"
-                           Src="https://cdn.masastack.com/images/masaframework2.svg"
-                           Contain>
-        </SerializableImage>
-
-        <SerializableImage Class="framework-diagram hidden-sm-and-down"
-                           Src="https://cdn.masastack.com/images/masaframework1.svg"
-                           Height="@("663px")"
-                           Contain>
-        </SerializableImage>
+        <img class="framework-diagram hidden-md-and-up"
+             src="https://cdn.masastack.com/images/masaframework2.svg"
+             width="100%" />
+        <img class="framework-diagram hidden-sm-and-down"
+             src="https://cdn.masastack.com/images/masaframework1.svg"
+             height="663px" />
     </div>
 
     <div class="home-content__item" id="building-blocks-content">
         <div class="home-content__item-header">
-            <MenuableTitle Items="s_menuableTitleItems" Title="BUILDING BLOCKS"></MenuableTitle>
+            <MenuTitleInteractiveTrigger InteractiveValue="building-blocks" Items="s_menuableTitleItems" Title="BUILDING BLOCKS" />
             <div class="home-content__item-subtitle">构建块</div>
         </div>
         <MRow Class="building-block__item-cards no-gutters-on-mobile">
@@ -132,7 +125,7 @@
 
     <div class="home-content__item" id="utils-content">
         <div class="home-content__item-header">
-            <MenuableTitle Items="s_menuableTitleItems" Title="UTILS"></MenuableTitle>
+            <MenuTitleInteractiveTrigger InteractiveValue="utils" Items="s_menuableTitleItems" Title="UTILS"></MenuTitleInteractiveTrigger>
             <div class="home-content__item-subtitle">通用类库集合</div>
         </div>
         <MRow Class="building-block__item-cards no-gutters-on-mobile">
@@ -164,7 +157,7 @@
 
     <div class="home-content__item" id="why-masa-framework-content">
         <div class="home-content__item-header">
-            <MenuableTitle Items="s_menuableTitleItems" Title="WHY MASA FRAMEWORK"></MenuableTitle>
+            <MenuTitleInteractiveTrigger InteractiveValue="why-masafx" Items="s_menuableTitleItems" Title="WHY MASA FRAMEWORK"></MenuTitleInteractiveTrigger>
             <div class="home-content__item-subtitle">为什么选择MASA Framework?</div>
         </div>
         <MRow Class="home-content__item-cards no-gutters-on-mobile">
