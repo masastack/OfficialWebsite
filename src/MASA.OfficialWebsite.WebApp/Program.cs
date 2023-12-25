@@ -8,7 +8,7 @@ builder.Services.AddRazorComponents()
        .AddInteractiveServerComponents()
        .AddHubOptions(options =>
        {
-           options.MaximumReceiveMessageSize = 36 * 1024;
+           options.MaximumReceiveMessageSize = 48 * 1024;
        });
 
 builder.Services.AddMasaBlazor(options =>
