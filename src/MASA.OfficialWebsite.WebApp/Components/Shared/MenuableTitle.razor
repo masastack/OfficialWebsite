@@ -58,7 +58,7 @@
 
         if (prevVisible && !visible)
         {
-            Navigation.NavigateTo(Navigation.GetUriWithQueryParameter(QueryName, (string?)null));
+            Navigation.NavigateTo(Navigation.GetRelativeUriWithQueryParameter(QueryName, (string?)null));
         }
     }
 

@@ -1,7 +1,7 @@
 ﻿@inject NavigationManager Navigation
 
 <AppBar Class="hidden-md-and-up" BarHeight="48" LogoHeight="30">
-    <MButton Icon Href="@Navigation.GetUriWithQueryParameter(nameof(Aside), true)">
+    <MButton Icon Href="@Navigation.GetRelativeUriWithQueryParameter(nameof(Aside), true)">
         <MIcon>mdi-menu</MIcon>
     </MButton>
 </AppBar>
