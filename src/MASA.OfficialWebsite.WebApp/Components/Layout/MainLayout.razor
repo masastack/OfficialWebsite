@@ -128,19 +128,19 @@
                             <MCard Color="transparent" Flat Dark Class="footer-content__item footer-content__focus">
                                 <MCardTitle>关注我们</MCardTitle>
                                 <MCardText>
-                                    <MInteractiveTriggers2 Class="d-inline"
-                                                           QueryName="@nameof(FollowUs)"
-                                                           QueryValue="@FollowUs"
-                                                           InteractiveValue="@(new[] { "wechat", "qq" })"
-                                                           InteractiveComponentType="typeof(FollowUsBtn)"
-                                                           InteractiveComponentParameters="@FollowUsParameters">
+                                    <MInteractiveTriggers Class="d-inline"
+                                                          QueryName="@nameof(FollowUs)"
+                                                          QueryValue="@FollowUs"
+                                                          InteractiveValue="@(new[] { "wechat", "qq" })"
+                                                          InteractiveComponentType="typeof(FollowUsBtn)"
+                                                          InteractiveComponentParameters="@FollowUsParameters">
                                         <MButton Outlined
                                                  Icon
                                                  Color="white"
                                                  Class="follow-us-icon mr-9">
                                             <MIcon>@(context == "wechat" ? "mdi-wechat" : "mdi-qqchat")</MIcon>
                                         </MButton>
-                                    </MInteractiveTriggers2>
+                                    </MInteractiveTriggers>
 
                                     <MButton Class="follow-us-icon"
                                              Outlined
