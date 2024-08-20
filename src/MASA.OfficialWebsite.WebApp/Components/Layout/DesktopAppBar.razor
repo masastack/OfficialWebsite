@@ -1,4 +1,6 @@
-﻿<AppBar Class="hidden-sm-and-down" BarHeight="100" LogoHeight="42">
+﻿@inject NavigationManager NavigationManager
+
+<AppBar Class="hidden-sm-and-down" BarHeight="100" LogoHeight="42">
     <SectionOutlet SectionName="document" />
 
     <MInteractiveTriggers Class="nav-menus"
@@ -11,7 +13,10 @@
                           InteractiveValue="navMenuInteractiveValues"
                           InteractiveComponentType="typeof(NavMenu)"
                           InteractiveComponentParameters="ProductNavMenuParameters">
-        <MButton Id="@($"{context}-nav-menu")" Class="mr-9 h8 emphasis2--text" Text>
+        <MButton Id="@($"{context}-nav-menu")"
+                 Class="mr-9 h8 emphasis2--text"
+                 Text
+                 Color="@IsActive(context)">
             @(context switch
             {
                 "product" => "产品",
@@ -21,7 +26,8 @@
         </MButton>
     </MInteractiveTriggers>
 
-    <MButton Text Class="h8 emphasis2--text" Href="/aboutus">
+    <MButton Text Class="h8 emphasis2--text" Href="/aboutus"
+             Color="@IsActive("aboutus")">
         关于我们
     </MButton>
 </AppBar>
@@ -35,6 +41,8 @@
     [SupplyParameterFromQuery(Name = "nav-menu")]
     private string? QueryValue { get; set; }
 
+    private string? _absolutePath;
+
     private static string[] navMenuInteractiveValues = { "product", "study" };
 
     private bool IsProductNavMenu => QueryValue?.Equals("product", StringComparison.OrdinalIgnoreCase) is true;
@@ -46,4 +54,22 @@
 
     private int NavMenuLeft => IsProductNavMenu ? -388 : -286;
 
+    protected override void OnInitialized()
+    {
+        _absolutePath = NavigationManager.GetAbsolutePath();
+    }
+
+    private string? IsActive(string context)
+    {
+        var trimAbsolutePath = _absolutePath?.Trim('/');
+
+        if ((context is "product" && trimAbsolutePath is "stack")
+        || (context is "study" && trimAbsolutePath is "learningpath" or "activity")
+        || (context is "aboutus" && trimAbsolutePath is "aboutus"))
+        {
+            return "primary";
+        }
+
+        return null;
+    }
 }
